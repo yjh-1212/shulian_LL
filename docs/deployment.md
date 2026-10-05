@@ -36,7 +36,7 @@ npm run db:generate
 npm run build
 ```
 
-`server:setup` 生成私有配置 `.env.server`，自动生成 JWT 密钥和新库管理员初始密码。如果本机已有 `.env`，会复制数据库地址、高德、DeepSeek 和固定账号密码配置；再次执行保留已有文件。实际密钥仍需私下转移，不进入 GitHub。
+`server:setup` 生成私有配置 `.env.server`，创建 JWT 签名密钥，并复制本机已有的数据库地址、高德和 DeepSeek 配置。服务器配置不包含账号密码生成或重设项；再次执行会清理旧版密码设置，保留其余配置。账号密码沿用数据库中的记录。实际密钥仍需私下转移，不进入 GitHub。
 
 编辑 `.env.server`：
 
@@ -56,11 +56,11 @@ npm run build
 
 GitHub 包含源码和初始化工具，现有业务数据库需单独迁移。先在原机器执行 `npm run backup -- .local/server-backup`，将备份私下复制到服务器，再使用下方“备份恢复”中的恢复命令创建新数据库文件，调整 `.env.server` 的 `DATABASE_URL` 指向它。这样 `admin`、`trader`、`carrier` 及密码、合同、运单会一起保留。服务启动会执行已有迁移，不覆盖业务记录。
 
-需要重新设置这三个账号时，在 `.env.server` 填写 `FIXED_ACCOUNT_PASSWORD` 后执行 `npm run server:accounts`。不要用开发 seed 覆盖已经迁移的数据库。
+部署包中的 `admin`、`trader`、`carrier` 保留已有密码。安装、启动和配置工具均不重设账号密码，后续通过系统的账号管理修改。
 
 ### 全新数据库与启动
 
-全新数据库先执行 `npm run server:init`。此命令创建正式平台管理员，账号和初始密码位于 `.env.server` 的 `BOOTSTRAP_ADMIN_USERNAME` / `BOOTSTRAP_ADMIN_PASSWORD`，首次登录修改密码。已有业务数据库直接启动。
+已有业务数据库直接启动。仅在维护人员明确需要创建全新数据库时，才临时传入 `BOOTSTRAP_PLATFORM_NAME`、`BOOTSTRAP_ADMIN_USERNAME`、`BOOTSTRAP_ADMIN_PASSWORD` 环境变量并执行 `npm run server:init`；新账号密码由维护人员提供，工具不会随机生成。此流程不用于已经带有账号和业务数据的部署包。
 
 ```sh
 npm run server:start

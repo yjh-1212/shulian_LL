@@ -27,6 +27,14 @@ async function main(){
   const original=fs.readFileSync(envFile,'utf8');
   run(['tools/setup-server.mjs'],env);
   assert.equal(fs.readFileSync(envFile,'utf8'),original,'服务器配置不得覆盖');
+  const setupEnv=path.join(folder,'generated.env');
+  run(['tools/setup-server.mjs'],{...env,ENV_FILE:setupEnv});
+  const generated=fs.readFileSync(setupEnv,'utf8');
+  assert.doesNotMatch(generated,/^(?:FIXED_ACCOUNT_PASSWORD|BOOTSTRAP_\w+)=/m,'新服务器配置不得生成账号密码项');
+  fs.appendFileSync(setupEnv,'FIXED_ACCOUNT_PASSWORD="obsolete"\nBOOTSTRAP_ADMIN_PASSWORD="obsolete"\n');
+  run(['tools/setup-server.mjs'],{...env,ENV_FILE:setupEnv});
+  assert.equal(fs.readFileSync(setupEnv,'utf8'),generated,'清理旧密码设置后其余配置应保持不变');
+  fs.unlinkSync(setupEnv);
   run(['tools/server.mjs','init'],env);
   db=new PrismaClient({datasources:{db:{url:env.DATABASE_URL}}});
   assert.equal(await db.user.count(),1);
@@ -34,10 +42,10 @@ async function main(){
   const organization=await db.organization.findFirstOrThrow();
   for(const [id,type,username,roleCode] of [['trader-a','TRADER','trader','trader_admin'],['carrier-a','CARRIER','carrier','carrier_admin']]){
     await db.businessEntity.create({data:{id,name:username+'服务器验收主体',type,organizationId:organization.id}});
-    await db.user.create({data:{username,displayName:username,businessEntityId:id,passwordHash:await hash('original-install-password',12),roles:{create:{role:{connect:{code:roleCode}}}}}});
+    await db.user.create({data:{username,displayName:username,businessEntityId:id,passwordHash:await hash(env.FIXED_ACCOUNT_PASSWORD,12),roles:{create:{role:{connect:{code:roleCode}}}}}});
   }
   await db.user.create({data:{username:'server.driver',displayName:'司机',businessEntityId:'carrier-a',passwordHash:await hash(env.FIXED_ACCOUNT_PASSWORD,12),roles:{create:{role:{connect:{code:'driver'}}}}}});
-  run(['tools/server.mjs','accounts'],env);
+  await db.user.update({where:{username:'admin'},data:{passwordHash:await hash(env.FIXED_ACCOUNT_PASSWORD,12),mustChangePassword:false}});
   server=spawn(process.execPath,['tools/server.mjs','start'],{cwd:root,env,windowsHide:true,stdio:['ignore','pipe','pipe']});
   server.stdout.on('data',chunk=>logs=(logs+chunk.toString()).slice(-12000));
   server.stderr.on('data',chunk=>logs=(logs+chunk.toString()).slice(-12000));

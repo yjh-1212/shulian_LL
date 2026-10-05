@@ -12,7 +12,7 @@ const profiles=[
 
 async function main(){
   const password=process.env.FIXED_ACCOUNT_PASSWORD;
-  if(!password||password.length<6||Buffer.byteLength(password,'utf8')>72)throw Error('请在本地 .env 配置 FIXED_ACCOUNT_PASSWORD，需为6位以上且不超过72字节');
+  if(!password||password.length<6||Buffer.byteLength(password,'utf8')>72)throw Error('请通过临时环境变量提供 FIXED_ACCOUNT_PASSWORD，需为6位以上且不超过72字节');
   const requestId=randomUUID();
   const result=await db.$transaction(async tx=>{
     const accounts=[];

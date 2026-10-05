@@ -15,7 +15,6 @@
     "server:setup": "node tools/setup-server.mjs",
     "server:start": "node tools/server.mjs start",
     "server:init": "node tools/server.mjs init",
-    "server:accounts": "node tools/server.mjs accounts",
     "package:server": "npm run build && node tools/package-server.mjs",
     "test:server": "node tests/server-runtime.cjs",
     "dev": "concurrently -k -n API,WEB,DRIVER \"npm run dev -w @grain/api\" \"npm run dev -w @grain/web\" \"npm run dev:driver -w @grain/web\"",

@@ -25,9 +25,7 @@ function run(args){
   if(result.status!==0)process.exit(result.status||1);
 }
 const command=process.argv[2]||'start';
-if(command==='accounts'){
-  run(['tools/configure-fixed-accounts.cjs']);
-}else if(command==='init'){
+if(command==='init'){
   run(['node_modules/prisma/build/index.js','migrate','deploy']);
   run(['node_modules/tsx/dist/cli.mjs','prisma/bootstrap-production.ts']);
 }else if(command==='start'){
@@ -36,5 +34,5 @@ if(command==='accounts'){
   console.log('网页、司机端与 API 已使用同一服务端口：'+process.env.PORT);
   await import(pathToFileURL(resolve(root,'apps/api/dist/main.js')).href);
 }else{
-  throw new Error('支持的命令：start、init、accounts');
+  throw new Error('支持的命令：start、init');
 }

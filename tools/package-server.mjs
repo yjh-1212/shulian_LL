@@ -6,7 +6,6 @@ import {access,cp,mkdir,readFile,readdir,stat,writeFile} from 'node:fs/promises'
 import {resolve,relative,isAbsolute,basename,sep} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {pipeline} from 'node:stream/promises';
-import {compare} from 'bcryptjs';
 import {randomBytes} from 'node:crypto';
 import {fileHash,verifyPackage} from './verify-package.mjs';
 
@@ -53,7 +52,7 @@ async function main(){
   }
   for(const path of ['apps/web/dist','prisma/migrations'])await copy(path);
   await copy('apps/api/dist',source=>!source.endsWith('.map'));
-  for(const path of ['package-lock.json','prisma/schema.prisma','prisma/bootstrap-production.ts','prisma/seed-phase789.ts','prisma/seed-data-service.ts','apps/api/src/data-products.catalog.ts','tools/server.mjs','tools/setup-server.mjs','tools/configure-fixed-accounts.cjs','tools/document-worker.cjs','tools/install-server.mjs','tools/verify-package.mjs','deploy/env.server.example','deploy/nginx.node.conf','deploy/liaoliang.service'])await copy(path);
+  for(const path of ['package-lock.json','prisma/schema.prisma','prisma/bootstrap-production.ts','prisma/seed-phase789.ts','prisma/seed-data-service.ts','apps/api/src/data-products.catalog.ts','tools/server.mjs','tools/setup-server.mjs','tools/document-worker.cjs','tools/install-server.mjs','tools/verify-package.mjs','deploy/env.server.example','deploy/nginx.node.conf','deploy/liaoliang.service'])await copy(path);
   for(const language of ['chi_sim','eng'])await copy('.local/ocr/'+language+'.traineddata.gz');
   const manifest=JSON.parse(await readFile(resolve(root,'package.json'),'utf8'));
   manifest.scripts={
@@ -62,7 +61,6 @@ async function main(){
     'server:start':'node tools/server.mjs start',
     'server:setup':'node tools/setup-server.mjs',
     'server:init':'node tools/server.mjs init',
-    'server:accounts':'node tools/server.mjs accounts',
     'db:generate':'prisma generate',
     'verify:package':'node tools/verify-package.mjs --initial'
   };
@@ -73,8 +71,8 @@ async function main(){
     await writeFile(resolve(output,'apps',workspace,'package.json'),JSON.stringify(data,null,2)+'\n');
   }
   let envContents=await readFile(resolve(root,'deploy/env.server.example'),'utf8');
-  const env={...server,NODE_ENV:'production',API_HOST:'0.0.0.0',PORT:server.PORT||'8080',SERVE_WEB:'true',DATABASE_URL:'file:./server.db',JWT_SECRET:server.JWT_SECRET||randomBytes(48).toString('hex'),BOOTSTRAP_ADMIN_PASSWORD:server.BOOTSTRAP_ADMIN_PASSWORD||randomBytes(24).toString('base64url')};
-  for(const key of ['AMAP_JSAPI_KEY','AMAP_SECURITY_JS_CODE','AMAP_WEB_SERVICE_KEY','DEEPSEEK_API_KEY','DEEPSEEK_BASE_URL','DEEPSEEK_MODEL','FIXED_ACCOUNT_PASSWORD'])env[key]=server[key]||local[key]||'';
+  const env={...server,NODE_ENV:'production',API_HOST:'0.0.0.0',PORT:server.PORT||'8080',SERVE_WEB:'true',DATABASE_URL:'file:./server.db',JWT_SECRET:server.JWT_SECRET||randomBytes(48).toString('hex')};
+  for(const key of ['AMAP_JSAPI_KEY','AMAP_SECURITY_JS_CODE','AMAP_WEB_SERVICE_KEY','DEEPSEEK_API_KEY','DEEPSEEK_BASE_URL','DEEPSEEK_MODEL'])env[key]=server[key]||local[key]||'';
   if(env.JWT_SECRET.length<32||env.JWT_SECRET.startsWith('replace-'))throw new Error('服务器 JWT_SECRET 尚未配置');
   for(const [key,value] of Object.entries(env))if(new RegExp('^'+key+'=','m').test(envContents))envContents=envContents.replace(new RegExp('^'+key+'=.*$','m'),()=>key+'='+JSON.stringify(value));
   await writeFile(resolve(output,'.env.server'),envContents,{flag:'wx',mode:0o600});
@@ -95,8 +93,8 @@ async function main(){
     }
     const accounts=[];
     for(const username of ['admin','trader','carrier']){
-      const user=await snapshot.user.findUnique({where:{username},select:{username:true,passwordHash:true,status:true,deletedAt:true}});
-      accounts.push({username,preserved:!!user,active:!!user&&user.status==='ACTIVE'&&!user.deletedAt,fixedPasswordMatches:!!user&&!!env.FIXED_ACCOUNT_PASSWORD&&await compare(env.FIXED_ACCOUNT_PASSWORD,user.passwordHash)});
+      const user=await snapshot.user.findUnique({where:{username},select:{username:true,status:true,deletedAt:true}});
+      accounts.push({username,preserved:!!user,active:!!user&&user.status==='ACTIVE'&&!user.deletedAt});
     }
     const attachments=await snapshot.businessFile.findMany();
     await mkdir(resolve(output,'.local/uploads'),{recursive:true});
