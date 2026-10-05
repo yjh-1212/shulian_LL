@@ -4,10 +4,10 @@
   "version": "0.3.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 127.0.0.1",
+    "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview --host 127.0.0.1",
-    "dev:driver": "vite --mode driver --host 127.0.0.1",
+    "preview": "vite preview",
+    "dev:driver": "vite --mode driver",
     "build:driver": "vue-tsc --noEmit && vite build --mode driver"
   },
   "dependencies": {

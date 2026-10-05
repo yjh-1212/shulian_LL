@@ -43,6 +43,8 @@ import {IntermodalController} from './intermodal.controller';
 import {AgentCenterService} from './agent-center.service';
 import {AgentCenterController} from './agent-center.controller';
 import {DataController,DataFeedController,DataService} from './data-service';
+import {runtimeConfig,originAllowed} from './runtime-config';
+import {createWebHosting} from './web-hosting';
 @Catch()
 class ErrorFilter implements ExceptionFilter {
   catch(error:any,host:ArgumentsHost) {
@@ -72,7 +74,10 @@ class HealthController {constructor(private db:Database){} @Public() @Get() asyn
 @Module({imports:[JwtModule.register({secret}),ThrottlerModule.forRoot([{ttl:60000,limit:180}])],controllers:[TrackingWorkspaceController,VesselController,AgentCenterController,IntermodalController,HealthController,IntelligenceController,BillingController,DataController,DataFeedController,TrackingController,ContractsController,FulfillmentController,DriverController,AuthController,AdminController,WorkspaceController,TransportController,TransportFilesController,PlanningController,MapController,MatchingController],providers:[TrackingWorkspaceService,VesselService,AgentCenterService,IntermodalService,ForecastService,IntelligenceService,BillingService,DataService,TrackingService,ContractsService,FulfillmentService,Database,Audit,AuthService,AdminService,TransportService,PlanningService,AmapService,MatchingService,{provide:APP_GUARD,useClass:ThrottlerGuard},{provide:APP_GUARD,useClass:AuthGuard},{provide:APP_GUARD,useClass:PermissionGuard}]})
 class AppModule {}
 async function bootstrap() {
+  const runtime=runtimeConfig();
   const app=await NestFactory.create(AppModule,{logger:['error','warn','log']});
+  app.getHttpAdapter().getInstance().set('trust proxy',runtime.trustProxy);
+  if(process.env.SERVE_WEB==='true')app.use(createWebHosting(resolve(__dirname,'../../web/dist')));
   app.use(helmet({contentSecurityPolicy:process.env.NODE_ENV==='production'?undefined:false}));
   app.use(cookieParser());
   // JSAPI requires the proxy at the first URL path level. Keep the same guarded controller.
@@ -80,16 +85,15 @@ async function bootstrap() {
   app.use(json({limit:'3mb'}));
   app.use((req:any,res:any,next:any)=>{
     req.requestId=randomUUID();res.setHeader('X-Request-Id',req.requestId);res.setHeader('Cache-Control','no-store');
-    const origins=[process.env.DRIVER_ORIGIN||'http://localhost:5174',process.env.WEB_ORIGIN||'http://localhost:5173','http://127.0.0.1:5173','http://127.0.0.1:5174','http://localhost:5174',`http://localhost:${process.env.PORT||3001}`,`http://127.0.0.1:${process.env.PORT||3001}`];
-    if(!['GET','HEAD','OPTIONS'].includes(req.method)&&req.headers.origin&&!origins.includes(req.headers.origin))return res.status(403).json({code:403,message:'请求来源不允许',data:null,requestId:req.requestId,timestamp:new Date().toISOString()});
+    if(!['GET','HEAD','OPTIONS'].includes(req.method)&&req.headers.origin&&!originAllowed(req.headers.origin,req,runtime.origins))return res.status(403).json({code:403,message:'请求来源不允许',data:null,requestId:req.requestId,timestamp:new Date().toISOString()});
     res.on('finish',()=>console.log(JSON.stringify({requestId:req.requestId,method:req.method,path:req.path,status:res.statusCode})));next();
   });
   app.setGlobalPrefix('api');
-  app.enableCors({origin:[process.env.DRIVER_ORIGIN||'http://localhost:5174',process.env.WEB_ORIGIN||'http://localhost:5173','http://127.0.0.1:5173','http://127.0.0.1:5174','http://localhost:5174'],credentials:true});
+  app.enableCors((req:any,callback:any)=>callback(null,{origin:(_origin:string,done:any)=>done(null,!_origin||originAllowed(_origin,req,runtime.origins)),credentials:true}));
   app.useGlobalPipes(new ValidationPipe({whitelist:true,forbidNonWhitelisted:true,transform:true}));
   app.useGlobalFilters(new ErrorFilter());app.useGlobalInterceptors(new Envelope());
   const doc=SwaggerModule.createDocument(app,new DocumentBuilder().setTitle('辽粮 · 智能多式联运 API').setDescription('运输需求、联运方案、供需匹配、合同管理、运输执行、预测预警、账单对账、结算确认和授权数据服务。').setVersion('0.9.0').addBearerAuth().build());
   SwaggerModule.setup('api/docs',app,doc);
-  app.enableShutdownHooks();await app.listen(Number(process.env.PORT||3001),process.env.API_HOST||'127.0.0.1');
+  app.enableShutdownHooks();await app.listen(runtime.port,runtime.host);
 }
 bootstrap();

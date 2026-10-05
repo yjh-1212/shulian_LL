@@ -16,3 +16,4 @@ playwright-report/
 dist-driver/
 tmp/
 .agents/
+ll_dist/

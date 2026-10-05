@@ -1,10 +1,14 @@
-import { defineConfig } from 'vite';
+import { defineConfig,loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import {resolve} from 'node:path';
 import {createRequire} from 'node:module';
 import {createReadStream,existsSync,cpSync,mkdirSync} from 'node:fs';
 const pdfjsRoot=resolve(createRequire(import.meta.url).resolve('pdfjs-dist/package.json'),'..');
-export default defineConfig(({mode})=>({
+export default defineConfig(({mode})=>{
+ const env=loadEnv(mode,resolve(__dirname,'../..'),'');
+ const webPort=Number(env.WEB_PORT||5173),driverPort=Number(env.DRIVER_PORT||5174);
+ const proxyTarget=env.API_PROXY_TARGET||`http://127.0.0.1:${env.PORT||3001}`;
+ return ({
  plugins: [vue(), {
   name:'local-pdf-assets',
   configureServer(server){server.middlewares.use((req,res,next)=>{
@@ -20,16 +24,19 @@ export default defineConfig(({mode})=>({
    // Canonicalize development document requests before creating a login session.
    server.middlewares.use((req,res,next)=>{
     if(mode!=='driver'&&req.method==='GET'&&req.url?.split('?')[0]==='/driver'&&req.headers.accept?.includes('text/html')){
-     res.writeHead(302,{Location:'http://127.0.0.1:5174/'});res.end();return;
+     const target=new URL(`http://${req.headers.host}`);target.port=String(driverPort);target.pathname='/';
+     res.writeHead(302,{Location:target.href});res.end();return;
     }
     if(mode==='driver'&&req.url==='/')req.url='/driver.html';
     if(req.method==='GET'&&/^localhost(?::\d+)?$/.test(req.headers.host||'')&&req.headers.accept?.includes('text/html')){
-     res.writeHead(302,{Location:`http://127.0.0.1:${mode==='driver'?5174:5173}`+(req.url?.startsWith('/')?req.url:'/')});res.end();return;
+     res.writeHead(302,{Location:`http://127.0.0.1:${mode==='driver'?driverPort:webPort}`+(req.url?.startsWith('/')?req.url:'/')});res.end();return;
     }
     next();
    });
   }
  }],
  build:{outDir:mode==='driver'?'dist-driver':'dist',rollupOptions:{input:mode==='driver'?resolve(__dirname,'driver.html'):{web:resolve(__dirname,'index.html'),driver:resolve(__dirname,'driver.html')}}},
- server: {port:mode==='driver'?5174:5173,strictPort:true,proxy:{'/api':'http://127.0.0.1:3001','/_AMapService':'http://127.0.0.1:3001'}}
-}));
+ server: {host:env.WEB_HOST||'0.0.0.0',port:mode==='driver'?driverPort:webPort,strictPort:true,allowedHosts:(env.WEB_ALLOWED_HOSTS||'').split(',').filter(Boolean),proxy:{'/api':proxyTarget,'/_AMapService':proxyTarget}},
+ preview:{host:env.WEB_HOST||'0.0.0.0'}
+ });
+});

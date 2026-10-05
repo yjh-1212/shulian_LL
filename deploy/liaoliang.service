@@ -1,0 +1,15 @@
+[Unit]
+Description=Liaoliang multimodal logistics platform
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/liaoliang
+ExecStart=/usr/bin/node /opt/liaoliang/tools/server.mjs start
+Environment=ENV_FILE=.env.server
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

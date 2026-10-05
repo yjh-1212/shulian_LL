@@ -9,8 +9,10 @@ import { Database } from './database';
 import { Audit } from './audit';
 import { Public, userInclude, publicUser } from './security';
 import { LoginDto, PasswordDto } from './dto';
+import {secureCookie} from './runtime-config';
 const digest=(s:string)=>createHash('sha256').update(s).digest('hex');
-const cookieOptions={httpOnly:true,sameSite:'strict' as const,get secure(){return process.env.NODE_ENV==='production';},path:'/api/auth',maxAge:7*24*60*60*1000};
+const sessionMaxAge=7*24*60*60*1000;
+const cookieOptions=(req:any)=>({httpOnly:true,sameSite:'strict' as const,secure:secureCookie(req),path:'/api/auth',maxAge:sessionMaxAge});
 @Injectable()
 export class AuthService {
   constructor(private db:Database,private jwt:JwtService,private audit:Audit){}
@@ -22,9 +24,9 @@ export class AuthService {
     if(!ok) throw new UnauthorizedException('账号或密码错误，或账号已停用');
     if(driver!==driverMode) throw new ForbiddenException(driverMode?'此入口仅限司机账号':'司机账号请使用司机端');
     const raw=randomBytes(48).toString('base64url');
-    const session=await this.db.refreshToken.create({data:{userId:u.id,audience:driverMode?'grain-driver':'grain-web',tokenHash:digest(raw),expiresAt:new Date(Date.now()+cookieOptions.maxAge)}});
+    const session=await this.db.refreshToken.create({data:{userId:u.id,audience:driverMode?'grain-driver':'grain-web',tokenHash:digest(raw),expiresAt:new Date(Date.now()+sessionMaxAge)}});
     await this.db.user.update({where:{id:u.id},data:{lastLoginAt:new Date()}});
-    res.cookie(driverMode?'grain_driver_refresh':'grain_refresh',raw,{...cookieOptions,path:driverMode?'/api/driver':'/api/auth'});
+    res.cookie(driverMode?'grain_driver_refresh':'grain_refresh',raw,{...cookieOptions(req),path:driverMode?'/api/driver':'/api/auth'});
     return {accessToken:await this.access(u,session.id,driverMode),user:publicUser(u)};
   }
   private access(u:any,sid:string,driverMode=false) {return this.jwt.signAsync({sub:u.id,ver:u.tokenVersion,sid},{expiresIn:'15m',issuer:'grain-api',audience:driverMode?'grain-driver':'grain-web'});}
@@ -33,12 +35,12 @@ export class AuthService {
     if(!raw) throw new UnauthorizedException('请登录');
     const old=await this.db.refreshToken.findUnique({where:{tokenHash:digest(raw)},include:{user:{include:userInclude}}});
     if(!old||old.audience!==(driverMode?'grain-driver':'grain-web')||old.user.roles.some(r=>r.role.code==='driver')!==driverMode||old.revokedAt||old.expiresAt<new Date()||old.user.status!=='ACTIVE'||old.user.deletedAt||(process.env.NODE_ENV==='production'&&old.user.isTestData)||old.user.businessEntity.status!=='ACTIVE'||old.user.businessEntity.deletedAt) {
-      res.clearCookie(driverMode?'grain_driver_refresh':'grain_refresh',{...cookieOptions,path:driverMode?'/api/driver':'/api/auth'});throw new UnauthorizedException('登录已过期');
+      res.clearCookie(driverMode?'grain_driver_refresh':'grain_refresh',{...cookieOptions(req),path:driverMode?'/api/driver':'/api/auth'});throw new UnauthorizedException('登录已过期');
     }
     const next=randomBytes(48).toString('base64url');
     const changed=await this.db.refreshToken.updateMany({where:{id:old.id,tokenHash:digest(raw),revokedAt:null},data:{tokenHash:digest(next)}});
     if(changed.count!==1) throw new UnauthorizedException('会话已刷新，请重新登录');
-    res.cookie(driverMode?'grain_driver_refresh':'grain_refresh',next,{...cookieOptions,path:driverMode?'/api/driver':'/api/auth',maxAge:old.expiresAt.getTime()-Date.now()});
+    res.cookie(driverMode?'grain_driver_refresh':'grain_refresh',next,{...cookieOptions(req),path:driverMode?'/api/driver':'/api/auth',maxAge:old.expiresAt.getTime()-Date.now()});
     return {accessToken:await this.access(old.user,old.id,driverMode),user:publicUser(old.user)};
   }
   async logout(req:any,res:Response,driverMode=false) {
@@ -51,7 +53,7 @@ export class AuthService {
         await this.audit.write(tx,req,'认证',session.userId,'退出登录');
       }
     });
-    res.clearCookie(driverMode?'grain_driver_refresh':'grain_refresh',{...cookieOptions,path:driverMode?'/api/driver':'/api/auth'});return {success:true};
+    res.clearCookie(driverMode?'grain_driver_refresh':'grain_refresh',{...cookieOptions(req),path:driverMode?'/api/driver':'/api/auth'});return {success:true};
   }
   async changePassword(dto:PasswordDto,req:any,res:Response,driverMode=false) {
     const u=await this.db.user.findUniqueOrThrow({where:{id:req.user.id}});
@@ -63,7 +65,7 @@ export class AuthService {
       await tx.refreshToken.updateMany({where:{userId:u.id},data:{revokedAt:new Date()}});
       await this.audit.write(tx,req,'认证',u.id,'修改密码');
     });
-    res.clearCookie(driverMode?'grain_driver_refresh':'grain_refresh',{...cookieOptions,path:driverMode?'/api/driver':'/api/auth'}); return {success:true};
+    res.clearCookie(driverMode?'grain_driver_refresh':'grain_refresh',{...cookieOptions(req),path:driverMode?'/api/driver':'/api/auth'}); return {success:true};
   }
 }
 @ApiTags('认证') @Controller('auth')

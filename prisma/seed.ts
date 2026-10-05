@@ -11,6 +11,8 @@ async function main() {
   if (process.env.NODE_ENV === 'production') throw new Error('开发样例 seed 禁止在生产环境执行');
   const password = process.env.SEED_PASSWORD;
   if (!password || password.length < 12) throw new Error('请在 .env 配置至少12位 SEED_PASSWORD');
+  const fixedPassword = process.env.FIXED_ACCOUNT_PASSWORD;
+  if (fixedPassword && (fixedPassword.length < 6 || Buffer.byteLength(fixedPassword, 'utf8') > 72)) throw new Error('FIXED_ACCOUNT_PASSWORD 需为6位以上且不超过72字节');
   await seedPhase789(db);
   const modules = [['home','工作台'],['demand','运输需求'],['supply','运输供给'],['plan','联运方案'],['match','供需匹配'],['contract','合同管理'],['service','联运服务'],['tracking','全程可视化'],['billing','对账结算'],['data','数据服务'],['users','用户管理'],['roles','角色权限'],['entities','合作主体'],['dictionaries','数据字典'],['logs','日志管理']];
   for (const [code,name] of modules) {
@@ -38,7 +40,8 @@ async function main() {
   for (const [id,name,type] of entities) await db.businessEntity.upsert({where:{id},update:{},create:{id,name,type,organizationId:org.id,isTestData:true}});
   const accounts = [['admin','平台管理员','platform','platform_admin'],['trader','粮贸负责人','trader-a','trader_admin'],['trader.staff','粮贸业务员','trader-a','trader_member'],['trader.b','粮贸 B 负责人','trader-b','trader_admin'],['carrier','物流负责人','carrier-a','carrier_admin'],['carrier.staff','物流调度员','carrier-a','carrier_member'],['carrier.b','物流 B 负责人','carrier-b','carrier_admin'],['driver','司机张师傅','carrier-a','driver']];
   const passwordHash=await hash(password,12);
-  for(const [username,displayName,businessEntityId,role] of accounts) await db.user.upsert({where:{username},update:{},create:{username,displayName,businessEntityId,passwordHash,isTestData:true,roles:{create:{role:{connect:{code:role}}}}}});
+  const fixedPasswordHash=fixedPassword?await hash(fixedPassword,12):null;
+  for(const [username,displayName,businessEntityId,role] of accounts) await db.user.upsert({where:{username},update:{},create:{username,displayName,businessEntityId,passwordHash:fixedPasswordHash&&['admin','trader','carrier'].includes(username)?fixedPasswordHash:passwordHash,isTestData:true,roles:{create:{role:{connect:{code:role}}}}}});
   const nav = [
     ['home','首页','/','house','home',1,[]],
     ['demand','供需管理','/supply-demand','package','demand',2,[['demands','运输需求管理','/supply-demand/demands','demand'],['supplies','运输供给管理','/supply-demand/supplies','supply']]],

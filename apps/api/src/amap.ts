@@ -2,6 +2,7 @@ import {Injectable,ServiceUnavailableException,BadRequestException,Controller,Ge
 import {ApiTags,ApiBearerAuth,ApiPropertyOptional} from '@nestjs/swagger';
 import {createHash,randomUUID} from 'node:crypto';
 import {Response} from 'express';
+import {secureCookie} from './runtime-config';
 import {Database} from './database';
 import {Public,publicUser,userInclude} from './security';
 import {Type} from 'class-transformer';
@@ -61,7 +62,7 @@ export class MapController {
   if(!req.user.permissions.some((p:string)=>mapPermissions.includes(p)))throw new ForbiddenException('无权使用地图');
   if(!process.env.AMAP_JSAPI_KEY||!process.env.AMAP_SECURITY_JS_CODE)throw new ServiceUnavailableException('地图凭据未配置');
   for(const [key,t] of this.service.tickets)if(t.expires<Date.now())this.service.tickets.delete(key);
-  if(this.service.tickets.size>=5000)throw new ServiceUnavailableException('地图会话繁忙，请稍后再试');const ticket=randomUUID();this.service.tickets.set(ticket,{userId:req.user.id,sessionId:req.sessionId,expires:Date.now()+1800000});res.cookie('amap_session',ticket,{httpOnly:true,sameSite:'strict',secure:process.env.NODE_ENV==='production',path:'/',maxAge:1800000});return {key:process.env.AMAP_JSAPI_KEY,serviceHost:'/_AMapService',coordinateSystem:'GCJ02'};
+    if(this.service.tickets.size>=5000)throw new ServiceUnavailableException('地图会话繁忙，请稍后再试');const ticket=randomUUID();this.service.tickets.set(ticket,{userId:req.user.id,sessionId:req.sessionId,expires:Date.now()+1800000});res.cookie('amap_session',ticket,{httpOnly:true,sameSite:'strict',secure:secureCookie(req),path:'/',maxAge:1800000});return {key:process.env.AMAP_JSAPI_KEY,serviceHost:'/_AMapService',coordinateSystem:'GCJ02'};
  }
  private pointAccess(req:any){if(!req.user.permissions.some((p:string)=>['plan:read','demand:write'].includes(p)))throw new ForbiddenException('无权选择地图位置');}
  @Get('map/search') search(@Query() q:MapSearchQuery,@Req() req:any){this.pointAccess(req);return this.service.search(q.q||'');}
