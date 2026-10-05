@@ -5,6 +5,7 @@ dist/
 !.env.example
 api_key/
 *.db
+!prisma/initial.db
 *.db-journal
 *.db-wal
 *.db-shm
