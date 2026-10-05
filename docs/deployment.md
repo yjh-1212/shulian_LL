@@ -8,6 +8,25 @@ Node >=22.12，已验证24.17.0。首次安装：`npm ci`、`npm run setup`、`n
 
 PC 网页、司机端和 API 可由一个 Node.js 进程提供服务。默认监听 `0.0.0.0:8080`，同时支持本机、局域网和服务器 IP 访问。
 
+### 上传已构建的部署包
+
+在已配置并有业务数据的本地项目中执行 `npm run package:server`，会在 `ll_dist/` 生成程序目录、ZIP 压缩包和 SHA-256 校验文件。已有包保留，再次打包使用新的文件名。
+
+包内包含前后端构建文件、当前 SQLite 一致性快照、数据库关联的文件附件、OCR 语言包及私有 `.env.server`。现有账号密码和业务记录保留；包内数据库使用 `prisma/server.db`，路径不依赖原机器。整个 `ll_dist/` 已忽略，不提交到 GitHub。
+
+服务器安装 Node.js 22.13 或以上版本，上传 ZIP 并解压，进入含 `package.json` 的目录，执行：
+
+```sh
+npm run install:server
+npm start
+```
+
+安装工具按锁定版本安装服务器依赖，并生成对应系统的 Prisma 客户端；不包含本机 Windows 的 `node_modules`，服务器无需构建网页或 API。访问 `http://服务器IP:8080`，放行实际使用的端口。详细说明见包内 `README.md`。
+
+首次解压可执行 `npm run verify:package` 核对所有文件。正式运行后升级程序时，保留正在使用的数据库、`.local/uploads/` 和 `.env.server`，避免用旧快照覆盖新增业务数据。
+
+### 从源码安装
+
 在项目根目录执行：
 
 ```sh
