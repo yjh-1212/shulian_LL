@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-02",
+  "result": "PASS",
+  "environment": "本地开发环境，模拟运输与费用数据",
+  "trackingUrl": "http://127.0.0.1:5173/services/cmur3fjk60052treozxu8sv1k/tracking",
+  "results": [
+    {"name": "开始跟踪打开独立页面，主列表保留菜单式阶段明细", "result": "PASS"},
+    {"name": "主列表阶段详情只读，跟踪页支持草稿保存、阶段提交和完成", "result": "PASS"},
+    {"name": "水运散改集、多箱号、附件上传及重新打开后的回显", "result": "PASS"},
+    {"name": "全部阶段完成后运单可勾选，右上角批量业务完成可用", "result": "PASS"},
+    {"name": "每行发运甘特图按钮显示总运单的车辆、铁路与水运时间条", "result": "PASS"},
+    {"name": "2026-10-03：公路分组逐车展示两辆车，车牌、司机、数量、任务号、计划及实际完成时间均对应各车", "result": "PASS", "waybillNo": "YD179095353849769BCD", "vehicleRows": 2}
+  ],
+  "screenshots": [
+    "intermodal-service-list.png",
+    "intermodal-tracking-page.png",
+    "intermodal-waybill-gantt.png"
+  ]
+}

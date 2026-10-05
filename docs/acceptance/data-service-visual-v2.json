@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-03",
+  "scope": "数据服务页面视觉优化与图片接入",
+  "imageGenerationMode": "built-in image_gen",
+  "assetManifest": "data-service-image-manifest.json",
+  "assets": {
+    "hero": 1,
+    "productIllustrations": 5,
+    "format": "WebP",
+    "heroSize": [1920, 640],
+    "cardSize": [960, 640]
+  },
+  "checks": {
+    "webBuild": "npm run build -w @grain/web passed (vue-tsc and Vite)",
+    "imageLoading": "All six website images loaded with nonzero natural dimensions",
+    "catalogSearch": "Searching 信用 returns one product; reset restores five products",
+    "productDetails": "Card image opens product details; 数据字段 tab displays the 14 capacity fields",
+    "scenarios": "Scenario cards use the product imagery and display their business descriptions",
+    "layout": "Default browser viewport: 1280px; document content width 1265px; no horizontal overflow. Search form moved beneath the hero; measured gap is 20px.",
+    "consoleErrors": 0,
+    "responsiveRules": "Updated styles for 1150px, 760px and 480px breakpoints; no viewport override used in this review",
+    "buildNote": "Existing shared dependency chunk size warning remains"
+  },
+  "screenshots": [
+    "data-service-visual-v2.png",
+    "data-service-cards-v2.png",
+    "data-service-detail-v2.png",
+    "data-service-scenarios-v2.png",
+    "data-service-search-spacing.png"
+  ]
+}

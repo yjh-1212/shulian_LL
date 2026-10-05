@@ -1,0 +1,36 @@
+{
+  "mode": "Built-in image_gen",
+  "requestedModel": "image2",
+  "generated": [
+    {
+      "asset": "apps/web/public/assets/portal/intermodal-port.webp",
+      "prompt": "Use case: ads-marketing. Asset type: wide photographic hero background for a Chinese grain multimodal logistics portal. Primary request: an impressive but believable modern Chinese grain logistics port, connecting road, railway, port and sea shipping in one real physical landscape. Scene: high oblique aerial view of a coastal grain port in Liaoning, a large bulk carrier docked safely at a grain terminal with silver grain silos, realistic cranes, parallel freight railway with a red locomotive and grain hopper wagons, a separate divided access road with a few grain trucks, calm dark blue water. Composition: very wide landscape 3:1, the main transport infrastructure occupies the right two thirds; left third is mostly calm deep blue water and hazy distant coastline, providing quiet space for white website headline. Lighting: natural early morning light, soft warm gold on the buildings, crisp professional documentary photography, restrained saturation, realistic engineering dimensions and terrain. No glowing circuit lines, no holograms, no rendered toy appearance, no collaged transport vehicles, no floating elements, no fake logos, no text or lettering, no watermarks. Suitable for a polished enterprise marketing homepage at 2400 pixel wide or larger."
+    },
+    {
+      "asset": "apps/web/public/assets/portal/business-icons.webp",
+      "prompt": "Use case: product-mockup. Asset type: a single transparent image sheet containing four professional 3D pictogram icons for a Chinese multimodal grain transport business dashboard. Create four distinct icons in a perfectly spaced 2-by-2 grid, with ample empty transparent gutters, one icon per quadrant, identical size and visual weight. Top left: a red document with a small folded corner, three neat blank embossed lines and a tiny red pencil, representing transport demand. Top right: a blue three-dimensional route-planning cube with a small route path wrapping around it. Bottom left: an emerald green grain transport truck, realistic simplified cab and trailer, representing logistics matching. Bottom right: a violet location pin standing on a small pale violet circular map disc, representing tracking. Style: clean restrained premium 3D product UI pictograms, matte and lightly polished ceramic surfaces, soft studio lighting, rounded precise geometry, modest soft shadows, readable at 56 pixels. Four centered isolated objects on true alpha transparent background. No text, no numerals, no logos, no decorative orbit rings, no scattered sparkles, no scenery, no border, no checkboxes. Output square 1024x1024."
+    }
+  ],
+  "existing": [
+    {
+      "source": "Picture/辽粮logo.png",
+      "asset": "apps/web/public/assets/liaoliang-logo.png"
+    },
+    {
+      "source": "Picture/金色全息AI机器人吉祥物.png",
+      "asset": "apps/web/public/assets/portal/liaoliang-ai.webp"
+    },
+    {
+      "source": "docs/acceptance/workbench-aligned-20261005.png",
+      "asset": "apps/web/public/assets/portal/workbench-preview.webp",
+      "processing": "Workbench capture, cropped to the content area and compressed to WebP."
+    }
+  ],
+  "processing": "WebP compression and downscaling for browser delivery. Four icons cropped from the generated transparent sheet into isolated 256px WebP files; original generation results preserved.",
+  "iconAssets": [
+    "apps/web/public/assets/portal/demand-icon.webp",
+    "apps/web/public/assets/portal/plan-icon.webp",
+    "apps/web/public/assets/portal/matching-icon.webp",
+    "apps/web/public/assets/portal/tracking-icon.webp"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-03",
+  "url": "http://127.0.0.1:5173/data",
+  "result": "PASS",
+  "checks": [
+    "企业端单一数据服务入口和五类产品卡片",
+    "信用关键词搜索显示1项，重置恢复5项",
+    "产品详情、来源、字段和额度版本显示",
+    "空申请字段显示填写提示",
+    "运力产品按本企业和指定起讫城市提交申请",
+    "平台审核显示企业、用途和范围，审核后企业可见授权",
+    "场景详情显示关联产品和本企业授权状态",
+    "临时验收订阅查询成功，空数据说明明确，额度由0变为1",
+    "调用记录显示PREVIEW成功与返回条数",
+    "760px窄屏页面宽度745px，无横向溢出",
+    "最终浏览器错误日志为空"
+  ],
+  "uiFixtureCleanup": {
+    "requests": 1,
+    "authorizations": 1,
+    "subscriptions": 1,
+    "existingBusinessRetained": true
+  },
+  "screenshots": [
+    "data-service-catalog.png",
+    "data-service-product-detail.png",
+    "data-service-call-audit.png",
+    "data-service-narrow.png",
+    "data-service-products.png"
+  ]
+}

@@ -1,0 +1,3 @@
+ALTER TABLE ContractPackage ADD COLUMN isTestData BOOLEAN NOT NULL DEFAULT false;
+ALTER TABLE TransportTask ADD COLUMN batchId TEXT;
+ALTER TABLE TransportTask ADD COLUMN boxNo TEXT;

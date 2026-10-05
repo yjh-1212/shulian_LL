@@ -1,0 +1,42 @@
+{
+  "at": "2026-10-01T09:10:12.036Z",
+  "results": [
+    {
+      "name": "浏览器创建用户、字段校验、角色主体绑定与刷新持久化",
+      "result": "PASS"
+    },
+    {
+      "name": "请求失败显示错误，重试恢复列表",
+      "result": "PASS"
+    },
+    {
+      "name": "新用户必须改密，API拒绝跳过",
+      "result": "PASS"
+    },
+    {
+      "name": "修改密码后旧Access/Refresh会话失效",
+      "result": "PASS"
+    },
+    {
+      "name": "管理员重置密码撤销用户全部会话",
+      "result": "PASS"
+    },
+    {
+      "name": "重置后强制再次改密",
+      "result": "PASS"
+    },
+    {
+      "name": "停用账号后旧Token和重新登录均不可用",
+      "result": "PASS"
+    },
+    {
+      "name": "审计日志不含口令或密码哈希",
+      "result": "PASS"
+    },
+    {
+      "name": "验收账号软删除保留审计",
+      "result": "PASS"
+    }
+  ],
+  "errors": []
+}

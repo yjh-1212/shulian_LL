@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-02T17:20:22.383Z",
+  "result": "PASS",
+  "results": [
+    {
+      "name": "六种能力已授权；ETA、港口、环境和单据对话接入实际业务上下文并默认使用模型",
+      "result": "PASS"
+    },
+    {
+      "name": "运输需求带入后自动匹配地址，并保留订单货物、数量、时间和装载约束",
+      "result": "PASS"
+    }
+  ],
+  "conversationIds": [
+    "cmur8ay5v002ytrws58luypjg",
+    "cmur8aywt0036trwsz2wy6tcq",
+    "cmur8b030003etrwsbeo2apb3",
+    "cmur8b1xg0040trwsxolsij44"
+  ],
+  "demandConversationId": "cmur8b3o10048trwsz0po420p",
+  "demandId": "cmuqi7fwi0039trbcxv81e4y4"
+}

@@ -1,0 +1,6 @@
+<script setup lang="ts">
+import { House,Package,Route,Handshake,FileText,Truck,MapPinned,Wallet,Database,Settings,ChevronDown,ArrowRight,Plus,Search,RotateCw,Users,ShieldCheck,Building2,BookOpen,ScrollText,LogOut,Bot,Sprout,ChevronRight,Ellipsis,LockKeyhole,Check,Clock,Info,ArrowUpRight,Download,Mail,UserRound,Ship,TrainFront,TriangleAlert,LayoutDashboard,Network,ChartNoAxesCombined,ScanLine,ArrowUp,Play,Anchor } from 'lucide-vue-next';
+defineProps<{name:string;size?:number}>();
+const icons:Record<string,any>={house:House,package:Package,route:Route,handshake:Handshake,file:FileText,truck:Truck,map:MapPinned,wallet:Wallet,database:Database,settings:Settings,down:ChevronDown,arrow:ArrowRight,plus:Plus,search:Search,refresh:RotateCw,users:Users,shield:ShieldCheck,building:Building2,book:BookOpen,logs:ScrollText,logout:LogOut,bot:Bot,grain:Sprout,right:ChevronRight,more:Ellipsis,lock:LockKeyhole,check:Check,clock:Clock,info:Info,external:ArrowUpRight,download:Download,mail:Mail,user:UserRound,ship:Ship,train:TrainFront,warning:TriangleAlert,dashboard:LayoutDashboard,network:Network,chart:ChartNoAxesCombined,scan:ScanLine,up:ArrowUp,play:Play,anchor:Anchor};
+</script>
+<template><component :is="icons[name]||FileText" :size="size||18" :stroke-width="1.7" aria-hidden="true"/></template>

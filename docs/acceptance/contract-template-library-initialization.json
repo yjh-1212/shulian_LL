@@ -1,0 +1,65 @@
+{
+  "sourceSystem": "CONTRACT_TEMPLATE_LIBRARY",
+  "revision": "2026-10-v1",
+  "templates": [
+    {
+      "id": "contract-template-library-2026-10-v1-road-rail",
+      "name": "粮食公铁联运运输合同",
+      "type": "MAIN",
+      "pages": 2,
+      "digest": "c3c347abfa63aebee040aa2ddb3e2546c258400516986e146607857d71b915c2"
+    },
+    {
+      "id": "contract-template-library-2026-10-v1-road-water",
+      "name": "粮食公水联运运输合同",
+      "type": "MAIN",
+      "pages": 2,
+      "digest": "e3e980f273dd4d0a2587975a7aa3518952d838f4f674216580be75b045c228cb"
+    },
+    {
+      "id": "contract-template-library-2026-10-v1-rail-water",
+      "name": "粮食铁水联运运输合同",
+      "type": "MAIN",
+      "pages": 2,
+      "digest": "50aa767e318f7ddf7e26327c45c465493fbd3b2f6ca4476d209a262b6ffae69d"
+    },
+    {
+      "id": "contract-template-library-2026-10-v1-road-rail-water",
+      "name": "粮食公铁水联运运输合同",
+      "type": "MAIN",
+      "pages": 2,
+      "digest": "63d054ecb4c33c8eaa35bbdaae8431ab4c12100aa46e078ab5cc8313546aeb40"
+    },
+    {
+      "id": "contract-template-library-2026-10-v1-grain-general",
+      "name": "粮食多式联运运输主合同",
+      "type": "MAIN",
+      "pages": 2,
+      "digest": "21c05d4cab62511274428257a0a7c207cfbe0116e06451217b52ab04fa5b517b"
+    },
+    {
+      "id": "contract-template-library-2026-10-v1-platform-service",
+      "name": "粮食联运平台服务附加合同",
+      "type": "ADDENDUM",
+      "pages": 2,
+      "digest": "03cf52bd7034b16ee808a86a53012b3aa3b2fd16b43f9da5104d996567b23f99"
+    }
+  ],
+  "sources": [
+    {
+      "title": "中华人民共和国民法典 第三编合同 第十九章运输合同",
+      "url": "https://www.spp.gov.cn/spp/ssmfdyflvdtpgz/202008/t20200831_478413.shtml",
+      "use": "参考货物运输和多式联运责任规则；下列条款为本系统自行整理，并非官方示范文本"
+    },
+    {
+      "title": "国家市场监督管理总局 合同示范文本库",
+      "url": "https://htsfwb.samr.gov.cn/",
+      "use": "参照合同文本的结构和使用说明；未复制或冒用官方合同编号"
+    }
+  ],
+  "defaultMain": "contract-template-library-2026-10-v1-grain-general",
+  "defaultAddendum": "contract-template-library-2026-10-v1-platform-service",
+  "authorship": "按用户要求整理的可复用合同条款，非实际签署合同或官方示范文本",
+  "initializedAt": "2026-10-03T15:02:57.347Z",
+  "backupPath": "D:\\项目资料\\Code\\liaoliang\\.local\\backups\\contract-templates-2026-10-03T15-02-56-450Z\\database.db"
+}

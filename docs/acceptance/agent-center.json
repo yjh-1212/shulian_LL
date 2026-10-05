@@ -1,0 +1,37 @@
+{
+  "at": "2026-10-02T17:20:14.326Z",
+  "result": "PASS",
+  "results": [
+    {
+      "name": "对话按本人账号隔离；平台、他人和同企业其他账号均不可读取；上下文保持原业务权限",
+      "result": "PASS"
+    },
+    {
+      "name": "自然语言运输条件提取、可核对节点定位、默认时间说明及重复请求幂等",
+      "result": "PASS"
+    },
+    {
+      "name": "真实求解器和模型通道建议联动；动态推荐、费用与分段地图结果可回到已有方案页面；求解重试不重复生成",
+      "result": "PASS"
+    },
+    {
+      "name": "问踪默认调用已配置模型、引用本人可见运输记录且不代执行业务；单据识别与越权拦截保持有效",
+      "result": "PASS"
+    },
+    {
+      "name": "停止分析会中断模型等待、保留对话输入且释放账号任务锁",
+      "result": "PASS"
+    }
+  ],
+  "conversationId": "cmur8aub6000ctrws43rh5q1m",
+  "planRunId": "cmur8avmy000htrwsmy3wm7va",
+  "candidateCount": 14,
+  "modeFamilies": [
+    "公铁联运",
+    "公水联运",
+    "公路直运",
+    "公铁水联运"
+  ],
+  "taskId": "cmur3hvqv009otreoeldw55vt",
+  "documentId": "cmur8axto002strwsnqyu1vv4"
+}

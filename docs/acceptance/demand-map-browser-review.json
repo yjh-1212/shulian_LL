@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-10-04",
+  "page": "http://127.0.0.1:5173/supply-demand/demands",
+  "accountRole": "TRADER",
+  "checks": [
+    "新建需求显示起运位置和目的位置两个地图入口",
+    "嵌套地图弹窗在抽屉之上显示，确认按钮可见可用",
+    "选择已核验鲅鱼圈港回填地址及122.101431,40.291018坐标",
+    "搜索南沙港返回在线地点结果",
+    "点击地图返回详细地址，保留113.678032,22.643183点选坐标",
+    "确认目的地后起运和目的坐标独立保留",
+    "重新打开起运选址保留已选位置，改选后取消仍保留原值",
+    "检查中的未保存内容已放弃，业务数据未新增或发布"
+  ],
+  "screenshots": [
+    "docs/acceptance/demand-map-picker-browser.png",
+    "docs/acceptance/demand-map-form-browser.png"
+  ],
+  "storageVerification": "tests/demand-map-location.cjs在SQLite副本验证保存后进入求解和再次编辑",
+  "dataPreservationVerification": "tests/transport-demand-records.cjs验证既有业务数据未变"
+}

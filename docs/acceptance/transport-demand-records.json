@@ -1,0 +1,315 @@
+{
+  "sourceSystem": "TRANSPORT_DEMAND_INITIALIZATION",
+  "provenance": {
+    "sourceSystem": "TRANSPORT_DEMAND_INITIALIZATION",
+    "sourceType": "INITIALIZATION",
+    "verification": "UNVERIFIED_BUSINESS_RECORD",
+    "generatedAt": "2026-10-03T15:45:51.269Z",
+    "note": "按用户选择生成的待核验业务记录；粮种、港站及公开运输通道有参考来源，企业参与、交易数量与发运安排为生成值，尚无原始成交凭证。联系电话留待企业补充。"
+  },
+  "owner": {
+    "id": "trader-a",
+    "name": "黑龙江丰谷粮食贸易有限公司",
+    "username": "trader"
+  },
+  "trades": [
+    {
+      "id": "transport-demand-records-2026-10-v1-trade-1",
+      "itemId": "transport-demand-records-2026-10-v1-item-1",
+      "businessNo": "JY202610030101",
+      "grain": "玉米",
+      "quantity": 1200.5,
+      "origin": {
+        "address": "吉林省长春市榆树市五棵树站（五棵树镇长安路499号）",
+        "codes": "220000/220100/220182",
+        "region": "吉林省 / 长春市 / 榆树市"
+      },
+      "destination": {
+        "address": "广东省广州市南沙区南沙港（龙穴大道中12号）",
+        "codes": "440000/440100/440115",
+        "region": "广东省 / 广州市 / 南沙区"
+      },
+      "reservedKg": 0
+    },
+    {
+      "id": "transport-demand-records-2026-10-v1-trade-2",
+      "itemId": "transport-demand-records-2026-10-v1-item-2",
+      "businessNo": "JY202610030102",
+      "grain": "大豆",
+      "quantity": 680.3,
+      "origin": {
+        "address": "黑龙江省哈尔滨市香坊区新香坊站",
+        "codes": "230000/230100/230110",
+        "region": "黑龙江省 / 哈尔滨市 / 香坊区"
+      },
+      "destination": {
+        "address": "广东省东莞市麻涌镇新沙港（西部干道）",
+        "codes": "440000/441900/441900126",
+        "region": "广东省 / 东莞市 / 麻涌镇"
+      },
+      "reservedKg": 0
+    },
+    {
+      "id": "transport-demand-records-2026-10-v1-trade-3",
+      "itemId": "transport-demand-records-2026-10-v1-item-3",
+      "businessNo": "JY202610030103",
+      "grain": "小麦",
+      "quantity": 1500,
+      "origin": {
+        "address": "辽宁省盘锦市双台子区盘锦站（建设街道向海大道与红旗大街交汇处东）",
+        "codes": "210000/211100/211102",
+        "region": "辽宁省 / 盘锦市 / 双台子区"
+      },
+      "destination": {
+        "address": "广东省广州市白云区广州国际港站（勤星北街23号）",
+        "codes": "440000/440100/440111",
+        "region": "广东省 / 广州市 / 白云区"
+      },
+      "reservedKg": 0
+    },
+    {
+      "id": "transport-demand-records-2026-10-v1-trade-4",
+      "itemId": "transport-demand-records-2026-10-v1-item-4",
+      "businessNo": "JY202610030104",
+      "grain": "稻谷",
+      "quantity": 960.8,
+      "origin": {
+        "address": "吉林省长春市榆树市五棵树站（五棵树镇长安路499号）",
+        "codes": "220000/220100/220182",
+        "region": "吉林省 / 长春市 / 榆树市"
+      },
+      "destination": {
+        "address": "广东省广州市南沙区南沙港（龙穴大道中12号）",
+        "codes": "440000/440100/440115",
+        "region": "广东省 / 广州市 / 南沙区"
+      },
+      "reservedKg": 0
+    },
+    {
+      "id": "transport-demand-records-2026-10-v1-trade-5",
+      "itemId": "transport-demand-records-2026-10-v1-item-5",
+      "businessNo": "JY202610030105",
+      "grain": "玉米",
+      "quantity": 2400,
+      "origin": {
+        "address": "辽宁省营口市鲅鱼圈区鲅鱼圈港（北二路）",
+        "codes": "210000/210800/210804",
+        "region": "辽宁省 / 营口市 / 鲅鱼圈区"
+      },
+      "destination": {
+        "address": "广东省东莞市麻涌镇新沙港（西部干道）",
+        "codes": "440000/441900/441900126",
+        "region": "广东省 / 东莞市 / 麻涌镇"
+      },
+      "reservedKg": 0
+    },
+    {
+      "id": "transport-demand-records-2026-10-v1-trade-6",
+      "itemId": "transport-demand-records-2026-10-v1-item-6",
+      "businessNo": "JY202610030106",
+      "grain": "大豆",
+      "quantity": 820.6,
+      "origin": {
+        "address": "吉林省长春市榆树市五棵树站（五棵树镇长安路499号）",
+        "codes": "220000/220100/220182",
+        "region": "吉林省 / 长春市 / 榆树市"
+      },
+      "destination": {
+        "address": "广东省广州市南沙区南沙港（龙穴大道中12号）",
+        "codes": "440000/440100/440115",
+        "region": "广东省 / 广州市 / 南沙区"
+      },
+      "reservedKg": 0
+    },
+    {
+      "id": "transport-demand-records-2026-10-v1-trade-7",
+      "itemId": "transport-demand-records-2026-10-v1-item-7",
+      "businessNo": "JY202610030107",
+      "grain": "小麦",
+      "quantity": 1100.2,
+      "origin": {
+        "address": "辽宁省沈阳市于洪区铁路货运蒲河物流基地（中欧班列(沈阳)集结中心建设运营有限公司西侧）",
+        "codes": "210000/210100/210114",
+        "region": "辽宁省 / 沈阳市 / 于洪区"
+      },
+      "destination": {
+        "address": "广东省广州市花都区广州北站（站前路1号）",
+        "codes": "440000/440100/440114",
+        "region": "广东省 / 广州市 / 花都区"
+      },
+      "reservedKg": 0
+    },
+    {
+      "id": "transport-demand-records-2026-10-v1-trade-8",
+      "itemId": "transport-demand-records-2026-10-v1-item-8",
+      "businessNo": "JY202610030108",
+      "grain": "稻谷",
+      "quantity": 760.4,
+      "origin": {
+        "address": "黑龙江省哈尔滨市香坊区新香坊站",
+        "codes": "230000/230100/230110",
+        "region": "黑龙江省 / 哈尔滨市 / 香坊区"
+      },
+      "destination": {
+        "address": "广东省广州市南沙区南沙港（龙穴大道中12号）",
+        "codes": "440000/440100/440115",
+        "region": "广东省 / 广州市 / 南沙区"
+      },
+      "reservedKg": 0
+    },
+    {
+      "id": "transport-demand-records-2026-10-v1-trade-9",
+      "itemId": "transport-demand-records-2026-10-v1-item-9",
+      "businessNo": "JY202610030109",
+      "grain": "玉米",
+      "quantity": 1850.7,
+      "origin": {
+        "address": "吉林省长春市榆树市五棵树站（五棵树镇长安路499号）",
+        "codes": "220000/220100/220182",
+        "region": "吉林省 / 长春市 / 榆树市"
+      },
+      "destination": {
+        "address": "广东省广州市白云区广州国际港站（勤星北街23号）",
+        "codes": "440000/440100/440111",
+        "region": "广东省 / 广州市 / 白云区"
+      },
+      "reservedKg": 0
+    },
+    {
+      "id": "transport-demand-records-2026-10-v1-trade-10",
+      "itemId": "transport-demand-records-2026-10-v1-item-10",
+      "businessNo": "JY202610030110",
+      "grain": "大豆",
+      "quantity": 620.5,
+      "origin": {
+        "address": "辽宁省营口市鲅鱼圈区鲅鱼圈港（北二路）",
+        "codes": "210000/210800/210804",
+        "region": "辽宁省 / 营口市 / 鲅鱼圈区"
+      },
+      "destination": {
+        "address": "广东省东莞市麻涌镇新沙港（西部干道）",
+        "codes": "440000/441900/441900126",
+        "region": "广东省 / 东莞市 / 麻涌镇"
+      },
+      "reservedKg": 0
+    }
+  ],
+  "demands": [
+    {
+      "id": "transport-demand-records-2026-10-v1-demand-1",
+      "businessNo": "XQ202610030101",
+      "grain": "玉米",
+      "quantity": 1200.5,
+      "origin": {
+        "address": "吉林省长春市榆树市五棵树站（五棵树镇长安路499号）",
+        "codes": "220000/220100/220182",
+        "region": "吉林省 / 长春市 / 榆树市"
+      },
+      "destination": {
+        "address": "广东省广州市南沙区南沙港（龙穴大道中12号）",
+        "codes": "440000/440100/440115",
+        "region": "广东省 / 广州市 / 南沙区"
+      },
+      "modes": [
+        "公路",
+        "水运"
+      ],
+      "loadingType": "BULK",
+      "departureAt": "2026-10-06T15:45:51.269Z",
+      "arrivalAt": "2026-10-15T15:45:51.269Z",
+      "orderItemId": null
+    },
+    {
+      "id": "transport-demand-records-2026-10-v1-demand-2",
+      "businessNo": "XQ202610030102",
+      "grain": "大豆",
+      "quantity": 680.3,
+      "origin": {
+        "address": "黑龙江省哈尔滨市香坊区新香坊站",
+        "codes": "230000/230100/230110",
+        "region": "黑龙江省 / 哈尔滨市 / 香坊区"
+      },
+      "destination": {
+        "address": "广东省东莞市麻涌镇新沙港（西部干道）",
+        "codes": "440000/441900/441900126",
+        "region": "广东省 / 东莞市 / 麻涌镇"
+      },
+      "modes": [
+        "铁路",
+        "水运"
+      ],
+      "loadingType": "BULK",
+      "departureAt": "2026-10-07T15:45:51.269Z",
+      "arrivalAt": "2026-10-17T15:45:51.269Z",
+      "orderItemId": null
+    },
+    {
+      "id": "transport-demand-records-2026-10-v1-demand-3",
+      "businessNo": "XQ202610030103",
+      "grain": "小麦",
+      "quantity": 1500,
+      "origin": {
+        "address": "辽宁省盘锦市双台子区盘锦站（建设街道向海大道与红旗大街交汇处东）",
+        "codes": "210000/211100/211102",
+        "region": "辽宁省 / 盘锦市 / 双台子区"
+      },
+      "destination": {
+        "address": "广东省广州市花都区广州北站（站前路1号）",
+        "codes": "440000/440100/440114",
+        "region": "广东省 / 广州市 / 花都区"
+      },
+      "modes": [
+        "公路",
+        "铁路"
+      ],
+      "loadingType": "BULK",
+      "departureAt": "2026-10-08T15:45:51.269Z",
+      "arrivalAt": "2026-10-13T15:45:51.269Z",
+      "orderItemId": null
+    },
+    {
+      "id": "transport-demand-records-2026-10-v1-demand-4",
+      "businessNo": "XQ202610030104",
+      "grain": "稻谷",
+      "quantity": 960.8,
+      "origin": {
+        "address": "吉林省长春市榆树市五棵树站（五棵树镇长安路499号）",
+        "codes": "220000/220100/220182",
+        "region": "吉林省 / 长春市 / 榆树市"
+      },
+      "destination": {
+        "address": "广东省广州市白云区广州国际港站（勤星北街23号）",
+        "codes": "440000/440100/440111",
+        "region": "广东省 / 广州市 / 白云区"
+      },
+      "modes": [
+        "公路",
+        "铁路",
+        "水运"
+      ],
+      "loadingType": "CONTAINER",
+      "departureAt": "2026-10-09T15:45:51.269Z",
+      "arrivalAt": "2026-10-21T15:45:51.269Z",
+      "orderItemId": null
+    }
+  ],
+  "sources": [
+    {
+      "title": "广州港新沙港务有限公司：新沙港区位于东莞麻涌镇",
+      "url": "https://www.xs.gzport.com/liangyou/gywm/gywm/201411/t20141118_558.html"
+    },
+    {
+      "title": "上海泛亚航运内贸航线：营口—南沙等业务流向",
+      "url": "https://www.panasiashipping.com/contents/Product/14.html"
+    },
+    {
+      "title": "辽宁省政府：蒲河站—广州国际港站快捷物流通道",
+      "url": "https://www.ln.gov.cn/web/ywdt/zymtkln/2025041108514451900/index.shtml"
+    },
+    {
+      "title": "项目已核对的港站位置与公开通道资料",
+      "file": "docs/business-data-sources.md"
+    }
+  ],
+  "backupPath": "D:\\项目资料\\Code\\liaoliang\\.local\\backups\\transport-demand-records-2026-10-03T15-45-51-271Z\\database.db"
+}

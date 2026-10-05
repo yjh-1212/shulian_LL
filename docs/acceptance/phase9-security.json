@@ -1,0 +1,45 @@
+{
+  "at": "2026-10-01T16:51:53.381Z",
+  "result": "PASS",
+  "results": [
+    {
+      "name": "健康检查、Swagger与新增API文档一致",
+      "result": "PASS"
+    },
+    {
+      "name": "匿名、司机PC令牌、跨企业对象及跨站写入阻断",
+      "result": "PASS"
+    },
+    {
+      "name": "上传体积限制、文件签名校验和鉴权下载",
+      "result": "PASS"
+    },
+    {
+      "name": "5000+轨迹的查询上限、最新窗口、历史范围和响应耗时",
+      "result": "PASS"
+    },
+    {
+      "name": "AI 越权拒绝留痕，失败数据不进入结果",
+      "result": "PASS"
+    }
+  ],
+  "trajectory": {
+    "rows": 5011,
+    "displayLimit": 2000,
+    "latencyMs": [
+      110,
+      104,
+      83,
+      106,
+      109
+    ],
+    "responseBytes": [
+      1037162,
+      1037162,
+      1037162,
+      1037162,
+      1037162
+    ]
+  },
+  "productionAudit": "另见 phase9-install 与部署说明"
+}

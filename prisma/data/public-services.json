@@ -1,0 +1,638 @@
+[
+  {
+    "id": "public-rail-puhe-guangzhou-x8784",
+    "businessNo": "RAIL-X8784-3",
+    "name": "蒲河—广州国际港 · X8784/3",
+    "mode": "RAIL",
+    "originName": "铁路货运蒲河物流基地",
+    "destinationName": "广州国际港站",
+    "distanceMeters": 2745000,
+    "durationSeconds": 138900,
+    "source": "辽宁省政府转载人民网·国铁沈阳局班列报道",
+    "sourceUrl": "https://www.ln.gov.cn/web/ywdt/zymtkln/2025041108514451900/index.shtml",
+    "serviceInfo": {
+      "code": "X8784/3",
+      "operator": "中国铁路沈阳局集团有限公司",
+      "frequency": "每周5列（2025年公布）",
+      "transitLabel": "站到站38小时35分",
+      "publishedAt": "2025-04-11",
+      "checkedAt": "2026-10-01",
+      "scheduleKind": "FREQUENCY_REFERENCE",
+      "nodeNote": "蒲河站按铁路货运蒲河物流基地 POI 定位；装卸入口、当期班次及粮食承运条件待运营方确认。"
+    }
+  },
+  {
+    "id": "public-water-pan-asia-ic9",
+    "businessNo": "WATER-IC9",
+    "name": "营口—南沙 · IC9",
+    "mode": "WATER",
+    "originName": "鲅鱼圈港",
+    "destinationName": "南沙港",
+    "distanceMeters": 0,
+    "durationSeconds": 604800,
+    "source": "上海泛亚航运官网·内贸航线产品",
+    "sourceUrl": "https://www.panasiashipping.com/contents/Product/14.html",
+    "serviceInfo": {
+      "code": "IC9",
+      "operator": "上海泛亚航运有限公司",
+      "frequency": "2天班（官网产品参考）",
+      "transitLabel": "港到港交货期7天",
+      "publishedAt": null,
+      "checkedAt": "2026-10-01",
+      "scheduleKind": "FREQUENCY_REFERENCE",
+      "nodeNote": "官网仅公布港口流向。营口以鲅鱼圈港作区域接驳参考，南沙以南沙港定位；实际挂靠码头、船名航次和截关时间须确认。未公布航程里程。"
+    }
+  },
+  {
+    "id": "public-water-pan-asia-ic15",
+    "businessNo": "WATER-IC15",
+    "name": "锦州—南沙 · IC15",
+    "mode": "WATER",
+    "originName": "锦州港集装箱码头",
+    "destinationName": "南沙港",
+    "distanceMeters": 0,
+    "durationSeconds": 604800,
+    "source": "上海泛亚航运官网·内贸航线产品",
+    "sourceUrl": "https://www.panasiashipping.com/contents/Product/14.html",
+    "serviceInfo": {
+      "code": "IC15",
+      "operator": "上海泛亚航运有限公司",
+      "frequency": "每周3班（官网产品参考）",
+      "transitLabel": "港到港交货期7天",
+      "publishedAt": null,
+      "checkedAt": "2026-10-01",
+      "scheduleKind": "FREQUENCY_REFERENCE",
+      "nodeNote": "锦州港集装箱码头及南沙港仅作区域接驳参考，实际挂靠码头、船名航次、截关时间及航程里程待运营方确认。"
+    }
+  },
+  {
+    "id": "public-corridor-harbin-yingkou",
+    "businessNo": "CORRIDOR-HARBIN-YINGKOU",
+    "name": "新香坊站—鲅鱼圈港 · 铁海快线通道参考",
+    "mode": "RAIL",
+    "originName": "新香坊站",
+    "destinationName": "鲅鱼圈港",
+    "distanceMeters": 0,
+    "durationSeconds": 0,
+    "source": "黑龙江省政府 · 一单制铁海快线报道",
+    "sourceUrl": "https://www.hlj.gov.cn/hlj/c107856/202408/c00_31761974.shtml",
+    "serviceInfo": {
+      "code": "铁海快线通道参考",
+      "frequency": "按需组织，实际班次待确认",
+      "transitLabel": "按运输走廊估算，实际排程待确认",
+      "checkedAt": "2026-10-02",
+      "scheduleKind": "CORRIDOR_REFERENCE",
+      "nodeNote": "节点采用真实高德POI作为区域装卸参考，具体货场、进港站与码头接口以及粮食承运条件须确认。",
+      "planningEstimate": {
+        "railRatePerTonKm": 0.08,
+        "waterRatePerTon": null,
+        "waitHours": 24,
+        "handlingHours": 6,
+        "reliability": 93,
+        "durationEstimated": true,
+        "railSpeedKmh": 35,
+        "detourFactor": 1.3
+      }
+    }
+  },
+  {
+    "id": "public-corridor-suihua-yingkou",
+    "businessNo": "CORRIDOR-SUIHUA-YINGKOU",
+    "name": "绥化站—鲅鱼圈港 · 铁海快线通道参考",
+    "mode": "RAIL",
+    "originName": "绥化站",
+    "destinationName": "鲅鱼圈港",
+    "distanceMeters": 0,
+    "durationSeconds": 0,
+    "source": "黑龙江省政府 · 一单制铁海快线报道",
+    "sourceUrl": "https://www.hlj.gov.cn/hlj/c107856/202408/c00_31761974.shtml",
+    "serviceInfo": {
+      "code": "铁海快线通道参考",
+      "frequency": "按需组织，实际班次待确认",
+      "transitLabel": "按运输走廊估算，实际排程待确认",
+      "checkedAt": "2026-10-02",
+      "scheduleKind": "CORRIDOR_REFERENCE",
+      "nodeNote": "节点采用真实高德POI作为区域装卸参考，具体货场、进港站与码头接口以及粮食承运条件须确认。",
+      "planningEstimate": {
+        "railRatePerTonKm": 0.08,
+        "waterRatePerTon": null,
+        "waitHours": 24,
+        "handlingHours": 6,
+        "reliability": 93,
+        "durationEstimated": true,
+        "railSpeedKmh": 35,
+        "detourFactor": 1.3
+      }
+    }
+  },
+  {
+    "id": "public-corridor-fujin-yingkou",
+    "businessNo": "CORRIDOR-FUJIN-YINGKOU",
+    "name": "富锦站—鲅鱼圈港 · 铁海快线通道参考",
+    "mode": "RAIL",
+    "originName": "富锦站",
+    "destinationName": "鲅鱼圈港",
+    "distanceMeters": 0,
+    "durationSeconds": 0,
+    "source": "黑龙江省政府 · 一单制铁海快线报道",
+    "sourceUrl": "https://www.hlj.gov.cn/hlj/c107856/202408/c00_31761974.shtml",
+    "serviceInfo": {
+      "code": "铁海快线通道参考",
+      "frequency": "按需组织，实际班次待确认",
+      "transitLabel": "按运输走廊估算，实际排程待确认",
+      "checkedAt": "2026-10-02",
+      "scheduleKind": "CORRIDOR_REFERENCE",
+      "nodeNote": "节点采用真实高德POI作为区域装卸参考，具体货场、进港站与码头接口以及粮食承运条件须确认。",
+      "planningEstimate": {
+        "railRatePerTonKm": 0.08,
+        "waterRatePerTon": null,
+        "waitHours": 24,
+        "handlingHours": 6,
+        "reliability": 93,
+        "durationEstimated": true,
+        "railSpeedKmh": 35,
+        "detourFactor": 1.3
+      }
+    }
+  },
+  {
+    "id": "public-corridor-wukeshu-yingkou",
+    "businessNo": "CORRIDOR-WUKESHU-YINGKOU",
+    "name": "五棵树站—鲅鱼圈港 · 粮食铁路集港通道",
+    "mode": "RAIL",
+    "originName": "五棵树站",
+    "destinationName": "鲅鱼圈港",
+    "distanceMeters": 0,
+    "durationSeconds": 0,
+    "source": "辽宁北粮南运粮食集港班列报道",
+    "sourceUrl": "https://www.ln.gov.cn/web/ywdt/msrd/2025111009010174906/index.shtml",
+    "serviceInfo": {
+      "code": "粮食铁路集港通道",
+      "frequency": "按需组织，实际班次待确认",
+      "transitLabel": "按运输走廊估算，实际排程待确认",
+      "checkedAt": "2026-10-02",
+      "scheduleKind": "CORRIDOR_REFERENCE",
+      "nodeNote": "节点采用真实高德POI作为区域装卸参考，具体货场、进港站与码头接口以及粮食承运条件须确认。",
+      "planningEstimate": {
+        "railRatePerTonKm": 0.08,
+        "waterRatePerTon": null,
+        "waitHours": 24,
+        "handlingHours": 6,
+        "reliability": 93,
+        "durationEstimated": true,
+        "railSpeedKmh": 35,
+        "detourFactor": 1.3
+      }
+    }
+  },
+  {
+    "id": "public-corridor-gongzhuling-yingkou",
+    "businessNo": "CORRIDOR-GONGZHULING-YINGKOU",
+    "name": "公主岭站—鲅鱼圈港 · 粮食铁路集港通道",
+    "mode": "RAIL",
+    "originName": "公主岭站",
+    "destinationName": "鲅鱼圈港",
+    "distanceMeters": 0,
+    "durationSeconds": 0,
+    "source": "辽宁北粮南运粮食集港班列报道",
+    "sourceUrl": "https://www.zgjtb.com/2025-06/10/content_469212.html",
+    "serviceInfo": {
+      "code": "粮食铁路集港通道",
+      "frequency": "按需组织，实际班次待确认",
+      "transitLabel": "按运输走廊估算，实际排程待确认",
+      "checkedAt": "2026-10-02",
+      "scheduleKind": "CORRIDOR_REFERENCE",
+      "nodeNote": "节点采用真实高德POI作为区域装卸参考，具体货场、进港站与码头接口以及粮食承运条件须确认。",
+      "planningEstimate": {
+        "railRatePerTonKm": 0.08,
+        "waterRatePerTon": null,
+        "waitHours": 24,
+        "handlingHours": 6,
+        "reliability": 93,
+        "durationEstimated": true,
+        "railSpeedKmh": 35,
+        "detourFactor": 1.3
+      }
+    }
+  },
+  {
+    "id": "public-corridor-tongliao-jinzhou",
+    "businessNo": "CORRIDOR-TONGLIAO-JINZHOU",
+    "name": "通辽站—锦州港集装箱码头 · 粮食集港通道参考",
+    "mode": "RAIL",
+    "originName": "通辽站",
+    "destinationName": "锦州港集装箱码头",
+    "distanceMeters": 0,
+    "durationSeconds": 0,
+    "source": "锦州港官网粮食业务及通辽产区网络；铁路组织待确认",
+    "sourceUrl": "https://www.jinzhouport.com/gkyw/9.html",
+    "serviceInfo": {
+      "code": "粮食集港通道参考",
+      "frequency": "按需组织，实际班次待确认",
+      "transitLabel": "按运输走廊估算，实际排程待确认",
+      "checkedAt": "2026-10-02",
+      "scheduleKind": "CORRIDOR_REFERENCE",
+      "nodeNote": "节点采用真实高德POI作为区域装卸参考，具体货场、进港站与码头接口以及粮食承运条件须确认。",
+      "planningEstimate": {
+        "railRatePerTonKm": 0.08,
+        "waterRatePerTon": null,
+        "waitHours": 24,
+        "handlingHours": 6,
+        "reliability": 93,
+        "durationEstimated": true,
+        "railSpeedKmh": 35,
+        "detourFactor": 1.3
+      }
+    }
+  },
+  {
+    "id": "public-corridor-harbin-puhe",
+    "businessNo": "CORRIDOR-HARBIN-PUHE",
+    "name": "新香坊站—铁路货运蒲河物流基地 · 沈阳集结通道参考",
+    "mode": "RAIL",
+    "originName": "新香坊站",
+    "destinationName": "铁路货运蒲河物流基地",
+    "distanceMeters": 0,
+    "durationSeconds": 0,
+    "source": "辽宁省发展改革委 · 沈阳城际货运通道",
+    "sourceUrl": "https://fgw.ln.gov.cn/fgw/xxgk/jyta/srddbjy/sssjrdwchy2026n/2026080610392286272/index.shtml",
+    "serviceInfo": {
+      "code": "沈阳集结通道参考",
+      "frequency": "按需组织，实际班次待确认",
+      "transitLabel": "按运输走廊估算，实际排程待确认",
+      "checkedAt": "2026-10-02",
+      "scheduleKind": "CORRIDOR_REFERENCE",
+      "nodeNote": "节点采用真实高德POI作为区域装卸参考，具体货场、进港站与码头接口以及粮食承运条件须确认。",
+      "planningEstimate": {
+        "railRatePerTonKm": 0.08,
+        "waterRatePerTon": null,
+        "waitHours": 24,
+        "handlingHours": 6,
+        "reliability": 93,
+        "durationEstimated": true,
+        "railSpeedKmh": 35,
+        "detourFactor": 1.3
+      }
+    }
+  },
+  {
+    "id": "public-corridor-changchun-puhe",
+    "businessNo": "CORRIDOR-CHANGCHUN-PUHE",
+    "name": "长春兴隆国际陆港—铁路货运蒲河物流基地 · 沈阳集结通道参考",
+    "mode": "RAIL",
+    "originName": "长春兴隆国际陆港",
+    "destinationName": "铁路货运蒲河物流基地",
+    "distanceMeters": 0,
+    "durationSeconds": 0,
+    "source": "辽宁省发展改革委 · 沈阳城际货运通道",
+    "sourceUrl": "https://fgw.ln.gov.cn/fgw/xxgk/jyta/srddbjy/sssjrdwchy2026n/2026080610392286272/index.shtml",
+    "serviceInfo": {
+      "code": "沈阳集结通道参考",
+      "frequency": "按需组织，实际班次待确认",
+      "transitLabel": "按运输走廊估算，实际排程待确认",
+      "checkedAt": "2026-10-02",
+      "scheduleKind": "CORRIDOR_REFERENCE",
+      "nodeNote": "节点采用真实高德POI作为区域装卸参考，具体货场、进港站与码头接口以及粮食承运条件须确认。",
+      "planningEstimate": {
+        "railRatePerTonKm": 0.08,
+        "waterRatePerTon": null,
+        "waitHours": 24,
+        "handlingHours": 6,
+        "reliability": 93,
+        "durationEstimated": true,
+        "railSpeedKmh": 35,
+        "detourFactor": 1.3
+      }
+    }
+  },
+  {
+    "id": "public-corridor-ic29",
+    "businessNo": "CORRIDOR-IC29",
+    "name": "鲅鱼圈港—广西北部湾国际集装箱码头有限公司 · IC29",
+    "mode": "WATER",
+    "originName": "鲅鱼圈港",
+    "destinationName": "广西北部湾国际集装箱码头有限公司",
+    "distanceMeters": 0,
+    "durationSeconds": 691200,
+    "source": "上海泛亚航运官网 · 内贸航线产品",
+    "sourceUrl": "https://www.panasiashipping.com/contents/Product/14.html",
+    "serviceInfo": {
+      "code": "IC29",
+      "frequency": "9天班（官网产品参考）",
+      "transitLabel": "公开产品交货期8天",
+      "checkedAt": "2026-10-02",
+      "scheduleKind": "FREQUENCY_REFERENCE",
+      "nodeNote": "节点采用真实高德POI作为区域装卸参考，具体货场、进港站与码头接口以及粮食承运条件须确认。",
+      "planningEstimate": {
+        "railRatePerTonKm": 0.08,
+        "waterRatePerTon": 140,
+        "waitHours": 36,
+        "handlingHours": 12,
+        "reliability": 87,
+        "durationEstimated": false,
+        "railSpeedKmh": 35,
+        "detourFactor": 1.3
+      }
+    }
+  },
+  {
+    "id": "public-corridor-ic2",
+    "businessNo": "CORRIDOR-IC2",
+    "name": "鲅鱼圈港—石湖港区 · IC2",
+    "mode": "WATER",
+    "originName": "鲅鱼圈港",
+    "destinationName": "石湖港区",
+    "distanceMeters": 0,
+    "durationSeconds": 345600,
+    "source": "上海泛亚航运官网 · 内贸航线产品",
+    "sourceUrl": "https://www.panasiashipping.com/contents/Product/14.html",
+    "serviceInfo": {
+      "code": "IC2",
+      "frequency": "10天班（官网产品参考）",
+      "transitLabel": "公开产品交货期4天",
+      "checkedAt": "2026-10-02",
+      "scheduleKind": "FREQUENCY_REFERENCE",
+      "nodeNote": "节点采用真实高德POI作为区域装卸参考，具体货场、进港站与码头接口以及粮食承运条件须确认。",
+      "planningEstimate": {
+        "railRatePerTonKm": 0.08,
+        "waterRatePerTon": 100,
+        "waitHours": 36,
+        "handlingHours": 12,
+        "reliability": 87,
+        "durationEstimated": false,
+        "railSpeedKmh": 35,
+        "detourFactor": 1.3
+      }
+    }
+  },
+  {
+    "id": "public-corridor-ic20",
+    "businessNo": "CORRIDOR-IC20",
+    "name": "鲅鱼圈港—上海集装箱外高桥码头 · IC20",
+    "mode": "WATER",
+    "originName": "鲅鱼圈港",
+    "destinationName": "上海集装箱外高桥码头",
+    "distanceMeters": 0,
+    "durationSeconds": 259200,
+    "source": "上海泛亚航运官网 · 内贸航线产品",
+    "sourceUrl": "https://www.panasiashipping.com/contents/Product/14.html",
+    "serviceInfo": {
+      "code": "IC20",
+      "frequency": "每周2班（官网产品参考）",
+      "transitLabel": "公开产品交货期3天",
+      "checkedAt": "2026-10-02",
+      "scheduleKind": "FREQUENCY_REFERENCE",
+      "nodeNote": "节点采用真实高德POI作为区域装卸参考，具体货场、进港站与码头接口以及粮食承运条件须确认。",
+      "planningEstimate": {
+        "railRatePerTonKm": 0.08,
+        "waterRatePerTon": 85,
+        "waitHours": 36,
+        "handlingHours": 12,
+        "reliability": 87,
+        "durationEstimated": false,
+        "railSpeedKmh": 35,
+        "detourFactor": 1.3
+      }
+    }
+  },
+  {
+    "id": "public-corridor-ic40",
+    "businessNo": "CORRIDOR-IC40",
+    "name": "鲅鱼圈港—北仑港码头 · IC40",
+    "mode": "WATER",
+    "originName": "鲅鱼圈港",
+    "destinationName": "北仑港码头",
+    "distanceMeters": 0,
+    "durationSeconds": 259200,
+    "source": "上海泛亚航运官网 · 内贸航线产品",
+    "sourceUrl": "https://www.panasiashipping.com/contents/Product/14.html",
+    "serviceInfo": {
+      "code": "IC40",
+      "frequency": "5天班（官网产品参考）",
+      "transitLabel": "公开产品交货期3天",
+      "checkedAt": "2026-10-02",
+      "scheduleKind": "FREQUENCY_REFERENCE",
+      "nodeNote": "节点采用真实高德POI作为区域装卸参考，具体货场、进港站与码头接口以及粮食承运条件须确认。",
+      "planningEstimate": {
+        "railRatePerTonKm": 0.08,
+        "waterRatePerTon": 90,
+        "waitHours": 36,
+        "handlingHours": 12,
+        "reliability": 87,
+        "durationEstimated": false,
+        "railSpeedKmh": 35,
+        "detourFactor": 1.3
+      }
+    }
+  },
+  {
+    "id": "public-corridor-ic8",
+    "businessNo": "CORRIDOR-IC8",
+    "name": "锦州港集装箱码头—南通港 · IC8",
+    "mode": "WATER",
+    "originName": "锦州港集装箱码头",
+    "destinationName": "南通港",
+    "distanceMeters": 0,
+    "durationSeconds": 259200,
+    "source": "上海泛亚航运官网 · 内贸航线产品",
+    "sourceUrl": "https://www.panasiashipping.com/contents/Product/14.html",
+    "serviceInfo": {
+      "code": "IC8",
+      "frequency": "每周2班（官网产品参考）",
+      "transitLabel": "公开产品交货期3天",
+      "checkedAt": "2026-10-02",
+      "scheduleKind": "FREQUENCY_REFERENCE",
+      "nodeNote": "节点采用真实高德POI作为区域装卸参考，具体货场、进港站与码头接口以及粮食承运条件须确认。",
+      "planningEstimate": {
+        "railRatePerTonKm": 0.08,
+        "waterRatePerTon": 82,
+        "waitHours": 36,
+        "handlingHours": 12,
+        "reliability": 87,
+        "durationEstimated": false,
+        "railSpeedKmh": 35,
+        "detourFactor": 1.3
+      }
+    }
+  },
+  {
+    "id": "public-corridor-ic10",
+    "businessNo": "CORRIDOR-IC10",
+    "name": "天津港码头—南沙港 · IC10",
+    "mode": "WATER",
+    "originName": "天津港码头",
+    "destinationName": "南沙港",
+    "distanceMeters": 0,
+    "durationSeconds": 518400,
+    "source": "上海泛亚航运官网 · 内贸航线产品",
+    "sourceUrl": "https://www.panasiashipping.com/contents/Product/14.html",
+    "serviceInfo": {
+      "code": "IC10",
+      "frequency": "2天班（官网产品参考）",
+      "transitLabel": "公开产品交货期6天",
+      "checkedAt": "2026-10-02",
+      "scheduleKind": "FREQUENCY_REFERENCE",
+      "nodeNote": "节点采用真实高德POI作为区域装卸参考，具体货场、进港站与码头接口以及粮食承运条件须确认。",
+      "planningEstimate": {
+        "railRatePerTonKm": 0.08,
+        "waterRatePerTon": 110,
+        "waitHours": 36,
+        "handlingHours": 12,
+        "reliability": 87,
+        "durationEstimated": false,
+        "railSpeedKmh": 35,
+        "detourFactor": 1.3
+      }
+    }
+  },
+  {
+    "id": "public-corridor-cf3",
+    "businessNo": "CORRIDOR-CF3",
+    "name": "天津港码头—广西北部湾国际集装箱码头有限公司 · CF3",
+    "mode": "WATER",
+    "originName": "天津港码头",
+    "destinationName": "广西北部湾国际集装箱码头有限公司",
+    "distanceMeters": 0,
+    "durationSeconds": 777600,
+    "source": "上海泛亚航运官网 · 内贸航线产品",
+    "sourceUrl": "https://www.panasiashipping.com/contents/Product/14.html",
+    "serviceInfo": {
+      "code": "CF3",
+      "frequency": "每周1班（官网产品参考）",
+      "transitLabel": "公开产品交货期9天",
+      "checkedAt": "2026-10-02",
+      "scheduleKind": "FREQUENCY_REFERENCE",
+      "nodeNote": "节点采用真实高德POI作为区域装卸参考，具体货场、进港站与码头接口以及粮食承运条件须确认。",
+      "planningEstimate": {
+        "railRatePerTonKm": 0.08,
+        "waterRatePerTon": 145,
+        "waitHours": 36,
+        "handlingHours": 12,
+        "reliability": 87,
+        "durationEstimated": false,
+        "railSpeedKmh": 35,
+        "detourFactor": 1.3
+      }
+    }
+  },
+  {
+    "id": "public-corridor-ic11",
+    "businessNo": "CORRIDOR-IC11",
+    "name": "连云港新东方集装箱码头有限公司—蛇口集装箱码头 · IC11",
+    "mode": "WATER",
+    "originName": "连云港新东方集装箱码头有限公司",
+    "destinationName": "蛇口集装箱码头",
+    "distanceMeters": 0,
+    "durationSeconds": 518400,
+    "source": "上海泛亚航运官网 · 内贸航线产品",
+    "sourceUrl": "https://www.panasiashipping.com/contents/Product/14.html",
+    "serviceInfo": {
+      "code": "IC11",
+      "frequency": "每周1班（官网产品参考）",
+      "transitLabel": "公开产品交货期6天",
+      "checkedAt": "2026-10-02",
+      "scheduleKind": "FREQUENCY_REFERENCE",
+      "nodeNote": "节点采用真实高德POI作为区域装卸参考，具体货场、进港站与码头接口以及粮食承运条件须确认。",
+      "planningEstimate": {
+        "railRatePerTonKm": 0.08,
+        "waterRatePerTon": 112,
+        "waitHours": 36,
+        "handlingHours": 12,
+        "reliability": 87,
+        "durationEstimated": false,
+        "railSpeedKmh": 35,
+        "detourFactor": 1.3
+      }
+    }
+  },
+  {
+    "id": "public-corridor-ic22",
+    "businessNo": "CORRIDOR-IC22",
+    "name": "青岛前湾联合集装箱码头—南沙港 · IC22",
+    "mode": "WATER",
+    "originName": "青岛前湾联合集装箱码头",
+    "destinationName": "南沙港",
+    "distanceMeters": 0,
+    "durationSeconds": 345600,
+    "source": "上海泛亚航运官网 · 内贸航线产品",
+    "sourceUrl": "https://www.panasiashipping.com/contents/Product/14.html",
+    "serviceInfo": {
+      "code": "IC22",
+      "frequency": "11天班（官网产品参考）",
+      "transitLabel": "公开产品交货期4天",
+      "checkedAt": "2026-10-02",
+      "scheduleKind": "FREQUENCY_REFERENCE",
+      "nodeNote": "节点采用真实高德POI作为区域装卸参考，具体货场、进港站与码头接口以及粮食承运条件须确认。",
+      "planningEstimate": {
+        "railRatePerTonKm": 0.08,
+        "waterRatePerTon": 98,
+        "waitHours": 36,
+        "handlingHours": 12,
+        "reliability": 87,
+        "durationEstimated": false,
+        "railSpeedKmh": 35,
+        "detourFactor": 1.3
+      }
+    }
+  },
+  {
+    "id": "public-corridor-ic12",
+    "businessNo": "CORRIDOR-IC12",
+    "name": "上海集装箱外高桥码头—蛇口集装箱码头 · IC12",
+    "mode": "WATER",
+    "originName": "上海集装箱外高桥码头",
+    "destinationName": "蛇口集装箱码头",
+    "distanceMeters": 0,
+    "durationSeconds": 345600,
+    "source": "上海泛亚航运官网 · 内贸航线产品",
+    "sourceUrl": "https://www.panasiashipping.com/contents/Product/14.html",
+    "serviceInfo": {
+      "code": "IC12",
+      "frequency": "2天班（官网产品参考）",
+      "transitLabel": "公开产品交货期4天",
+      "checkedAt": "2026-10-02",
+      "scheduleKind": "FREQUENCY_REFERENCE",
+      "nodeNote": "节点采用真实高德POI作为区域装卸参考，具体货场、进港站与码头接口以及粮食承运条件须确认。",
+      "planningEstimate": {
+        "railRatePerTonKm": 0.08,
+        "waterRatePerTon": 95,
+        "waitHours": 36,
+        "handlingHours": 12,
+        "reliability": 87,
+        "durationEstimated": false,
+        "railSpeedKmh": 35,
+        "detourFactor": 1.3
+      }
+    }
+  },
+  {
+    "id": "public-corridor-yingkou-xinsha",
+    "businessNo": "CORRIDOR-YINGKOU-XINSHA",
+    "name": "鲅鱼圈港—新沙港 · 新沙粮食深加工通道参考",
+    "mode": "WATER",
+    "originName": "鲅鱼圈港",
+    "destinationName": "新沙港",
+    "distanceMeters": 0,
+    "durationSeconds": 0,
+    "source": "黑龙江省政府 · 绥化—营口—广州新沙港联运报道",
+    "sourceUrl": "https://www.hlj.gov.cn/hlj/c107856/202408/c00_31761974.shtml",
+    "serviceInfo": {
+      "code": "新沙粮食深加工通道参考",
+      "frequency": "按需组织，实际班次待确认",
+      "transitLabel": "按运输走廊估算，实际排程待确认",
+      "checkedAt": "2026-10-02",
+      "scheduleKind": "CORRIDOR_REFERENCE",
+      "nodeNote": "节点采用真实高德POI作为区域装卸参考，具体货场、进港站与码头接口以及粮食承运条件须确认。",
+      "planningEstimate": {
+        "railRatePerTonKm": 0.08,
+        "waterRatePerTon": 108,
+        "waitHours": 36,
+        "handlingHours": 12,
+        "reliability": 87,
+        "durationEstimated": true,
+        "railSpeedKmh": 35,
+        "detourFactor": 1.3
+      }
+    }
+  }
+]

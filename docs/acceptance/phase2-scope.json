@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-01T13:47:58.089Z",
+  "results": [
+    {
+      "name": "定向需求只向目标企业展示，隐藏上游订单、预算、联系人与文件",
+      "result": "PASS"
+    },
+    {
+      "name": "撤回立即收回外部可见性，重新公开遵循字段公开设置",
+      "result": "PASS"
+    },
+    {
+      "name": "企业角色不能授予交易订单导入权限",
+      "result": "PASS"
+    },
+    {
+      "name": "来源JSON字段顺序不同仍保持导入幂等",
+      "result": "PASS"
+    }
+  ],
+  "permissionsRestored": true
+}

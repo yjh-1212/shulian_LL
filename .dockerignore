@@ -1,0 +1,14 @@
+node_modules
+**/node_modules
+**/dist
+**/dist-driver
+.env*
+api_key
+Picture
+.local
+prisma/*.db*
+docs/acceptance
+.git
+.agent
+.agents
+.codex

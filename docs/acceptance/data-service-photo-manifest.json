@@ -1,0 +1,77 @@
+{
+  "mode": "User-supplied photos and Wikimedia Commons photography; no generated images",
+  "photos": [
+    {
+      "name": "warehouse",
+      "path": "C:/Users/Lenovo/AppData/Local/Temp/codex-clipboard-522babc8-167b-4c55-b812-4c9cc4063937.png",
+      "source": "用户提供的粮仓现场照片",
+      "file": "apps/web/public/assets/data-service/warehouse-photo-v3.webp",
+      "size": [
+        754,
+        530
+      ],
+      "bytes": 138714,
+      "changes": "缩小尺寸并转换为 WebP；页面按展示比例裁切，未合成或修改照片内容"
+    },
+    {
+      "name": "vessel",
+      "path": "C:/Users/Lenovo/AppData/Local/Temp/codex-clipboard-e8896e5e-4c91-4b66-94c6-c41b8fc6e1f5.png",
+      "source": "用户提供的散粮船照片",
+      "file": "apps/web/public/assets/data-service/vessel-photo-v3.webp",
+      "size": [
+        755,
+        477
+      ],
+      "bytes": 61862,
+      "changes": "缩小尺寸并转换为 WebP；页面按展示比例裁切，未合成或修改照片内容"
+    },
+    {
+      "name": "rail",
+      "path": "D:\\项目资料\\Code\\liaoliang\\.local\\data-service-photos\\rail.jpg",
+      "title": "Grain train in the Kwinana Grain Terminal Loop Railway, May 2021 03",
+      "source": "https://commons.wikimedia.org/wiki/File:Grain_train_in_the_Kwinana_Grain_Terminal_Loop_Railway,_May_2021_03.jpg",
+      "author": "Calistemon",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "file": "apps/web/public/assets/data-service/rail-photo-v3.webp",
+      "size": [
+        960,
+        720
+      ],
+      "bytes": 100508,
+      "changes": "缩小尺寸并转换为 WebP；页面按展示比例裁切，未合成或修改照片内容"
+    },
+    {
+      "name": "port",
+      "path": "D:\\项目资料\\Code\\liaoliang\\.local\\data-service-photos\\port.jpg",
+      "title": "Yangshan-Port-Containers",
+      "source": "https://commons.wikimedia.org/wiki/File:Yangshan-Port-Containers.jpg",
+      "author": "Reb42",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "file": "apps/web/public/assets/data-service/port-photo-v3.webp",
+      "size": [
+        960,
+        720
+      ],
+      "bytes": 122428,
+      "changes": "缩小尺寸并转换为 WebP；页面按展示比例裁切，未合成或修改照片内容"
+    },
+    {
+      "name": "silos",
+      "path": "D:\\项目资料\\Code\\liaoliang\\.local\\data-service-photos\\silos.jpg",
+      "title": "Grain silos at KSK terminal",
+      "source": "https://commons.wikimedia.org/wiki/File:Grain_silos_at_KSK_terminal.jpg",
+      "author": "IvanStudenov",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "file": "apps/web/public/assets/data-service/silos-photo-v3.webp",
+      "size": [
+        960,
+        640
+      ],
+      "bytes": 192968,
+      "changes": "缩小尺寸并转换为 WebP；页面按展示比例裁切，未合成或修改照片内容"
+    }
+  ]
+}

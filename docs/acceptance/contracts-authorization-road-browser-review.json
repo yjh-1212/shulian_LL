@@ -1,0 +1,175 @@
+{
+  "checkedAt": "2026-10-03T14:31:54.910Z",
+  "modelCount": 8,
+  "allVehiclesMoved": true,
+  "allOffsetsZero": true,
+  "modelsDoNotOverlap": true,
+  "before": {
+    "at": 1791037755771,
+    "map": {
+      "mapInteractiveMs": "1051",
+      "mapOverlayRenders": "3",
+      "mapReady": "true",
+      "mapTilesMs": "1333",
+      "v-1714908d": "",
+      "vFd8a80f2": ""
+    },
+    "models": [
+      {
+        "coordinate": "123.17098947782826,41.75457118321436",
+        "height": 24,
+        "id": "business-init-v1-task-6-1-1-3",
+        "offset": "0,0",
+        "width": 24,
+        "x": 785.671875,
+        "y": 427.453125
+      },
+      {
+        "coordinate": "122.84369669743101,41.578843128449094",
+        "height": 24,
+        "id": "business-init-v1-task-6-1-1-4",
+        "offset": "0,0",
+        "width": 24,
+        "x": 741.5703125,
+        "y": 459.140625
+      },
+      {
+        "coordinate": "122.53853481786994,41.4312328007173",
+        "height": 24,
+        "id": "business-init-v1-task-6-1-1-5",
+        "offset": "0,0",
+        "width": 24,
+        "x": 700.4609375,
+        "y": 485.6953125
+      },
+      {
+        "coordinate": "122.20641301617796,41.36039546208291",
+        "height": 24,
+        "id": "business-init-v1-task-6-1-1-6",
+        "offset": "0,0",
+        "width": 24,
+        "x": 655.7109375,
+        "y": 498.421875
+      },
+      {
+        "coordinate": "122.4740687565551,40.68865860797271",
+        "height": 24,
+        "id": "business-init-v1-task-5-1-1-3",
+        "offset": "0,0",
+        "width": 24,
+        "x": 691.7734375,
+        "y": 618.3828125
+      },
+      {
+        "coordinate": "123.32567570330313,41.51246089174705",
+        "height": 24,
+        "id": "business-init-v1-task-5-1-1-4",
+        "offset": "0,0",
+        "width": 24,
+        "x": 806.5078125,
+        "y": 471.09375
+      },
+      {
+        "coordinate": "122.69533933355719,42.41336941284366",
+        "height": 24,
+        "id": "business-init-v1-task-5-1-1-5",
+        "offset": "0,0",
+        "width": 24,
+        "x": 721.5859375,
+        "y": 307.8515625
+      },
+      {
+        "coordinate": "124.31771362213786,42.999458627785025",
+        "height": 24,
+        "id": "business-init-v1-task-5-1-1-6",
+        "offset": "0,0",
+        "width": 24,
+        "x": 940.1640625,
+        "y": 200.390625
+      }
+    ],
+    "warnings": []
+  },
+  "after": {
+    "at": 1791037914908,
+    "models": [
+      {
+        "coordinate": "123.18631310277325,41.76021734747145",
+        "height": 24,
+        "id": "business-init-v1-task-6-1-1-3",
+        "offset": "0,0",
+        "width": 24,
+        "x": 787.734375,
+        "y": 426.4296875
+      },
+      {
+        "coordinate": "122.85678823702241,41.5881648142741",
+        "height": 24,
+        "id": "business-init-v1-task-6-1-1-4",
+        "offset": "0,0",
+        "width": 24,
+        "x": 743.3359375,
+        "y": 457.4609375
+      },
+      {
+        "coordinate": "122.55514665214342,41.43495771176929",
+        "height": 24,
+        "id": "business-init-v1-task-6-1-1-5",
+        "offset": "0,0",
+        "width": 24,
+        "x": 702.6953125,
+        "y": 485.03125
+      },
+      {
+        "coordinate": "122.22022748308824,41.36708734963235",
+        "height": 24,
+        "id": "business-init-v1-task-6-1-1-6",
+        "offset": "0,0",
+        "width": 24,
+        "x": 657.5703125,
+        "y": 497.21875
+      },
+      {
+        "coordinate": "122.46203717810411,40.67635823041239",
+        "height": 24,
+        "id": "business-init-v1-task-5-1-1-3",
+        "offset": "0,0",
+        "width": 24,
+        "x": 690.1484375,
+        "y": 620.5703125
+      },
+      {
+        "coordinate": "123.31292039463779,41.499668046247216",
+        "height": 24,
+        "id": "business-init-v1-task-5-1-1-4",
+        "offset": "0,0",
+        "width": 24,
+        "x": 804.7890625,
+        "y": 473.3984375
+      },
+      {
+        "coordinate": "122.676612111692,42.4013185997962",
+        "height": 24,
+        "id": "business-init-v1-task-5-1-1-5",
+        "offset": "0,0",
+        "width": 24,
+        "x": 719.0625,
+        "y": 310.0546875
+      },
+      {
+        "coordinate": "124.30289448168804,42.98861975567311",
+        "height": 24,
+        "id": "business-init-v1-task-5-1-1-6",
+        "offset": "0,0",
+        "width": 24,
+        "x": 938.171875,
+        "y": 202.390625
+      }
+    ],
+    "warnings": []
+  },
+  "platformApplyButtons": 0,
+  "performanceContracts": 10,
+  "pendingArchives": 6,
+  "archivedContracts": 4
+}

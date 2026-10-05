@@ -1,0 +1,53 @@
+{
+  "at": "2026-10-01T17:11:55.281Z",
+  "result": "PASS",
+  "browser": "Microsoft Edge Chromium headed",
+  "results": [
+    {
+      "name": "物流运营商从完成任务制单并通过真实页面提交对账",
+      "result": "PASS"
+    },
+    {
+      "name": "贸易方差异、承运方调整新版本、历史留存与对账确认",
+      "result": "PASS"
+    },
+    {
+      "name": "凭证上传、双方结算确认、费用归档及刷新持久化",
+      "result": "PASS"
+    },
+    {
+      "name": "平台全程只读、企业顶部不显示平台数据服务与系统管理",
+      "result": "PASS"
+    },
+    {
+      "name": "任务上下文自动带入、数据不足提示、问踪来源与业务深链",
+      "result": "PASS"
+    },
+    {
+      "name": "上传单据真实文本提取、人工确认及不可覆盖复核",
+      "result": "PASS"
+    },
+    {
+      "name": "数据目录真实保存，授权、订阅日志与专题应用独立页面",
+      "result": "PASS"
+    },
+    {
+      "name": "网络失败提示及恢复后重新加载",
+      "result": "PASS"
+    },
+    {
+      "name": "独立5174司机站点、390px手机布局和PC会话隔离",
+      "result": "PASS"
+    },
+    {
+      "name": "5000+采集点窗口回放，地图控件与页面可交互",
+      "result": "PASS"
+    }
+  ],
+  "jsErrors": [],
+  "metrics": {
+    "nodes": 1283,
+    "canvas": 1
+  },
+  "billId": "cmupsk1tb00i5trqkeybhnkeu"
+}

@@ -1,0 +1,87 @@
+{
+  "target": "http://127.0.0.1:5173",
+  "at": "2026-10-01T09:48:59.366Z",
+  "results": [
+    {
+      "name": "平台管理员真实登录",
+      "result": "PASS"
+    },
+    {
+      "name": "Swagger包含认证与管理API",
+      "result": "PASS"
+    },
+    {
+      "name": "新版合同四级入口及平台模板权限",
+      "result": "PASS"
+    },
+    {
+      "name": "1280px更多收纳、键盘操作、子路由激活",
+      "result": "PASS"
+    },
+    {
+      "name": "扩大窗口后导航恢复",
+      "result": "PASS"
+    },
+    {
+      "name": "主体新增写入SQLite、筛选与刷新持久化",
+      "result": "PASS"
+    },
+    {
+      "name": "字典表单校验、真实新增和成功反馈",
+      "result": "PASS"
+    },
+    {
+      "name": "AI入口展示权限范围，未伪造模型结果",
+      "result": "PASS"
+    },
+    {
+      "name": "退出立即撤销Access Token",
+      "result": "PASS"
+    },
+    {
+      "name": "贸易角色权限变更生效，平台API拒绝，合同模板隐藏",
+      "result": "PASS"
+    },
+    {
+      "name": "企业主体数据隔离，篡改主体参数被拒绝",
+      "result": "PASS"
+    },
+    {
+      "name": "页面刷新通过HttpOnly Refresh Token恢复会话",
+      "result": "PASS"
+    },
+    {
+      "name": "直接访问管理路由被拦截",
+      "result": "PASS"
+    },
+    {
+      "name": "物流运营商菜单仅有供给维护入口",
+      "result": "PASS"
+    },
+    {
+      "name": "司机账号禁止登录PC",
+      "result": "PASS"
+    },
+    {
+      "name": "企业角色不可授予平台权限",
+      "result": "PASS"
+    },
+    {
+      "name": "DTO拒绝越权字段与未知字段",
+      "result": "PASS"
+    },
+    {
+      "name": "数据库写操作有可查看审计日志",
+      "result": "PASS"
+    },
+    {
+      "name": "390px工作台无横向溢出",
+      "result": "PASS"
+    },
+    {
+      "name": "无浏览器运行时异常",
+      "result": "PASS"
+    }
+  ],
+  "errors": []
+}

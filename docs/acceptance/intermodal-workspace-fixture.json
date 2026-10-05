@@ -1,0 +1,21 @@
+{
+  "bulkBusinessId": "cmur3huqu0076treopzmwy3xm",
+  "containerBusinessId": "cmur3hv6o008atreorz3i3da7",
+  "browserBusinessId": "cmur3hvll009etreo6833oq9f",
+  "browserPackageId": "cmur3hvf3008xtreo2syyyda1",
+  "browserWaybillNo": "YD17909535396611E281",
+  "bulkWaybillNo": "YD179095353849769BCD",
+  "containerWaybillNo": "YD179095353909620734",
+  "bills": [
+    {
+      "businessId": "cmur3huqu0076treopzmwy3xm",
+      "billId": "cmur3hxns00dvtreou6rbgn91",
+      "billNo": "ZD17909535425663A33B"
+    },
+    {
+      "businessId": "cmur3hv6o008atreorz3i3da7",
+      "billId": "cmur3hxob00e8treo88ndff9g",
+      "billNo": "ZD17909535425866467D"
+    }
+  ]
+}

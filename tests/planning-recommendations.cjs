@@ -1,0 +1,31 @@
+const assert = require('node:assert/strict');
+const {recommendPlans} = require('../apps/api/dist/planning-recommendations');
+const route = (id, reliability, costCents, durationSeconds, extra = {}) =>
+  ({id, reliability, costCents, durationSeconds, costComplete: true, transferCount: 1, ...extra});
+const routes = [route('rail', 94, 30000, 72), route('sea', 84, 20000, 180), route('road', 88, 80000, 40)];
+const winner = (result, objective) => result.recommendations.find(r => r.objectives.includes(objective))?.candidate.id;
+let result = recommendPlans(routes);
+assert.equal(winner(result, 'RELIABILITY'), 'rail');
+assert.equal(winner(result, 'COST'), 'sea');
+assert.equal(winner(result, 'TIME'), 'road');
+assert.equal(result.recommendations.length, 3);
+// Changing real route metrics changes recommendations, regardless of transport mode.
+result = recommendPlans([...routes, route('new-sea', 99, 10000, 30)]);
+assert.equal(result.recommendations.length, 1);
+assert.deepEqual(result.recommendations[0].objectives, ['RELIABILITY', 'COST', 'TIME']);
+assert.equal(result.recommendations[0].candidate.id, 'new-sea');
+result = recommendPlans([route('unknown', 99, 0, 20, {costComplete: false}), routes[1]]);
+assert.equal(winner(result, 'COST'), 'sea');
+result = recommendPlans([route('unknown', 99, null, 20, {costComplete: false})]);
+assert.equal(winner(result, 'COST'), undefined);
+assert.equal(result.unavailable.length, 1);
+assert.deepEqual(recommendPlans([]), {recommendations: [], unavailable: []});
+result = recommendPlans([route('more-transfers', 90, 10, 10, {transferCount: 3}), route('fewer-transfers', 90, 20, 20)]);
+assert.equal(winner(result, 'RELIABILITY'), 'fewer-transfers');
+console.log('PASS 三种目标各自求解、指标变化、同路线合并、未知费用排除、无结果及同分决策');
+const mixed = [route('intermodal', 92, 30000, 100, {modes: ['ROAD','RAIL']}), route('direct', 99, 20000, 10, {modes: ['ROAD']})];
+result = recommendPlans(mixed, true);
+for (const objective of ['RELIABILITY','COST','TIME']) assert.equal(winner(result, objective), 'intermodal');
+assert.equal(winner(recommendPlans(mixed, false), 'TIME'), 'direct');
+assert.equal(winner(recommendPlans([mixed[1]], true), 'TIME'), 'direct');
+console.log('PASS 联运优先比较、单方式显式选择及无联运时备选');

@@ -1,0 +1,107 @@
+{
+  "sourceSystem": "BUSINESS_INITIALIZATION",
+  "quality": "INITIALIZATION",
+  "trips": [
+    {
+      "taskId": "business-init-v1-task-5-1-1-3",
+      "vehicleId": "business-init-v1-vehicle-carrier-a-3",
+      "routeName": "公主岭站 → 鲅鱼圈港 · 道路方案 1",
+      "geometryId": "cmuqmlk5k002ktrg02ieybqma",
+      "points": 3153,
+      "distanceKm": 462.7,
+      "referenceKmh": 38.6,
+      "startAt": "2026-10-03T04:04:35.528Z",
+      "endAt": "2026-10-03T16:04:35.528Z",
+      "progressAtCreation": 0.83
+    },
+    {
+      "taskId": "business-init-v1-task-5-1-1-4",
+      "vehicleId": "business-init-v1-vehicle-carrier-a-4",
+      "routeName": "公主岭站 → 鲅鱼圈港 · 道路方案 2",
+      "geometryId": "cmuqmlk5k002ltrg0wqkkhwok",
+      "points": 3274,
+      "distanceKm": 485.4,
+      "referenceKmh": 40.5,
+      "startAt": "2026-10-03T06:57:23.528Z",
+      "endAt": "2026-10-03T18:57:23.528Z",
+      "progressAtCreation": 0.59
+    },
+    {
+      "taskId": "business-init-v1-task-5-1-1-5",
+      "vehicleId": "business-init-v1-vehicle-carrier-a-5",
+      "routeName": "公主岭站 → 鲅鱼圈港 · 道路方案 3",
+      "geometryId": "cmuqmlk5k002mtrg0gmfyv9bh",
+      "points": 4014,
+      "distanceKm": 559.9,
+      "referenceKmh": 46.7,
+      "startAt": "2026-10-03T09:42:59.528Z",
+      "endAt": "2026-10-03T21:42:59.528Z",
+      "progressAtCreation": 0.36
+    },
+    {
+      "taskId": "business-init-v1-task-5-1-1-6",
+      "vehicleId": "business-init-v1-vehicle-carrier-a-6",
+      "routeName": "公主岭站 → 鲅鱼圈港 · 道路方案 1",
+      "geometryId": "cmuqmlk5k002ktrg02ieybqma",
+      "points": 3153,
+      "distanceKm": 462.7,
+      "referenceKmh": 38.6,
+      "startAt": "2026-10-03T12:35:47.528Z",
+      "endAt": "2026-10-04T00:35:47.528Z",
+      "progressAtCreation": 0.12
+    },
+    {
+      "taskId": "business-init-v1-task-6-1-1-3",
+      "vehicleId": "business-init-v1-vehicle-carrier-b-3",
+      "routeName": "盘锦站 → 铁路货运蒲河物流基地 · 道路方案 1",
+      "geometryId": "cmuphwxed0009trf8llj3gf0h",
+      "points": 991,
+      "distanceKm": 130.3,
+      "referenceKmh": 32.6,
+      "startAt": "2026-10-03T10:50:11.528Z",
+      "endAt": "2026-10-03T14:50:11.528Z",
+      "progressAtCreation": 0.8
+    },
+    {
+      "taskId": "business-init-v1-task-6-1-1-4",
+      "vehicleId": "business-init-v1-vehicle-carrier-b-4",
+      "routeName": "盘锦站 → 铁路货运蒲河物流基地 · 道路方案 2",
+      "geometryId": "cmuphwxed0008trf8h3a7758t",
+      "points": 1038,
+      "distanceKm": 136.2,
+      "referenceKmh": 34.1,
+      "startAt": "2026-10-03T11:50:11.528Z",
+      "endAt": "2026-10-03T15:50:11.528Z",
+      "progressAtCreation": 0.55
+    },
+    {
+      "taskId": "business-init-v1-task-6-1-1-5",
+      "vehicleId": "business-init-v1-vehicle-carrier-b-5",
+      "routeName": "盘锦站 → 铁路货运蒲河物流基地 · 道路方案 3",
+      "geometryId": "cmur7pqtg001ptrfw1mm2ccb9",
+      "points": 1141,
+      "distanceKm": 140.6,
+      "referenceKmh": 35.2,
+      "startAt": "2026-10-03T12:50:11.528Z",
+      "endAt": "2026-10-03T16:50:11.528Z",
+      "progressAtCreation": 0.3
+    },
+    {
+      "taskId": "business-init-v1-task-6-1-1-6",
+      "vehicleId": "business-init-v1-vehicle-carrier-b-6",
+      "routeName": "盘锦站 → 铁路货运蒲河物流基地 · 道路方案 1",
+      "geometryId": "cmuphwxed0009trf8llj3gf0h",
+      "points": 991,
+      "distanceKm": 130.3,
+      "referenceKmh": 32.6,
+      "startAt": "2026-10-03T13:42:59.528Z",
+      "endAt": "2026-10-03T17:42:59.528Z",
+      "progressAtCreation": 0.08
+    }
+  ],
+  "providerRecordsWritten": 0,
+  "trackPointsPreserved": true,
+  "clockRate": 1,
+  "backup": "D:\\项目资料\\Code\\liaoliang\\.local\\backups\\road-movement-2026-10-03T14-02-11-528Z\\database.db",
+  "initializedAt": "2026-10-03T14:02:11.528Z"
+}

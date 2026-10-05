@@ -1,0 +1,12 @@
+const assert=require('node:assert/strict');
+const {scoreSupplies}=require('../apps/api/dist/planning-suppliers');
+const input={grainId:'corn',quantity:100,loadingType:'BULK',departureAt:'2030-01-10',arrivalAt:'2030-01-20',origin:{province:'黑龙江省',city:'哈尔滨市'},destination:{province:'广东省',city:'广州市'}};
+const candidate={modes:['ROAD','RAIL'],segments:[{priceSnapshot:{conversionRequired:false}}]};
+function supply(id,extra={}){return {id,businessNo:id,businessEntityId:id,businessEntity:{name:id,registeredRegion:'黑龙江省 / 哈尔滨市',registeredCodes:'230000/230100'},mode:{code:'4',label:'多式联运'},grains:[{grainId:'corn'}],originCodes:'230000/230100',originRegion:'黑龙江省 / 哈尔滨市',destinationCodes:'440000/440100',destinationRegion:'广东省 / 广州市',capacityKg:1000000,minKg:1000,maxKg:1000000,loadingType:'BULK',bulkPriceCents:25000,version:1,...extra};}
+let rows=scoreSupplies([supply('low'),supply('high',{bulkPriceCents:35000}),supply('road',{mode:{code:'1'}}),supply('wrong',{destinationCodes:'350000/350500'}),supply('small',{capacityKg:99000}),supply('grain',{grains:[{grainId:'soy'}]}),supply('box',{loadingType:'CONTAINER'}),supply('late',{serviceStart:new Date('2030-01-11')}),supply('expired',{validUntil:new Date('2030-01-09')})],input,candidate);
+assert.deepEqual(rows.map(r=>r.supplyId),['low','high']);assert.equal(rows[0].routeMatch,100);assert.equal(rows[0].totalCents,2500000);assert.ok(rows[0].score>rows[1].score);
+rows=scoreSupplies([supply('same-a',{businessEntityId:'same'}),supply('same-b',{businessEntityId:'same',bulkPriceCents:26000}),supply('orders')],input,candidate,{orders:10});assert.equal(rows.length,2);assert.equal(rows[0].supplyId,'orders');assert.equal(rows[0].acceptedOrders,10);
+const converted={modes:['ROAD','WATER'],segments:[{priceSnapshot:JSON.stringify({conversionRequired:true})}]};
+rows=scoreSupplies([supply('boxes',{loadingType:'CONTAINER',container20PriceCents:620000})],input,converted);assert.equal(rows[0].boxCount,4);assert.equal(rows[0].totalCents,2480000);assert.ok(rows[0].warnings.some(w=>w.includes('模拟估算')));
+rows=scoreSupplies([supply('province',{originCodes:'230000/231200'}),supply('unknown',{bulkPriceCents:null})],input,candidate);assert.equal(rows.find(r=>r.supplyId==='province').routeMatch,85);assert.equal(rows.find(r=>r.supplyId==='unknown').unitPriceCents,null);assert.ok(rows.every(r=>Number.isFinite(r.score)));
+console.log('PASS 已发布运力适配规则、按吨与按箱报价、接单记录/注册地评分、同企业去重、未知报价不作零元');

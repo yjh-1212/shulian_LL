@@ -1,0 +1,104 @@
+{
+  "at": "2026-10-02T13:42:04.063Z",
+  "result": "PASS",
+  "backupUnchanged": true,
+  "results": [
+    {
+      "table": "ContractTemplate",
+      "original": 4,
+      "missing": 0,
+      "changed": 0
+    },
+    {
+      "table": "ContractPackage",
+      "original": 12,
+      "missing": 0,
+      "changed": 0
+    },
+    {
+      "table": "ContractRevision",
+      "original": 16,
+      "missing": 0,
+      "changed": 0
+    },
+    {
+      "table": "ContractSignature",
+      "original": 63,
+      "missing": 0,
+      "changed": 0
+    },
+    {
+      "table": "LogisticsBusiness",
+      "original": 12,
+      "missing": 0,
+      "changed": 0
+    },
+    {
+      "table": "TransportTask",
+      "original": 28,
+      "missing": 0,
+      "changed": 0
+    },
+    {
+      "table": "Bill",
+      "original": 7,
+      "missing": 0,
+      "changed": 0
+    },
+    {
+      "table": "Settlement",
+      "original": 7,
+      "missing": 0,
+      "changed": 0
+    },
+    {
+      "table": "SettlementRecord",
+      "original": 8,
+      "missing": 0,
+      "changed": 0
+    },
+    {
+      "table": "CarrierConfirmation",
+      "original": 35,
+      "missing": 0,
+      "changed": 0
+    },
+    {
+      "table": "TradeOrder",
+      "original": 44,
+      "missing": 0,
+      "changed": 0
+    },
+    {
+      "table": "TradeOrderItem",
+      "original": 44,
+      "missing": 0,
+      "changed": 0
+    },
+    {
+      "table": "TransportDemand",
+      "original": 75,
+      "missing": 0,
+      "changed": 0
+    },
+    {
+      "table": "TransportSupply",
+      "original": 52,
+      "missing": 0,
+      "changed": 0
+    },
+    {
+      "table": "MatchPublication",
+      "original": 71,
+      "missing": 0,
+      "changed": 0
+    },
+    {
+      "table": "MatchResponse",
+      "original": 48,
+      "missing": 0,
+      "changed": 0
+    }
+  ],
+  "foreignKeyErrors": 0
+}

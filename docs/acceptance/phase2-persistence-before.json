@@ -1,0 +1,19 @@
+{
+  "demand": {
+    "id": "cmupgz2a7004ktr5co83loq57",
+    "status": "PUBLISHED",
+    "version": 2,
+    "publicationIds": [
+      "cmupgz33t004ntr5chkimdxbl"
+    ]
+  },
+  "supply": {
+    "id": "cmupgz6oc004qtr5cqm0v9b40",
+    "status": "PUBLISHED",
+    "version": 2
+  },
+  "order": {
+    "id": "sample-order-trader-a-1-item",
+    "reservedKg": 145500
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "checkedAt": "2026-10-03T15:02:58.816Z",
+  "templates": 6,
+  "mainContracts": 5,
+  "addendums": 1,
+  "defaultMain": "contract-template-library-2026-10-v1-grain-general",
+  "pdfDownloadsVerified": 6,
+  "preservedTables": [
+    "ContractTemplate",
+    "ContractTemplateFile",
+    "ContractPackage",
+    "ContractRevision",
+    "ContractSignature",
+    "ContractArchive",
+    "Bill",
+    "Settlement",
+    "SettlementRecord",
+    "TransportTask"
+  ],
+  "idempotent": true
+}

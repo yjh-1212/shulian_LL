@@ -1,0 +1,31 @@
+{
+  "at": "2026-10-02T08:53:58.257Z",
+  "result": "PASS",
+  "companies": 8,
+  "publishedSupplies": 32,
+  "checks": [
+    "前后端最终构建",
+    "供应商适配与排序规则",
+    "默认模型调用成功",
+    "指定发布到报价、承运确认、合同快照",
+    "独立需求撤回编辑取消",
+    "订单来源需求数量占用保留",
+    "供应状态版本变化及主体隔离",
+    "全新数据库迁移与重复初始化",
+    "原企业需求及订单占用保存，外键完整",
+    "浏览器求解选择供应商和发布"
+  ],
+  "demo": {
+    "planRunId": "cmuqpfn6w00hltrc0zwkxdjys",
+    "publicationId": "cmuqpshgx000itru01aa81e3y",
+    "mode": "DIRECTED",
+    "carrier": "北仓联运物流（模拟）",
+    "quantityTons": 100,
+    "hasTradeOrder": false
+  },
+  "screenshots": [
+    "planning-supplier-recommendations.png",
+    "planning-directed-publish-dialog.png",
+    "planning-directed-publication.png"
+  ]
+}

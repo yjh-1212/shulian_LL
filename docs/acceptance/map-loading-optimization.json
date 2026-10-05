@@ -1,0 +1,55 @@
+{
+  "scope": [
+    "全程跟踪",
+    "专题视图",
+    "方案求解",
+    "地址选点",
+    "智能体方案内的地图"
+  ],
+  "browserMeasurements": {
+    "context": "同一浏览器会话、开发服务；只计地图组件开始加载至可交互的时间，不包含登录、路由代码和业务数据加载。未清除浏览器HTTP缓存。",
+    "initialReload": {
+      "interactiveMs": 239,
+      "models": 2,
+      "ready": "true",
+      "renders": 9,
+      "sdkScripts": 1,
+      "tilesMs": 366
+    },
+    "planning": {
+      "interactiveMs": 31,
+      "sdkScripts": 1,
+      "tilesMs": 85
+    },
+    "picker": {
+      "maps": [
+        {
+          "canvases": 1,
+          "interactiveMs": 66,
+          "ready": "true",
+          "tilesMs": 117
+        },
+        {
+          "canvases": 1,
+          "interactiveMs": 31,
+          "ready": "true",
+          "tilesMs": 85
+        }
+      ],
+      "sdkScripts": 1
+    }
+  },
+  "verified": [
+    "各地图页及同时打开的地址选点共用一个SDK脚本",
+    "适配全程前后完整覆盖物重建次数相同（9 → 9）",
+    "水运详情、铁路在途模型和预测预警显示正常",
+    "已完成运单同步回放11辆车、2艘船、1个铁路任务；回放结束14个模型变为已完成小点",
+    "关闭选点弹窗后仅保留一个地图画布",
+    "加载遮罩限制在地图层，查询和列表可继续使用"
+  ],
+  "unitTests": {
+    "passed": 6,
+    "command": "node --import tsx --test tests/map-loading.test.ts"
+  },
+  "consoleErrors": []
+}

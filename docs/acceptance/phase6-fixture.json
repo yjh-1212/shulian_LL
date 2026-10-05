@@ -1,0 +1,17 @@
+{
+  "businessId": "cmupnp7on001jtrfocln5mevn",
+  "businessNo": "LY1790866542118B61FA",
+  "packageId": "cmupnp7g80011trfobn5md37n",
+  "demandId": "cmupnp7am000ltrfo7sm7rm3h",
+  "roadId": "cmupnp7qe001otrfor0bn4k2o",
+  "roadNo": "RW1790866542181BB3E6",
+  "railId": "cmupnp7r9001rtrfojt5n4gd1",
+  "waterId": "cmupnp7t0001xtrfo06z3zs29",
+  "taskIds": [
+    "cmupnp7qe001otrfor0bn4k2o",
+    "cmupnp7r9001rtrfojt5n4gd1",
+    "cmupnp7s5001utrfoyd811345",
+    "cmupnp7t0001xtrfo06z3zs29"
+  ],
+  "createdAt": "2026-10-01T14:55:44.842Z"
+}

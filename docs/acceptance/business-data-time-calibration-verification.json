@@ -1,0 +1,193 @@
+{
+  "verifiedAt": "2026-10-03T12:35:43.276Z",
+  "auditId": "business-init-v1-time-calibration-v1",
+  "oldBase": "2026-10-03T02:00:00.000Z",
+  "newBase": "2026-10-03T12:32:42.845Z",
+  "deltaMs": 37962845,
+  "tableChecks": [
+    {
+      "table": "BusinessEntity",
+      "beforeCount": 4,
+      "afterCount": 4,
+      "mismatches": 0
+    },
+    {
+      "table": "User",
+      "beforeCount": 12,
+      "afterCount": 12,
+      "mismatches": 0
+    },
+    {
+      "table": "VesselArchive",
+      "beforeCount": 4,
+      "afterCount": 4,
+      "mismatches": 0
+    },
+    {
+      "table": "TradeOrder",
+      "beforeCount": 16,
+      "afterCount": 16,
+      "mismatches": 0
+    },
+    {
+      "table": "TransportDemand",
+      "beforeCount": 16,
+      "afterCount": 16,
+      "mismatches": 0
+    },
+    {
+      "table": "TransportSupply",
+      "beforeCount": 16,
+      "afterCount": 16,
+      "mismatches": 0
+    },
+    {
+      "table": "RoutePrice",
+      "beforeCount": 3,
+      "afterCount": 3,
+      "mismatches": 0
+    },
+    {
+      "table": "MatchPublication",
+      "beforeCount": 16,
+      "afterCount": 16,
+      "mismatches": 0
+    },
+    {
+      "table": "MatchRecipient",
+      "beforeCount": 16,
+      "afterCount": 16,
+      "mismatches": 0
+    },
+    {
+      "table": "MatchResponse",
+      "beforeCount": 16,
+      "afterCount": 16,
+      "mismatches": 0
+    },
+    {
+      "table": "NegotiationRound",
+      "beforeCount": 16,
+      "afterCount": 16,
+      "mismatches": 0
+    },
+    {
+      "table": "CarrierConfirmation",
+      "beforeCount": 16,
+      "afterCount": 16,
+      "mismatches": 0
+    },
+    {
+      "table": "ContractPackage",
+      "beforeCount": 16,
+      "afterCount": 16,
+      "mismatches": 0
+    },
+    {
+      "table": "ContractRevision",
+      "beforeCount": 16,
+      "afterCount": 16,
+      "mismatches": 0
+    },
+    {
+      "table": "LogisticsBusiness",
+      "beforeCount": 16,
+      "afterCount": 16,
+      "mismatches": 0
+    },
+    {
+      "table": "TransportStage",
+      "beforeCount": 47,
+      "afterCount": 47,
+      "mismatches": 0
+    },
+    {
+      "table": "TransportTask",
+      "beforeCount": 348,
+      "afterCount": 348,
+      "mismatches": 0
+    },
+    {
+      "table": "ExecutionEvent",
+      "beforeCount": 348,
+      "afterCount": 348,
+      "mismatches": 0
+    },
+    {
+      "table": "TrackPoint",
+      "beforeCount": 131486,
+      "afterCount": 131486,
+      "mismatches": 0
+    },
+    {
+      "table": "TransportObservation",
+      "beforeCount": 0,
+      "afterCount": 0,
+      "mismatches": 0
+    },
+    {
+      "table": "Forecast",
+      "beforeCount": 16,
+      "afterCount": 16,
+      "mismatches": 0
+    },
+    {
+      "table": "RiskRecord",
+      "beforeCount": 2,
+      "afterCount": 2,
+      "mismatches": 0
+    },
+    {
+      "table": "ServiceFee",
+      "beforeCount": 37,
+      "afterCount": 37,
+      "mismatches": 0
+    },
+    {
+      "table": "Bill",
+      "beforeCount": 4,
+      "afterCount": 4,
+      "mismatches": 0
+    },
+    {
+      "table": "BillItem",
+      "beforeCount": 16,
+      "afterCount": 16,
+      "mismatches": 0
+    }
+  ],
+  "allExpectedFieldsMatch": true,
+  "trajectoryStorage": [
+    {
+      "storage": "integer",
+      "rows": 131486
+    }
+  ],
+  "inTransitTasks": 16,
+  "allInTransitLatestAtNewBase": true,
+  "forecastRows": 16,
+  "allForecastTimesAtNewBase": true,
+  "riskRows": 2,
+  "allRiskLastSeenAtNewBase": true,
+  "signatureCount": 0,
+  "priceValidity": [
+    {
+      "id": "business-init-v1-price-road-general",
+      "validFrom": "2026-01-01T00:00:00.000Z",
+      "validUntil": "2028-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "business-init-v1-price-road-paddy",
+      "validFrom": "2026-01-01T00:00:00.000Z",
+      "validUntil": "2028-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "business-init-v1-price-road-soybean",
+      "validFrom": "2026-01-01T00:00:00.000Z",
+      "validUntil": "2028-01-01T00:00:00.000Z"
+    }
+  ],
+  "calibrationAuditCount": 1,
+  "idempotentRerun": "ALREADY_CALIBRATED",
+  "backupPath": "D:\\项目资料\\Code\\liaoliang\\.local\\backups\\business-time-calibration-2026-10-03T12-32-44-171Z\\database.db"
+}

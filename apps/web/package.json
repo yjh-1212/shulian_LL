@@ -1,0 +1,28 @@
+{
+  "name": "@grain/web",
+  "private": true,
+  "version": "0.3.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "dev:driver": "vite --mode driver --host 127.0.0.1",
+    "build:driver": "vue-tsc --noEmit && vite build --mode driver"
+  },
+  "dependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
+    "axios": "1.20.0",
+    "element-plus": "2.11.8",
+    "lucide-vue-next": "0.548.0",
+    "pdfjs-dist": "^6.3.289",
+    "pinia": "3.0.4",
+    "vue": "3.5.24",
+    "vue-router": "4.6.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "6.0.2",
+    "vite": "7.3.6",
+    "vue-tsc": "3.1.4"
+  }
+}

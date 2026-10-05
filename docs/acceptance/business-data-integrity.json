@@ -1,0 +1,239 @@
+{
+  "checkedAt": "2026-10-03T14:31:01.384Z",
+  "passed": true,
+  "orders": 16,
+  "supplies": 16,
+  "bills": 4,
+  "grains": [
+    "玉米",
+    "大豆",
+    "小麦",
+    "稻谷"
+  ],
+  "tasks": 348,
+  "points": 131486,
+  "roadTasks": 331,
+  "activeRoadTasks": 8,
+  "signatureRecords": 0,
+  "backupVerified": true,
+  "checks": [
+    "16个运单来源可追溯",
+    "合同草案无签章",
+    "吨数1位小数",
+    "道路任务不预分配运输量",
+    "车辆司机归属正确",
+    "回传净重不超车辆和阶段",
+    "轨迹点连续并保留完成终点",
+    "在途多车坐标各异",
+    "非道路几何齐全",
+    "散货与集装箱运力",
+    "旧模板归档",
+    "备份SHA256验证"
+  ],
+  "waybills": [
+    {
+      "waybill": "YD2026100001",
+      "grain": "玉米",
+      "tonnes": "680.5",
+      "status": "PENDING",
+      "route": [
+        "ROAD",
+        "RAIL",
+        "ROAD"
+      ],
+      "tasks": 0,
+      "activeRoadCoordinates": 0
+    },
+    {
+      "waybill": "YD2026100002",
+      "grain": "大豆",
+      "tonnes": "420.8",
+      "status": "PENDING",
+      "route": [
+        "ROAD",
+        "WATER"
+      ],
+      "tasks": 0,
+      "activeRoadCoordinates": 0
+    },
+    {
+      "waybill": "YD2026100003",
+      "grain": "小麦",
+      "tonnes": "1250.0",
+      "status": "PENDING",
+      "route": [
+        "RAIL",
+        "WATER"
+      ],
+      "tasks": 0,
+      "activeRoadCoordinates": 0
+    },
+    {
+      "waybill": "YD2026100004",
+      "grain": "稻谷",
+      "tonnes": "860.2",
+      "status": "PENDING",
+      "route": [
+        "ROAD",
+        "RAIL",
+        "WATER",
+        "ROAD"
+      ],
+      "tasks": 0,
+      "activeRoadCoordinates": 0
+    },
+    {
+      "waybill": "YD2026100005",
+      "grain": "玉米",
+      "tonnes": "1680.5",
+      "status": "IN_PROGRESS",
+      "route": [
+        "ROAD",
+        "WATER"
+      ],
+      "tasks": 6,
+      "activeRoadCoordinates": 4
+    },
+    {
+      "waybill": "YD2026100006",
+      "grain": "大豆",
+      "tonnes": "920.3",
+      "status": "IN_PROGRESS",
+      "route": [
+        "ROAD",
+        "RAIL",
+        "ROAD"
+      ],
+      "tasks": 6,
+      "activeRoadCoordinates": 4
+    },
+    {
+      "waybill": "YD2026100007",
+      "grain": "小麦",
+      "tonnes": "1500.0",
+      "status": "IN_PROGRESS",
+      "route": [
+        "ROAD",
+        "RAIL",
+        "WATER",
+        "ROAD"
+      ],
+      "tasks": 53,
+      "activeRoadCoordinates": 0
+    },
+    {
+      "waybill": "YD2026100008",
+      "grain": "稻谷",
+      "tonnes": "735.6",
+      "status": "IN_PROGRESS",
+      "route": [
+        "RAIL",
+        "WATER"
+      ],
+      "tasks": 1,
+      "activeRoadCoordinates": 0
+    },
+    {
+      "waybill": "YD2026100009",
+      "grain": "玉米",
+      "tonnes": "2400.0",
+      "status": "IN_PROGRESS",
+      "route": [
+        "RAIL",
+        "WATER"
+      ],
+      "tasks": 3,
+      "activeRoadCoordinates": 0
+    },
+    {
+      "waybill": "YD2026100010",
+      "grain": "大豆",
+      "tonnes": "510.4",
+      "status": "IN_PROGRESS",
+      "route": [
+        "ROAD",
+        "RAIL",
+        "WATER",
+        "ROAD"
+      ],
+      "tasks": 20,
+      "activeRoadCoordinates": 0
+    },
+    {
+      "waybill": "YD2026100011",
+      "grain": "小麦",
+      "tonnes": "980.7",
+      "status": "IN_PROGRESS",
+      "route": [
+        "ROAD",
+        "RAIL",
+        "ROAD"
+      ],
+      "tasks": 35,
+      "activeRoadCoordinates": 0
+    },
+    {
+      "waybill": "YD2026100012",
+      "grain": "稻谷",
+      "tonnes": "1360.2",
+      "status": "IN_PROGRESS",
+      "route": [
+        "ROAD",
+        "WATER"
+      ],
+      "tasks": 49,
+      "activeRoadCoordinates": 0
+    },
+    {
+      "waybill": "YD2026100013",
+      "grain": "玉米",
+      "tonnes": "880.6",
+      "status": "COMPLETED",
+      "route": [
+        "ROAD",
+        "RAIL",
+        "WATER",
+        "ROAD"
+      ],
+      "tasks": 64,
+      "activeRoadCoordinates": 0
+    },
+    {
+      "waybill": "YD2026100014",
+      "grain": "大豆",
+      "tonnes": "760.5",
+      "status": "COMPLETED",
+      "route": [
+        "RAIL",
+        "WATER"
+      ],
+      "tasks": 2,
+      "activeRoadCoordinates": 0
+    },
+    {
+      "waybill": "YD2026100015",
+      "grain": "小麦",
+      "tonnes": "1800.0",
+      "status": "COMPLETED",
+      "route": [
+        "ROAD",
+        "WATER"
+      ],
+      "tasks": 64,
+      "activeRoadCoordinates": 0
+    },
+    {
+      "waybill": "YD2026100016",
+      "grain": "稻谷",
+      "tonnes": "640.8",
+      "status": "COMPLETED",
+      "route": [
+        "ROAD",
+        "RAIL",
+        "ROAD"
+      ],
+      "tasks": 45,
+      "activeRoadCoordinates": 0
+    }
+  ]
+}

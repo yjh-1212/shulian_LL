@@ -1,0 +1,162 @@
+[
+  {
+    "keywords": "蒲河物流基地",
+    "pois": [
+      {
+        "id": "B0FFLAFJTD",
+        "name": "铁路货运蒲河物流基地",
+        "type": "070500",
+        "location": "123.190329,41.842324",
+        "province": "辽宁省",
+        "city": "沈阳市",
+        "district": "于洪区",
+        "address": "中欧班列(沈阳)集结中心建设运营有限公司西侧"
+      },
+      {
+        "id": "B0LD1K9A1S",
+        "name": "铁路货运蒲河物流基地",
+        "type": "070500",
+        "location": "123.196613,41.861991",
+        "province": "辽宁省",
+        "city": "沈阳市",
+        "district": "于洪区",
+        "address": "洪顺路南侧"
+      },
+      {
+        "id": "B0JGBC7OCQ",
+        "name": "中欧班列(沈阳)集结中心建设运营有限公司",
+        "type": "170200",
+        "location": "123.190598,41.842279",
+        "province": "辽宁省",
+        "city": "沈阳市",
+        "district": "于洪区",
+        "address": "沙岭街道蒲河物流基地"
+      },
+      {
+        "id": "B0FFMB0PJ4",
+        "name": "海吉星物流园",
+        "type": "120100",
+        "location": "123.580190,41.956341",
+        "province": "辽宁省",
+        "city": "沈阳市",
+        "district": "沈北新区",
+        "address": "蒲河路169号沈阳海吉星2期"
+      },
+      {
+        "id": "B0FFGC6KMW",
+        "name": "创业超市(海吉星物流园店)",
+        "type": "060000",
+        "location": "123.577710,41.956941",
+        "province": "辽宁省",
+        "city": "沈阳市",
+        "district": "沈北新区",
+        "address": "蒲河大道169号海吉星物流园"
+      }
+    ]
+  },
+  {
+    "keywords": "蒲河火车站",
+    "pois": [
+      {
+        "id": "B0FFLAFJTD",
+        "name": "铁路货运蒲河物流基地",
+        "type": "070500",
+        "location": "123.190329,41.842324",
+        "province": "辽宁省",
+        "city": "沈阳市",
+        "district": "于洪区",
+        "address": "中欧班列(沈阳)集结中心建设运营有限公司西侧"
+      },
+      {
+        "id": "B0FFGF9WU2",
+        "name": "蒲河",
+        "type": "190204",
+        "location": "123.453072,41.942481",
+        "province": "辽宁省",
+        "city": "沈阳市",
+        "district": "沈北新区",
+        "address": "沈北新区"
+      },
+      {
+        "id": "BX10025027",
+        "name": "蒲河路地铁站A口",
+        "type": "150501",
+        "location": "123.408688,41.947489",
+        "province": "辽宁省",
+        "city": "沈阳市",
+        "district": "沈北新区",
+        "address": "2号线"
+      },
+      {
+        "id": "B001816K72",
+        "name": "蒲河",
+        "type": "190204",
+        "location": "123.584155,41.963777",
+        "province": "辽宁省",
+        "city": "沈阳市",
+        "district": "沈北新区",
+        "address": "沈北新区"
+      },
+      {
+        "id": "BV11007109",
+        "name": "蒲河路(地铁站)",
+        "type": "150500",
+        "location": "123.408584,41.946825",
+        "province": "辽宁省",
+        "city": "沈阳市",
+        "district": "沈北新区",
+        "address": "2号线"
+      },
+      {
+        "id": "BV11012381",
+        "name": "蒲河路地铁站(公交站)",
+        "type": "150700",
+        "location": "123.408126,41.945409",
+        "province": "辽宁省",
+        "city": "沈阳市",
+        "district": "沈北新区",
+        "address": "(停运)道义环线;197路;236路;255路;K707路;V129路"
+      },
+      {
+        "id": "B0FFGH8P9G",
+        "name": "蒲河",
+        "type": "190204",
+        "location": "123.646204,41.975180",
+        "province": "辽宁省",
+        "city": "沈阳市",
+        "district": "沈北新区",
+        "address": "沈北新区"
+      },
+      {
+        "id": "B0FFGF9WVJ",
+        "name": "蒲河",
+        "type": "190204",
+        "location": "123.301901,41.899170",
+        "province": "辽宁省",
+        "city": "沈阳市",
+        "district": "于洪区",
+        "address": "于洪区"
+      },
+      {
+        "id": "B001816K3W",
+        "name": "蒲河",
+        "type": "190204",
+        "location": "123.347557,41.927850",
+        "province": "辽宁省",
+        "city": "沈阳市",
+        "district": "于洪区",
+        "address": "于洪区"
+      },
+      {
+        "id": "BX10025028",
+        "name": "蒲河路地铁站B口",
+        "type": "150501",
+        "location": "123.408079,41.947385",
+        "province": "辽宁省",
+        "city": "沈阳市",
+        "district": "沈北新区",
+        "address": "2号线"
+      }
+    ]
+  }
+]

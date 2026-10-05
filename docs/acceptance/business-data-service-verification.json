@@ -1,0 +1,110 @@
+{
+  "checkedAt": "2026-10-03T14:06:23.679Z",
+  "passed": true,
+  "totalWaybills": 16,
+  "activeVehicles": [
+    {
+      "plate": "辽B6H287",
+      "position": {
+        "id": "business-init-v1-task-5-1-1-3:reference-motion:1791036382515",
+        "taskId": "business-init-v1-task-5-1-1-3",
+        "sourceSystem": "BUSINESS_INITIALIZATION",
+        "sourceType": "INITIALIZATION",
+        "sourceRecordId": "reference-motion:2597:1791036382515",
+        "assetId": "business-init-v1-vehicle-carrier-a-3",
+        "dataQuality": "INITIALIZATION",
+        "isTestData": false,
+        "longitude": 122.5821533467526,
+        "latitude": 40.788244685375915,
+        "observedAt": "2026-10-03T14:06:22.515Z",
+        "originalLongitude": 122.5821533467526,
+        "originalLatitude": 40.788244685375915,
+        "originalCoordinateSystem": "GCJ02"
+      },
+      "points": 2598
+    },
+    {
+      "plate": "辽B5J300",
+      "position": {
+        "id": "business-init-v1-task-5-1-1-4:reference-motion:1791036382542",
+        "taskId": "business-init-v1-task-5-1-1-4",
+        "sourceSystem": "BUSINESS_INITIALIZATION",
+        "sourceType": "INITIALIZATION",
+        "sourceRecordId": "reference-motion:2050:1791036382542",
+        "assetId": "business-init-v1-vehicle-carrier-a-4",
+        "dataQuality": "INITIALIZATION",
+        "isTestData": false,
+        "longitude": 123.31643462131132,
+        "latitude": 41.64701370899587,
+        "observedAt": "2026-10-03T14:06:22.542Z",
+        "originalLongitude": 123.31643462131132,
+        "originalLatitude": 41.64701370899587,
+        "originalCoordinateSystem": "GCJ02"
+      },
+      "points": 2051
+    },
+    {
+      "plate": "辽B8F313",
+      "position": {
+        "id": "business-init-v1-task-5-1-1-5:reference-motion:1791036382576",
+        "taskId": "business-init-v1-task-5-1-1-5",
+        "sourceSystem": "BUSINESS_INITIALIZATION",
+        "sourceType": "INITIALIZATION",
+        "sourceRecordId": "reference-motion:1330:1791036382576",
+        "assetId": "business-init-v1-vehicle-carrier-a-5",
+        "dataQuality": "INITIALIZATION",
+        "isTestData": false,
+        "longitude": 122.86547880645162,
+        "latitude": 42.490861612903224,
+        "observedAt": "2026-10-03T14:06:22.576Z",
+        "originalLongitude": 122.86547880645162,
+        "originalLatitude": 42.490861612903224,
+        "originalCoordinateSystem": "GCJ02"
+      },
+      "points": 1331
+    },
+    {
+      "plate": "辽B7G326",
+      "position": {
+        "id": "business-init-v1-task-5-1-1-6:reference-motion:1791036382600",
+        "taskId": "business-init-v1-task-5-1-1-6",
+        "sourceSystem": "BUSINESS_INITIALIZATION",
+        "sourceType": "INITIALIZATION",
+        "sourceRecordId": "reference-motion:404:1791036382600",
+        "assetId": "business-init-v1-vehicle-carrier-a-6",
+        "dataQuality": "INITIALIZATION",
+        "isTestData": false,
+        "longitude": 124.42067019126284,
+        "latitude": 43.10730310574774,
+        "observedAt": "2026-10-03T14:06:22.600Z",
+        "originalLongitude": 124.42067019126284,
+        "originalLatitude": 43.10730310574774,
+        "originalCoordinateSystem": "GCJ02"
+      },
+      "points": 405
+    }
+  ],
+  "segments": [
+    {
+      "mode": "ROAD",
+      "source": "AMAP_V5_DRIVING",
+      "points": 3117
+    },
+    {
+      "mode": "WATER",
+      "source": "PUBLIC_COASTAL_CORRIDOR_REFERENCE",
+      "points": 1968
+    }
+  ],
+  "portProgress": [
+    {
+      "name": "鲅鱼圈港",
+      "verifiedKg": 0,
+      "reportedKg": 57500,
+      "awaitingEvidenceKg": 57500
+    }
+  ],
+  "selectableVehicles": 15,
+  "visibleTemplates": 0,
+  "completedReplayTasks": 64
+}

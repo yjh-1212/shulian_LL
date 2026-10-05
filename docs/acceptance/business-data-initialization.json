@@ -1,0 +1,2854 @@
+{
+  "initializedAt": "2026-10-03T12:09:20.901Z",
+  "sourceSystem": "BUSINESS_INITIALIZATION",
+  "provenance": {
+    "sourceSystem": "BUSINESS_INITIALIZATION",
+    "sourceType": "INITIALIZATION",
+    "version": 1,
+    "generatedAt": "2026-10-03T12:32:42.845Z",
+    "verification": "UNVERIFIED_BUSINESS_RECORD",
+    "note": "按用户要求生成的业务初始化记录；企业账户、人员、车牌、航次、交易、任务、费用与状态不代表已核验的现实业务。公开港站与高德道路信息另行记录来源。原始凭证、身份及签章资料待实际业务录入。"
+  },
+  "backupPath": "D:\\项目资料\\Code\\liaoliang\\.local\\backups\\business-initialization-2026-10-03T12-09-01-844Z",
+  "archivedKnownTests": {
+    "publications": 7,
+    "demands": 86,
+    "supplies": 47,
+    "orders": 52,
+    "plans": 120,
+    "packages": 31,
+    "bills": 6,
+    "entities": 11,
+    "users": 8,
+    "vessels": 2,
+    "products": 4,
+    "templates": 21,
+    "prices": 31,
+    "monitoringSignals": 3,
+    "evidence": {
+      "auditedAt": "2026-10-03T12:09:02.341Z",
+      "sourceSystem": "BUSINESS_INITIALIZATION",
+      "entities": [
+        {
+          "id": "cmupb2zq00004trtcdg6p0n5l",
+          "name": "验收粮贸企业-45349540",
+          "organizationId": "sample-group",
+          "isTestData": false,
+          "status": "ACTIVE",
+          "deletedAt": null,
+          "reason": "KNOWN_ACCEPTANCE_FIXTURE_NAME_AND_ORG"
+        },
+        {
+          "id": "cmupb5oem0004tr88immfenmm",
+          "name": "验收粮贸企业-45474515",
+          "organizationId": "sample-group",
+          "isTestData": false,
+          "status": "ACTIVE",
+          "deletedAt": null,
+          "reason": "KNOWN_ACCEPTANCE_FIXTURE_NAME_AND_ORG"
+        },
+        {
+          "id": "cmupcqmoc0011trkkcck1kumk",
+          "name": "验收粮贸企业-48131977",
+          "organizationId": "sample-group",
+          "isTestData": true,
+          "status": "ACTIVE",
+          "deletedAt": null,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "demo-logistics-beicang",
+          "name": "北仓联运物流（模拟）",
+          "organizationId": "demo-logistics-org-beicang",
+          "isTestData": true,
+          "status": "ACTIVE",
+          "deletedAt": null,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "demo-logistics-liaogang",
+          "name": "辽港粮运物流（模拟）",
+          "organizationId": "demo-logistics-org-liaogang",
+          "isTestData": true,
+          "status": "ACTIVE",
+          "deletedAt": null,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "demo-logistics-jintong",
+          "name": "锦通粮食物流（模拟）",
+          "organizationId": "demo-logistics-org-jintong",
+          "isTestData": true,
+          "status": "ACTIVE",
+          "deletedAt": null,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "demo-logistics-nanyue",
+          "name": "南粤集装箱物流（模拟）",
+          "organizationId": "demo-logistics-org-nanyue",
+          "isTestData": true,
+          "status": "ACTIVE",
+          "deletedAt": null,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "demo-logistics-jigu",
+          "name": "吉林谷运物流（模拟）",
+          "organizationId": "demo-logistics-org-jigu",
+          "isTestData": true,
+          "status": "ACTIVE",
+          "deletedAt": null,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "demo-logistics-minyue",
+          "name": "闽粤联运物流（模拟）",
+          "organizationId": "demo-logistics-org-minyue",
+          "isTestData": true,
+          "status": "ACTIVE",
+          "deletedAt": null,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "demo-logistics-beibuwan",
+          "name": "北部湾粮运物流（模拟）",
+          "organizationId": "demo-logistics-org-beibuwan",
+          "isTestData": true,
+          "status": "ACTIVE",
+          "deletedAt": null,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "demo-logistics-dongbei",
+          "name": "东北粮运物流（模拟）",
+          "organizationId": "demo-logistics-org-dongbei",
+          "isTestData": true,
+          "status": "ACTIVE",
+          "deletedAt": null,
+          "reason": "EXPLICIT_TEST_FLAG"
+        }
+      ],
+      "products": [
+        {
+          "id": "cmuprl7h2001xtrlww20xng3y",
+          "code": "p8-1790873073659",
+          "name": "Phase8 指标产品新版",
+          "source": "平台实际运输任务（测试业务排除）",
+          "status": "DRAFT",
+          "reason": "KNOWN_ACCEPTANCE_FIXTURE_CODE_AND_NAME"
+        },
+        {
+          "id": "cmupshykn00h9trqkkpfi9rjp",
+          "code": "browser-1790874601448",
+          "name": "浏览器验收指标目录",
+          "source": "排除模拟业务的实际任务聚合",
+          "status": "DRAFT",
+          "reason": "KNOWN_ACCEPTANCE_FIXTURE_CODE_AND_NAME"
+        },
+        {
+          "id": "cmupskbn700j6trqkqs4g0bye",
+          "code": "browser-1790874711691",
+          "name": "浏览器验收指标目录",
+          "source": "排除模拟业务的实际任务聚合",
+          "status": "DRAFT",
+          "reason": "KNOWN_ACCEPTANCE_FIXTURE_CODE_AND_NAME"
+        },
+        {
+          "id": "cmus0zrrh0011trxoi6yw7489",
+          "code": "p8-1791009802020",
+          "name": "Phase8 指标产品新版",
+          "source": "平台实际运输任务（测试业务排除）",
+          "status": "DRAFT",
+          "reason": "KNOWN_ACCEPTANCE_FIXTURE_CODE_AND_NAME"
+        }
+      ],
+      "vessels": [
+        {
+          "id": "cmururqvz002atr4wsbrjfyt7",
+          "name": "辽粮示范轮1（模拟）",
+          "voyage": "DEMO26030",
+          "carrierId": "carrier-a",
+          "enabled": true,
+          "reason": "KNOWN_TRACKING_OR_ACCEPTANCE_FIXTURE"
+        },
+        {
+          "id": "cmururqw80033tr4wczgelb2t",
+          "name": "辽粮示范轮2（模拟）",
+          "voyage": "DEMO26031",
+          "carrierId": "carrier-a",
+          "enabled": true,
+          "reason": "KNOWN_TRACKING_OR_ACCEPTANCE_FIXTURE"
+        },
+        {
+          "id": "cmurv6rti000itroc39t6k684",
+          "name": "自动验收船（模拟）1791000051012",
+          "voyage": "TEST2",
+          "carrierId": "carrier-a",
+          "enabled": false,
+          "reason": "KNOWN_TRACKING_OR_ACCEPTANCE_FIXTURE"
+        },
+        {
+          "id": "cmurv95q5001ptroceihcd9r0",
+          "name": "自动验收船（模拟）1791000162348",
+          "voyage": "TEST2",
+          "carrierId": "carrier-a",
+          "enabled": false,
+          "reason": "KNOWN_TRACKING_OR_ACCEPTANCE_FIXTURE"
+        },
+        {
+          "id": "cmurvsgb3003htreks97n0r0x",
+          "name": "自动验收船（模拟）",
+          "voyage": "TEST2",
+          "carrierId": "carrier-a",
+          "enabled": false,
+          "reason": "KNOWN_TRACKING_OR_ACCEPTANCE_FIXTURE"
+        }
+      ],
+      "prices": [
+        {
+          "id": "sample-road-rate-v1",
+          "source": "开发样例定价（非市场报价）",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupdzty40019trrwdtsgi2pv",
+          "source": "开发验收价格，非市场报价",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupdztz9001ftrrw8vcbmf1z",
+          "source": "自动化验收样例，非报价",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupe5ixj002ttrrwxqqghoo3",
+          "source": "开发验收价格，非市场报价",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupe5iz3002ztrrwpfu09mio",
+          "source": "自动化验收样例，非报价",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupeal790015trwgfubg1uh2",
+          "source": "开发验收价格，非市场报价",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupeal8c001btrwgtaox2hhc",
+          "source": "自动化验收样例，非报价",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupeevp5002ttrwg5y7m4q8h",
+          "source": "开发验收价格，非市场报价",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupeevq8002ztrwgvgltjoyx",
+          "source": "自动化验收样例，非报价",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupegx4l004ftrwg5ikdvuva",
+          "source": "开发验收价格，非市场报价",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupegx5q004ltrwgnulovnz1",
+          "source": "自动化验收样例，非报价",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupeie5e0065trwgyn98rw55",
+          "source": "开发验收价格，非市场报价",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupeie6j006btrwge9cb8o9g",
+          "source": "自动化验收样例，非报价",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupekuzz008ntrwgtzu1qkmv",
+          "source": "开发验收价格，非市场报价",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupekv1d008ttrwg1fafo4p2",
+          "source": "自动化验收样例，非报价",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupemejb00abtrwgz0befanu",
+          "source": "开发验收价格，非市场报价",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupemekg00ahtrwg4a6oa9yv",
+          "source": "自动化验收样例，非报价",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupenkct00bztrwg4gdlpy3z",
+          "source": "开发验收价格，非市场报价",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupenkdw00c5trwglgjsmijt",
+          "source": "自动化验收样例，非报价",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupeodeg00dntrwg1djdbv0n",
+          "source": "开发验收价格，非市场报价",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupeodfj00dttrwgtv5s4g4m",
+          "source": "自动化验收样例，非报价",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupeqkcx00fxtrwgzq34eahu",
+          "source": "开发验收价格，非市场报价",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupeqkdw00g3trwgrl0jmaiy",
+          "source": "自动化验收样例，非报价",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupesngv00hytrwg9h0ckmun",
+          "source": "开发验收价格，非市场报价",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupesnhz00i4trwgrfrppiho",
+          "source": "自动化验收样例，非报价",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupev8d5000ptr5cqbim0nez",
+          "source": "开发规则验收样例（非报价）",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupgxypf002htr5ch7iu157n",
+          "source": "开发规则验收样例（非报价）",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmupi4cws000atr0gp9vktt94",
+          "source": "开发规则验收样例（非报价）",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmuqiaimy004ttrbcnrencs70",
+          "source": "开发规则验收样例（非报价）",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmuqmsssb00h9trwswvff2qww",
+          "source": "开发规则验收样例（非报价）",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        },
+        {
+          "id": "cmuqmta4a00mttrws97s9lrtq",
+          "source": "开发规则验收样例（非报价）",
+          "enabled": true,
+          "reason": "EXPLICIT_TEST_FLAG"
+        }
+      ],
+      "templates": [
+        {
+          "id": "simulation-main-v1",
+          "name": "粮食运输主合同（模拟模板）",
+          "type": "MAIN",
+          "mode": "A",
+          "status": "PUBLISHED",
+          "fileId": null,
+          "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+          "proposedAction": "SOFT_ARCHIVE"
+        },
+        {
+          "id": "simulation-addendum-v1",
+          "name": "平台服务附加合同（模拟模板）",
+          "type": "ADDENDUM",
+          "mode": "A",
+          "status": "PUBLISHED",
+          "fileId": null,
+          "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+          "proposedAction": "SOFT_ARCHIVE"
+        },
+        {
+          "id": "cmupkvfwg0048trfgusiz5uro",
+          "name": "Phase5 B 模式验收模板",
+          "type": "ADDENDUM",
+          "mode": "B",
+          "status": "PUBLISHED",
+          "fileId": null,
+          "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+          "proposedAction": "SOFT_ARCHIVE"
+        },
+        {
+          "id": "cmupkvg50004vtrfg0xdf6s8g",
+          "name": "平台服务附加合同（模拟模板）",
+          "type": "ADDENDUM",
+          "mode": "A",
+          "status": "PUBLISHED",
+          "fileId": null,
+          "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+          "proposedAction": "SOFT_ARCHIVE"
+        },
+        {
+          "id": "cmuqzb80t000etr58jikkvj82",
+          "name": "粮食联运合同演示模板 1790946509750",
+          "type": "MAIN",
+          "mode": "A",
+          "status": "DRAFT",
+          "fileId": "cmuqzb80p000ctr58c3k30rcx",
+          "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+          "proposedAction": "SOFT_ARCHIVE"
+        },
+        {
+          "id": "cmuqzb82l000itr58wdlfokmy",
+          "name": "粮食联运合同演示模板 1790946509750",
+          "type": "MAIN",
+          "mode": "A",
+          "status": "PUBLISHED",
+          "fileId": "cmuqzb82j000gtr588mp0mf7v",
+          "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+          "proposedAction": "SOFT_ARCHIVE"
+        },
+        {
+          "id": "cmuqzddmu001otr58wqx60vil",
+          "name": "粮食联运合同演示模板 1790946609699",
+          "type": "MAIN",
+          "mode": "A",
+          "status": "DRAFT",
+          "fileId": "cmuqzddmr001mtr58f2l4plq8",
+          "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+          "proposedAction": "SOFT_ARCHIVE"
+        },
+        {
+          "id": "cmuqzddos001str581au9wna5",
+          "name": "粮食联运合同演示模板 1790946609699",
+          "type": "MAIN",
+          "mode": "A",
+          "status": "PUBLISHED",
+          "fileId": "cmuqzddon001qtr5806ow36f3",
+          "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+          "proposedAction": "SOFT_ARCHIVE"
+        },
+        {
+          "id": "cmuqzdebn0034tr58fv9u5l8i",
+          "name": "粮食运输主合同（模拟模板）",
+          "type": "MAIN",
+          "mode": "A",
+          "status": "PUBLISHED",
+          "fileId": null,
+          "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+          "proposedAction": "SOFT_ARCHIVE"
+        },
+        {
+          "id": "cmuqzewjl004mtr58qxii5yo9",
+          "name": "粮食联运合同演示模板 1790946680425",
+          "type": "MAIN",
+          "mode": "A",
+          "status": "DRAFT",
+          "fileId": "cmuqzewjh004ktr58ki13iuhy",
+          "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+          "proposedAction": "SOFT_ARCHIVE"
+        },
+        {
+          "id": "cmuqzewlg004qtr58g7w6a9do",
+          "name": "粮食联运合同演示模板 1790946680425",
+          "type": "MAIN",
+          "mode": "A",
+          "status": "PUBLISHED",
+          "fileId": "cmuqzewld004otr58ro282cvr",
+          "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+          "proposedAction": "SOFT_ARCHIVE"
+        },
+        {
+          "id": "cmuqzex7l0062tr58y6n5w7be",
+          "name": "粮食运输主合同（模拟模板）",
+          "type": "MAIN",
+          "mode": "A",
+          "status": "PUBLISHED",
+          "fileId": null,
+          "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+          "proposedAction": "SOFT_ARCHIVE"
+        },
+        {
+          "id": "cmuqzgan0006mtr58ai3drhyj",
+          "name": "粮食联运合同演示模板 1790946745306",
+          "type": "MAIN",
+          "mode": "A",
+          "status": "DRAFT",
+          "fileId": "cmuqzgamw006ktr588i0dxmcn",
+          "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+          "proposedAction": "SOFT_ARCHIVE"
+        },
+        {
+          "id": "cmuqzgaov006qtr58le22it7y",
+          "name": "粮食联运合同演示模板 1790946745306",
+          "type": "MAIN",
+          "mode": "A",
+          "status": "PUBLISHED",
+          "fileId": "cmuqzgaoq006otr58nxqcl19p",
+          "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+          "proposedAction": "SOFT_ARCHIVE"
+        },
+        {
+          "id": "cmuqzgbaf0082tr58bpz9ciz3",
+          "name": "粮食运输主合同（模拟模板）",
+          "type": "MAIN",
+          "mode": "A",
+          "status": "PUBLISHED",
+          "fileId": null,
+          "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+          "proposedAction": "SOFT_ARCHIVE"
+        },
+        {
+          "id": "cmuqzjch300eztr58t4l27x4c",
+          "name": "Phase5 B 模式验收模板",
+          "type": "ADDENDUM",
+          "mode": "B",
+          "status": "PUBLISHED",
+          "fileId": null,
+          "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+          "proposedAction": "SOFT_ARCHIVE"
+        },
+        {
+          "id": "cmuqzjcrb00fmtr58lrgkn4pw",
+          "name": "平台服务附加合同（模拟模板）",
+          "type": "ADDENDUM",
+          "mode": "A",
+          "status": "PUBLISHED",
+          "fileId": null,
+          "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+          "proposedAction": "SOFT_ARCHIVE"
+        },
+        {
+          "id": "cmuqzy8db00k9tr58m70apfgo",
+          "name": "北粮南运运输合同模板（浏览器模拟）",
+          "type": "MAIN",
+          "mode": "A",
+          "status": "DRAFT",
+          "fileId": "cmuqzy8d900k7tr583m6ejme7",
+          "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+          "proposedAction": "SOFT_ARCHIVE"
+        },
+        {
+          "id": "cmur4dt3b000htrgsf3yi7vq0",
+          "name": "粮食联运合同演示模板 1790955027394",
+          "type": "MAIN",
+          "mode": "A",
+          "status": "DRAFT",
+          "fileId": "cmur4dt37000ftrgs5h7n7s0z",
+          "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+          "proposedAction": "SOFT_ARCHIVE"
+        },
+        {
+          "id": "cmur4dt4o000ltrgs2oq2rm7h",
+          "name": "粮食联运合同演示模板 1790955027394",
+          "type": "MAIN",
+          "mode": "A",
+          "status": "PUBLISHED",
+          "fileId": "cmur4dt4k000jtrgsgg7tm9wm",
+          "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+          "proposedAction": "SOFT_ARCHIVE"
+        },
+        {
+          "id": "cmur4dts1001xtrgsi0nnybla",
+          "name": "粮食运输主合同（模拟模板）",
+          "type": "MAIN",
+          "mode": "A",
+          "status": "PUBLISHED",
+          "fileId": null,
+          "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+          "proposedAction": "SOFT_ARCHIVE"
+        }
+      ],
+      "preservedUsers": [
+        {
+          "id": "cmupalj6l000ztr3ssdv53svh",
+          "username": "carrier",
+          "displayName": "物流负责人",
+          "isTestData": true,
+          "proposedDisplayName": "企业调度员",
+          "reason": "PRESERVED_EXISTING_ACCOUNT"
+        },
+        {
+          "id": "cmupalj6u0011tr3s5waz472r",
+          "username": "carrier.staff",
+          "displayName": "物流调度员",
+          "isTestData": true,
+          "proposedDisplayName": "运输调度员",
+          "reason": "PRESERVED_EXISTING_ACCOUNT"
+        },
+        {
+          "id": "cmupalj7f0015tr3sb8zfgwr2",
+          "username": "driver",
+          "displayName": "司机张师傅",
+          "isTestData": true,
+          "proposedDisplayName": "张志国",
+          "reason": "PRESERVED_EXISTING_ACCOUNT"
+        },
+        {
+          "id": "cmupalj760013tr3slq6h6q85",
+          "username": "carrier.b",
+          "displayName": "物流 B 负责人",
+          "isTestData": true,
+          "proposedDisplayName": "企业调度员",
+          "reason": "PRESERVED_EXISTING_ACCOUNT"
+        },
+        {
+          "id": "cmupalj58000rtr3sxlo1s6gp",
+          "username": "admin",
+          "displayName": "平台管理员",
+          "isTestData": true,
+          "proposedDisplayName": "平台管理员",
+          "reason": "PRESERVED_EXISTING_ACCOUNT"
+        },
+        {
+          "id": "cmupalj5r000ttr3sovcmiq44",
+          "username": "trader",
+          "displayName": "粮贸负责人",
+          "isTestData": true,
+          "proposedDisplayName": "企业业务员",
+          "reason": "PRESERVED_EXISTING_ACCOUNT"
+        },
+        {
+          "id": "cmupalj62000vtr3shlbx9z8g",
+          "username": "trader.staff",
+          "displayName": "粮贸业务员",
+          "isTestData": true,
+          "proposedDisplayName": "粮食业务员",
+          "reason": "PRESERVED_EXISTING_ACCOUNT"
+        },
+        {
+          "id": "cmupalj6c000xtr3shnnjh7q4",
+          "username": "trader.b",
+          "displayName": "粮贸 B 负责人",
+          "isTestData": true,
+          "proposedDisplayName": "企业业务员",
+          "reason": "PRESERVED_EXISTING_ACCOUNT"
+        }
+      ],
+      "preservedProductCodes": [
+        "GDS-CAPACITY",
+        "GDS-CORRIDOR",
+        "GDS-TRACE",
+        "GDS-CREDIT",
+        "GDS-RISK"
+      ],
+      "note": "仅列出明确测试或已知验收初始化记录；没有查验或更改任何未知真实记录。预览不写数据库。"
+    }
+  },
+  "suppliesCreated": 16,
+  "referencePricesCreated": 3,
+  "records": [
+    {
+      "id": "business-init-v1-waybill-1",
+      "waybillNo": "YD2026100001",
+      "contractId": "business-init-v1-contract-1",
+      "contractNo": "HT2026100001",
+      "tradeOrderId": "business-init-v1-trade-1",
+      "routeFamily": "公铁",
+      "quantityTonnes": 680.5,
+      "grain": "玉米",
+      "status": "PENDING",
+      "tasks": 0,
+      "trackPoints": 0,
+      "segments": [
+        {
+          "mode": "ROAD",
+          "origin": {
+            "name": "盘锦站",
+            "nodeId": "amap-B01AB0I58K",
+            "lng": 122.063029,
+            "lat": 41.197737,
+            "province": "辽宁省",
+            "city": "盘锦市",
+            "district": "双台子区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "铁路货运蒲河物流基地",
+            "nodeId": "amap-B0FFLAFJTD",
+            "lng": 123.190329,
+            "lat": 41.842324,
+            "province": "辽宁省",
+            "city": "沈阳市",
+            "district": "于洪区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": "cmur7pqtg001ntrfwhql9tge6",
+          "geometrySource": "AMAP_V5_DRIVING",
+          "geometryQuality": "PROVIDER_REFERENCE"
+        },
+        {
+          "mode": "RAIL",
+          "origin": {
+            "name": "铁路货运蒲河物流基地",
+            "nodeId": "amap-B0FFLAFJTD",
+            "lng": 123.190329,
+            "lat": 41.842324,
+            "province": "辽宁省",
+            "city": "沈阳市",
+            "district": "于洪区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "广州国际港站",
+            "nodeId": "amap-B0IR3HK9U0",
+            "lng": 113.185119,
+            "lat": 23.273912,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "白云区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": null,
+          "geometrySource": "OPENSTREETMAP_RAIL_INFRASTRUCTURE",
+          "geometryQuality": "PUBLIC_INFRASTRUCTURE_REFERENCE"
+        },
+        {
+          "mode": "ROAD",
+          "origin": {
+            "name": "广州国际港站",
+            "nodeId": "amap-B0IR3HK9U0",
+            "lng": 113.185119,
+            "lat": 23.273912,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "白云区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "广州北站",
+            "nodeId": "amap-B00140UERW",
+            "lng": 113.203846,
+            "lat": 23.377273,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "花都区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": "cmuphwy1g000btrf8sdrpebgg",
+          "geometrySource": "AMAP_V5_DRIVING",
+          "geometryQuality": "PROVIDER_REFERENCE"
+        }
+      ]
+    },
+    {
+      "id": "business-init-v1-waybill-2",
+      "waybillNo": "YD2026100002",
+      "contractId": "business-init-v1-contract-2",
+      "contractNo": "HT2026100002",
+      "tradeOrderId": "business-init-v1-trade-2",
+      "routeFamily": "公水",
+      "quantityTonnes": 420.8,
+      "grain": "大豆",
+      "status": "PENDING",
+      "tasks": 0,
+      "trackPoints": 0,
+      "segments": [
+        {
+          "mode": "ROAD",
+          "origin": {
+            "name": "公主岭站",
+            "nodeId": "corridor-node-gongzhuling",
+            "lng": 124.811305,
+            "lat": 43.509062,
+            "province": "吉林省",
+            "city": "长春市",
+            "district": "公主岭市",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "鲅鱼圈港",
+            "nodeId": "amap-B0FFG8AIEW",
+            "lng": 122.101431,
+            "lat": 40.291018,
+            "province": "辽宁省",
+            "city": "营口市",
+            "district": "鲅鱼圈区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": "cmuqmlk5k002ktrg02ieybqma",
+          "geometrySource": "AMAP_V5_DRIVING",
+          "geometryQuality": "PROVIDER_REFERENCE"
+        },
+        {
+          "mode": "WATER",
+          "origin": {
+            "name": "鲅鱼圈港",
+            "nodeId": "amap-B0FFG8AIEW",
+            "lng": 122.101431,
+            "lat": 40.291018,
+            "province": "辽宁省",
+            "city": "营口市",
+            "district": "鲅鱼圈区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "南沙港",
+            "nodeId": "amap-B0FFITHKX8",
+            "lng": 113.673912,
+            "lat": 22.647659,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "南沙区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": null,
+          "geometrySource": "PUBLIC_COASTAL_CORRIDOR_REFERENCE",
+          "geometryQuality": "INITIALIZATION_REFERENCE"
+        }
+      ]
+    },
+    {
+      "id": "business-init-v1-waybill-3",
+      "waybillNo": "YD2026100003",
+      "contractId": "business-init-v1-contract-3",
+      "contractNo": "HT2026100003",
+      "tradeOrderId": "business-init-v1-trade-3",
+      "routeFamily": "铁水",
+      "quantityTonnes": 1250,
+      "grain": "小麦",
+      "status": "PENDING",
+      "tasks": 0,
+      "trackPoints": 0,
+      "segments": [
+        {
+          "mode": "RAIL",
+          "origin": {
+            "name": "新香坊站",
+            "nodeId": "corridor-node-harbin",
+            "lng": 126.767891,
+            "lat": 45.711751,
+            "province": "黑龙江省",
+            "city": "哈尔滨市",
+            "district": "香坊区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "鲅鱼圈港",
+            "nodeId": "amap-B0FFG8AIEW",
+            "lng": 122.101431,
+            "lat": 40.291018,
+            "province": "辽宁省",
+            "city": "营口市",
+            "district": "鲅鱼圈区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": null,
+          "geometrySource": "OPENSTREETMAP_RAIL_INFRASTRUCTURE",
+          "geometryQuality": "PUBLIC_INFRASTRUCTURE_REFERENCE"
+        },
+        {
+          "mode": "WATER",
+          "origin": {
+            "name": "鲅鱼圈港",
+            "nodeId": "amap-B0FFG8AIEW",
+            "lng": 122.101431,
+            "lat": 40.291018,
+            "province": "辽宁省",
+            "city": "营口市",
+            "district": "鲅鱼圈区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "新沙港",
+            "nodeId": "corridor-node-xinsha",
+            "lng": 113.533523,
+            "lat": 23.019035,
+            "province": "广东省",
+            "city": "东莞市",
+            "district": "东莞市",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": null,
+          "geometrySource": "PUBLIC_COASTAL_CORRIDOR_REFERENCE",
+          "geometryQuality": "INITIALIZATION_REFERENCE"
+        }
+      ]
+    },
+    {
+      "id": "business-init-v1-waybill-4",
+      "waybillNo": "YD2026100004",
+      "contractId": "business-init-v1-contract-4",
+      "contractNo": "HT2026100004",
+      "tradeOrderId": "business-init-v1-trade-4",
+      "routeFamily": "公铁水",
+      "quantityTonnes": 860.2,
+      "grain": "稻谷",
+      "status": "PENDING",
+      "tasks": 0,
+      "trackPoints": 0,
+      "segments": [
+        {
+          "mode": "ROAD",
+          "origin": {
+            "name": "公主岭站",
+            "nodeId": "corridor-node-gongzhuling",
+            "lng": 124.811305,
+            "lat": 43.509062,
+            "province": "吉林省",
+            "city": "长春市",
+            "district": "公主岭市",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "五棵树站",
+            "nodeId": "corridor-node-wukeshu",
+            "lng": 126.159982,
+            "lat": 44.800926,
+            "province": "吉林省",
+            "city": "长春市",
+            "district": "榆树市",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": "cmuqmlh7g002atrg0ja4txjpb",
+          "geometrySource": "AMAP_V5_DRIVING",
+          "geometryQuality": "PROVIDER_REFERENCE"
+        },
+        {
+          "mode": "RAIL",
+          "origin": {
+            "name": "五棵树站",
+            "nodeId": "corridor-node-wukeshu",
+            "lng": 126.159982,
+            "lat": 44.800926,
+            "province": "吉林省",
+            "city": "长春市",
+            "district": "榆树市",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "鲅鱼圈港",
+            "nodeId": "amap-B0FFG8AIEW",
+            "lng": 122.101431,
+            "lat": 40.291018,
+            "province": "辽宁省",
+            "city": "营口市",
+            "district": "鲅鱼圈区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": null,
+          "geometrySource": "OPENSTREETMAP_RAIL_INFRASTRUCTURE",
+          "geometryQuality": "PUBLIC_INFRASTRUCTURE_REFERENCE"
+        },
+        {
+          "mode": "WATER",
+          "origin": {
+            "name": "鲅鱼圈港",
+            "nodeId": "amap-B0FFG8AIEW",
+            "lng": 122.101431,
+            "lat": 40.291018,
+            "province": "辽宁省",
+            "city": "营口市",
+            "district": "鲅鱼圈区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "南沙港",
+            "nodeId": "amap-B0FFITHKX8",
+            "lng": 113.673912,
+            "lat": 22.647659,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "南沙区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": null,
+          "geometrySource": "PUBLIC_COASTAL_CORRIDOR_REFERENCE",
+          "geometryQuality": "INITIALIZATION_REFERENCE"
+        },
+        {
+          "mode": "ROAD",
+          "origin": {
+            "name": "南沙港",
+            "nodeId": "amap-B0FFITHKX8",
+            "lng": 113.673912,
+            "lat": 22.647659,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "南沙区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "广州国际港站",
+            "nodeId": "amap-B0IR3HK9U0",
+            "lng": 113.185119,
+            "lat": 23.273912,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "白云区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": "cmuqht8o8001ctr8o4k1uaba3",
+          "geometrySource": "AMAP_V5_DRIVING",
+          "geometryQuality": "PROVIDER_REFERENCE"
+        }
+      ]
+    },
+    {
+      "id": "business-init-v1-waybill-5",
+      "waybillNo": "YD2026100005",
+      "contractId": "business-init-v1-contract-5",
+      "contractNo": "HT2026100005",
+      "tradeOrderId": "business-init-v1-trade-5",
+      "routeFamily": "公水",
+      "quantityTonnes": 1680.5,
+      "grain": "玉米",
+      "status": "IN_PROGRESS",
+      "tasks": 6,
+      "trackPoints": 2257,
+      "segments": [
+        {
+          "mode": "ROAD",
+          "origin": {
+            "name": "公主岭站",
+            "nodeId": "corridor-node-gongzhuling",
+            "lng": 124.811305,
+            "lat": 43.509062,
+            "province": "吉林省",
+            "city": "长春市",
+            "district": "公主岭市",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "鲅鱼圈港",
+            "nodeId": "amap-B0FFG8AIEW",
+            "lng": 122.101431,
+            "lat": 40.291018,
+            "province": "辽宁省",
+            "city": "营口市",
+            "district": "鲅鱼圈区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": "cmuqmlk5k002ktrg02ieybqma",
+          "geometrySource": "AMAP_V5_DRIVING",
+          "geometryQuality": "PROVIDER_REFERENCE"
+        },
+        {
+          "mode": "WATER",
+          "origin": {
+            "name": "鲅鱼圈港",
+            "nodeId": "amap-B0FFG8AIEW",
+            "lng": 122.101431,
+            "lat": 40.291018,
+            "province": "辽宁省",
+            "city": "营口市",
+            "district": "鲅鱼圈区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "南沙港",
+            "nodeId": "amap-B0FFITHKX8",
+            "lng": 113.673912,
+            "lat": 22.647659,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "南沙区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": null,
+          "geometrySource": "PUBLIC_COASTAL_CORRIDOR_REFERENCE",
+          "geometryQuality": "INITIALIZATION_REFERENCE"
+        }
+      ]
+    },
+    {
+      "id": "business-init-v1-waybill-6",
+      "waybillNo": "YD2026100006",
+      "contractId": "business-init-v1-contract-6",
+      "contractNo": "HT2026100006",
+      "tradeOrderId": "business-init-v1-trade-6",
+      "routeFamily": "公铁",
+      "quantityTonnes": 920.3,
+      "grain": "大豆",
+      "status": "IN_PROGRESS",
+      "tasks": 6,
+      "trackPoints": 671,
+      "segments": [
+        {
+          "mode": "ROAD",
+          "origin": {
+            "name": "盘锦站",
+            "nodeId": "amap-B01AB0I58K",
+            "lng": 122.063029,
+            "lat": 41.197737,
+            "province": "辽宁省",
+            "city": "盘锦市",
+            "district": "双台子区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "铁路货运蒲河物流基地",
+            "nodeId": "amap-B0FFLAFJTD",
+            "lng": 123.190329,
+            "lat": 41.842324,
+            "province": "辽宁省",
+            "city": "沈阳市",
+            "district": "于洪区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": "cmur7pqtg001ntrfwhql9tge6",
+          "geometrySource": "AMAP_V5_DRIVING",
+          "geometryQuality": "PROVIDER_REFERENCE"
+        },
+        {
+          "mode": "RAIL",
+          "origin": {
+            "name": "铁路货运蒲河物流基地",
+            "nodeId": "amap-B0FFLAFJTD",
+            "lng": 123.190329,
+            "lat": 41.842324,
+            "province": "辽宁省",
+            "city": "沈阳市",
+            "district": "于洪区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "广州国际港站",
+            "nodeId": "amap-B0IR3HK9U0",
+            "lng": 113.185119,
+            "lat": 23.273912,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "白云区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": null,
+          "geometrySource": "OPENSTREETMAP_RAIL_INFRASTRUCTURE",
+          "geometryQuality": "PUBLIC_INFRASTRUCTURE_REFERENCE"
+        },
+        {
+          "mode": "ROAD",
+          "origin": {
+            "name": "广州国际港站",
+            "nodeId": "amap-B0IR3HK9U0",
+            "lng": 113.185119,
+            "lat": 23.273912,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "白云区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "广州北站",
+            "nodeId": "amap-B00140UERW",
+            "lng": 113.203846,
+            "lat": 23.377273,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "花都区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": "cmuphwy1g000btrf8sdrpebgg",
+          "geometrySource": "AMAP_V5_DRIVING",
+          "geometryQuality": "PROVIDER_REFERENCE"
+        }
+      ]
+    },
+    {
+      "id": "business-init-v1-waybill-7",
+      "waybillNo": "YD2026100007",
+      "contractId": "business-init-v1-contract-7",
+      "contractNo": "HT2026100007",
+      "tradeOrderId": "business-init-v1-trade-7",
+      "routeFamily": "公铁水",
+      "quantityTonnes": 1500,
+      "grain": "小麦",
+      "status": "IN_PROGRESS",
+      "tasks": 53,
+      "trackPoints": 13757,
+      "segments": [
+        {
+          "mode": "ROAD",
+          "origin": {
+            "name": "公主岭站",
+            "nodeId": "corridor-node-gongzhuling",
+            "lng": 124.811305,
+            "lat": 43.509062,
+            "province": "吉林省",
+            "city": "长春市",
+            "district": "公主岭市",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "五棵树站",
+            "nodeId": "corridor-node-wukeshu",
+            "lng": 126.159982,
+            "lat": 44.800926,
+            "province": "吉林省",
+            "city": "长春市",
+            "district": "榆树市",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": "cmuqmlh7g002atrg0ja4txjpb",
+          "geometrySource": "AMAP_V5_DRIVING",
+          "geometryQuality": "PROVIDER_REFERENCE"
+        },
+        {
+          "mode": "RAIL",
+          "origin": {
+            "name": "五棵树站",
+            "nodeId": "corridor-node-wukeshu",
+            "lng": 126.159982,
+            "lat": 44.800926,
+            "province": "吉林省",
+            "city": "长春市",
+            "district": "榆树市",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "鲅鱼圈港",
+            "nodeId": "amap-B0FFG8AIEW",
+            "lng": 122.101431,
+            "lat": 40.291018,
+            "province": "辽宁省",
+            "city": "营口市",
+            "district": "鲅鱼圈区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": null,
+          "geometrySource": "OPENSTREETMAP_RAIL_INFRASTRUCTURE",
+          "geometryQuality": "PUBLIC_INFRASTRUCTURE_REFERENCE"
+        },
+        {
+          "mode": "WATER",
+          "origin": {
+            "name": "鲅鱼圈港",
+            "nodeId": "amap-B0FFG8AIEW",
+            "lng": 122.101431,
+            "lat": 40.291018,
+            "province": "辽宁省",
+            "city": "营口市",
+            "district": "鲅鱼圈区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "南沙港",
+            "nodeId": "amap-B0FFITHKX8",
+            "lng": 113.673912,
+            "lat": 22.647659,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "南沙区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": null,
+          "geometrySource": "PUBLIC_COASTAL_CORRIDOR_REFERENCE",
+          "geometryQuality": "INITIALIZATION_REFERENCE"
+        },
+        {
+          "mode": "ROAD",
+          "origin": {
+            "name": "南沙港",
+            "nodeId": "amap-B0FFITHKX8",
+            "lng": 113.673912,
+            "lat": 22.647659,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "南沙区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "广州国际港站",
+            "nodeId": "amap-B0IR3HK9U0",
+            "lng": 113.185119,
+            "lat": 23.273912,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "白云区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": "cmuqht8o8001ctr8o4k1uaba3",
+          "geometrySource": "AMAP_V5_DRIVING",
+          "geometryQuality": "PROVIDER_REFERENCE"
+        }
+      ]
+    },
+    {
+      "id": "business-init-v1-waybill-8",
+      "waybillNo": "YD2026100008",
+      "contractId": "business-init-v1-contract-8",
+      "contractNo": "HT2026100008",
+      "tradeOrderId": "business-init-v1-trade-8",
+      "routeFamily": "铁水",
+      "quantityTonnes": 735.6,
+      "grain": "稻谷",
+      "status": "IN_PROGRESS",
+      "tasks": 1,
+      "trackPoints": 318,
+      "segments": [
+        {
+          "mode": "RAIL",
+          "origin": {
+            "name": "新香坊站",
+            "nodeId": "corridor-node-harbin",
+            "lng": 126.767891,
+            "lat": 45.711751,
+            "province": "黑龙江省",
+            "city": "哈尔滨市",
+            "district": "香坊区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "鲅鱼圈港",
+            "nodeId": "amap-B0FFG8AIEW",
+            "lng": 122.101431,
+            "lat": 40.291018,
+            "province": "辽宁省",
+            "city": "营口市",
+            "district": "鲅鱼圈区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": null,
+          "geometrySource": "OPENSTREETMAP_RAIL_INFRASTRUCTURE",
+          "geometryQuality": "PUBLIC_INFRASTRUCTURE_REFERENCE"
+        },
+        {
+          "mode": "WATER",
+          "origin": {
+            "name": "鲅鱼圈港",
+            "nodeId": "amap-B0FFG8AIEW",
+            "lng": 122.101431,
+            "lat": 40.291018,
+            "province": "辽宁省",
+            "city": "营口市",
+            "district": "鲅鱼圈区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "新沙港",
+            "nodeId": "corridor-node-xinsha",
+            "lng": 113.533523,
+            "lat": 23.019035,
+            "province": "广东省",
+            "city": "东莞市",
+            "district": "东莞市",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": null,
+          "geometrySource": "PUBLIC_COASTAL_CORRIDOR_REFERENCE",
+          "geometryQuality": "INITIALIZATION_REFERENCE"
+        }
+      ]
+    },
+    {
+      "id": "business-init-v1-waybill-9",
+      "waybillNo": "YD2026100009",
+      "contractId": "business-init-v1-contract-9",
+      "contractNo": "HT2026100009",
+      "tradeOrderId": "business-init-v1-trade-9",
+      "routeFamily": "铁水",
+      "quantityTonnes": 2400,
+      "grain": "玉米",
+      "status": "IN_PROGRESS",
+      "tasks": 3,
+      "trackPoints": 3280,
+      "segments": [
+        {
+          "mode": "RAIL",
+          "origin": {
+            "name": "新香坊站",
+            "nodeId": "corridor-node-harbin",
+            "lng": 126.767891,
+            "lat": 45.711751,
+            "province": "黑龙江省",
+            "city": "哈尔滨市",
+            "district": "香坊区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "鲅鱼圈港",
+            "nodeId": "amap-B0FFG8AIEW",
+            "lng": 122.101431,
+            "lat": 40.291018,
+            "province": "辽宁省",
+            "city": "营口市",
+            "district": "鲅鱼圈区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": null,
+          "geometrySource": "OPENSTREETMAP_RAIL_INFRASTRUCTURE",
+          "geometryQuality": "PUBLIC_INFRASTRUCTURE_REFERENCE"
+        },
+        {
+          "mode": "WATER",
+          "origin": {
+            "name": "鲅鱼圈港",
+            "nodeId": "amap-B0FFG8AIEW",
+            "lng": 122.101431,
+            "lat": 40.291018,
+            "province": "辽宁省",
+            "city": "营口市",
+            "district": "鲅鱼圈区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "新沙港",
+            "nodeId": "corridor-node-xinsha",
+            "lng": 113.533523,
+            "lat": 23.019035,
+            "province": "广东省",
+            "city": "东莞市",
+            "district": "东莞市",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": null,
+          "geometrySource": "PUBLIC_COASTAL_CORRIDOR_REFERENCE",
+          "geometryQuality": "INITIALIZATION_REFERENCE"
+        }
+      ]
+    },
+    {
+      "id": "business-init-v1-waybill-10",
+      "waybillNo": "YD2026100010",
+      "contractId": "business-init-v1-contract-10",
+      "contractNo": "HT2026100010",
+      "tradeOrderId": "business-init-v1-trade-10",
+      "routeFamily": "公铁水",
+      "quantityTonnes": 510.4,
+      "grain": "大豆",
+      "status": "IN_PROGRESS",
+      "tasks": 20,
+      "trackPoints": 6386,
+      "segments": [
+        {
+          "mode": "ROAD",
+          "origin": {
+            "name": "公主岭站",
+            "nodeId": "corridor-node-gongzhuling",
+            "lng": 124.811305,
+            "lat": 43.509062,
+            "province": "吉林省",
+            "city": "长春市",
+            "district": "公主岭市",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "五棵树站",
+            "nodeId": "corridor-node-wukeshu",
+            "lng": 126.159982,
+            "lat": 44.800926,
+            "province": "吉林省",
+            "city": "长春市",
+            "district": "榆树市",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": "cmuqmlh7g002atrg0ja4txjpb",
+          "geometrySource": "AMAP_V5_DRIVING",
+          "geometryQuality": "PROVIDER_REFERENCE"
+        },
+        {
+          "mode": "RAIL",
+          "origin": {
+            "name": "五棵树站",
+            "nodeId": "corridor-node-wukeshu",
+            "lng": 126.159982,
+            "lat": 44.800926,
+            "province": "吉林省",
+            "city": "长春市",
+            "district": "榆树市",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "鲅鱼圈港",
+            "nodeId": "amap-B0FFG8AIEW",
+            "lng": 122.101431,
+            "lat": 40.291018,
+            "province": "辽宁省",
+            "city": "营口市",
+            "district": "鲅鱼圈区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": null,
+          "geometrySource": "OPENSTREETMAP_RAIL_INFRASTRUCTURE",
+          "geometryQuality": "PUBLIC_INFRASTRUCTURE_REFERENCE"
+        },
+        {
+          "mode": "WATER",
+          "origin": {
+            "name": "鲅鱼圈港",
+            "nodeId": "amap-B0FFG8AIEW",
+            "lng": 122.101431,
+            "lat": 40.291018,
+            "province": "辽宁省",
+            "city": "营口市",
+            "district": "鲅鱼圈区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "南沙港",
+            "nodeId": "amap-B0FFITHKX8",
+            "lng": 113.673912,
+            "lat": 22.647659,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "南沙区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": null,
+          "geometrySource": "PUBLIC_COASTAL_CORRIDOR_REFERENCE",
+          "geometryQuality": "INITIALIZATION_REFERENCE"
+        },
+        {
+          "mode": "ROAD",
+          "origin": {
+            "name": "南沙港",
+            "nodeId": "amap-B0FFITHKX8",
+            "lng": 113.673912,
+            "lat": 22.647659,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "南沙区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "广州国际港站",
+            "nodeId": "amap-B0IR3HK9U0",
+            "lng": 113.185119,
+            "lat": 23.273912,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "白云区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": "cmuqht8o8001ctr8o4k1uaba3",
+          "geometrySource": "AMAP_V5_DRIVING",
+          "geometryQuality": "PROVIDER_REFERENCE"
+        }
+      ]
+    },
+    {
+      "id": "business-init-v1-waybill-11",
+      "waybillNo": "YD2026100011",
+      "contractId": "business-init-v1-contract-11",
+      "contractNo": "HT2026100011",
+      "tradeOrderId": "business-init-v1-trade-11",
+      "routeFamily": "公铁",
+      "quantityTonnes": 980.7,
+      "grain": "小麦",
+      "status": "IN_PROGRESS",
+      "tasks": 35,
+      "trackPoints": 6932,
+      "segments": [
+        {
+          "mode": "ROAD",
+          "origin": {
+            "name": "盘锦站",
+            "nodeId": "amap-B01AB0I58K",
+            "lng": 122.063029,
+            "lat": 41.197737,
+            "province": "辽宁省",
+            "city": "盘锦市",
+            "district": "双台子区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "铁路货运蒲河物流基地",
+            "nodeId": "amap-B0FFLAFJTD",
+            "lng": 123.190329,
+            "lat": 41.842324,
+            "province": "辽宁省",
+            "city": "沈阳市",
+            "district": "于洪区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": "cmur7pqtg001ntrfwhql9tge6",
+          "geometrySource": "AMAP_V5_DRIVING",
+          "geometryQuality": "PROVIDER_REFERENCE"
+        },
+        {
+          "mode": "RAIL",
+          "origin": {
+            "name": "铁路货运蒲河物流基地",
+            "nodeId": "amap-B0FFLAFJTD",
+            "lng": 123.190329,
+            "lat": 41.842324,
+            "province": "辽宁省",
+            "city": "沈阳市",
+            "district": "于洪区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "广州国际港站",
+            "nodeId": "amap-B0IR3HK9U0",
+            "lng": 113.185119,
+            "lat": 23.273912,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "白云区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": null,
+          "geometrySource": "OPENSTREETMAP_RAIL_INFRASTRUCTURE",
+          "geometryQuality": "PUBLIC_INFRASTRUCTURE_REFERENCE"
+        },
+        {
+          "mode": "ROAD",
+          "origin": {
+            "name": "广州国际港站",
+            "nodeId": "amap-B0IR3HK9U0",
+            "lng": 113.185119,
+            "lat": 23.273912,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "白云区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "广州北站",
+            "nodeId": "amap-B00140UERW",
+            "lng": 113.203846,
+            "lat": 23.377273,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "花都区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": "cmuphwy1g000btrf8sdrpebgg",
+          "geometrySource": "AMAP_V5_DRIVING",
+          "geometryQuality": "PROVIDER_REFERENCE"
+        }
+      ]
+    },
+    {
+      "id": "business-init-v1-waybill-12",
+      "waybillNo": "YD2026100012",
+      "contractId": "business-init-v1-contract-12",
+      "contractNo": "HT2026100012",
+      "tradeOrderId": "business-init-v1-trade-12",
+      "routeFamily": "公水",
+      "quantityTonnes": 1360.2,
+      "grain": "稻谷",
+      "status": "IN_PROGRESS",
+      "tasks": 49,
+      "trackPoints": 29157,
+      "segments": [
+        {
+          "mode": "ROAD",
+          "origin": {
+            "name": "公主岭站",
+            "nodeId": "corridor-node-gongzhuling",
+            "lng": 124.811305,
+            "lat": 43.509062,
+            "province": "吉林省",
+            "city": "长春市",
+            "district": "公主岭市",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "鲅鱼圈港",
+            "nodeId": "amap-B0FFG8AIEW",
+            "lng": 122.101431,
+            "lat": 40.291018,
+            "province": "辽宁省",
+            "city": "营口市",
+            "district": "鲅鱼圈区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": "cmuqmlk5k002ktrg02ieybqma",
+          "geometrySource": "AMAP_V5_DRIVING",
+          "geometryQuality": "PROVIDER_REFERENCE"
+        },
+        {
+          "mode": "WATER",
+          "origin": {
+            "name": "鲅鱼圈港",
+            "nodeId": "amap-B0FFG8AIEW",
+            "lng": 122.101431,
+            "lat": 40.291018,
+            "province": "辽宁省",
+            "city": "营口市",
+            "district": "鲅鱼圈区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "南沙港",
+            "nodeId": "amap-B0FFITHKX8",
+            "lng": 113.673912,
+            "lat": 22.647659,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "南沙区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": null,
+          "geometrySource": "PUBLIC_COASTAL_CORRIDOR_REFERENCE",
+          "geometryQuality": "INITIALIZATION_REFERENCE"
+        }
+      ]
+    },
+    {
+      "id": "business-init-v1-waybill-13",
+      "waybillNo": "YD2026100013",
+      "contractId": "business-init-v1-contract-13",
+      "contractNo": "HT2026100013",
+      "tradeOrderId": "business-init-v1-trade-13",
+      "routeFamily": "公铁水",
+      "quantityTonnes": 880.6,
+      "grain": "玉米",
+      "status": "COMPLETED",
+      "tasks": 64,
+      "trackPoints": 16534,
+      "segments": [
+        {
+          "mode": "ROAD",
+          "origin": {
+            "name": "公主岭站",
+            "nodeId": "corridor-node-gongzhuling",
+            "lng": 124.811305,
+            "lat": 43.509062,
+            "province": "吉林省",
+            "city": "长春市",
+            "district": "公主岭市",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "五棵树站",
+            "nodeId": "corridor-node-wukeshu",
+            "lng": 126.159982,
+            "lat": 44.800926,
+            "province": "吉林省",
+            "city": "长春市",
+            "district": "榆树市",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": "cmuqmlh7g002atrg0ja4txjpb",
+          "geometrySource": "AMAP_V5_DRIVING",
+          "geometryQuality": "PROVIDER_REFERENCE"
+        },
+        {
+          "mode": "RAIL",
+          "origin": {
+            "name": "五棵树站",
+            "nodeId": "corridor-node-wukeshu",
+            "lng": 126.159982,
+            "lat": 44.800926,
+            "province": "吉林省",
+            "city": "长春市",
+            "district": "榆树市",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "鲅鱼圈港",
+            "nodeId": "amap-B0FFG8AIEW",
+            "lng": 122.101431,
+            "lat": 40.291018,
+            "province": "辽宁省",
+            "city": "营口市",
+            "district": "鲅鱼圈区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": null,
+          "geometrySource": "OPENSTREETMAP_RAIL_INFRASTRUCTURE",
+          "geometryQuality": "PUBLIC_INFRASTRUCTURE_REFERENCE"
+        },
+        {
+          "mode": "WATER",
+          "origin": {
+            "name": "鲅鱼圈港",
+            "nodeId": "amap-B0FFG8AIEW",
+            "lng": 122.101431,
+            "lat": 40.291018,
+            "province": "辽宁省",
+            "city": "营口市",
+            "district": "鲅鱼圈区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "南沙港",
+            "nodeId": "amap-B0FFITHKX8",
+            "lng": 113.673912,
+            "lat": 22.647659,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "南沙区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": null,
+          "geometrySource": "PUBLIC_COASTAL_CORRIDOR_REFERENCE",
+          "geometryQuality": "INITIALIZATION_REFERENCE"
+        },
+        {
+          "mode": "ROAD",
+          "origin": {
+            "name": "南沙港",
+            "nodeId": "amap-B0FFITHKX8",
+            "lng": 113.673912,
+            "lat": 22.647659,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "南沙区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "广州国际港站",
+            "nodeId": "amap-B0IR3HK9U0",
+            "lng": 113.185119,
+            "lat": 23.273912,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "白云区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": "cmuqht8o8001ctr8o4k1uaba3",
+          "geometrySource": "AMAP_V5_DRIVING",
+          "geometryQuality": "PROVIDER_REFERENCE"
+        }
+      ]
+    },
+    {
+      "id": "business-init-v1-waybill-14",
+      "waybillNo": "YD2026100014",
+      "contractId": "business-init-v1-contract-14",
+      "contractNo": "HT2026100014",
+      "tradeOrderId": "business-init-v1-trade-14",
+      "routeFamily": "铁水",
+      "quantityTonnes": 760.5,
+      "grain": "大豆",
+      "status": "COMPLETED",
+      "tasks": 2,
+      "trackPoints": 3408,
+      "segments": [
+        {
+          "mode": "RAIL",
+          "origin": {
+            "name": "新香坊站",
+            "nodeId": "corridor-node-harbin",
+            "lng": 126.767891,
+            "lat": 45.711751,
+            "province": "黑龙江省",
+            "city": "哈尔滨市",
+            "district": "香坊区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "鲅鱼圈港",
+            "nodeId": "amap-B0FFG8AIEW",
+            "lng": 122.101431,
+            "lat": 40.291018,
+            "province": "辽宁省",
+            "city": "营口市",
+            "district": "鲅鱼圈区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": null,
+          "geometrySource": "OPENSTREETMAP_RAIL_INFRASTRUCTURE",
+          "geometryQuality": "PUBLIC_INFRASTRUCTURE_REFERENCE"
+        },
+        {
+          "mode": "WATER",
+          "origin": {
+            "name": "鲅鱼圈港",
+            "nodeId": "amap-B0FFG8AIEW",
+            "lng": 122.101431,
+            "lat": 40.291018,
+            "province": "辽宁省",
+            "city": "营口市",
+            "district": "鲅鱼圈区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "新沙港",
+            "nodeId": "corridor-node-xinsha",
+            "lng": 113.533523,
+            "lat": 23.019035,
+            "province": "广东省",
+            "city": "东莞市",
+            "district": "东莞市",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": null,
+          "geometrySource": "PUBLIC_COASTAL_CORRIDOR_REFERENCE",
+          "geometryQuality": "INITIALIZATION_REFERENCE"
+        }
+      ]
+    },
+    {
+      "id": "business-init-v1-waybill-15",
+      "waybillNo": "YD2026100015",
+      "contractId": "business-init-v1-contract-15",
+      "contractNo": "HT2026100015",
+      "tradeOrderId": "business-init-v1-trade-15",
+      "routeFamily": "公水",
+      "quantityTonnes": 1800,
+      "grain": "小麦",
+      "status": "COMPLETED",
+      "tasks": 64,
+      "trackPoints": 40358,
+      "segments": [
+        {
+          "mode": "ROAD",
+          "origin": {
+            "name": "公主岭站",
+            "nodeId": "corridor-node-gongzhuling",
+            "lng": 124.811305,
+            "lat": 43.509062,
+            "province": "吉林省",
+            "city": "长春市",
+            "district": "公主岭市",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "鲅鱼圈港",
+            "nodeId": "amap-B0FFG8AIEW",
+            "lng": 122.101431,
+            "lat": 40.291018,
+            "province": "辽宁省",
+            "city": "营口市",
+            "district": "鲅鱼圈区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": "cmuqmlk5k002ktrg02ieybqma",
+          "geometrySource": "AMAP_V5_DRIVING",
+          "geometryQuality": "PROVIDER_REFERENCE"
+        },
+        {
+          "mode": "WATER",
+          "origin": {
+            "name": "鲅鱼圈港",
+            "nodeId": "amap-B0FFG8AIEW",
+            "lng": 122.101431,
+            "lat": 40.291018,
+            "province": "辽宁省",
+            "city": "营口市",
+            "district": "鲅鱼圈区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "南沙港",
+            "nodeId": "amap-B0FFITHKX8",
+            "lng": 113.673912,
+            "lat": 22.647659,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "南沙区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": null,
+          "geometrySource": "PUBLIC_COASTAL_CORRIDOR_REFERENCE",
+          "geometryQuality": "INITIALIZATION_REFERENCE"
+        }
+      ]
+    },
+    {
+      "id": "business-init-v1-waybill-16",
+      "waybillNo": "YD2026100016",
+      "contractId": "business-init-v1-contract-16",
+      "contractNo": "HT2026100016",
+      "tradeOrderId": "business-init-v1-trade-16",
+      "routeFamily": "公铁",
+      "quantityTonnes": 640.8,
+      "grain": "稻谷",
+      "status": "COMPLETED",
+      "tasks": 45,
+      "trackPoints": 8428,
+      "segments": [
+        {
+          "mode": "ROAD",
+          "origin": {
+            "name": "盘锦站",
+            "nodeId": "amap-B01AB0I58K",
+            "lng": 122.063029,
+            "lat": 41.197737,
+            "province": "辽宁省",
+            "city": "盘锦市",
+            "district": "双台子区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "铁路货运蒲河物流基地",
+            "nodeId": "amap-B0FFLAFJTD",
+            "lng": 123.190329,
+            "lat": 41.842324,
+            "province": "辽宁省",
+            "city": "沈阳市",
+            "district": "于洪区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": "cmur7pqtg001ntrfwhql9tge6",
+          "geometrySource": "AMAP_V5_DRIVING",
+          "geometryQuality": "PROVIDER_REFERENCE"
+        },
+        {
+          "mode": "RAIL",
+          "origin": {
+            "name": "铁路货运蒲河物流基地",
+            "nodeId": "amap-B0FFLAFJTD",
+            "lng": 123.190329,
+            "lat": 41.842324,
+            "province": "辽宁省",
+            "city": "沈阳市",
+            "district": "于洪区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "广州国际港站",
+            "nodeId": "amap-B0IR3HK9U0",
+            "lng": 113.185119,
+            "lat": 23.273912,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "白云区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": null,
+          "geometrySource": "OPENSTREETMAP_RAIL_INFRASTRUCTURE",
+          "geometryQuality": "PUBLIC_INFRASTRUCTURE_REFERENCE"
+        },
+        {
+          "mode": "ROAD",
+          "origin": {
+            "name": "广州国际港站",
+            "nodeId": "amap-B0IR3HK9U0",
+            "lng": 113.185119,
+            "lat": 23.273912,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "白云区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "destination": {
+            "name": "广州北站",
+            "nodeId": "amap-B00140UERW",
+            "lng": 113.203846,
+            "lat": 23.377273,
+            "province": "广东省",
+            "city": "广州市",
+            "district": "花都区",
+            "source": "AMAP_POI",
+            "coordinateSystem": "GCJ02"
+          },
+          "geometryId": "cmuphwy1g000btrf8sdrpebgg",
+          "geometrySource": "AMAP_V5_DRIVING",
+          "geometryQuality": "PROVIDER_REFERENCE"
+        }
+      ]
+    }
+  ],
+  "pendingGeometry": [],
+  "trackGeometryReview": {
+    "roadRail": [
+      {
+        "mode": "ROAD",
+        "origin": "盘锦站",
+        "destination": "铁路货运蒲河物流基地",
+        "source": "AMAP_V5_DRIVING",
+        "quality": "PROVIDER_REFERENCE",
+        "rawPoints": 1032,
+        "fullTrackPoints": 169
+      },
+      {
+        "mode": "RAIL",
+        "origin": "铁路货运蒲河物流基地",
+        "destination": "广州国际港站",
+        "source": "OPENSTREETMAP_RAIL_INFRASTRUCTURE",
+        "quality": "PUBLIC_INFRASTRUCTURE_REFERENCE",
+        "rawPoints": 15809,
+        "fullTrackPoints": 3566
+      },
+      {
+        "mode": "ROAD",
+        "origin": "广州国际港站",
+        "destination": "广州北站",
+        "source": "AMAP_V5_DRIVING",
+        "quality": "PROVIDER_REFERENCE",
+        "rawPoints": 261,
+        "fullTrackPoints": 52
+      }
+    ],
+    "roadWater": [
+      {
+        "mode": "ROAD",
+        "origin": "公主岭站",
+        "destination": "鲅鱼圈港",
+        "source": "AMAP_V5_DRIVING",
+        "quality": "PROVIDER_REFERENCE",
+        "rawPoints": 3117,
+        "fullTrackPoints": 569
+      },
+      {
+        "mode": "WATER",
+        "origin": "鲅鱼圈港",
+        "destination": "南沙港",
+        "source": "PUBLIC_COASTAL_CORRIDOR_REFERENCE",
+        "quality": "INITIALIZATION_REFERENCE",
+        "rawPoints": 1968,
+        "fullTrackPoints": 2540
+      }
+    ],
+    "railWater": [
+      {
+        "mode": "RAIL",
+        "origin": "新香坊站",
+        "destination": "鲅鱼圈港",
+        "source": "OPENSTREETMAP_RAIL_INFRASTRUCTURE",
+        "quality": "PUBLIC_INFRASTRUCTURE_REFERENCE",
+        "rawPoints": 2878,
+        "fullTrackPoints": 866
+      },
+      {
+        "mode": "WATER",
+        "origin": "鲅鱼圈港",
+        "destination": "新沙港",
+        "source": "PUBLIC_COASTAL_CORRIDOR_REFERENCE",
+        "quality": "INITIALIZATION_REFERENCE",
+        "rawPoints": 2004,
+        "fullTrackPoints": 2542
+      }
+    ],
+    "roadRailWater": [
+      {
+        "mode": "ROAD",
+        "origin": "公主岭站",
+        "destination": "五棵树站",
+        "source": "AMAP_V5_DRIVING",
+        "quality": "PROVIDER_REFERENCE",
+        "rawPoints": 1492,
+        "fullTrackPoints": 259
+      },
+      {
+        "mode": "RAIL",
+        "origin": "五棵树站",
+        "destination": "鲅鱼圈港",
+        "source": "OPENSTREETMAP_RAIL_INFRASTRUCTURE",
+        "quality": "PUBLIC_INFRASTRUCTURE_REFERENCE",
+        "rawPoints": 2308,
+        "fullTrackPoints": 757
+      },
+      {
+        "mode": "WATER",
+        "origin": "鲅鱼圈港",
+        "destination": "南沙港",
+        "source": "PUBLIC_COASTAL_CORRIDOR_REFERENCE",
+        "quality": "INITIALIZATION_REFERENCE",
+        "rawPoints": 1968,
+        "fullTrackPoints": 2540
+      },
+      {
+        "mode": "ROAD",
+        "origin": "南沙港",
+        "destination": "广州国际港站",
+        "source": "AMAP_V5_DRIVING",
+        "quality": "PROVIDER_REFERENCE",
+        "rawPoints": 1083,
+        "fullTrackPoints": 168
+      }
+    ]
+  },
+  "preservedAccounts": [
+    {
+      "id": "cmupalj58000rtr3sxlo1s6gp",
+      "username": "admin"
+    },
+    {
+      "id": "cmupalj6l000ztr3ssdv53svh",
+      "username": "carrier"
+    },
+    {
+      "id": "cmupalj760013tr3slq6h6q85",
+      "username": "carrier.b"
+    },
+    {
+      "id": "cmupalj6u0011tr3s5waz472r",
+      "username": "carrier.staff"
+    },
+    {
+      "id": "cmupalj7f0015tr3sb8zfgwr2",
+      "username": "driver"
+    },
+    {
+      "id": "cmupalj5r000ttr3sovcmiq44",
+      "username": "trader"
+    },
+    {
+      "id": "cmupalj6c000xtr3shnnjh7q4",
+      "username": "trader.b"
+    },
+    {
+      "id": "cmupalj62000vtr3shlbx9z8g",
+      "username": "trader.staff"
+    }
+  ],
+  "taskProvenance": "TransportTask.feedback / ExecutionEvent.payload",
+  "entityProvenance": "docs/business-data-sources.md and this manifest",
+  "privateDataPolicy": "无电话、证件号码、印章图、法律签章或虚构原始附件；新增司机密码随机且要求首次修改，不输出密码。",
+  "originalProvenance": {
+    "sourceSystem": "BUSINESS_INITIALIZATION",
+    "sourceType": "INITIALIZATION",
+    "version": 1,
+    "generatedAt": "2026-10-03T02:00:00.000Z",
+    "verification": "UNVERIFIED_BUSINESS_RECORD",
+    "note": "按用户要求生成的业务初始化记录；企业账户、人员、车牌、航次、交易、任务、费用与状态不代表已核验的现实业务。公开港站与高德道路信息另行记录来源。原始凭证、身份及签章资料待实际业务录入。"
+  },
+  "timeCalibration": {
+    "sourceSystem": "BUSINESS_INITIALIZATION",
+    "auditId": "business-init-v1-time-calibration-v1",
+    "oldBase": "2026-10-03T02:00:00.000Z",
+    "newBase": "2026-10-03T12:32:42.845Z",
+    "deltaMs": 37962845,
+    "deltaHours": 10.545234722222222,
+    "review": [
+      {
+        "table": "BusinessEntity",
+        "rows": 4,
+        "shiftedDateFields": {
+          "createdAt": 4
+        },
+        "jsonDates": 0,
+        "jsonRefreshes": 0,
+        "refreshedDateFields": {}
+      },
+      {
+        "table": "User",
+        "rows": 12,
+        "shiftedDateFields": {
+          "createdAt": 12
+        },
+        "jsonDates": 0,
+        "jsonRefreshes": 0,
+        "refreshedDateFields": {}
+      },
+      {
+        "table": "VesselArchive",
+        "rows": 4,
+        "shiftedDateFields": {
+          "createdAt": 4
+        },
+        "jsonDates": 0,
+        "jsonRefreshes": 0,
+        "refreshedDateFields": {}
+      },
+      {
+        "table": "TradeOrder",
+        "rows": 16,
+        "shiftedDateFields": {
+          "createdAt": 16
+        },
+        "jsonDates": 0,
+        "jsonRefreshes": 0,
+        "refreshedDateFields": {}
+      },
+      {
+        "table": "TransportDemand",
+        "rows": 16,
+        "shiftedDateFields": {
+          "departureAt": 16,
+          "arrivalAt": 16,
+          "createdAt": 16
+        },
+        "jsonDates": 0,
+        "jsonRefreshes": 0,
+        "refreshedDateFields": {}
+      },
+      {
+        "table": "TransportSupply",
+        "rows": 16,
+        "shiftedDateFields": {
+          "serviceStart": 16,
+          "serviceEnd": 16,
+          "validFrom": 16,
+          "validUntil": 16,
+          "createdAt": 16
+        },
+        "jsonDates": 0,
+        "jsonRefreshes": 0,
+        "refreshedDateFields": {}
+      },
+      {
+        "table": "RoutePrice",
+        "rows": 3,
+        "shiftedDateFields": {
+          "createdAt": 3
+        },
+        "jsonDates": 0,
+        "jsonRefreshes": 0,
+        "refreshedDateFields": {}
+      },
+      {
+        "table": "MatchPublication",
+        "rows": 16,
+        "shiftedDateFields": {
+          "deadline": 16,
+          "closedAt": 0,
+          "createdAt": 16
+        },
+        "jsonDates": 48,
+        "jsonRefreshes": 0,
+        "refreshedDateFields": {}
+      },
+      {
+        "table": "MatchRecipient",
+        "rows": 16,
+        "shiftedDateFields": {
+          "invitedAt": 16
+        },
+        "jsonDates": 0,
+        "jsonRefreshes": 0,
+        "refreshedDateFields": {}
+      },
+      {
+        "table": "MatchResponse",
+        "rows": 16,
+        "shiftedDateFields": {
+          "createdAt": 16
+        },
+        "jsonDates": 64,
+        "jsonRefreshes": 0,
+        "refreshedDateFields": {}
+      },
+      {
+        "table": "NegotiationRound",
+        "rows": 16,
+        "shiftedDateFields": {
+          "createdAt": 16
+        },
+        "jsonDates": 64,
+        "jsonRefreshes": 0,
+        "refreshedDateFields": {}
+      },
+      {
+        "table": "CarrierConfirmation",
+        "rows": 16,
+        "shiftedDateFields": {
+          "confirmedAt": 16
+        },
+        "jsonDates": 64,
+        "jsonRefreshes": 0,
+        "refreshedDateFields": {}
+      },
+      {
+        "table": "ContractPackage",
+        "rows": 16,
+        "shiftedDateFields": {
+          "createdAt": 16
+        },
+        "jsonDates": 64,
+        "jsonRefreshes": 0,
+        "refreshedDateFields": {}
+      },
+      {
+        "table": "ContractRevision",
+        "rows": 16,
+        "shiftedDateFields": {
+          "createdAt": 16
+        },
+        "jsonDates": 112,
+        "jsonRefreshes": 0,
+        "refreshedDateFields": {}
+      },
+      {
+        "table": "LogisticsBusiness",
+        "rows": 16,
+        "shiftedDateFields": {
+          "completedAt": 4,
+          "createdAt": 16
+        },
+        "jsonDates": 0,
+        "jsonRefreshes": 0,
+        "refreshedDateFields": {}
+      },
+      {
+        "table": "TransportStage",
+        "rows": 47,
+        "shiftedDateFields": {
+          "plannedStartAt": 47,
+          "plannedEndAt": 47,
+          "actualEndAt": 18,
+          "submittedAt": 28,
+          "completedAt": 18,
+          "createdAt": 47
+        },
+        "jsonDates": 662,
+        "jsonRefreshes": 0,
+        "refreshedDateFields": {}
+      },
+      {
+        "table": "TransportTask",
+        "rows": 348,
+        "shiftedDateFields": {
+          "plannedStartAt": 348,
+          "plannedEndAt": 348,
+          "feedbackSubmittedAt": 323,
+          "createdAt": 348
+        },
+        "jsonDates": 348,
+        "jsonRefreshes": 0,
+        "refreshedDateFields": {}
+      },
+      {
+        "table": "ExecutionEvent",
+        "rows": 348,
+        "shiftedDateFields": {
+          "createdAt": 348
+        },
+        "jsonDates": 680,
+        "jsonRefreshes": 0,
+        "refreshedDateFields": {}
+      },
+      {
+        "table": "TrackPoint",
+        "rows": 131486,
+        "shiftedDateFields": {
+          "observedAt": 131486
+        },
+        "jsonDates": 0,
+        "jsonRefreshes": 0,
+        "refreshedDateFields": {}
+      },
+      {
+        "table": "TransportObservation",
+        "rows": 0,
+        "shiftedDateFields": {
+          "observedAt": 0
+        },
+        "jsonDates": 0,
+        "jsonRefreshes": 0,
+        "refreshedDateFields": {}
+      },
+      {
+        "table": "Forecast",
+        "rows": 16,
+        "shiftedDateFields": {},
+        "jsonDates": 80,
+        "jsonRefreshes": 16,
+        "refreshedDateFields": {
+          "predictedAt": 16
+        }
+      },
+      {
+        "table": "RiskRecord",
+        "rows": 2,
+        "shiftedDateFields": {},
+        "jsonDates": 0,
+        "jsonRefreshes": 0,
+        "refreshedDateFields": {
+          "lastSeenAt": 2
+        }
+      },
+      {
+        "table": "ServiceFee",
+        "rows": 37,
+        "shiftedDateFields": {
+          "createdAt": 37
+        },
+        "jsonDates": 0,
+        "jsonRefreshes": 0,
+        "refreshedDateFields": {}
+      },
+      {
+        "table": "Bill",
+        "rows": 4,
+        "shiftedDateFields": {
+          "periodFrom": 4,
+          "periodTo": 4,
+          "createdAt": 4
+        },
+        "jsonDates": 52,
+        "jsonRefreshes": 0,
+        "refreshedDateFields": {}
+      },
+      {
+        "table": "BillItem",
+        "rows": 16,
+        "shiftedDateFields": {
+          "occurredAt": 16
+        },
+        "jsonDates": 0,
+        "jsonRefreshes": 0,
+        "refreshedDateFields": {}
+      }
+    ],
+    "trajectoryBefore": {
+      "count": 131486,
+      "earliest": "2026-09-14T10:30:00.000Z",
+      "latest": "2026-10-03T02:00:00.000Z"
+    },
+    "policy": {
+      "sourceType": "INITIALIZATION",
+      "verification": "UNVERIFIED_BUSINESS_RECORD",
+      "coordinatesUnchanged": true,
+      "preserveActualCreatedAndUpdated": true,
+      "preserveOriginalAuditHistory": true,
+      "preservePublicGeometryQueryDates": true,
+      "preservePriceValidityYears": true,
+      "forecastAndRiskRefresh": "Only original initialization Forecast.predictedAt / result.predictedAt and RiskRecord.lastSeenAt are refreshed to the calibration instant."
+    },
+    "result": [
+      {
+        "table": "BusinessEntity",
+        "rows": 4
+      },
+      {
+        "table": "User",
+        "rows": 12
+      },
+      {
+        "table": "VesselArchive",
+        "rows": 4
+      },
+      {
+        "table": "TradeOrder",
+        "rows": 16
+      },
+      {
+        "table": "TransportDemand",
+        "rows": 16
+      },
+      {
+        "table": "TransportSupply",
+        "rows": 16
+      },
+      {
+        "table": "RoutePrice",
+        "rows": 3
+      },
+      {
+        "table": "MatchPublication",
+        "rows": 16
+      },
+      {
+        "table": "MatchRecipient",
+        "rows": 16
+      },
+      {
+        "table": "MatchResponse",
+        "rows": 16
+      },
+      {
+        "table": "NegotiationRound",
+        "rows": 16
+      },
+      {
+        "table": "CarrierConfirmation",
+        "rows": 16
+      },
+      {
+        "table": "ContractPackage",
+        "rows": 16
+      },
+      {
+        "table": "ContractRevision",
+        "rows": 16
+      },
+      {
+        "table": "LogisticsBusiness",
+        "rows": 16
+      },
+      {
+        "table": "TransportStage",
+        "rows": 47
+      },
+      {
+        "table": "TransportTask",
+        "rows": 348
+      },
+      {
+        "table": "ExecutionEvent",
+        "rows": 348
+      },
+      {
+        "table": "TrackPoint",
+        "rows": 131486
+      },
+      {
+        "table": "TransportObservation",
+        "rows": 0
+      },
+      {
+        "table": "Forecast",
+        "rows": 16
+      },
+      {
+        "table": "RiskRecord",
+        "rows": 2
+      },
+      {
+        "table": "ServiceFee",
+        "rows": 37
+      },
+      {
+        "table": "Bill",
+        "rows": 4
+      },
+      {
+        "table": "BillItem",
+        "rows": 16
+      }
+    ],
+    "outsidePreserved": {
+      "BusinessEntity": {
+        "rows": 16,
+        "sha256": "d82b0d08e9e56e9bcf861af2ceaff6125cc5fa31594fba7cd7621708ab0e975d"
+      },
+      "User": {
+        "rows": 19,
+        "sha256": "9c0a574c98a4714e6c764a7d6f356b5be2f0fe1ae91db39f3533f14d3ea02da6"
+      },
+      "VesselArchive": {
+        "rows": 5,
+        "sha256": "af99fb569c229fdf85d9a99e241ebfa7ab75e5dfa0fac8f8d276e9e2840ee30a"
+      },
+      "TradeOrder": {
+        "rows": 52,
+        "sha256": "2e229825c0e21377937729eefdd06218e97e934f7d6a88c07f2a610b393be24d"
+      },
+      "TransportDemand": {
+        "rows": 93,
+        "sha256": "f5e1cddb14aee5b96620ba85df438702deecd3cb6b27ef83f45dcf6ac62e123b"
+      },
+      "TransportSupply": {
+        "rows": 52,
+        "sha256": "8dcc9c49bc137824e26e79a87b3a7badc346445c06e5c23ea1779fe666fd8c52"
+      },
+      "RoutePrice": {
+        "rows": 31,
+        "sha256": "09a6f58ca1378a33a9265d48d637e490538d76a917a4a6b1910292d88a9ffaea"
+      },
+      "MatchPublication": {
+        "rows": 89,
+        "sha256": "d93905a98c8be2ca4b49c611221ec655c71ea32e8e0528f0f4e18c602ce012f3"
+      },
+      "MatchRecipient": {
+        "rows": 28,
+        "sha256": "c829e325f86d2810d0429371da382af58a9ca699f04eb4eebf14a602e3f3bf48"
+      },
+      "MatchResponse": {
+        "rows": 65,
+        "sha256": "4b3f0899d030925041219abe8ac9dda8a4049587f05c3ddfd24ded900afb7097"
+      },
+      "NegotiationRound": {
+        "rows": 167,
+        "sha256": "45722a21c982df7bdfb56b9c96cdd39094bdd4cae45449f97d8d6605e077615f"
+      },
+      "CarrierConfirmation": {
+        "rows": 52,
+        "sha256": "d3946cdb4b942aad15271e5a4ecad9ae708ca5eb636558e09404b72d9b96b5ce"
+      },
+      "ContractPackage": {
+        "rows": 32,
+        "sha256": "6bbd5d5b662bf62a125317cb2c4b450c081299754b433a0fd88d7c9c1ce29fd4"
+      },
+      "ContractRevision": {
+        "rows": 33,
+        "sha256": "540647a3a01a233e4f504dbff1ac61ce1514cf6dab8d6cac53c69d18c8169079"
+      },
+      "LogisticsBusiness": {
+        "rows": 27,
+        "sha256": "0cd9e88840b4fa98dfec51616bcb5bb2ef52d53989320b9577184e1b8310930e"
+      },
+      "TransportStage": {
+        "rows": 62,
+        "sha256": "a4b9e89258d14f306933fe1a554eed75e56e64c28eedc27e8f1ddab7b7a07b3b"
+      },
+      "TransportTask": {
+        "rows": 74,
+        "sha256": "3c811df528f36c44f4e842d4af2e121a0062a13470c18188943d462543782015"
+      },
+      "ExecutionEvent": {
+        "rows": 172,
+        "sha256": "a2a13aabcf7b7ddf71c022b30e524803ec7c21e318bb2ee4055e42c7c7501be1"
+      },
+      "TrackPoint": {
+        "rows": 5118,
+        "sha256": "9211ab48a864551b121f1ca26523f5a9fe24de0f7ee7d4e69397ff1f82fe16f0"
+      },
+      "TransportObservation": {
+        "rows": 9,
+        "sha256": "2a58b3c87160ace7bf37bcc3204edddef4f9af328d35716a1fbc087fb6ceb788"
+      },
+      "Forecast": {
+        "rows": 2047,
+        "sha256": "dcc6e7311533e29c02d2a0e7b07860392e0d8066f1be1ba07543f990f71c8efd"
+      },
+      "RiskRecord": {
+        "rows": 17,
+        "sha256": "b85797a00c41a1dac95c5d1c2c779a8a34a4817598c6d01301f34088a457bb43"
+      },
+      "ServiceFee": {
+        "rows": 30,
+        "sha256": "8fc5eff5204351d34f61f326a3bbb434d2e5129f7f5cd5dc51ad96530a6abe17"
+      },
+      "Bill": {
+        "rows": 14,
+        "sha256": "860813f9953e28e688e9362d5aa2b5a0903757f43d3006cc927ffe1468308a27"
+      },
+      "BillItem": {
+        "rows": 23,
+        "sha256": "e9d530412163a1905bd09d4ff97023d80e6f27a401dee0f6c86873f16c47f378"
+      },
+      "AuditLog": {
+        "rows": 2373,
+        "sha256": "a0063bbb1af45cc8563702efb38ee12b892d28c0782ce72a35bf5b20944337af"
+      },
+      "TransportNode": {
+        "rows": 33,
+        "sha256": "7937a9776fb76701b64a9b221b18b0dcbe3c83a1bd5b94397d7f5f0f4b96c814"
+      },
+      "RouteGeometry": {
+        "rows": 274,
+        "sha256": "975c87c2afe83a1d0e44e8bb7e9dec9661a7e587dc8f3157669f5f01ffabde40"
+      },
+      "ContractSignature": {
+        "rows": 115,
+        "sha256": "46857768fa416751f168ec6b332c5546ff3e62fc2451fd718275af6f96375d9a"
+      },
+      "ExecutionEvidence": {
+        "rows": 67,
+        "sha256": "53b176664e02638aa77e8215a5d39dd61e8a3c164af59a0a0addfb1271c5c9bf"
+      },
+      "StageAttachment": {
+        "rows": 2,
+        "sha256": "680b6c266c6030c63738b863fe4dddda9354ab0dc313398abc47a4bec75c3bc8"
+      },
+      "BillEvidence": {
+        "rows": 10,
+        "sha256": "8f19cd136c762cf29fb69f0cc2cd0629a5df3f17bf2c52d3d2041c4ae3177c7f"
+      }
+    },
+    "latestObservedAt": "2026-10-03T12:32:42.845Z",
+    "pointFactsHash": "381da447351d170244a429cf1ab9935c975d26df3372255c3d88a6d6c978f3b1",
+    "priceFactsHash": "e07253c67f3874e983d3b3c61fa69397e9af9066a899c3ee8b53dbf233959a87",
+    "calibratedAt": "2026-10-03T12:32:53.444Z",
+    "backup": {
+      "sourceSystem": "BUSINESS_INITIALIZATION",
+      "auditId": "business-init-v1-time-calibration-v1",
+      "createdAt": "2026-10-03T12:32:45.295Z",
+      "databasePath": "D:\\项目资料\\Code\\liaoliang\\.local\\backups\\business-time-calibration-2026-10-03T12-32-44-171Z\\database.db",
+      "bytes": 138010624,
+      "sha256": "1419a86011fd7e8ea4b3602950ec8a3defce930618231fb6a4a32b84060aa24c",
+      "method": "SQLITE_VACUUM_INTO"
+    }
+  }
+}

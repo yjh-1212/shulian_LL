@@ -1,0 +1,111 @@
+{
+  "checkedAt": "2026-10-03T14:06:14.969Z",
+  "checks": [
+    {
+      "name": "企业合同和独立档案范围",
+      "username": "admin",
+      "performance": 10,
+      "pendingArchives": 6,
+      "archived": 4
+    },
+    {
+      "name": "企业合同和独立档案范围",
+      "username": "trader",
+      "performance": 5,
+      "pendingArchives": 3,
+      "archived": 2
+    },
+    {
+      "name": "企业合同和独立档案范围",
+      "username": "trader.b",
+      "performance": 5,
+      "pendingArchives": 3,
+      "archived": 2
+    },
+    {
+      "name": "企业合同和独立档案范围",
+      "username": "carrier",
+      "performance": 5,
+      "pendingArchives": 3,
+      "archived": 2
+    },
+    {
+      "name": "企业合同和独立档案范围",
+      "username": "carrier.b",
+      "performance": 5,
+      "pendingArchives": 3,
+      "archived": 2
+    },
+    {
+      "name": "无关企业与对方合同越权查看被阻断",
+      "passed": true
+    },
+    {
+      "name": "初始化只读操作阻断，普通草稿未获得履约例外",
+      "passed": true
+    }
+  ],
+  "sourceSystem": "BUSINESS_INITIALIZATION",
+  "coverage": {
+    "contracts": 10,
+    "paymentPlans": 30,
+    "receiptPlans": 30,
+    "feePlans": 36,
+    "changeProposals": 4,
+    "requiredDocuments": 80,
+    "measurementReturns": 188,
+    "statuses": {
+      "WAITING": 2,
+      "IN_PROGRESS": 4,
+      "COMPLETED": 4
+    },
+    "actualPayments": 0,
+    "signatures": 0
+  },
+  "preserved": [
+    {
+      "table": "contractRevision",
+      "unchanged": true,
+      "rows": 49
+    },
+    {
+      "table": "contractSignature",
+      "unchanged": true,
+      "rows": 115
+    },
+    {
+      "table": "settlement",
+      "unchanged": true,
+      "rows": 11
+    },
+    {
+      "table": "settlementRecord",
+      "unchanged": true,
+      "rows": 12
+    },
+    {
+      "table": "contractTemplateFile",
+      "unchanged": true,
+      "rows": 11
+    },
+    {
+      "table": "executionEvidence",
+      "unchanged": true,
+      "rows": 67
+    },
+    {
+      "table": "stageAttachment",
+      "unchanged": true,
+      "rows": 2
+    },
+    {
+      "table": "billEvidence",
+      "unchanged": true,
+      "rows": 10
+    }
+  ],
+  "originalArchivesPreserved": 3,
+  "originalContractTermsAndGeometryPreserved": true,
+  "idempotency": "ALREADY_INITIALIZED",
+  "passed": true
+}

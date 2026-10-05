@@ -1,0 +1,72 @@
+{
+  "mode": "built-in image_gen",
+  "description": "Generated grain logistics scenes used as decorative website illustrations.",
+  "assets": [
+    {
+      "name": "hero",
+      "file": "apps/web/public/assets/data-service/hero-v2.webp",
+      "source": "C:\\Users\\Lenovo\\.codex\\generated_images\\01a0f69a-7a39-7a63-8046-55b6945492e5\\exec-d531255b-302c-4acf-8cb9-3b5d71be7f8a.png",
+      "size": [
+        1920,
+        640
+      ],
+      "bytes": 241016,
+      "prompt": "Use case: photorealistic-natural. Asset type: panoramic website hero background. Create a beautiful realistic aerial view of a modern Chinese grain port linking northern grain production with southern distribution. Wide landscape 3:1 composition. Right half contains a large bulk cargo vessel at quay, ivory grain silos, teal-blue gantry cranes, parallel rail tracks with a grain freight train and a small grain truck, amber grain and vegetation accents, believable scale. Deep ocean teal water and softly hazy industrial horizon. Left 45% is quiet deep teal water and haze with very few details, intentionally suitable for white website headline overlay. Rich yet restrained cinematic early morning daylight, attractive precision and atmosphere, professional transport photography. No typography, labels, lettering, watermarks, logos, digital dashboards, dotted circles or neon networks. Infrastructure concentrated on right half and middle-right."
+    },
+    {
+      "name": "capacity",
+      "file": "apps/web/public/assets/data-service/capacity-v2.webp",
+      "source": "C:\\Users\\Lenovo\\.codex\\generated_images\\01a0f69a-7a39-7a63-8046-55b6945492e5\\exec-637cf1c9-4872-4b3e-9e7e-946a93170cb7.png",
+      "size": [
+        960,
+        640
+      ],
+      "bytes": 156266,
+      "prompt": "Use case: stylized-concept. Asset for a Chinese grain logistics data service website. Premium realistic 3D editorial visualization with precise industrial details, restrained ocean teal, slate blue, ivory and small harvest-gold accents, soft daylight, elegant enterprise art direction. Single cohesive landscape scene, no collage panels, no letters, words, numbers, logos or watermark. Do not draw a UI or a screenshot. Produce a landscape image approximately 3:2. The composition must remain clear as a small website card thumbnail. No excessive neon, no cartoon faces, no spheres as data icons. Subject: an integrated grain transport hub seen in a three-quarter aerial view: a blue grain truck in foreground left, a teal grain freight locomotive and wagons in middle, and a modern bulk vessel on a short ivory quay at right, cylindrical grain silos and a small pile of golden corn conveying the grain business. Realistic painted metal, crisp but naturally lit. Pale blue water and light industrial base blend into a clean pale grey backdrop. No infographic symbols or diagrams. All three transport modes visible and visually balanced."
+    },
+    {
+      "name": "corridor",
+      "file": "apps/web/public/assets/data-service/corridor-v2.webp",
+      "source": "C:\\Users\\Lenovo\\.codex\\generated_images\\01a0f69a-7a39-7a63-8046-55b6945492e5\\exec-84d45f13-4590-48f6-8276-3a68c29be46b.png",
+      "size": [
+        960,
+        640
+      ],
+      "bytes": 199640,
+      "prompt": "Use case: stylized-concept. Asset for a Chinese grain logistics data service website. Premium realistic 3D editorial visualization with precise industrial details, restrained ocean teal, slate blue, ivory and small harvest-gold accents, soft daylight, elegant enterprise art direction. Single cohesive landscape scene, no collage panels, no letters, words, numbers, logos or watermark. Do not draw a UI or a screenshot. Produce a landscape image approximately 3:2. The composition must remain clear as a small website card thumbnail. No excessive neon, no cartoon faces, no spheres as data icons. Subject: a believable coastal grain corridor as a miniature aerial landscape, grain silos and farm storage at upper left, rail line crossing countryside, a coastal terminal and bulk vessel at lower right, several geographically separated transport hubs. One subtle golden route trail travels across the scene connecting the nodes, indicating a corridor rather than resource vehicles. Soft teal water, gently textured land, beautiful depth. No fake maps with political borders. No diagrams or labels."
+    },
+    {
+      "name": "trace",
+      "file": "apps/web/public/assets/data-service/trace-v2.webp",
+      "source": "C:\\Users\\Lenovo\\.codex\\generated_images\\01a0f69a-7a39-7a63-8046-55b6945492e5\\exec-2d7576d3-3a18-48e4-ba4c-0338a1ff59cd.png",
+      "size": [
+        960,
+        640
+      ],
+      "bytes": 101912,
+      "prompt": "Use case: stylized-concept. Asset for a Chinese grain logistics data service website. Premium realistic 3D editorial visualization with precise industrial details, restrained ocean teal, slate blue, ivory and small harvest-gold accents, soft daylight, elegant enterprise art direction. Single cohesive landscape scene, no collage panels, no letters, words, numbers, logos or watermark. Do not draw a UI or a screenshot. Produce a landscape image approximately 3:2. The composition must remain clear as a small website card thumbnail. No excessive neon, no cartoon faces, no spheres as data icons. Subject: grain shipment chain verification. A realistic grain container, neatly stacked ivory shipment documents with subtle illegible ruled markings but absolutely no readable text, a glass magnifier inspecting a small document seal, and three small physical cargo handoff modules connected by fine teal lines, tiny verified tick seals. The documents are tangible paper objects, a tasteful editorial still life about traceability with a grain transport context. Pale cool mint studio backdrop, soft shadows, attractive clean composition. No giant glowing padlocks, no fake QR or data charts."
+    },
+    {
+      "name": "credit",
+      "file": "apps/web/public/assets/data-service/credit-v2.webp",
+      "source": "C:\\Users\\Lenovo\\.codex\\generated_images\\01a0f69a-7a39-7a63-8046-55b6945492e5\\exec-4a40618c-6d9b-4eb4-a080-f21c4c376b0c.png",
+      "size": [
+        960,
+        640
+      ],
+      "bytes": 88342,
+      "prompt": "Use case: stylized-concept. Asset for a Chinese grain logistics data service website. Premium realistic 3D editorial visualization with precise industrial details, restrained ocean teal, slate blue, ivory and small harvest-gold accents, soft daylight, elegant enterprise art direction. Single cohesive landscape scene, no collage panels, no letters, words, numbers, logos or watermark. Do not draw a UI or a screenshot. Produce a landscape image approximately 3:2. The composition must remain clear as a small website card thumbnail. No excessive neon, no cartoon faces, no spheres as data icons. Subject: a credible logistics enterprise and its fulfillment record. A small modern ivory logistics office building and teal grain truck, a refined frosted glass shield with an embossed checkmark, three subtly stepped gold blocks representing performance, a modest clipboard with embossed seal, all arranged in a tasteful realistic miniature transport business scene on a pale blue-grey studio backdrop. Shield provides the focal point. No numerical score, no stars, no readable text, no money."
+    },
+    {
+      "name": "risk",
+      "file": "apps/web/public/assets/data-service/risk-v2.webp",
+      "source": "C:\\Users\\Lenovo\\.codex\\generated_images\\01a0f69a-7a39-7a63-8046-55b6945492e5\\exec-aca13605-e26b-4ccd-b7f8-dc78199322ef.png",
+      "size": [
+        960,
+        640
+      ],
+      "bytes": 144836,
+      "prompt": "Use case: stylized-concept. Asset for a Chinese grain logistics data service website. Premium realistic 3D editorial visualization with precise industrial details, restrained ocean teal, slate blue, ivory and small harvest-gold accents, soft daylight, elegant enterprise art direction. Single cohesive landscape scene, no collage panels, no letters, words, numbers, logos or watermark. Do not draw a UI or a screenshot. Produce a landscape image approximately 3:2. The composition must remain clear as a small website card thumbnail. No excessive neon, no cartoon faces, no spheres as data icons. Subject: grain transport route risk monitoring. A realistic teal coastal cargo vessel and grain truck on a short quay road, a miniature control tower with small radar, one refined amber warning triangle beside a curved route line, very light grey weather cloud in the back; clear believable editorial scene communicates forecasting and transport monitoring. Soft cool grey-teal studio background and maritime setting, crisp materials, elegant and calm. No flames, no catastrophe, no dramatic lightning, no fake graph, no enormous neon icons."
+    }
+  ]
+}

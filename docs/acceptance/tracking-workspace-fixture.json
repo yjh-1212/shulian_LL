@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-10-03T03:49:09.922Z",
+  "scenarios": [
+    {
+      "id": "tracking-demo-road",
+      "waybillNo": "YDDEMO20261003ROAD",
+      "active": "ROAD",
+      "loadingType": "CONTAINER"
+    },
+    {
+      "id": "tracking-demo-water",
+      "waybillNo": "YDDEMO20261003WATER",
+      "active": "WATER",
+      "loadingType": "BULK"
+    },
+    {
+      "id": "tracking-demo-rail",
+      "waybillNo": "YDDEMO20261003RAIL",
+      "active": "RAIL",
+      "loadingType": "BULK"
+    }
+  ]
+}

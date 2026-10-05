@@ -1,0 +1,8 @@
+<script setup lang="ts">
+import {computed,onMounted,onBeforeUnmount} from 'vue';import {useRoute,useRouter} from 'vue-router';import {useAuth} from '../stores/auth';import type {AgentContext} from '../agent';
+const router=useRouter(),route=useRoute(),auth=useAuth();const available=computed(()=>auth.can('plan:read')||auth.can('tracking:read'));
+function show(context?:AgentContext){const c=context||{contextType:'page'};router.push({path:'/agents',query:{...(context?{agent:c.suggestedAgent||'TRACK',contextType:c.contextType,contextId:c.contextId,question:c.question}:{})}});}
+function external(e:Event){show((e as CustomEvent<AgentContext>).detail);}onMounted(()=>window.addEventListener('open-agent',external));onBeforeUnmount(()=>window.removeEventListener('open-agent',external));
+</script>
+<template><el-tooltip v-if="available&&!route.meta.agentCenter&&!route.meta.workbench" content="辽粮智运 · AI智能体中心" placement="left"><button class="liaoliang-agent-entry" aria-label="打开AI智能体中心" @click="show()"><img src="/agent/liaoliang-ai.png?v=9c956ad9c5e5" alt="辽粮AI智能体"/></button></el-tooltip></template>
+<style scoped>.liaoliang-agent-entry{position:fixed;right:18px;bottom:18px;width:90px;height:90px;z-index:60;background:transparent;border:0;padding:0;cursor:pointer;transition:transform .18s}.liaoliang-agent-entry img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 4px 9px #3d98d534)}.liaoliang-agent-entry:hover{transform:translateY(-3px)}.liaoliang-agent-entry:focus-visible{outline:2px solid #2877ed;border-radius:16px;outline-offset:3px}@media(prefers-reduced-motion:reduce){.liaoliang-agent-entry{transition:none}}</style>

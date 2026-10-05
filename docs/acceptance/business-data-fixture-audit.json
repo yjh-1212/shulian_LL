@@ -1,0 +1,655 @@
+{
+  "auditedAt": "2026-10-03T12:09:01.815Z",
+  "sourceSystem": "BUSINESS_INITIALIZATION",
+  "entities": [
+    {
+      "id": "cmupb2zq00004trtcdg6p0n5l",
+      "name": "验收粮贸企业-45349540",
+      "organizationId": "sample-group",
+      "isTestData": false,
+      "status": "ACTIVE",
+      "deletedAt": null,
+      "reason": "KNOWN_ACCEPTANCE_FIXTURE_NAME_AND_ORG"
+    },
+    {
+      "id": "cmupb5oem0004tr88immfenmm",
+      "name": "验收粮贸企业-45474515",
+      "organizationId": "sample-group",
+      "isTestData": false,
+      "status": "ACTIVE",
+      "deletedAt": null,
+      "reason": "KNOWN_ACCEPTANCE_FIXTURE_NAME_AND_ORG"
+    },
+    {
+      "id": "cmupcqmoc0011trkkcck1kumk",
+      "name": "验收粮贸企业-48131977",
+      "organizationId": "sample-group",
+      "isTestData": true,
+      "status": "ACTIVE",
+      "deletedAt": null,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "demo-logistics-beicang",
+      "name": "北仓联运物流（模拟）",
+      "organizationId": "demo-logistics-org-beicang",
+      "isTestData": true,
+      "status": "ACTIVE",
+      "deletedAt": null,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "demo-logistics-liaogang",
+      "name": "辽港粮运物流（模拟）",
+      "organizationId": "demo-logistics-org-liaogang",
+      "isTestData": true,
+      "status": "ACTIVE",
+      "deletedAt": null,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "demo-logistics-jintong",
+      "name": "锦通粮食物流（模拟）",
+      "organizationId": "demo-logistics-org-jintong",
+      "isTestData": true,
+      "status": "ACTIVE",
+      "deletedAt": null,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "demo-logistics-nanyue",
+      "name": "南粤集装箱物流（模拟）",
+      "organizationId": "demo-logistics-org-nanyue",
+      "isTestData": true,
+      "status": "ACTIVE",
+      "deletedAt": null,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "demo-logistics-jigu",
+      "name": "吉林谷运物流（模拟）",
+      "organizationId": "demo-logistics-org-jigu",
+      "isTestData": true,
+      "status": "ACTIVE",
+      "deletedAt": null,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "demo-logistics-minyue",
+      "name": "闽粤联运物流（模拟）",
+      "organizationId": "demo-logistics-org-minyue",
+      "isTestData": true,
+      "status": "ACTIVE",
+      "deletedAt": null,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "demo-logistics-beibuwan",
+      "name": "北部湾粮运物流（模拟）",
+      "organizationId": "demo-logistics-org-beibuwan",
+      "isTestData": true,
+      "status": "ACTIVE",
+      "deletedAt": null,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "demo-logistics-dongbei",
+      "name": "东北粮运物流（模拟）",
+      "organizationId": "demo-logistics-org-dongbei",
+      "isTestData": true,
+      "status": "ACTIVE",
+      "deletedAt": null,
+      "reason": "EXPLICIT_TEST_FLAG"
+    }
+  ],
+  "products": [
+    {
+      "id": "cmuprl7h2001xtrlww20xng3y",
+      "code": "p8-1790873073659",
+      "name": "Phase8 指标产品新版",
+      "source": "平台实际运输任务（测试业务排除）",
+      "status": "DRAFT",
+      "reason": "KNOWN_ACCEPTANCE_FIXTURE_CODE_AND_NAME"
+    },
+    {
+      "id": "cmupshykn00h9trqkkpfi9rjp",
+      "code": "browser-1790874601448",
+      "name": "浏览器验收指标目录",
+      "source": "排除模拟业务的实际任务聚合",
+      "status": "DRAFT",
+      "reason": "KNOWN_ACCEPTANCE_FIXTURE_CODE_AND_NAME"
+    },
+    {
+      "id": "cmupskbn700j6trqkqs4g0bye",
+      "code": "browser-1790874711691",
+      "name": "浏览器验收指标目录",
+      "source": "排除模拟业务的实际任务聚合",
+      "status": "DRAFT",
+      "reason": "KNOWN_ACCEPTANCE_FIXTURE_CODE_AND_NAME"
+    },
+    {
+      "id": "cmus0zrrh0011trxoi6yw7489",
+      "code": "p8-1791009802020",
+      "name": "Phase8 指标产品新版",
+      "source": "平台实际运输任务（测试业务排除）",
+      "status": "DRAFT",
+      "reason": "KNOWN_ACCEPTANCE_FIXTURE_CODE_AND_NAME"
+    }
+  ],
+  "vessels": [
+    {
+      "id": "cmururqvz002atr4wsbrjfyt7",
+      "name": "辽粮示范轮1（模拟）",
+      "voyage": "DEMO26030",
+      "carrierId": "carrier-a",
+      "enabled": true,
+      "reason": "KNOWN_TRACKING_OR_ACCEPTANCE_FIXTURE"
+    },
+    {
+      "id": "cmururqw80033tr4wczgelb2t",
+      "name": "辽粮示范轮2（模拟）",
+      "voyage": "DEMO26031",
+      "carrierId": "carrier-a",
+      "enabled": true,
+      "reason": "KNOWN_TRACKING_OR_ACCEPTANCE_FIXTURE"
+    },
+    {
+      "id": "cmurv6rti000itroc39t6k684",
+      "name": "自动验收船（模拟）1791000051012",
+      "voyage": "TEST2",
+      "carrierId": "carrier-a",
+      "enabled": false,
+      "reason": "KNOWN_TRACKING_OR_ACCEPTANCE_FIXTURE"
+    },
+    {
+      "id": "cmurv95q5001ptroceihcd9r0",
+      "name": "自动验收船（模拟）1791000162348",
+      "voyage": "TEST2",
+      "carrierId": "carrier-a",
+      "enabled": false,
+      "reason": "KNOWN_TRACKING_OR_ACCEPTANCE_FIXTURE"
+    },
+    {
+      "id": "cmurvsgb3003htreks97n0r0x",
+      "name": "自动验收船（模拟）",
+      "voyage": "TEST2",
+      "carrierId": "carrier-a",
+      "enabled": false,
+      "reason": "KNOWN_TRACKING_OR_ACCEPTANCE_FIXTURE"
+    }
+  ],
+  "prices": [
+    {
+      "id": "sample-road-rate-v1",
+      "source": "开发样例定价（非市场报价）",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupdzty40019trrwdtsgi2pv",
+      "source": "开发验收价格，非市场报价",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupdztz9001ftrrw8vcbmf1z",
+      "source": "自动化验收样例，非报价",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupe5ixj002ttrrwxqqghoo3",
+      "source": "开发验收价格，非市场报价",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupe5iz3002ztrrwpfu09mio",
+      "source": "自动化验收样例，非报价",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupeal790015trwgfubg1uh2",
+      "source": "开发验收价格，非市场报价",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupeal8c001btrwgtaox2hhc",
+      "source": "自动化验收样例，非报价",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupeevp5002ttrwg5y7m4q8h",
+      "source": "开发验收价格，非市场报价",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupeevq8002ztrwgvgltjoyx",
+      "source": "自动化验收样例，非报价",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupegx4l004ftrwg5ikdvuva",
+      "source": "开发验收价格，非市场报价",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupegx5q004ltrwgnulovnz1",
+      "source": "自动化验收样例，非报价",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupeie5e0065trwgyn98rw55",
+      "source": "开发验收价格，非市场报价",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupeie6j006btrwge9cb8o9g",
+      "source": "自动化验收样例，非报价",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupekuzz008ntrwgtzu1qkmv",
+      "source": "开发验收价格，非市场报价",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupekv1d008ttrwg1fafo4p2",
+      "source": "自动化验收样例，非报价",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupemejb00abtrwgz0befanu",
+      "source": "开发验收价格，非市场报价",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupemekg00ahtrwg4a6oa9yv",
+      "source": "自动化验收样例，非报价",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupenkct00bztrwg4gdlpy3z",
+      "source": "开发验收价格，非市场报价",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupenkdw00c5trwglgjsmijt",
+      "source": "自动化验收样例，非报价",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupeodeg00dntrwg1djdbv0n",
+      "source": "开发验收价格，非市场报价",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupeodfj00dttrwgtv5s4g4m",
+      "source": "自动化验收样例，非报价",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupeqkcx00fxtrwgzq34eahu",
+      "source": "开发验收价格，非市场报价",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupeqkdw00g3trwgrl0jmaiy",
+      "source": "自动化验收样例，非报价",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupesngv00hytrwg9h0ckmun",
+      "source": "开发验收价格，非市场报价",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupesnhz00i4trwgrfrppiho",
+      "source": "自动化验收样例，非报价",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupev8d5000ptr5cqbim0nez",
+      "source": "开发规则验收样例（非报价）",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupgxypf002htr5ch7iu157n",
+      "source": "开发规则验收样例（非报价）",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmupi4cws000atr0gp9vktt94",
+      "source": "开发规则验收样例（非报价）",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmuqiaimy004ttrbcnrencs70",
+      "source": "开发规则验收样例（非报价）",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmuqmsssb00h9trwswvff2qww",
+      "source": "开发规则验收样例（非报价）",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    },
+    {
+      "id": "cmuqmta4a00mttrws97s9lrtq",
+      "source": "开发规则验收样例（非报价）",
+      "enabled": true,
+      "reason": "EXPLICIT_TEST_FLAG"
+    }
+  ],
+  "templates": [
+    {
+      "id": "simulation-main-v1",
+      "name": "粮食运输主合同（模拟模板）",
+      "type": "MAIN",
+      "mode": "A",
+      "status": "PUBLISHED",
+      "fileId": null,
+      "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+      "proposedAction": "SOFT_ARCHIVE"
+    },
+    {
+      "id": "simulation-addendum-v1",
+      "name": "平台服务附加合同（模拟模板）",
+      "type": "ADDENDUM",
+      "mode": "A",
+      "status": "PUBLISHED",
+      "fileId": null,
+      "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+      "proposedAction": "SOFT_ARCHIVE"
+    },
+    {
+      "id": "cmupkvfwg0048trfgusiz5uro",
+      "name": "Phase5 B 模式验收模板",
+      "type": "ADDENDUM",
+      "mode": "B",
+      "status": "PUBLISHED",
+      "fileId": null,
+      "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+      "proposedAction": "SOFT_ARCHIVE"
+    },
+    {
+      "id": "cmupkvg50004vtrfg0xdf6s8g",
+      "name": "平台服务附加合同（模拟模板）",
+      "type": "ADDENDUM",
+      "mode": "A",
+      "status": "PUBLISHED",
+      "fileId": null,
+      "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+      "proposedAction": "SOFT_ARCHIVE"
+    },
+    {
+      "id": "cmuqzb80t000etr58jikkvj82",
+      "name": "粮食联运合同演示模板 1790946509750",
+      "type": "MAIN",
+      "mode": "A",
+      "status": "DRAFT",
+      "fileId": "cmuqzb80p000ctr58c3k30rcx",
+      "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+      "proposedAction": "SOFT_ARCHIVE"
+    },
+    {
+      "id": "cmuqzb82l000itr58wdlfokmy",
+      "name": "粮食联运合同演示模板 1790946509750",
+      "type": "MAIN",
+      "mode": "A",
+      "status": "PUBLISHED",
+      "fileId": "cmuqzb82j000gtr588mp0mf7v",
+      "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+      "proposedAction": "SOFT_ARCHIVE"
+    },
+    {
+      "id": "cmuqzddmu001otr58wqx60vil",
+      "name": "粮食联运合同演示模板 1790946609699",
+      "type": "MAIN",
+      "mode": "A",
+      "status": "DRAFT",
+      "fileId": "cmuqzddmr001mtr58f2l4plq8",
+      "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+      "proposedAction": "SOFT_ARCHIVE"
+    },
+    {
+      "id": "cmuqzddos001str581au9wna5",
+      "name": "粮食联运合同演示模板 1790946609699",
+      "type": "MAIN",
+      "mode": "A",
+      "status": "PUBLISHED",
+      "fileId": "cmuqzddon001qtr5806ow36f3",
+      "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+      "proposedAction": "SOFT_ARCHIVE"
+    },
+    {
+      "id": "cmuqzdebn0034tr58fv9u5l8i",
+      "name": "粮食运输主合同（模拟模板）",
+      "type": "MAIN",
+      "mode": "A",
+      "status": "PUBLISHED",
+      "fileId": null,
+      "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+      "proposedAction": "SOFT_ARCHIVE"
+    },
+    {
+      "id": "cmuqzewjl004mtr58qxii5yo9",
+      "name": "粮食联运合同演示模板 1790946680425",
+      "type": "MAIN",
+      "mode": "A",
+      "status": "DRAFT",
+      "fileId": "cmuqzewjh004ktr58ki13iuhy",
+      "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+      "proposedAction": "SOFT_ARCHIVE"
+    },
+    {
+      "id": "cmuqzewlg004qtr58g7w6a9do",
+      "name": "粮食联运合同演示模板 1790946680425",
+      "type": "MAIN",
+      "mode": "A",
+      "status": "PUBLISHED",
+      "fileId": "cmuqzewld004otr58ro282cvr",
+      "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+      "proposedAction": "SOFT_ARCHIVE"
+    },
+    {
+      "id": "cmuqzex7l0062tr58y6n5w7be",
+      "name": "粮食运输主合同（模拟模板）",
+      "type": "MAIN",
+      "mode": "A",
+      "status": "PUBLISHED",
+      "fileId": null,
+      "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+      "proposedAction": "SOFT_ARCHIVE"
+    },
+    {
+      "id": "cmuqzgan0006mtr58ai3drhyj",
+      "name": "粮食联运合同演示模板 1790946745306",
+      "type": "MAIN",
+      "mode": "A",
+      "status": "DRAFT",
+      "fileId": "cmuqzgamw006ktr588i0dxmcn",
+      "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+      "proposedAction": "SOFT_ARCHIVE"
+    },
+    {
+      "id": "cmuqzgaov006qtr58le22it7y",
+      "name": "粮食联运合同演示模板 1790946745306",
+      "type": "MAIN",
+      "mode": "A",
+      "status": "PUBLISHED",
+      "fileId": "cmuqzgaoq006otr58nxqcl19p",
+      "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+      "proposedAction": "SOFT_ARCHIVE"
+    },
+    {
+      "id": "cmuqzgbaf0082tr58bpz9ciz3",
+      "name": "粮食运输主合同（模拟模板）",
+      "type": "MAIN",
+      "mode": "A",
+      "status": "PUBLISHED",
+      "fileId": null,
+      "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+      "proposedAction": "SOFT_ARCHIVE"
+    },
+    {
+      "id": "cmuqzjch300eztr58t4l27x4c",
+      "name": "Phase5 B 模式验收模板",
+      "type": "ADDENDUM",
+      "mode": "B",
+      "status": "PUBLISHED",
+      "fileId": null,
+      "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+      "proposedAction": "SOFT_ARCHIVE"
+    },
+    {
+      "id": "cmuqzjcrb00fmtr58lrgkn4pw",
+      "name": "平台服务附加合同（模拟模板）",
+      "type": "ADDENDUM",
+      "mode": "A",
+      "status": "PUBLISHED",
+      "fileId": null,
+      "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+      "proposedAction": "SOFT_ARCHIVE"
+    },
+    {
+      "id": "cmuqzy8db00k9tr58m70apfgo",
+      "name": "北粮南运运输合同模板（浏览器模拟）",
+      "type": "MAIN",
+      "mode": "A",
+      "status": "DRAFT",
+      "fileId": "cmuqzy8d900k7tr583m6ejme7",
+      "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+      "proposedAction": "SOFT_ARCHIVE"
+    },
+    {
+      "id": "cmur4dt3b000htrgsf3yi7vq0",
+      "name": "粮食联运合同演示模板 1790955027394",
+      "type": "MAIN",
+      "mode": "A",
+      "status": "DRAFT",
+      "fileId": "cmur4dt37000ftrgs5h7n7s0z",
+      "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+      "proposedAction": "SOFT_ARCHIVE"
+    },
+    {
+      "id": "cmur4dt4o000ltrgs2oq2rm7h",
+      "name": "粮食联运合同演示模板 1790955027394",
+      "type": "MAIN",
+      "mode": "A",
+      "status": "PUBLISHED",
+      "fileId": "cmur4dt4k000jtrgsgg7tm9wm",
+      "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+      "proposedAction": "SOFT_ARCHIVE"
+    },
+    {
+      "id": "cmur4dts1001xtrgsi0nnybla",
+      "name": "粮食运输主合同（模拟模板）",
+      "type": "MAIN",
+      "mode": "A",
+      "status": "PUBLISHED",
+      "fileId": null,
+      "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+      "proposedAction": "SOFT_ARCHIVE"
+    }
+  ],
+  "preservedUsers": [
+    {
+      "id": "cmupalj6l000ztr3ssdv53svh",
+      "username": "carrier",
+      "displayName": "物流负责人",
+      "isTestData": true,
+      "proposedDisplayName": "企业调度员",
+      "reason": "PRESERVED_EXISTING_ACCOUNT"
+    },
+    {
+      "id": "cmupalj6u0011tr3s5waz472r",
+      "username": "carrier.staff",
+      "displayName": "物流调度员",
+      "isTestData": true,
+      "proposedDisplayName": "运输调度员",
+      "reason": "PRESERVED_EXISTING_ACCOUNT"
+    },
+    {
+      "id": "cmupalj7f0015tr3sb8zfgwr2",
+      "username": "driver",
+      "displayName": "司机张师傅",
+      "isTestData": true,
+      "proposedDisplayName": "张志国",
+      "reason": "PRESERVED_EXISTING_ACCOUNT"
+    },
+    {
+      "id": "cmupalj760013tr3slq6h6q85",
+      "username": "carrier.b",
+      "displayName": "物流 B 负责人",
+      "isTestData": true,
+      "proposedDisplayName": "企业调度员",
+      "reason": "PRESERVED_EXISTING_ACCOUNT"
+    },
+    {
+      "id": "cmupalj58000rtr3sxlo1s6gp",
+      "username": "admin",
+      "displayName": "平台管理员",
+      "isTestData": true,
+      "proposedDisplayName": "平台管理员",
+      "reason": "PRESERVED_EXISTING_ACCOUNT"
+    },
+    {
+      "id": "cmupalj5r000ttr3sovcmiq44",
+      "username": "trader",
+      "displayName": "粮贸负责人",
+      "isTestData": true,
+      "proposedDisplayName": "企业业务员",
+      "reason": "PRESERVED_EXISTING_ACCOUNT"
+    },
+    {
+      "id": "cmupalj62000vtr3shlbx9z8g",
+      "username": "trader.staff",
+      "displayName": "粮贸业务员",
+      "isTestData": true,
+      "proposedDisplayName": "粮食业务员",
+      "reason": "PRESERVED_EXISTING_ACCOUNT"
+    },
+    {
+      "id": "cmupalj6c000xtr3shnnjh7q4",
+      "username": "trader.b",
+      "displayName": "粮贸 B 负责人",
+      "isTestData": true,
+      "proposedDisplayName": "企业业务员",
+      "reason": "PRESERVED_EXISTING_ACCOUNT"
+    }
+  ],
+  "preservedProductCodes": [
+    "GDS-CAPACITY",
+    "GDS-CORRIDOR",
+    "GDS-TRACE",
+    "GDS-CREDIT",
+    "GDS-RISK"
+  ],
+  "note": "仅列出明确测试或已知验收初始化记录；没有查验或更改任何未知真实记录。预览不写数据库。"
+}

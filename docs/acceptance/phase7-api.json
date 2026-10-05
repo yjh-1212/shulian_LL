@@ -1,0 +1,41 @@
+{
+  "at": "2026-10-01T17:14:09.679Z",
+  "result": "PASS",
+  "results": [
+    {
+      "name": "AI 上下文企业隔离、司机入口隔离、拒绝自动业务动作与调用留痕",
+      "result": "PASS"
+    },
+    {
+      "name": "实际到达优先；过期定位停止精确预测并保留来源",
+      "result": "PASS"
+    },
+    {
+      "name": "港口数据有效期匹配、测试数据排除、预警持续与自动恢复历史",
+      "result": "PASS"
+    },
+    {
+      "name": "环境提示按关联节点生效，来源与有效期留存，不伪造天气延误分钟",
+      "result": "PASS"
+    },
+    {
+      "name": "XLSX 字段提取、原件保存、企业隔离、人工复核不可覆盖",
+      "result": "PASS"
+    },
+    {
+      "name": "PDF 文本提取、伪造文件类型和越权上传拦截",
+      "result": "PASS"
+    },
+    {
+      "name": "本地 OCR 图片识别及低质量人工复核提示",
+      "result": "PASS"
+    }
+  ],
+  "documentIds": [
+    "cmupsn8t90010trf01f2eqc07",
+    "cmupsn9680013trf0ew70cmct",
+    "cmupsn9tl0015trf0m46l5z4t"
+  ],
+  "modelTransmission": "本脚本不外发；用户已授权的真实模拟任务联调另见 phase7-deepseek.json",
+  "modelCount": 1
+}

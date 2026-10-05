@@ -1,0 +1,2 @@
+import {mkdir,writeFile,stat} from 'node:fs/promises';import {resolve} from 'node:path';
+const folder=resolve('.local/ocr');await mkdir(folder,{recursive:true});for(const lang of ['chi_sim','eng']){const file=resolve(folder,lang+'.traineddata.gz');try{await stat(file);continue;}catch{}const response=await fetch('https://raw.githubusercontent.com/naptha/tessdata/gh-pages/4.0.0_best_int/'+lang+'.traineddata.gz');if(!response.ok)throw Error('OCR 语言包下载失败：'+lang);await writeFile(file,new Uint8Array(await response.arrayBuffer()));console.log('已准备 OCR 语言包：'+lang);}

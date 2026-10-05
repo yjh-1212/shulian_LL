@@ -1,0 +1,29 @@
+{
+  "checkedAt": "2026-10-03T13:17:11.881Z",
+  "origin": "http://127.0.0.1:5173",
+  "readOnly": true,
+  "checks": {
+    "waybillsVisible": 16,
+    "activeRoadModels": 8,
+    "distinctActiveRoadCoordinates": 8,
+    "activeWaterModels": 5,
+    "activeRailModels": 3,
+    "completedReplayVehicles": 8,
+    "completedReplayRoadTrips": 44,
+    "completedReplayRailTasks": 1,
+    "replayReachedEnd": true,
+    "ganttRoadVehicles": 6,
+    "contractsDraft": 16,
+    "contractsSigned": 0,
+    "billsDraft": 4,
+    "matchingBudgetFieldsVisible": false,
+    "matchingInitializationStatusTranslated": true,
+    "portQuantityFromReportedWeight": true,
+    "unverifiedPortQuantityExcluded": true
+  },
+  "screenshots": [
+    "business-tracking-review.png",
+    "business-waybill-gantt-review.png",
+    "business-matching-detail-review.png"
+  ]
+}

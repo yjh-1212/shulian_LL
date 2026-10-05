@@ -1,0 +1,11 @@
+{
+  "phase": 6,
+  "build": "PASS",
+  "apiGroups": 8,
+  "browserGroups": 10,
+  "boundaryGroups": 5,
+  "migrations": 12,
+  "openapiVersion": "0.6.0",
+  "openapiPaths": 102,
+  "asOf": "2026-10-01T15:31:01.370Z"
+}

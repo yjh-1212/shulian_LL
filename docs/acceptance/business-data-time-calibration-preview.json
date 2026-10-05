@@ -1,0 +1,294 @@
+{
+  "sourceSystem": "BUSINESS_INITIALIZATION",
+  "auditId": "business-init-v1-time-calibration-v1",
+  "oldBase": "2026-10-03T02:00:00.000Z",
+  "newBase": "2026-10-03T12:32:42.845Z",
+  "deltaMs": 37962845,
+  "deltaHours": 10.545234722222222,
+  "review": [
+    {
+      "table": "BusinessEntity",
+      "rows": 4,
+      "shiftedDateFields": {
+        "createdAt": 4
+      },
+      "jsonDates": 0,
+      "jsonRefreshes": 0,
+      "refreshedDateFields": {}
+    },
+    {
+      "table": "User",
+      "rows": 12,
+      "shiftedDateFields": {
+        "createdAt": 12
+      },
+      "jsonDates": 0,
+      "jsonRefreshes": 0,
+      "refreshedDateFields": {}
+    },
+    {
+      "table": "VesselArchive",
+      "rows": 4,
+      "shiftedDateFields": {
+        "createdAt": 4
+      },
+      "jsonDates": 0,
+      "jsonRefreshes": 0,
+      "refreshedDateFields": {}
+    },
+    {
+      "table": "TradeOrder",
+      "rows": 16,
+      "shiftedDateFields": {
+        "createdAt": 16
+      },
+      "jsonDates": 0,
+      "jsonRefreshes": 0,
+      "refreshedDateFields": {}
+    },
+    {
+      "table": "TransportDemand",
+      "rows": 16,
+      "shiftedDateFields": {
+        "departureAt": 16,
+        "arrivalAt": 16,
+        "createdAt": 16
+      },
+      "jsonDates": 0,
+      "jsonRefreshes": 0,
+      "refreshedDateFields": {}
+    },
+    {
+      "table": "TransportSupply",
+      "rows": 16,
+      "shiftedDateFields": {
+        "serviceStart": 16,
+        "serviceEnd": 16,
+        "validFrom": 16,
+        "validUntil": 16,
+        "createdAt": 16
+      },
+      "jsonDates": 0,
+      "jsonRefreshes": 0,
+      "refreshedDateFields": {}
+    },
+    {
+      "table": "RoutePrice",
+      "rows": 3,
+      "shiftedDateFields": {
+        "createdAt": 3
+      },
+      "jsonDates": 0,
+      "jsonRefreshes": 0,
+      "refreshedDateFields": {}
+    },
+    {
+      "table": "MatchPublication",
+      "rows": 16,
+      "shiftedDateFields": {
+        "deadline": 16,
+        "closedAt": 0,
+        "createdAt": 16
+      },
+      "jsonDates": 48,
+      "jsonRefreshes": 0,
+      "refreshedDateFields": {}
+    },
+    {
+      "table": "MatchRecipient",
+      "rows": 16,
+      "shiftedDateFields": {
+        "invitedAt": 16
+      },
+      "jsonDates": 0,
+      "jsonRefreshes": 0,
+      "refreshedDateFields": {}
+    },
+    {
+      "table": "MatchResponse",
+      "rows": 16,
+      "shiftedDateFields": {
+        "createdAt": 16
+      },
+      "jsonDates": 64,
+      "jsonRefreshes": 0,
+      "refreshedDateFields": {}
+    },
+    {
+      "table": "NegotiationRound",
+      "rows": 16,
+      "shiftedDateFields": {
+        "createdAt": 16
+      },
+      "jsonDates": 64,
+      "jsonRefreshes": 0,
+      "refreshedDateFields": {}
+    },
+    {
+      "table": "CarrierConfirmation",
+      "rows": 16,
+      "shiftedDateFields": {
+        "confirmedAt": 16
+      },
+      "jsonDates": 64,
+      "jsonRefreshes": 0,
+      "refreshedDateFields": {}
+    },
+    {
+      "table": "ContractPackage",
+      "rows": 16,
+      "shiftedDateFields": {
+        "createdAt": 16
+      },
+      "jsonDates": 64,
+      "jsonRefreshes": 0,
+      "refreshedDateFields": {}
+    },
+    {
+      "table": "ContractRevision",
+      "rows": 16,
+      "shiftedDateFields": {
+        "createdAt": 16
+      },
+      "jsonDates": 112,
+      "jsonRefreshes": 0,
+      "refreshedDateFields": {}
+    },
+    {
+      "table": "LogisticsBusiness",
+      "rows": 16,
+      "shiftedDateFields": {
+        "completedAt": 4,
+        "createdAt": 16
+      },
+      "jsonDates": 0,
+      "jsonRefreshes": 0,
+      "refreshedDateFields": {}
+    },
+    {
+      "table": "TransportStage",
+      "rows": 47,
+      "shiftedDateFields": {
+        "plannedStartAt": 47,
+        "plannedEndAt": 47,
+        "actualEndAt": 18,
+        "submittedAt": 28,
+        "completedAt": 18,
+        "createdAt": 47
+      },
+      "jsonDates": 662,
+      "jsonRefreshes": 0,
+      "refreshedDateFields": {}
+    },
+    {
+      "table": "TransportTask",
+      "rows": 348,
+      "shiftedDateFields": {
+        "plannedStartAt": 348,
+        "plannedEndAt": 348,
+        "feedbackSubmittedAt": 323,
+        "createdAt": 348
+      },
+      "jsonDates": 348,
+      "jsonRefreshes": 0,
+      "refreshedDateFields": {}
+    },
+    {
+      "table": "ExecutionEvent",
+      "rows": 348,
+      "shiftedDateFields": {
+        "createdAt": 348
+      },
+      "jsonDates": 680,
+      "jsonRefreshes": 0,
+      "refreshedDateFields": {}
+    },
+    {
+      "table": "TrackPoint",
+      "rows": 131486,
+      "shiftedDateFields": {
+        "observedAt": 131486
+      },
+      "jsonDates": 0,
+      "jsonRefreshes": 0,
+      "refreshedDateFields": {}
+    },
+    {
+      "table": "TransportObservation",
+      "rows": 0,
+      "shiftedDateFields": {
+        "observedAt": 0
+      },
+      "jsonDates": 0,
+      "jsonRefreshes": 0,
+      "refreshedDateFields": {}
+    },
+    {
+      "table": "Forecast",
+      "rows": 16,
+      "shiftedDateFields": {},
+      "jsonDates": 80,
+      "jsonRefreshes": 16,
+      "refreshedDateFields": {
+        "predictedAt": 16
+      }
+    },
+    {
+      "table": "RiskRecord",
+      "rows": 2,
+      "shiftedDateFields": {},
+      "jsonDates": 0,
+      "jsonRefreshes": 0,
+      "refreshedDateFields": {
+        "lastSeenAt": 2
+      }
+    },
+    {
+      "table": "ServiceFee",
+      "rows": 37,
+      "shiftedDateFields": {
+        "createdAt": 37
+      },
+      "jsonDates": 0,
+      "jsonRefreshes": 0,
+      "refreshedDateFields": {}
+    },
+    {
+      "table": "Bill",
+      "rows": 4,
+      "shiftedDateFields": {
+        "periodFrom": 4,
+        "periodTo": 4,
+        "createdAt": 4
+      },
+      "jsonDates": 52,
+      "jsonRefreshes": 0,
+      "refreshedDateFields": {}
+    },
+    {
+      "table": "BillItem",
+      "rows": 16,
+      "shiftedDateFields": {
+        "occurredAt": 16
+      },
+      "jsonDates": 0,
+      "jsonRefreshes": 0,
+      "refreshedDateFields": {}
+    }
+  ],
+  "trajectoryBefore": {
+    "count": 131486,
+    "earliest": "2026-09-14T10:30:00.000Z",
+    "latest": "2026-10-03T02:00:00.000Z"
+  },
+  "policy": {
+    "sourceType": "INITIALIZATION",
+    "verification": "UNVERIFIED_BUSINESS_RECORD",
+    "coordinatesUnchanged": true,
+    "preserveActualCreatedAndUpdated": true,
+    "preserveOriginalAuditHistory": true,
+    "preservePublicGeometryQueryDates": true,
+    "preservePriceValidityYears": true,
+    "forecastAndRiskRefresh": "Only original initialization Forecast.predictedAt / result.predictedAt and RiskRecord.lastSeenAt are refreshed to the calibration instant."
+  }
+}

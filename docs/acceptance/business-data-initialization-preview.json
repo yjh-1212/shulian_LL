@@ -1,0 +1,1498 @@
+{
+  "sourceSystem": "BUSINESS_INITIALIZATION",
+  "provenance": {
+    "sourceSystem": "BUSINESS_INITIALIZATION",
+    "sourceType": "INITIALIZATION",
+    "version": 1,
+    "generatedAt": "2026-10-03T02:00:00.000Z",
+    "verification": "UNVERIFIED_BUSINESS_RECORD",
+    "note": "按用户要求生成的业务初始化记录；企业账户、人员、车牌、航次、交易、任务、费用与状态不代表已核验的现实业务。公开港站与高德道路信息另行记录来源。原始凭证、身份及签章资料待实际业务录入。"
+  },
+  "totals": {
+    "trades": 16,
+    "contractDrafts": 16,
+    "waybills": 16,
+    "grains": 4,
+    "routeFamilies": 4,
+    "pending": 4,
+    "inProgress": 8,
+    "completed": 4,
+    "billDrafts": 4,
+    "supplyProfiles": 16,
+    "roadReferencePrices": 3
+  },
+  "entities": [
+    {
+      "id": "platform",
+      "name": "辽粮运营中心",
+      "type": "PLATFORM",
+      "region": "辽宁省 / 沈阳市"
+    },
+    {
+      "id": "trader-a",
+      "name": "黑龙江丰谷粮食贸易有限公司",
+      "type": "TRADER",
+      "region": "黑龙江省 / 哈尔滨市"
+    },
+    {
+      "id": "trader-b",
+      "name": "吉林沃禾粮食贸易有限公司",
+      "type": "TRADER",
+      "region": "吉林省 / 长春市"
+    },
+    {
+      "id": "business-init-v1-trader-huai",
+      "name": "河南豫穗粮食贸易有限公司",
+      "type": "TRADER",
+      "region": "河南省 / 郑州市"
+    },
+    {
+      "id": "business-init-v1-trader-south",
+      "name": "福建闽禾粮食贸易有限公司",
+      "type": "TRADER",
+      "region": "福建省 / 泉州市"
+    },
+    {
+      "id": "carrier-a",
+      "name": "辽宁汇粮联运有限公司",
+      "type": "CARRIER",
+      "region": "辽宁省 / 营口市"
+    },
+    {
+      "id": "carrier-b",
+      "name": "广东穗通物流有限公司",
+      "type": "CARRIER",
+      "region": "广东省 / 广州市"
+    },
+    {
+      "id": "business-init-v1-carrier-rail",
+      "name": "吉林通穗联运有限公司",
+      "type": "CARRIER",
+      "region": "吉林省 / 长春市"
+    },
+    {
+      "id": "business-init-v1-carrier-water",
+      "name": "江苏江海粮运有限公司",
+      "type": "CARRIER",
+      "region": "江苏省 / 南通市"
+    }
+  ],
+  "shipments": [
+    {
+      "index": 0,
+      "grain": "玉米",
+      "tonnes": 680.5,
+      "quantityKg": 680500,
+      "route": "roadRail",
+      "status": "PENDING",
+      "loadingType": "BULK",
+      "traderId": "trader-a",
+      "carrierId": "carrier-a",
+      "recipient": "广州南粤粮油供应链有限公司",
+      "routeLabel": "公铁",
+      "nodes": [
+        "盘锦站",
+        "铁路货运蒲河物流基地",
+        "广州国际港站",
+        "广州北站"
+      ]
+    },
+    {
+      "index": 1,
+      "grain": "大豆",
+      "tonnes": 420.8,
+      "quantityKg": 420800,
+      "route": "roadWater",
+      "status": "PENDING",
+      "loadingType": "BULK",
+      "traderId": "trader-b",
+      "carrierId": "carrier-b",
+      "recipient": "东莞穗丰饲料原料有限公司",
+      "routeLabel": "公水",
+      "nodes": [
+        "公主岭站",
+        "鲅鱼圈港",
+        "南沙港"
+      ]
+    },
+    {
+      "index": 2,
+      "grain": "小麦",
+      "tonnes": 1250,
+      "quantityKg": 1250000,
+      "route": "railWater",
+      "status": "PENDING",
+      "loadingType": "CONTAINER",
+      "traderId": "trader-a",
+      "carrierId": "carrier-a",
+      "recipient": "福建海禾粮食加工有限公司",
+      "routeLabel": "铁水",
+      "nodes": [
+        "新香坊站",
+        "鲅鱼圈港",
+        "新沙港"
+      ]
+    },
+    {
+      "index": 3,
+      "grain": "稻谷",
+      "tonnes": 860.2,
+      "quantityKg": 860200,
+      "route": "roadRailWater",
+      "status": "PENDING",
+      "loadingType": "CONTAINER",
+      "traderId": "trader-b",
+      "carrierId": "carrier-b",
+      "recipient": "广州南粤粮油供应链有限公司",
+      "routeLabel": "公铁水",
+      "nodes": [
+        "公主岭站",
+        "五棵树站",
+        "鲅鱼圈港",
+        "南沙港",
+        "广州国际港站"
+      ]
+    },
+    {
+      "index": 4,
+      "grain": "玉米",
+      "tonnes": 1680.5,
+      "quantityKg": 1680500,
+      "route": "roadWater",
+      "status": "IN_PROGRESS",
+      "loadingType": "BULK",
+      "activeMode": "ROAD",
+      "traderId": "trader-a",
+      "carrierId": "carrier-a",
+      "recipient": "东莞穗丰饲料原料有限公司",
+      "routeLabel": "公水",
+      "nodes": [
+        "公主岭站",
+        "鲅鱼圈港",
+        "南沙港"
+      ]
+    },
+    {
+      "index": 5,
+      "grain": "大豆",
+      "tonnes": 920.3,
+      "quantityKg": 920300,
+      "route": "roadRail",
+      "status": "IN_PROGRESS",
+      "loadingType": "BULK",
+      "activeMode": "ROAD",
+      "traderId": "trader-b",
+      "carrierId": "carrier-b",
+      "recipient": "福建海禾粮食加工有限公司",
+      "routeLabel": "公铁",
+      "nodes": [
+        "盘锦站",
+        "铁路货运蒲河物流基地",
+        "广州国际港站",
+        "广州北站"
+      ]
+    },
+    {
+      "index": 6,
+      "grain": "小麦",
+      "tonnes": 1500,
+      "quantityKg": 1500000,
+      "route": "roadRailWater",
+      "status": "IN_PROGRESS",
+      "loadingType": "CONTAINER",
+      "activeMode": "RAIL",
+      "traderId": "trader-a",
+      "carrierId": "carrier-a",
+      "recipient": "广州南粤粮油供应链有限公司",
+      "routeLabel": "公铁水",
+      "nodes": [
+        "公主岭站",
+        "五棵树站",
+        "鲅鱼圈港",
+        "南沙港",
+        "广州国际港站"
+      ]
+    },
+    {
+      "index": 7,
+      "grain": "稻谷",
+      "tonnes": 735.6,
+      "quantityKg": 735600,
+      "route": "railWater",
+      "status": "IN_PROGRESS",
+      "loadingType": "CONTAINER",
+      "activeMode": "RAIL",
+      "traderId": "trader-b",
+      "carrierId": "carrier-b",
+      "recipient": "东莞穗丰饲料原料有限公司",
+      "routeLabel": "铁水",
+      "nodes": [
+        "新香坊站",
+        "鲅鱼圈港",
+        "新沙港"
+      ]
+    },
+    {
+      "index": 8,
+      "grain": "玉米",
+      "tonnes": 2400,
+      "quantityKg": 2400000,
+      "route": "railWater",
+      "status": "IN_PROGRESS",
+      "loadingType": "BULK",
+      "activeMode": "WATER",
+      "traderId": "trader-a",
+      "carrierId": "carrier-a",
+      "recipient": "福建海禾粮食加工有限公司",
+      "routeLabel": "铁水",
+      "nodes": [
+        "新香坊站",
+        "鲅鱼圈港",
+        "新沙港"
+      ]
+    },
+    {
+      "index": 9,
+      "grain": "大豆",
+      "tonnes": 510.4,
+      "quantityKg": 510400,
+      "route": "roadRailWater",
+      "status": "IN_PROGRESS",
+      "loadingType": "CONTAINER",
+      "activeMode": "WATER",
+      "traderId": "trader-b",
+      "carrierId": "carrier-b",
+      "recipient": "广州南粤粮油供应链有限公司",
+      "routeLabel": "公铁水",
+      "nodes": [
+        "公主岭站",
+        "五棵树站",
+        "鲅鱼圈港",
+        "南沙港",
+        "广州国际港站"
+      ]
+    },
+    {
+      "index": 10,
+      "grain": "小麦",
+      "tonnes": 980.7,
+      "quantityKg": 980700,
+      "route": "roadRail",
+      "status": "IN_PROGRESS",
+      "loadingType": "BULK",
+      "activeMode": "RAIL",
+      "traderId": "trader-a",
+      "carrierId": "carrier-a",
+      "recipient": "东莞穗丰饲料原料有限公司",
+      "routeLabel": "公铁",
+      "nodes": [
+        "盘锦站",
+        "铁路货运蒲河物流基地",
+        "广州国际港站",
+        "广州北站"
+      ]
+    },
+    {
+      "index": 11,
+      "grain": "稻谷",
+      "tonnes": 1360.2,
+      "quantityKg": 1360200,
+      "route": "roadWater",
+      "status": "IN_PROGRESS",
+      "loadingType": "BULK",
+      "activeMode": "WATER",
+      "traderId": "trader-b",
+      "carrierId": "carrier-b",
+      "recipient": "福建海禾粮食加工有限公司",
+      "routeLabel": "公水",
+      "nodes": [
+        "公主岭站",
+        "鲅鱼圈港",
+        "南沙港"
+      ]
+    },
+    {
+      "index": 12,
+      "grain": "玉米",
+      "tonnes": 880.6,
+      "quantityKg": 880600,
+      "route": "roadRailWater",
+      "status": "COMPLETED",
+      "loadingType": "CONTAINER",
+      "traderId": "trader-a",
+      "carrierId": "carrier-a",
+      "recipient": "广州南粤粮油供应链有限公司",
+      "routeLabel": "公铁水",
+      "nodes": [
+        "公主岭站",
+        "五棵树站",
+        "鲅鱼圈港",
+        "南沙港",
+        "广州国际港站"
+      ]
+    },
+    {
+      "index": 13,
+      "grain": "大豆",
+      "tonnes": 760.5,
+      "quantityKg": 760500,
+      "route": "railWater",
+      "status": "COMPLETED",
+      "loadingType": "BULK",
+      "traderId": "trader-b",
+      "carrierId": "carrier-b",
+      "recipient": "东莞穗丰饲料原料有限公司",
+      "routeLabel": "铁水",
+      "nodes": [
+        "新香坊站",
+        "鲅鱼圈港",
+        "新沙港"
+      ]
+    },
+    {
+      "index": 14,
+      "grain": "小麦",
+      "tonnes": 1800,
+      "quantityKg": 1800000,
+      "route": "roadWater",
+      "status": "COMPLETED",
+      "loadingType": "BULK",
+      "traderId": "trader-a",
+      "carrierId": "carrier-a",
+      "recipient": "福建海禾粮食加工有限公司",
+      "routeLabel": "公水",
+      "nodes": [
+        "公主岭站",
+        "鲅鱼圈港",
+        "南沙港"
+      ]
+    },
+    {
+      "index": 15,
+      "grain": "稻谷",
+      "tonnes": 640.8,
+      "quantityKg": 640800,
+      "route": "roadRail",
+      "status": "COMPLETED",
+      "loadingType": "BULK",
+      "traderId": "trader-b",
+      "carrierId": "carrier-b",
+      "recipient": "广州南粤粮油供应链有限公司",
+      "routeLabel": "公铁",
+      "nodes": [
+        "盘锦站",
+        "铁路货运蒲河物流基地",
+        "广州国际港站",
+        "广州北站"
+      ]
+    }
+  ],
+  "pendingGeometry": [],
+  "trackGeometryReview": {
+    "roadRail": [
+      {
+        "mode": "ROAD",
+        "origin": "盘锦站",
+        "destination": "铁路货运蒲河物流基地",
+        "source": "AMAP_V5_DRIVING",
+        "quality": "PROVIDER_REFERENCE",
+        "rawPoints": 1032,
+        "fullTrackPoints": 169
+      },
+      {
+        "mode": "RAIL",
+        "origin": "铁路货运蒲河物流基地",
+        "destination": "广州国际港站",
+        "source": "OPENSTREETMAP_RAIL_INFRASTRUCTURE",
+        "quality": "PUBLIC_INFRASTRUCTURE_REFERENCE",
+        "rawPoints": 15809,
+        "fullTrackPoints": 3566
+      },
+      {
+        "mode": "ROAD",
+        "origin": "广州国际港站",
+        "destination": "广州北站",
+        "source": "AMAP_V5_DRIVING",
+        "quality": "PROVIDER_REFERENCE",
+        "rawPoints": 261,
+        "fullTrackPoints": 52
+      }
+    ],
+    "roadWater": [
+      {
+        "mode": "ROAD",
+        "origin": "公主岭站",
+        "destination": "鲅鱼圈港",
+        "source": "AMAP_V5_DRIVING",
+        "quality": "PROVIDER_REFERENCE",
+        "rawPoints": 3117,
+        "fullTrackPoints": 569
+      },
+      {
+        "mode": "WATER",
+        "origin": "鲅鱼圈港",
+        "destination": "南沙港",
+        "source": "PUBLIC_COASTAL_CORRIDOR_REFERENCE",
+        "quality": "INITIALIZATION_REFERENCE",
+        "rawPoints": 1968,
+        "fullTrackPoints": 2540
+      }
+    ],
+    "railWater": [
+      {
+        "mode": "RAIL",
+        "origin": "新香坊站",
+        "destination": "鲅鱼圈港",
+        "source": "OPENSTREETMAP_RAIL_INFRASTRUCTURE",
+        "quality": "PUBLIC_INFRASTRUCTURE_REFERENCE",
+        "rawPoints": 2878,
+        "fullTrackPoints": 866
+      },
+      {
+        "mode": "WATER",
+        "origin": "鲅鱼圈港",
+        "destination": "新沙港",
+        "source": "PUBLIC_COASTAL_CORRIDOR_REFERENCE",
+        "quality": "INITIALIZATION_REFERENCE",
+        "rawPoints": 2004,
+        "fullTrackPoints": 2542
+      }
+    ],
+    "roadRailWater": [
+      {
+        "mode": "ROAD",
+        "origin": "公主岭站",
+        "destination": "五棵树站",
+        "source": "AMAP_V5_DRIVING",
+        "quality": "PROVIDER_REFERENCE",
+        "rawPoints": 1492,
+        "fullTrackPoints": 259
+      },
+      {
+        "mode": "RAIL",
+        "origin": "五棵树站",
+        "destination": "鲅鱼圈港",
+        "source": "OPENSTREETMAP_RAIL_INFRASTRUCTURE",
+        "quality": "PUBLIC_INFRASTRUCTURE_REFERENCE",
+        "rawPoints": 2308,
+        "fullTrackPoints": 757
+      },
+      {
+        "mode": "WATER",
+        "origin": "鲅鱼圈港",
+        "destination": "南沙港",
+        "source": "PUBLIC_COASTAL_CORRIDOR_REFERENCE",
+        "quality": "INITIALIZATION_REFERENCE",
+        "rawPoints": 1968,
+        "fullTrackPoints": 2540
+      },
+      {
+        "mode": "ROAD",
+        "origin": "南沙港",
+        "destination": "广州国际港站",
+        "source": "AMAP_V5_DRIVING",
+        "quality": "PROVIDER_REFERENCE",
+        "rawPoints": 1083,
+        "fullTrackPoints": 168
+      }
+    ]
+  },
+  "supplyProfileReview": [
+    {
+      "id": "business-init-v1-supply-1-1",
+      "carrierId": "carrier-a",
+      "carrierName": "辽宁汇粮联运有限公司",
+      "route": "roadRail",
+      "family": "公铁",
+      "loadingType": "BULK",
+      "origin": {
+        "codes": "210000/211100/211102",
+        "region": "辽宁省 / 盘锦市"
+      },
+      "destination": {
+        "codes": "440000/440100/440114",
+        "region": "广东省 / 广州市"
+      },
+      "sourceType": "INITIALIZATION",
+      "createdAt": "2026-10-02T02:00:00.000Z"
+    },
+    {
+      "id": "business-init-v1-supply-1-2",
+      "carrierId": "carrier-a",
+      "carrierName": "辽宁汇粮联运有限公司",
+      "route": "roadWater",
+      "family": "公水",
+      "loadingType": "CONTAINER",
+      "origin": {
+        "codes": "220000/220100",
+        "region": "吉林省 / 长春市"
+      },
+      "destination": {
+        "codes": "440000/440100/440115",
+        "region": "广东省 / 广州市"
+      },
+      "sourceType": "INITIALIZATION",
+      "createdAt": "2026-10-02T02:00:00.000Z"
+    },
+    {
+      "id": "business-init-v1-supply-1-3",
+      "carrierId": "carrier-a",
+      "carrierName": "辽宁汇粮联运有限公司",
+      "route": "railWater",
+      "family": "铁水",
+      "loadingType": "BULK",
+      "origin": {
+        "codes": "230000/230100/230110",
+        "region": "黑龙江省 / 哈尔滨市"
+      },
+      "destination": {
+        "codes": "440000/441900",
+        "region": "广东省 / 东莞市"
+      },
+      "sourceType": "INITIALIZATION",
+      "createdAt": "2026-10-02T02:00:00.000Z"
+    },
+    {
+      "id": "business-init-v1-supply-1-4",
+      "carrierId": "carrier-a",
+      "carrierName": "辽宁汇粮联运有限公司",
+      "route": "roadRailWater",
+      "family": "公铁水",
+      "loadingType": "CONTAINER",
+      "origin": {
+        "codes": "220000/220100",
+        "region": "吉林省 / 长春市"
+      },
+      "destination": {
+        "codes": "440000/440100/440111",
+        "region": "广东省 / 广州市"
+      },
+      "sourceType": "INITIALIZATION",
+      "createdAt": "2026-10-02T02:00:00.000Z"
+    },
+    {
+      "id": "business-init-v1-supply-2-1",
+      "carrierId": "carrier-b",
+      "carrierName": "广东穗通物流有限公司",
+      "route": "roadRail",
+      "family": "公铁",
+      "loadingType": "CONTAINER",
+      "origin": {
+        "codes": "210000/211100/211102",
+        "region": "辽宁省 / 盘锦市"
+      },
+      "destination": {
+        "codes": "440000/440100/440114",
+        "region": "广东省 / 广州市"
+      },
+      "sourceType": "INITIALIZATION",
+      "createdAt": "2026-10-02T02:00:00.000Z"
+    },
+    {
+      "id": "business-init-v1-supply-2-2",
+      "carrierId": "carrier-b",
+      "carrierName": "广东穗通物流有限公司",
+      "route": "roadWater",
+      "family": "公水",
+      "loadingType": "BULK",
+      "origin": {
+        "codes": "220000/220100",
+        "region": "吉林省 / 长春市"
+      },
+      "destination": {
+        "codes": "440000/440100/440115",
+        "region": "广东省 / 广州市"
+      },
+      "sourceType": "INITIALIZATION",
+      "createdAt": "2026-10-02T02:00:00.000Z"
+    },
+    {
+      "id": "business-init-v1-supply-2-3",
+      "carrierId": "carrier-b",
+      "carrierName": "广东穗通物流有限公司",
+      "route": "railWater",
+      "family": "铁水",
+      "loadingType": "CONTAINER",
+      "origin": {
+        "codes": "230000/230100/230110",
+        "region": "黑龙江省 / 哈尔滨市"
+      },
+      "destination": {
+        "codes": "440000/441900",
+        "region": "广东省 / 东莞市"
+      },
+      "sourceType": "INITIALIZATION",
+      "createdAt": "2026-10-02T02:00:00.000Z"
+    },
+    {
+      "id": "business-init-v1-supply-2-4",
+      "carrierId": "carrier-b",
+      "carrierName": "广东穗通物流有限公司",
+      "route": "roadRailWater",
+      "family": "公铁水",
+      "loadingType": "BULK",
+      "origin": {
+        "codes": "220000/220100",
+        "region": "吉林省 / 长春市"
+      },
+      "destination": {
+        "codes": "440000/440100/440111",
+        "region": "广东省 / 广州市"
+      },
+      "sourceType": "INITIALIZATION",
+      "createdAt": "2026-10-02T02:00:00.000Z"
+    },
+    {
+      "id": "business-init-v1-supply-3-1",
+      "carrierId": "business-init-v1-carrier-rail",
+      "carrierName": "吉林通穗联运有限公司",
+      "route": "roadRail",
+      "family": "公铁",
+      "loadingType": "BULK",
+      "origin": {
+        "codes": "210000/211100/211102",
+        "region": "辽宁省 / 盘锦市"
+      },
+      "destination": {
+        "codes": "440000/440100/440114",
+        "region": "广东省 / 广州市"
+      },
+      "sourceType": "INITIALIZATION",
+      "createdAt": "2026-10-02T02:00:00.000Z"
+    },
+    {
+      "id": "business-init-v1-supply-3-2",
+      "carrierId": "business-init-v1-carrier-rail",
+      "carrierName": "吉林通穗联运有限公司",
+      "route": "roadWater",
+      "family": "公水",
+      "loadingType": "CONTAINER",
+      "origin": {
+        "codes": "220000/220100",
+        "region": "吉林省 / 长春市"
+      },
+      "destination": {
+        "codes": "440000/440100/440115",
+        "region": "广东省 / 广州市"
+      },
+      "sourceType": "INITIALIZATION",
+      "createdAt": "2026-10-02T02:00:00.000Z"
+    },
+    {
+      "id": "business-init-v1-supply-3-3",
+      "carrierId": "business-init-v1-carrier-rail",
+      "carrierName": "吉林通穗联运有限公司",
+      "route": "railWater",
+      "family": "铁水",
+      "loadingType": "BULK",
+      "origin": {
+        "codes": "230000/230100/230110",
+        "region": "黑龙江省 / 哈尔滨市"
+      },
+      "destination": {
+        "codes": "440000/441900",
+        "region": "广东省 / 东莞市"
+      },
+      "sourceType": "INITIALIZATION",
+      "createdAt": "2026-10-02T02:00:00.000Z"
+    },
+    {
+      "id": "business-init-v1-supply-3-4",
+      "carrierId": "business-init-v1-carrier-rail",
+      "carrierName": "吉林通穗联运有限公司",
+      "route": "roadRailWater",
+      "family": "公铁水",
+      "loadingType": "CONTAINER",
+      "origin": {
+        "codes": "220000/220100",
+        "region": "吉林省 / 长春市"
+      },
+      "destination": {
+        "codes": "440000/440100/440111",
+        "region": "广东省 / 广州市"
+      },
+      "sourceType": "INITIALIZATION",
+      "createdAt": "2026-10-02T02:00:00.000Z"
+    },
+    {
+      "id": "business-init-v1-supply-4-1",
+      "carrierId": "business-init-v1-carrier-water",
+      "carrierName": "江苏江海粮运有限公司",
+      "route": "roadRail",
+      "family": "公铁",
+      "loadingType": "CONTAINER",
+      "origin": {
+        "codes": "210000/211100/211102",
+        "region": "辽宁省 / 盘锦市"
+      },
+      "destination": {
+        "codes": "440000/440100/440114",
+        "region": "广东省 / 广州市"
+      },
+      "sourceType": "INITIALIZATION",
+      "createdAt": "2026-10-02T02:00:00.000Z"
+    },
+    {
+      "id": "business-init-v1-supply-4-2",
+      "carrierId": "business-init-v1-carrier-water",
+      "carrierName": "江苏江海粮运有限公司",
+      "route": "roadWater",
+      "family": "公水",
+      "loadingType": "BULK",
+      "origin": {
+        "codes": "220000/220100",
+        "region": "吉林省 / 长春市"
+      },
+      "destination": {
+        "codes": "440000/440100/440115",
+        "region": "广东省 / 广州市"
+      },
+      "sourceType": "INITIALIZATION",
+      "createdAt": "2026-10-02T02:00:00.000Z"
+    },
+    {
+      "id": "business-init-v1-supply-4-3",
+      "carrierId": "business-init-v1-carrier-water",
+      "carrierName": "江苏江海粮运有限公司",
+      "route": "railWater",
+      "family": "铁水",
+      "loadingType": "CONTAINER",
+      "origin": {
+        "codes": "230000/230100/230110",
+        "region": "黑龙江省 / 哈尔滨市"
+      },
+      "destination": {
+        "codes": "440000/441900",
+        "region": "广东省 / 东莞市"
+      },
+      "sourceType": "INITIALIZATION",
+      "createdAt": "2026-10-02T02:00:00.000Z"
+    },
+    {
+      "id": "business-init-v1-supply-4-4",
+      "carrierId": "business-init-v1-carrier-water",
+      "carrierName": "江苏江海粮运有限公司",
+      "route": "roadRailWater",
+      "family": "公铁水",
+      "loadingType": "BULK",
+      "origin": {
+        "codes": "220000/220100",
+        "region": "吉林省 / 长春市"
+      },
+      "destination": {
+        "codes": "440000/440100/440111",
+        "region": "广东省 / 广州市"
+      },
+      "sourceType": "INITIALIZATION",
+      "createdAt": "2026-10-02T02:00:00.000Z"
+    }
+  ],
+  "fixtureAudit": {
+    "auditedAt": "2026-10-03T12:09:01.815Z",
+    "sourceSystem": "BUSINESS_INITIALIZATION",
+    "entities": [
+      {
+        "id": "cmupb2zq00004trtcdg6p0n5l",
+        "name": "验收粮贸企业-45349540",
+        "organizationId": "sample-group",
+        "isTestData": false,
+        "status": "ACTIVE",
+        "deletedAt": null,
+        "reason": "KNOWN_ACCEPTANCE_FIXTURE_NAME_AND_ORG"
+      },
+      {
+        "id": "cmupb5oem0004tr88immfenmm",
+        "name": "验收粮贸企业-45474515",
+        "organizationId": "sample-group",
+        "isTestData": false,
+        "status": "ACTIVE",
+        "deletedAt": null,
+        "reason": "KNOWN_ACCEPTANCE_FIXTURE_NAME_AND_ORG"
+      },
+      {
+        "id": "cmupcqmoc0011trkkcck1kumk",
+        "name": "验收粮贸企业-48131977",
+        "organizationId": "sample-group",
+        "isTestData": true,
+        "status": "ACTIVE",
+        "deletedAt": null,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "demo-logistics-beicang",
+        "name": "北仓联运物流（模拟）",
+        "organizationId": "demo-logistics-org-beicang",
+        "isTestData": true,
+        "status": "ACTIVE",
+        "deletedAt": null,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "demo-logistics-liaogang",
+        "name": "辽港粮运物流（模拟）",
+        "organizationId": "demo-logistics-org-liaogang",
+        "isTestData": true,
+        "status": "ACTIVE",
+        "deletedAt": null,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "demo-logistics-jintong",
+        "name": "锦通粮食物流（模拟）",
+        "organizationId": "demo-logistics-org-jintong",
+        "isTestData": true,
+        "status": "ACTIVE",
+        "deletedAt": null,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "demo-logistics-nanyue",
+        "name": "南粤集装箱物流（模拟）",
+        "organizationId": "demo-logistics-org-nanyue",
+        "isTestData": true,
+        "status": "ACTIVE",
+        "deletedAt": null,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "demo-logistics-jigu",
+        "name": "吉林谷运物流（模拟）",
+        "organizationId": "demo-logistics-org-jigu",
+        "isTestData": true,
+        "status": "ACTIVE",
+        "deletedAt": null,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "demo-logistics-minyue",
+        "name": "闽粤联运物流（模拟）",
+        "organizationId": "demo-logistics-org-minyue",
+        "isTestData": true,
+        "status": "ACTIVE",
+        "deletedAt": null,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "demo-logistics-beibuwan",
+        "name": "北部湾粮运物流（模拟）",
+        "organizationId": "demo-logistics-org-beibuwan",
+        "isTestData": true,
+        "status": "ACTIVE",
+        "deletedAt": null,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "demo-logistics-dongbei",
+        "name": "东北粮运物流（模拟）",
+        "organizationId": "demo-logistics-org-dongbei",
+        "isTestData": true,
+        "status": "ACTIVE",
+        "deletedAt": null,
+        "reason": "EXPLICIT_TEST_FLAG"
+      }
+    ],
+    "products": [
+      {
+        "id": "cmuprl7h2001xtrlww20xng3y",
+        "code": "p8-1790873073659",
+        "name": "Phase8 指标产品新版",
+        "source": "平台实际运输任务（测试业务排除）",
+        "status": "DRAFT",
+        "reason": "KNOWN_ACCEPTANCE_FIXTURE_CODE_AND_NAME"
+      },
+      {
+        "id": "cmupshykn00h9trqkkpfi9rjp",
+        "code": "browser-1790874601448",
+        "name": "浏览器验收指标目录",
+        "source": "排除模拟业务的实际任务聚合",
+        "status": "DRAFT",
+        "reason": "KNOWN_ACCEPTANCE_FIXTURE_CODE_AND_NAME"
+      },
+      {
+        "id": "cmupskbn700j6trqkqs4g0bye",
+        "code": "browser-1790874711691",
+        "name": "浏览器验收指标目录",
+        "source": "排除模拟业务的实际任务聚合",
+        "status": "DRAFT",
+        "reason": "KNOWN_ACCEPTANCE_FIXTURE_CODE_AND_NAME"
+      },
+      {
+        "id": "cmus0zrrh0011trxoi6yw7489",
+        "code": "p8-1791009802020",
+        "name": "Phase8 指标产品新版",
+        "source": "平台实际运输任务（测试业务排除）",
+        "status": "DRAFT",
+        "reason": "KNOWN_ACCEPTANCE_FIXTURE_CODE_AND_NAME"
+      }
+    ],
+    "vessels": [
+      {
+        "id": "cmururqvz002atr4wsbrjfyt7",
+        "name": "辽粮示范轮1（模拟）",
+        "voyage": "DEMO26030",
+        "carrierId": "carrier-a",
+        "enabled": true,
+        "reason": "KNOWN_TRACKING_OR_ACCEPTANCE_FIXTURE"
+      },
+      {
+        "id": "cmururqw80033tr4wczgelb2t",
+        "name": "辽粮示范轮2（模拟）",
+        "voyage": "DEMO26031",
+        "carrierId": "carrier-a",
+        "enabled": true,
+        "reason": "KNOWN_TRACKING_OR_ACCEPTANCE_FIXTURE"
+      },
+      {
+        "id": "cmurv6rti000itroc39t6k684",
+        "name": "自动验收船（模拟）1791000051012",
+        "voyage": "TEST2",
+        "carrierId": "carrier-a",
+        "enabled": false,
+        "reason": "KNOWN_TRACKING_OR_ACCEPTANCE_FIXTURE"
+      },
+      {
+        "id": "cmurv95q5001ptroceihcd9r0",
+        "name": "自动验收船（模拟）1791000162348",
+        "voyage": "TEST2",
+        "carrierId": "carrier-a",
+        "enabled": false,
+        "reason": "KNOWN_TRACKING_OR_ACCEPTANCE_FIXTURE"
+      },
+      {
+        "id": "cmurvsgb3003htreks97n0r0x",
+        "name": "自动验收船（模拟）",
+        "voyage": "TEST2",
+        "carrierId": "carrier-a",
+        "enabled": false,
+        "reason": "KNOWN_TRACKING_OR_ACCEPTANCE_FIXTURE"
+      }
+    ],
+    "prices": [
+      {
+        "id": "sample-road-rate-v1",
+        "source": "开发样例定价（非市场报价）",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupdzty40019trrwdtsgi2pv",
+        "source": "开发验收价格，非市场报价",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupdztz9001ftrrw8vcbmf1z",
+        "source": "自动化验收样例，非报价",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupe5ixj002ttrrwxqqghoo3",
+        "source": "开发验收价格，非市场报价",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupe5iz3002ztrrwpfu09mio",
+        "source": "自动化验收样例，非报价",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupeal790015trwgfubg1uh2",
+        "source": "开发验收价格，非市场报价",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupeal8c001btrwgtaox2hhc",
+        "source": "自动化验收样例，非报价",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupeevp5002ttrwg5y7m4q8h",
+        "source": "开发验收价格，非市场报价",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupeevq8002ztrwgvgltjoyx",
+        "source": "自动化验收样例，非报价",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupegx4l004ftrwg5ikdvuva",
+        "source": "开发验收价格，非市场报价",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupegx5q004ltrwgnulovnz1",
+        "source": "自动化验收样例，非报价",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupeie5e0065trwgyn98rw55",
+        "source": "开发验收价格，非市场报价",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupeie6j006btrwge9cb8o9g",
+        "source": "自动化验收样例，非报价",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupekuzz008ntrwgtzu1qkmv",
+        "source": "开发验收价格，非市场报价",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupekv1d008ttrwg1fafo4p2",
+        "source": "自动化验收样例，非报价",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupemejb00abtrwgz0befanu",
+        "source": "开发验收价格，非市场报价",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupemekg00ahtrwg4a6oa9yv",
+        "source": "自动化验收样例，非报价",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupenkct00bztrwg4gdlpy3z",
+        "source": "开发验收价格，非市场报价",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupenkdw00c5trwglgjsmijt",
+        "source": "自动化验收样例，非报价",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupeodeg00dntrwg1djdbv0n",
+        "source": "开发验收价格，非市场报价",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupeodfj00dttrwgtv5s4g4m",
+        "source": "自动化验收样例，非报价",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupeqkcx00fxtrwgzq34eahu",
+        "source": "开发验收价格，非市场报价",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupeqkdw00g3trwgrl0jmaiy",
+        "source": "自动化验收样例，非报价",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupesngv00hytrwg9h0ckmun",
+        "source": "开发验收价格，非市场报价",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupesnhz00i4trwgrfrppiho",
+        "source": "自动化验收样例，非报价",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupev8d5000ptr5cqbim0nez",
+        "source": "开发规则验收样例（非报价）",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupgxypf002htr5ch7iu157n",
+        "source": "开发规则验收样例（非报价）",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmupi4cws000atr0gp9vktt94",
+        "source": "开发规则验收样例（非报价）",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmuqiaimy004ttrbcnrencs70",
+        "source": "开发规则验收样例（非报价）",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmuqmsssb00h9trwswvff2qww",
+        "source": "开发规则验收样例（非报价）",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      },
+      {
+        "id": "cmuqmta4a00mttrws97s9lrtq",
+        "source": "开发规则验收样例（非报价）",
+        "enabled": true,
+        "reason": "EXPLICIT_TEST_FLAG"
+      }
+    ],
+    "templates": [
+      {
+        "id": "simulation-main-v1",
+        "name": "粮食运输主合同（模拟模板）",
+        "type": "MAIN",
+        "mode": "A",
+        "status": "PUBLISHED",
+        "fileId": null,
+        "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+        "proposedAction": "SOFT_ARCHIVE"
+      },
+      {
+        "id": "simulation-addendum-v1",
+        "name": "平台服务附加合同（模拟模板）",
+        "type": "ADDENDUM",
+        "mode": "A",
+        "status": "PUBLISHED",
+        "fileId": null,
+        "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+        "proposedAction": "SOFT_ARCHIVE"
+      },
+      {
+        "id": "cmupkvfwg0048trfgusiz5uro",
+        "name": "Phase5 B 模式验收模板",
+        "type": "ADDENDUM",
+        "mode": "B",
+        "status": "PUBLISHED",
+        "fileId": null,
+        "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+        "proposedAction": "SOFT_ARCHIVE"
+      },
+      {
+        "id": "cmupkvg50004vtrfg0xdf6s8g",
+        "name": "平台服务附加合同（模拟模板）",
+        "type": "ADDENDUM",
+        "mode": "A",
+        "status": "PUBLISHED",
+        "fileId": null,
+        "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+        "proposedAction": "SOFT_ARCHIVE"
+      },
+      {
+        "id": "cmuqzb80t000etr58jikkvj82",
+        "name": "粮食联运合同演示模板 1790946509750",
+        "type": "MAIN",
+        "mode": "A",
+        "status": "DRAFT",
+        "fileId": "cmuqzb80p000ctr58c3k30rcx",
+        "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+        "proposedAction": "SOFT_ARCHIVE"
+      },
+      {
+        "id": "cmuqzb82l000itr58wdlfokmy",
+        "name": "粮食联运合同演示模板 1790946509750",
+        "type": "MAIN",
+        "mode": "A",
+        "status": "PUBLISHED",
+        "fileId": "cmuqzb82j000gtr588mp0mf7v",
+        "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+        "proposedAction": "SOFT_ARCHIVE"
+      },
+      {
+        "id": "cmuqzddmu001otr58wqx60vil",
+        "name": "粮食联运合同演示模板 1790946609699",
+        "type": "MAIN",
+        "mode": "A",
+        "status": "DRAFT",
+        "fileId": "cmuqzddmr001mtr58f2l4plq8",
+        "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+        "proposedAction": "SOFT_ARCHIVE"
+      },
+      {
+        "id": "cmuqzddos001str581au9wna5",
+        "name": "粮食联运合同演示模板 1790946609699",
+        "type": "MAIN",
+        "mode": "A",
+        "status": "PUBLISHED",
+        "fileId": "cmuqzddon001qtr5806ow36f3",
+        "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+        "proposedAction": "SOFT_ARCHIVE"
+      },
+      {
+        "id": "cmuqzdebn0034tr58fv9u5l8i",
+        "name": "粮食运输主合同（模拟模板）",
+        "type": "MAIN",
+        "mode": "A",
+        "status": "PUBLISHED",
+        "fileId": null,
+        "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+        "proposedAction": "SOFT_ARCHIVE"
+      },
+      {
+        "id": "cmuqzewjl004mtr58qxii5yo9",
+        "name": "粮食联运合同演示模板 1790946680425",
+        "type": "MAIN",
+        "mode": "A",
+        "status": "DRAFT",
+        "fileId": "cmuqzewjh004ktr58ki13iuhy",
+        "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+        "proposedAction": "SOFT_ARCHIVE"
+      },
+      {
+        "id": "cmuqzewlg004qtr58g7w6a9do",
+        "name": "粮食联运合同演示模板 1790946680425",
+        "type": "MAIN",
+        "mode": "A",
+        "status": "PUBLISHED",
+        "fileId": "cmuqzewld004otr58ro282cvr",
+        "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+        "proposedAction": "SOFT_ARCHIVE"
+      },
+      {
+        "id": "cmuqzex7l0062tr58y6n5w7be",
+        "name": "粮食运输主合同（模拟模板）",
+        "type": "MAIN",
+        "mode": "A",
+        "status": "PUBLISHED",
+        "fileId": null,
+        "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+        "proposedAction": "SOFT_ARCHIVE"
+      },
+      {
+        "id": "cmuqzgan0006mtr58ai3drhyj",
+        "name": "粮食联运合同演示模板 1790946745306",
+        "type": "MAIN",
+        "mode": "A",
+        "status": "DRAFT",
+        "fileId": "cmuqzgamw006ktr588i0dxmcn",
+        "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+        "proposedAction": "SOFT_ARCHIVE"
+      },
+      {
+        "id": "cmuqzgaov006qtr58le22it7y",
+        "name": "粮食联运合同演示模板 1790946745306",
+        "type": "MAIN",
+        "mode": "A",
+        "status": "PUBLISHED",
+        "fileId": "cmuqzgaoq006otr58nxqcl19p",
+        "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+        "proposedAction": "SOFT_ARCHIVE"
+      },
+      {
+        "id": "cmuqzgbaf0082tr58bpz9ciz3",
+        "name": "粮食运输主合同（模拟模板）",
+        "type": "MAIN",
+        "mode": "A",
+        "status": "PUBLISHED",
+        "fileId": null,
+        "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+        "proposedAction": "SOFT_ARCHIVE"
+      },
+      {
+        "id": "cmuqzjch300eztr58t4l27x4c",
+        "name": "Phase5 B 模式验收模板",
+        "type": "ADDENDUM",
+        "mode": "B",
+        "status": "PUBLISHED",
+        "fileId": null,
+        "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+        "proposedAction": "SOFT_ARCHIVE"
+      },
+      {
+        "id": "cmuqzjcrb00fmtr58lrgkn4pw",
+        "name": "平台服务附加合同（模拟模板）",
+        "type": "ADDENDUM",
+        "mode": "A",
+        "status": "PUBLISHED",
+        "fileId": null,
+        "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+        "proposedAction": "SOFT_ARCHIVE"
+      },
+      {
+        "id": "cmuqzy8db00k9tr58m70apfgo",
+        "name": "北粮南运运输合同模板（浏览器模拟）",
+        "type": "MAIN",
+        "mode": "A",
+        "status": "DRAFT",
+        "fileId": "cmuqzy8d900k7tr583m6ejme7",
+        "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+        "proposedAction": "SOFT_ARCHIVE"
+      },
+      {
+        "id": "cmur4dt3b000htrgsf3yi7vq0",
+        "name": "粮食联运合同演示模板 1790955027394",
+        "type": "MAIN",
+        "mode": "A",
+        "status": "DRAFT",
+        "fileId": "cmur4dt37000ftrgs5h7n7s0z",
+        "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+        "proposedAction": "SOFT_ARCHIVE"
+      },
+      {
+        "id": "cmur4dt4o000ltrgs2oq2rm7h",
+        "name": "粮食联运合同演示模板 1790955027394",
+        "type": "MAIN",
+        "mode": "A",
+        "status": "PUBLISHED",
+        "fileId": "cmur4dt4k000jtrgsgg7tm9wm",
+        "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+        "proposedAction": "SOFT_ARCHIVE"
+      },
+      {
+        "id": "cmur4dts1001xtrgsi0nnybla",
+        "name": "粮食运输主合同（模拟模板）",
+        "type": "MAIN",
+        "mode": "A",
+        "status": "PUBLISHED",
+        "fileId": null,
+        "reason": "KNOWN_CONTRACT_TEMPLATE_FIXTURE",
+        "proposedAction": "SOFT_ARCHIVE"
+      }
+    ],
+    "preservedUsers": [
+      {
+        "id": "cmupalj6l000ztr3ssdv53svh",
+        "username": "carrier",
+        "displayName": "物流负责人",
+        "isTestData": true,
+        "proposedDisplayName": "企业调度员",
+        "reason": "PRESERVED_EXISTING_ACCOUNT"
+      },
+      {
+        "id": "cmupalj6u0011tr3s5waz472r",
+        "username": "carrier.staff",
+        "displayName": "物流调度员",
+        "isTestData": true,
+        "proposedDisplayName": "运输调度员",
+        "reason": "PRESERVED_EXISTING_ACCOUNT"
+      },
+      {
+        "id": "cmupalj7f0015tr3sb8zfgwr2",
+        "username": "driver",
+        "displayName": "司机张师傅",
+        "isTestData": true,
+        "proposedDisplayName": "张志国",
+        "reason": "PRESERVED_EXISTING_ACCOUNT"
+      },
+      {
+        "id": "cmupalj760013tr3slq6h6q85",
+        "username": "carrier.b",
+        "displayName": "物流 B 负责人",
+        "isTestData": true,
+        "proposedDisplayName": "企业调度员",
+        "reason": "PRESERVED_EXISTING_ACCOUNT"
+      },
+      {
+        "id": "cmupalj58000rtr3sxlo1s6gp",
+        "username": "admin",
+        "displayName": "平台管理员",
+        "isTestData": true,
+        "proposedDisplayName": "平台管理员",
+        "reason": "PRESERVED_EXISTING_ACCOUNT"
+      },
+      {
+        "id": "cmupalj5r000ttr3sovcmiq44",
+        "username": "trader",
+        "displayName": "粮贸负责人",
+        "isTestData": true,
+        "proposedDisplayName": "企业业务员",
+        "reason": "PRESERVED_EXISTING_ACCOUNT"
+      },
+      {
+        "id": "cmupalj62000vtr3shlbx9z8g",
+        "username": "trader.staff",
+        "displayName": "粮贸业务员",
+        "isTestData": true,
+        "proposedDisplayName": "粮食业务员",
+        "reason": "PRESERVED_EXISTING_ACCOUNT"
+      },
+      {
+        "id": "cmupalj6c000xtr3shnnjh7q4",
+        "username": "trader.b",
+        "displayName": "粮贸 B 负责人",
+        "isTestData": true,
+        "proposedDisplayName": "企业业务员",
+        "reason": "PRESERVED_EXISTING_ACCOUNT"
+      }
+    ],
+    "preservedProductCodes": [
+      "GDS-CAPACITY",
+      "GDS-CORRIDOR",
+      "GDS-TRACE",
+      "GDS-CREDIT",
+      "GDS-RISK"
+    ],
+    "note": "仅列出明确测试或已知验收初始化记录；没有查验或更改任何未知真实记录。预览不写数据库。"
+  },
+  "roadReferencePrices": [
+    {
+      "key": "general",
+      "grain": null,
+      "rateMillis": 360,
+      "unit": "PER_TON_KM",
+      "source": "公路参考估算，成交价待确认",
+      "provenance": {
+        "sourceSystem": "BUSINESS_INITIALIZATION",
+        "sourceType": "INITIALIZATION",
+        "version": 1,
+        "generatedAt": "2026-10-03T02:00:00.000Z",
+        "verification": "UNVERIFIED_BUSINESS_RECORD",
+        "note": "按用户要求生成的业务初始化记录；企业账户、人员、车牌、航次、交易、任务、费用与状态不代表已核验的现实业务。公开港站与高德道路信息另行记录来源。原始凭证、身份及签章资料待实际业务录入。"
+      }
+    },
+    {
+      "key": "soybean",
+      "grain": "大豆",
+      "rateMillis": 400,
+      "unit": "PER_TON_KM",
+      "source": "公路参考估算，成交价待确认",
+      "provenance": {
+        "sourceSystem": "BUSINESS_INITIALIZATION",
+        "sourceType": "INITIALIZATION",
+        "version": 1,
+        "generatedAt": "2026-10-03T02:00:00.000Z",
+        "verification": "UNVERIFIED_BUSINESS_RECORD",
+        "note": "按用户要求生成的业务初始化记录；企业账户、人员、车牌、航次、交易、任务、费用与状态不代表已核验的现实业务。公开港站与高德道路信息另行记录来源。原始凭证、身份及签章资料待实际业务录入。"
+      }
+    },
+    {
+      "key": "paddy",
+      "grain": "稻谷",
+      "rateMillis": 380,
+      "unit": "PER_TON_KM",
+      "source": "公路参考估算，成交价待确认",
+      "provenance": {
+        "sourceSystem": "BUSINESS_INITIALIZATION",
+        "sourceType": "INITIALIZATION",
+        "version": 1,
+        "generatedAt": "2026-10-03T02:00:00.000Z",
+        "verification": "UNVERIFIED_BUSINESS_RECORD",
+        "note": "按用户要求生成的业务初始化记录；企业账户、人员、车牌、航次、交易、任务、费用与状态不代表已核验的现实业务。公开港站与高德道路信息另行记录来源。原始凭证、身份及签章资料待实际业务录入。"
+      }
+    }
+  ],
+  "notes": [
+    "企业、人员、车牌、船名、航次及交易均为生成初始化资料。",
+    "未编造手机号、统一信用代码、MMSI、PDF凭证或签章。",
+    "合同均为DRAFT，实际业务更新仍须正常生效。",
+    "初始化的定位点来源INITIALIZATION，可查询来源，不能表示已接入北斗或AIS。"
+  ]
+}

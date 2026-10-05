@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-03",
+  "scope": "替换为现场照片，并把图片缩小放在卡片左上角",
+  "photoManifest": "data-service-photo-manifest.json",
+  "sources": {"userSupplied": 2, "wikimediaCommons": 3},
+  "generationUsed": false,
+  "checks": {
+    "build": "npm run build -w @grain/web passed",
+    "allPhotosLoaded": true,
+    "catalogThumbnail": [108, 82],
+    "detailThumbnail": [180, 136],
+    "scenarioCards": "Small photos at the upper left of each card; reviewed in browser",
+    "viewportWidth": 1280,
+    "documentWidth": 1265,
+    "horizontalOverflow": false,
+    "consoleErrors": 0,
+    "attribution": "Public photo-credits.html linked from the catalog"
+  },
+  "screenshots": ["data-service-photo-cards-v3.png", "data-service-photo-header-v3.png", "data-service-photo-scenarios-v3.png"]
+}

@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-01T09:53:15.900Z",
+  "result": "PASS",
+  "verified": {
+    "demand": {
+      "id": "cmupcllch004gtr88c1sxkwni",
+      "status": "PUBLISHED",
+      "version": 2,
+      "publicationIds": [
+        "cmupclm7p004jtr886qj531f7"
+      ]
+    },
+    "supply": {
+      "id": "cmupclpum004mtr887ucfwb54",
+      "status": "PUBLISHED",
+      "version": 2
+    },
+    "order": {
+      "id": "sample-order-trader-a-1-item",
+      "reservedKg": 105375
+    }
+  }
+}

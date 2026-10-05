@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-01T09:48:12.279Z",
+  "result": "PASS",
+  "counts": {
+    "users": 8,
+    "orders": 8,
+    "items": 8,
+    "demands": 0,
+    "supplies": 0
+  },
+  "note": "空库应用全部迁移，再连续执行两次seed，未产生重复订单、账号或权限"
+}

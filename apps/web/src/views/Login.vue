@@ -1,0 +1,12 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import {useAuth} from '../stores/auth';
+import {message} from '../api';
+
+import Icon from '../components/Icon.vue';
+const username=ref(''),password=ref(''),busy=ref(false),error=ref('');const auth=useAuth(),router=useRouter();
+async function login(){if(!username.value||!password.value){error.value='请输入账号和密码';return;}busy.value=true;error.value='';try{await auth.login(username.value,password.value);router.push(auth.user?.mustChangePassword?'/account':'/workbench');}catch(e){error.value=message(e);}finally{busy.value=false;}}
+</script>
+<template><div class="login-page"><header class="login-brand"><img class="login-logo" src="/assets/liaoliang-logo.png" alt="辽粮" width="48" height="48"/><strong>智能多式联运物流数据系统</strong></header><div class="login-main"><section class="login-story"><span class="eyebrow">北粮南运 · 全程协同</span><h1>让每一程运输，<br/>衔接有序。</h1><p>贯通粮食贸易与物流服务，连接公路、铁路与水运。<br/>从运输需求到对账结算，让业务全程可追溯。</p><div class="transport-motif"><div><Icon name="truck" :size="30"/><span>公路运输</span></div><i></i><div><Icon name="route" :size="30"/><span>铁路运输</span></div><i></i><div><Icon name="map" :size="30"/><span>水路运输</span></div></div><div class="login-rule"><Icon name="shield" :size="18"/>企业独立授权<span>·</span>业务协同可追溯</div></section><section class="login-card"><div class="login-card-title"><span class="eyebrow">企业工作空间</span><h2>登录平台</h2><p>使用分配给您的企业账号继续</p></div><el-form @submit.prevent="login" label-position="top"><el-form-item label="账号"><el-input v-model="username" id="username" aria-label="账号" autocomplete="username" placeholder="请输入账号" size="large" :disabled="busy"/></el-form-item><el-form-item label="密码"><el-input v-model="password" id="password" aria-label="密码" type="password" autocomplete="current-password" show-password placeholder="请输入密码" size="large" :disabled="busy"/></el-form-item><el-alert v-if="error" :title="error" type="error" :closable="false" show-icon class="form-error"/><el-button class="login-submit" type="primary" native-type="submit" size="large" :loading="busy">登录<Icon name="arrow" :size="17"/></el-button></el-form><div class="login-help"><Icon name="lock" :size="15"/>忘记密码或账号停用，请联系平台管理员</div></section></div><footer class="login-footer">智能多式联运物流数据系统<span>公路 · 铁路 · 水运</span></footer></div></template>
+<style scoped>.login-logo{width:48px;height:48px;object-fit:contain;flex-shrink:0}</style>

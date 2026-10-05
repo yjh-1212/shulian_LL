@@ -1,0 +1,13 @@
+<script setup lang="ts">
+import {ref,watch,onBeforeUnmount,defineAsyncComponent} from 'vue';
+const ContractPdfPreview=defineAsyncComponent(()=>import('./ContractPdfPreview.vue'));
+import {api,message} from '../api';
+import {date,download} from '../fulfillment';
+const props=defineProps<{modelValue:boolean;template:any;source?:string}>();const emit=defineEmits(['update:modelValue']);
+const fileUrl=ref(''),error=ref(''),busy=ref(false);let blob:Blob|undefined,request=0;
+function release(){if(fileUrl.value)URL.revokeObjectURL(fileUrl.value);fileUrl.value='';blob=undefined;}
+watch(()=>[props.modelValue,props.source],async()=>{const run=++request;release();error.value='';if(!props.modelValue||!props.source)return;busy.value=true;try{const response=await api.get(props.source,{responseType:'blob'});if(run!==request)return;blob=response.data;fileUrl.value=URL.createObjectURL(blob!);}catch(e){if(run===request)error.value=message(e);}finally{if(run===request)busy.value=false;}},{immediate:true});
+onBeforeUnmount(()=>{request++;release();});
+</script>
+<template><el-dialog :model-value="modelValue" @update:model-value="emit('update:modelValue',$event)" :title="template?.name||'合同模板预览'" width="1000px" class="contract-preview-dialog" destroy-on-close><div class="preview-meta"><el-tag>{{template?.file?.name?.split('.').at(-1)?.toUpperCase()||'文本模板'}}</el-tag><span v-if="template?.version">V{{template.version}}</span><span>{{date(template?.createdAt||template?.file?.createdAt)}}</span><el-button v-if="blob" link type="primary" @click="download(blob!,template.file.name,blob!.type)">下载原文件</el-button></div><el-alert v-if="error" :title="error" type="error" :closable="false"/><div v-loading="busy" class="preview-body"><ContractPdfPreview v-if="blob&&fileUrl&&template?.file?.mime==='application/pdf'" :blob="blob"/><article v-else><h2>{{template?.name}}</h2><pre>{{template?.file?.previewText||template?.body}}</pre></article></div><template #footer><el-button @click="emit('update:modelValue',false)">关闭预览</el-button></template></el-dialog></template>
+<style scoped>.preview-meta{display:flex;align-items:center;gap:16px;color:#89919d;font-size:12px;margin-bottom:16px}.preview-body{min-height:300px;max-height:65vh;overflow:auto;background:#f4f6f9;border:1px solid #e4e8ee;border-radius:6px}.preview-body iframe{height:65vh;width:100%;border:0}.preview-body article{background:white;margin:20px auto;padding:40px;max-width:760px;min-height:500px}.preview-body h2{text-align:center;font-size:22px;margin-bottom:24px}.preview-body pre{font:14px/2.1 var(--el-font-family);white-space:pre-wrap;overflow-wrap:anywhere}@media(max-width:600px){.preview-body article{padding:20px;margin:0}}</style>

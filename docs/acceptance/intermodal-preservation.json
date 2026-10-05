@@ -1,0 +1,83 @@
+{
+  "result": "PASS",
+  "backup": ".local/backups/2026-10-02T14-28-53-737Z/database.db",
+  "allowedChanges": "历史运单补齐一单制和运单号；新增阶段、状态、日期和费用来源字段；其他原有业务字段和附件字节保持一致。",
+  "tables": [
+    {
+      "table": "ContractPackage",
+      "preservedRows": 20
+    },
+    {
+      "table": "ContractRevision",
+      "preservedRows": 25
+    },
+    {
+      "table": "ContractSignature",
+      "preservedRows": 87
+    },
+    {
+      "table": "ContractTemplate",
+      "preservedRows": 18
+    },
+    {
+      "table": "ContractTemplateFile",
+      "preservedRows": 9
+    },
+    {
+      "table": "ContractArchive",
+      "preservedRows": 2
+    },
+    {
+      "table": "Bill",
+      "preservedRows": 8
+    },
+    {
+      "table": "BillItem",
+      "preservedRows": 12
+    },
+    {
+      "table": "BillVersion",
+      "preservedRows": 36
+    },
+    {
+      "table": "BillTask",
+      "preservedRows": 12
+    },
+    {
+      "table": "BillEvidence",
+      "preservedRows": 8
+    },
+    {
+      "table": "Settlement",
+      "preservedRows": 8
+    },
+    {
+      "table": "SettlementRecord",
+      "preservedRows": 9
+    },
+    {
+      "table": "ExecutionEvidence",
+      "preservedRows": 19
+    },
+    {
+      "table": "ExecutionEvent",
+      "preservedRows": 130
+    },
+    {
+      "table": "ExecutionIssue",
+      "preservedRows": 4
+    },
+    {
+      "table": "ContainerBatch",
+      "preservedRows": 2
+    },
+    {
+      "table": "TransportTask",
+      "preservedRows": 31
+    },
+    {
+      "table": "LogisticsBusiness",
+      "preservedRows": 16
+    }
+  ]
+}

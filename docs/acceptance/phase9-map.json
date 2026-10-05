@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-01T17:17:43.786Z",
+  "result": "PASS",
+  "results": [
+    {
+      "name": "120项模拟地图任务聚合、图层切换与2000点轨迹回放",
+      "result": "PASS"
+    }
+  ],
+  "syntheticMapFixture": true,
+  "durationMs": 1855,
+  "render": {
+    "nodes": 2368,
+    "markers": 8,
+    "canvases": 1
+  },
+  "jsErrors": [],
+  "browser": "Edge"
+}

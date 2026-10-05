@@ -1,0 +1,66 @@
+// Exercise mutations in a dedicated SQLite copy; business records remain untouched.
+require('dotenv').config({quiet:true});require('reflect-metadata');
+const fs=require('node:fs/promises'),path=require('node:path');
+const {strict:assert}=require('node:assert');
+const {PrismaClient}=require('@prisma/client');
+const {TransportService}=require('../apps/api/dist/transport.service');
+const {DemandDto}=require('../apps/api/dist/transport.dto');
+const {Audit}=require('../apps/api/dist/audit');
+const {validate}=require('class-validator');
+const {plainToInstance}=require('class-transformer');
+const live=new PrismaClient();let db;
+const proof={checkedAt:new Date().toISOString(),checks:[]};
+function pass(description){proof.checks.push(description);console.log('PASS '+description);}
+async function main(){
+  const dir=path.resolve('.local/tests','demand-optional-order-'+Date.now());await fs.mkdir(dir,{recursive:true});
+  const copy=path.join(dir,'database.db');await live.$executeRawUnsafe(`VACUUM INTO '${copy.replace(/'/g,"''")}'`);
+  db=new PrismaClient({datasources:{db:{url:'file:'+copy.replace(/\\/g,'/')}}});
+  const service=new TransportService(db,new Audit());
+  const identities={};for(const username of ['trader','trader.b','admin','carrier'])identities[username]={user:{...await db.user.findUniqueOrThrow({where:{username},include:{businessEntity:true}}),roles:[{code:username}]},headers:{},requestId:'optional-order-isolated',ip:'local'};
+  const req=identities.trader,grain=await db.dictionary.findFirstOrThrow({where:{group:'粮食品种',label:'玉米',enabled:true}}),soy=await db.dictionary.findFirstOrThrow({where:{group:'粮食品种',label:'大豆',enabled:true}}),road=await db.dictionary.findFirstOrThrow({where:{group:'运输方式',label:'公路',enabled:true}});
+  const base={grainId:grain.id,specification:'二等黄玉米，水分≤14.0%',quantity:680.5,originAddress:'吉林省长春市榆树市五棵树站',destinationAddress:'广东省广州市南沙区南沙港',departureAt:new Date(Date.now()+7*86400000).toISOString(),arrivalAt:new Date(Date.now()+17*86400000).toISOString(),modeIds:[road.id],loadingType:'BULK',contact:'运输业务部',phone:'00000000000'};
+  assert.equal((await validate(plainToInstance(DemandDto,base))).length,0);
+  let manual=await service.saveDemand(base,req);assert.equal(manual.orderItemId,null);assert.equal(manual.grain.label,'玉米');assert.equal(manual.quantity,680.5);assert.equal(manual.sourceType,'INTERNAL');assert.equal(manual.budgetCents,null);assert.deepEqual(manual.originCodes,['220000','220100','220182']);
+  pass('无订单创建草稿，粮种、规格、区域、数量与方式正常保存');
+  manual=await service.saveDemand({...base,grainId:soy.id,specification:'食用大豆，水分≤13.0%',quantity:720.8,version:manual.version},req,manual.id);assert.equal(manual.grain.label,'大豆');assert.equal(manual.quantity,720.8);
+  const found=await service.demands({q:'食用大豆',page:1,pageSize:100,order:'desc'},req);assert.ok(found.items.some(r=>r.id===manual.id));
+  pass('独立需求可编辑粮种和规格，并能按货物关键词检索');
+  await assert.rejects(()=>service.saveDemand({...base,grainId:undefined},req),/请选择粮食品种/);
+  await assert.rejects(()=>service.saveDemand({...base,specification:' '},req),/填写货物规格/);
+  await assert.rejects(()=>service.saveDemand({...base,grainId:road.id},req),/粮食品种包含不存在/);
+  await assert.rejects(()=>service.saveDemand({...base,departureAt:new Date(Date.now()-60000).toISOString()},req),/晚于当前时间/);
+  await assert.rejects(()=>service.saveDemand(base,identities.admin),/仅贸易企业/);
+  await assert.rejects(()=>service.saveDemand(base,identities.carrier),/仅贸易企业/);
+  await assert.rejects(()=>service.demand(manual.id,identities['trader.b']),/无权访问/);
+  pass('必填粮种、规格、未来时间与角色和归属权限校验有效');
+  const owner=req.user.businessEntityId;
+  const makeOrder=async(n,businessEntityId=owner)=>db.tradeOrder.create({data:{id:'optional-order-'+n,businessNo:'ISOLATED-'+n,sourceSystem:'ISOLATED_TEST',sourceRecordId:String(n),sourceDigest:'isolated',sourceType:'INTERNAL',businessEntityId,recipient:'接卸业务部',shipperContact:'运输业务部',shipperPhone:'00000000000',recipientContact:'收货作业部',recipientPhone:'00000000000',items:{create:{id:'optional-item-'+n,lineNo:'1',grainId:grain.id,cargoName:'玉米',specification:'二等黄玉米，水分≤14.0%',quantityKg:1000000,pickupAddress:base.originAddress,pickupCodes:'220000/220100/220182'}}}});
+  await makeOrder(1);await makeOrder(2);await makeOrder(3,identities['trader.b'].user.businessEntityId);
+  const balance=async(n)=>(await db.tradeOrderItem.findUniqueOrThrow({where:{id:'optional-item-'+n}})).reservedKg;
+  const linkedPayload={...base,orderItemId:'optional-item-1',grainId:soy.id,cargoName:'大豆',specification:'客户端改写',quantity:600.5};
+  let linked=await service.saveDemand(linkedPayload,req);assert.equal(linked.grainId,grain.id);assert.equal(linked.cargoName,'玉米');assert.equal(linked.specification,'二等黄玉米，水分≤14.0%');assert.equal(await balance(1),600500);
+  const second=await service.saveDemand({...linkedPayload,quantity:300.2},req);assert.equal(await balance(1),900700);
+  await assert.rejects(()=>service.saveDemand({...linkedPayload,quantity:100.0},req),/其他批次已占用/);assert.equal(await balance(1),900700);
+  linked=await service.saveDemand({...linkedPayload,quantity:650.0,version:linked.version},req,linked.id);assert.equal(await balance(1),950200);
+  pass('关联订单以订单货物为准，分批累计与编辑自身余量正确');
+  linked=await service.saveDemand({...base,quantity:650.0,version:linked.version},req,linked.id);assert.equal(linked.orderItemId,null);assert.equal(await balance(1),300200);assert.equal(linked.originAddress,base.originAddress);
+  linked=await service.saveDemand({...linkedPayload,orderItemId:'optional-item-2',quantity:800.4,version:linked.version},req,linked.id);assert.equal(await balance(2),800400);assert.equal(await balance(1),300200);
+  await assert.rejects(()=>service.saveDemand({...linkedPayload,quantity:800.4,version:linked.version},req,linked.id),/其他批次已占用/);assert.equal(await balance(2),800400);
+  await assert.rejects(()=>service.saveDemand({...linkedPayload,orderItemId:'optional-item-3',quantity:800.4,version:linked.version},req,linked.id),/不属于本企业/);assert.equal(await balance(2),800400);
+  const prior=linked.version;linked=await service.saveDemand({...linkedPayload,quantity:500.0,version:linked.version},req,linked.id);assert.equal(await balance(1),800200);assert.equal(await balance(2),0);
+  await assert.rejects(()=>service.saveDemand({...linkedPayload,quantity:400.0,version:prior},req,linked.id),/记录已更新/);assert.equal(await balance(1),800200);
+  pass('取消、重选和更换订单原子更新余量；失败与旧版本不改变占用');
+  await service.demandAction(linked.id,'cancel',linked.version,req);assert.equal(await balance(1),300200);
+  await service.demandAction(second.id,'cancel',second.version,req);assert.equal(await balance(1),0);
+  await service.demandAction(manual.id,'publish',manual.version,req,{mode:'PUBLIC',deadline:new Date(Date.now()+2*86400000).toISOString(),quoteType:'PER_TON',budgetPublic:false,contactPublic:false});
+  manual=await service.demand(manual.id,req);assert.equal(manual.status,'PUBLISHED');
+  const carrierView=await service.demand(manual.id,identities.carrier);assert.equal(carrierView.cargoName,'大豆');assert.equal(carrierView.budget,undefined);assert.equal(carrierView.phone,undefined);
+  await assert.rejects(()=>service.saveDemand({...base,version:manual.version},req,manual.id),/仅未确认承运的草稿/);
+  pass('取消释放订单数量；独立需求正常发布，公开资料仍隐藏私有预算和联系方式');
+  // Parallel 600 tonne requests cannot reserve more than the 1000 tonne inventory.
+  const parallel=await Promise.allSettled([1,2].map(()=>service.saveDemand({...linkedPayload,orderItemId:'optional-item-2',quantity:600.0},req)));
+  assert.equal(parallel.filter(result=>result.status==='fulfilled').length,1);assert.equal(await balance(2),600000);
+  pass('并发创建防止订单余量被重复占用');
+  await fs.writeFile(path.resolve('docs/acceptance/demand-optional-order-tests.json'),JSON.stringify({...proof,isolatedDatabase:copy},null,2));
+}
+main().catch(e=>{console.error(e);process.exitCode=1;}).finally(async()=>{if(db)await db.$disconnect();await live.$disconnect();});

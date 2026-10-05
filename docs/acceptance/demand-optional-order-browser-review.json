@@ -1,0 +1,18 @@
+{
+  "reviewedAt": "2026-10-03T16:19:11.913Z",
+  "url": "http://127.0.0.1:5173/supply-demand/demands",
+  "account": "trader",
+  "checks": [
+    "新建运输需求中的交易订单为选填项",
+    "未选择订单时粮种、规格与数量可填写",
+    "订单首屏可选择新增的十条待核验交易",
+    "选择订单带入玉米、二等黄玉米规格、1200.5吨和五棵树站地址",
+    "取消关联后粮种、规格、数量和地址保留",
+    "修改后取消显示放弃修改确认"
+  ],
+  "screenshots": [
+    "demand-manual-entry-browser.png",
+    "demand-order-picker-browser.png",
+    "demand-unlinked-entry-browser.png"
+  ]
+}

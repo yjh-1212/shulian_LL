@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-02T09:26:41.906Z",
+  "result": "PASS",
+  "checks": [
+    "前后端构建",
+    "联运求解、目标推荐及供应商评分回归",
+    "多选原子发布与乱序幂等",
+    "所选供应商可见、报价与推荐信息隔离",
+    "确认一家整体承运并阻止超额重复确认",
+    "新库18项迁移与重复初始化",
+    "原有记录与订单占用保留、旧指定对象回填、外键检查",
+    "浏览器两家多选、推荐值高亮、批量发布及勾选回显"
+  ],
+  "demo": {
+    "planRunId": "cmuqr3i5a007jtrpohsadses1",
+    "publicationId": "cmuqr6wf200jdtrpouvqyb4c4",
+    "mode": "DIRECTED",
+    "carriers": [
+      "辽港粮运物流（模拟）",
+      "锦通粮食物流（模拟）"
+    ],
+    "quantityTons": 100,
+    "hasTradeOrder": false
+  },
+  "screenshots": [
+    "planning-multiple-suppliers.png",
+    "planning-multiple-publish-dialog.png",
+    "planning-multiple-publication.png"
+  ]
+}

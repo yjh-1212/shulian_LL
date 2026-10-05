@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-01T10:47:27.228Z",
+  "result": "PASS",
+  "verified": [
+    "服务重启后版本、选中方案、费用和几何保留",
+    "再次求解复用数据库路径缓存与查询时间"
+  ],
+  "before": "cmupesq0500igtrwgqp8xuphk",
+  "after": "cmupetyo80004tr5c3mdi0cdp"
+}

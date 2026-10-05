@@ -1,0 +1,28 @@
+{
+  "id": "cmupesq0500igtrwgqp8xuphk",
+  "selectedPlanId": "cmupesq0500iktrwgdx9pnilf",
+  "revision": 2,
+  "version": 1,
+  "geometryIds": [
+    "cmupdzsw2000dtrrwfcc6fe1p",
+    "cmupdzsw1000ctrrwzogbzsvj",
+    "cmupdzsw2000etrrw0ocn5n0y"
+  ],
+  "totals": [
+    [
+      2598773,
+      100362,
+      4158037
+    ],
+    [
+      2581788,
+      101387,
+      4130861
+    ],
+    [
+      2615017,
+      100211,
+      4184027
+    ]
+  ]
+}

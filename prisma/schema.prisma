@@ -1,0 +1,1282 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "sqlite"
+  url = env("DATABASE_URL")
+}
+model Organization {
+  id String @id @default(cuid())
+  name String
+  entities BusinessEntity[]
+}
+model BusinessEntity {
+  id String @id @default(cuid())
+  name String @unique
+  type String
+  contact String @default("")
+  phone String @default("")
+  status String @default("ACTIVE")
+  isTestData Boolean @default(false)
+  organizationId String
+  registeredRegion String @default("")
+  registeredCodes String @default("")
+  organization Organization @relation(fields:[organizationId], references:[id])
+  users User[]
+  tradeOrders TradeOrder[]
+  demands TransportDemand[]
+  supplies TransportSupply[]
+  targetedPublications MatchPublication[]
+  matchRecipients MatchRecipient[]
+  planRuns PlanRun[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+}
+model User {
+  id String @id @default(cuid())
+  username String @unique
+  displayName String
+  phone String @default("")
+  email String @default("")
+  department String @default("")
+  mustChangePassword Boolean @default(false)
+  passwordHash String
+  status String @default("ACTIVE")
+  businessEntityId String
+  businessEntity BusinessEntity @relation(fields:[businessEntityId], references:[id])
+  roles UserRole[]
+  refreshTokens RefreshToken[]
+  tokenVersion Int @default(0)
+  lastLoginAt DateTime?
+  isTestData Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+  @@index([businessEntityId,status])
+}
+model Role {
+  id String @id @default(cuid())
+  code String @unique
+  name String
+  entityType String
+  description String @default("")
+  users UserRole[]
+  permissions RolePermission[]
+  updatedAt DateTime @updatedAt
+}
+model Permission {
+  id String @id @default(cuid())
+  code String @unique
+  name String
+  module String
+  roles RolePermission[]
+}
+model UserRole {
+  userId String
+  roleId String
+  user User @relation(fields:[userId],references:[id],onDelete:Cascade)
+  role Role @relation(fields:[roleId],references:[id],onDelete:Cascade)
+  @@id([userId,roleId])
+}
+model RolePermission {
+  roleId String
+  permissionId String
+  role Role @relation(fields:[roleId],references:[id],onDelete:Cascade)
+  permission Permission @relation(fields:[permissionId],references:[id],onDelete:Cascade)
+  @@id([roleId,permissionId])
+}
+model Menu {
+  id String @id
+  label String
+  path String @unique
+  icon String
+  parentId String?
+  parent Menu? @relation("MenuTree",fields:[parentId],references:[id])
+  children Menu[] @relation("MenuTree")
+  permissionCode String
+  displayOrder Int
+  overflowPriority Int @default(0)
+  phase Int @default(1)
+  enabled Boolean @default(true)
+}
+model RefreshToken {
+  audience String @default("grain-web")
+  id String @id @default(cuid())
+  tokenHash String @unique
+  userId String
+  user User @relation(fields:[userId],references:[id],onDelete:Cascade)
+  expiresAt DateTime
+  revokedAt DateTime?
+  createdAt DateTime @default(now())
+}
+model LoginLog {
+  id String @id @default(cuid())
+  username String
+  userId String?
+  businessEntityId String?
+  ip String
+  userAgent String
+  success Boolean
+  reason String
+  requestId String
+  createdAt DateTime @default(now())
+  @@index([businessEntityId,createdAt])
+}
+model AuditLog {
+  id String @id @default(cuid())
+  userId String
+  userName String
+  role String
+  businessEntityId String
+  ip String
+  userAgent String
+  module String
+  objectId String
+  action String
+  before String?
+  after String?
+  result String @default("SUCCESS")
+  requestId String
+  createdAt DateTime @default(now())
+  @@index([businessEntityId,createdAt])
+}
+model Dictionary {
+  id String @id @default(cuid())
+  group String
+  code String
+  label String
+  sort Int @default(0)
+  enabled Boolean @default(true)
+  updatedAt DateTime @updatedAt
+  orderItems TradeOrderItem[]
+  demandModes DemandMode[]
+  supplyModes TransportSupply[]
+  supplyGrains SupplyGrain[]
+  standaloneDemands TransportDemand[]
+  @@unique([group,code])
+}
+
+model TradeOrder {
+  id String @id @default(cuid())
+  businessNo String @unique
+  businessEntityId String
+  businessEntity BusinessEntity @relation(fields:[businessEntityId], references:[id])
+  recipient String
+  shipperContact String
+  shipperPhone String
+  recipientContact String
+  recipientPhone String
+  status String @default("ACTIVE")
+  sourceSystem String
+  sourceRecordId String
+  sourceDigest String
+  sourceType String @default("INTERNAL")
+  isTestData Boolean @default(false)
+  items TradeOrderItem[]
+  createdAt DateTime @default(now())
+  @@unique([sourceSystem, sourceRecordId])
+  @@index([businessEntityId,status])
+}
+model TradeOrderItem {
+  id String @id @default(cuid())
+  tradeOrderId String
+  tradeOrder TradeOrder @relation(fields:[tradeOrderId],references:[id])
+  lineNo String
+  grainId String
+  grain Dictionary @relation(fields:[grainId],references:[id])
+  cargoName String
+  specification String
+  grainGrade String?
+  pickupAddress String?
+  pickupCodes String?
+  quantityKg Int
+  reservedKg Int @default(0)
+  demands TransportDemand[]
+  @@unique([tradeOrderId,lineNo])
+}
+model TransportDemand {
+  matchStage String @default("UNMATCHED")
+  matchedKg Int @default(0)
+  id String @id @default(cuid())
+  businessNo String @unique
+  name String
+  businessEntityId String
+  businessEntity BusinessEntity @relation(fields:[businessEntityId],references:[id])
+  orderItemId String?
+  orderItem TradeOrderItem? @relation(fields:[orderItemId],references:[id],onDelete:Restrict)
+  grainId String?
+  grain Dictionary? @relation(fields:[grainId],references:[id],onDelete:Restrict)
+  cargoName String @default("")
+  specification String @default("")
+  quantityKg Int
+  originCodes String
+  originRegion String
+  originAddress String
+  originPoint String?
+  destinationCodes String
+  destinationRegion String
+  destinationAddress String
+  destinationPoint String?
+  departureAt DateTime
+  arrivalAt DateTime?
+  allowMultimodal Boolean
+  allowTransfer Boolean
+  maxTransfers Int
+  loadingType String
+  preference String
+  budgetCents Int?
+  contact String
+  phone String
+  notes String @default("")
+  status String @default("DRAFT")
+  version Int @default(1)
+  modes DemandMode[]
+  planRuns PlanRun[]
+  publications MatchPublication[]
+  files BusinessFile[]
+  createdBy String
+  updatedBy String
+  sourceType String
+  isTestData Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+  @@index([businessEntityId,status,createdAt])
+}
+model DemandMode {
+  demandId String
+  modeId String
+  demand TransportDemand @relation(fields:[demandId],references:[id],onDelete:Cascade)
+  mode Dictionary @relation(fields:[modeId],references:[id])
+  @@id([demandId,modeId])
+}
+model MatchPublication {
+  recipients MatchRecipient[]
+  objectType String @default("DEMAND")
+  planRunId String?
+  planRun PlanRun? @relation(fields:[planRunId],references:[id])
+  supplyId String?
+  supply TransportSupply? @relation(fields:[supplyId],references:[id])
+  snapshot String @default("{}")
+  allowPartial Boolean @default(false)
+  quantityKg Int @default(0)
+  matchedKg Int @default(0)
+  stage String @default("WAITING")
+  version Int @default(1)
+  riskNotes String @default("[]")
+  responses MatchResponse[]
+  confirmations CarrierConfirmation[]
+  id String @id @default(cuid())
+  businessNo String @unique
+  demandId String
+  demand TransportDemand @relation(fields:[demandId],references:[id])
+  mode String
+  targetCarrierId String?
+  targetCarrier BusinessEntity? @relation(fields:[targetCarrierId],references:[id])
+  deadline DateTime
+  quoteType String
+  budgetPublic Boolean
+  contactPublic Boolean
+  notes String @default("")
+  status String @default("ACTIVE")
+  demandVersion Int
+  createdBy String
+  createdAt DateTime @default(now())
+  closedAt DateTime?
+  @@index([demandId,status])
+}
+model MatchRecipient {
+  invitedBy String @default("")
+  invitedAt DateTime?
+  publicationId String
+  carrierId String
+  supplyId String?
+  supplyVersion Int?
+  publication MatchPublication @relation(fields:[publicationId],references:[id],onDelete:Cascade)
+  carrier BusinessEntity @relation(fields:[carrierId],references:[id])
+  supply TransportSupply? @relation(fields:[supplyId],references:[id])
+  @@id([publicationId,carrierId])
+  @@index([carrierId,publicationId])
+}
+model TransportSupply {
+  matchRecipients MatchRecipient[]
+  publications MatchPublication[]
+  id String @id @default(cuid())
+  businessNo String @unique
+  name String
+  businessEntityId String
+  businessEntity BusinessEntity @relation(fields:[businessEntityId],references:[id])
+  modeId String
+  mode Dictionary @relation(fields:[modeId],references:[id])
+  originCodes String
+  originRegion String
+  originAddress String
+  destinationCodes String
+  destinationRegion String
+  destinationAddress String
+  viaNodes String @default("")
+  capacityKg Int
+  minKg Int?
+  maxKg Int?
+  resourceType String
+  resourceDescription String
+  grains SupplyGrain[]
+  serviceStart DateTime?
+  serviceEnd DateTime?
+  durationHours Int?
+  referencePriceCents Int?
+  priceUnit String?
+  loadingType String @default("BULK")
+  bulkPriceCents Int?
+  container20PriceCents Int?
+  container40PriceCents Int?
+  capabilities String @default("")
+  validFrom DateTime?
+  validUntil DateTime?
+  contact String
+  phone String
+  notes String @default("")
+  status String @default("DRAFT")
+  version Int @default(1)
+  files BusinessFile[]
+  createdBy String
+  updatedBy String
+  sourceType String
+  isTestData Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+  @@index([businessEntityId,status,createdAt])
+  @@index([status,validFrom,validUntil])
+}
+model SupplyGrain {
+  supplyId String
+  grainId String
+  supply TransportSupply @relation(fields:[supplyId],references:[id],onDelete:Cascade)
+  grain Dictionary @relation(fields:[grainId],references:[id])
+  @@id([supplyId,grainId])
+}
+model BusinessFile {
+  id String @id @default(cuid())
+  demandId String?
+  demand TransportDemand? @relation(fields:[demandId],references:[id])
+  supplyId String?
+  supply TransportSupply? @relation(fields:[supplyId],references:[id])
+  name String
+  storageName String @unique
+  mimeType String
+  size Int
+  kind String
+  sha256 String
+  createdBy String
+  createdAt DateTime @default(now())
+  deletedAt DateTime?
+}
+
+model TransportNode {
+  id String @id @default(cuid())
+  name String
+  type String
+  province String
+  city String
+  district String
+  address String @default("")
+  lng Float
+  lat Float
+  coordinateSystem String @default("GCJ02")
+  source String
+  sourceRef String
+  sourceUrl String
+  quality String @default("PROVIDER")
+  verifiedAt DateTime
+  enabled Boolean @default(true)
+  version Int @default(1)
+  updatedAt DateTime @updatedAt
+  origins TransportLine[] @relation("lineOrigin")
+  destinations TransportLine[] @relation("lineDestination")
+}
+model RouteGeometry {
+  id String @id @default(cuid())
+  cacheKey String
+  pathIndex Int
+  mode String
+  routeProfile String
+  coordinates String
+  distanceMeters Int
+  durationSeconds Int
+  source String
+  sourceRef String
+  queriedAt DateTime @default(now())
+  expiresAt DateTime
+  checksum String
+  steps String @default("[]")
+  lines TransportLine[]
+  segments PlanSegment[]
+  @@index([cacheKey,expiresAt])
+}
+model TransportLine {
+  serviceInfo String @default("{}")
+  id String @id @default(cuid())
+  businessNo String @unique
+  name String
+  mode String
+  originId String
+  origin TransportNode @relation("lineOrigin",fields:[originId],references:[id])
+  destinationId String
+  destination TransportNode @relation("lineDestination",fields:[destinationId],references:[id])
+  viaNodes String @default("")
+  distanceMeters Int
+  durationSeconds Int
+  capacityKg Int?
+  grainIds String @default("[]")
+  loadingTypes String @default("[\"BULK\",\"CONTAINER\"]")
+  transferMinutes Int @default(0)
+  source String
+  sourceRef String
+  sourceUrl String
+  maintainer String
+  quality String @default("DRAFT")
+  geometryId String?
+  geometry RouteGeometry? @relation(fields:[geometryId],references:[id])
+  enabled Boolean @default(true)
+  version Int @default(1)
+  isTestData Boolean @default(false)
+  prices RoutePrice[]
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+}
+model RoutePrice {
+  id String @id @default(cuid())
+  lineId String?
+  line TransportLine? @relation(fields:[lineId],references:[id])
+  grainId String?
+  unit String
+  rateMillis Int
+  validFrom DateTime
+  validUntil DateTime
+  source String
+  maintainer String
+  enabled Boolean @default(true)
+  version Int @default(1)
+  isTestData Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@index([lineId,validFrom,validUntil])
+}
+model PlanRun {
+  publications MatchPublication[]
+  id String @id @default(cuid())
+  businessNo String @unique
+  groupId String
+  version Int
+  revision Int @default(1)
+  businessEntityId String
+  businessEntity BusinessEntity @relation(fields:[businessEntityId],references:[id])
+  demandId String?
+  demand TransportDemand? @relation(fields:[demandId],references:[id])
+  demandVersion Int?
+  input String
+  warnings String
+  status String
+  selectedPlanId String?
+  createdBy String
+  createdAt DateTime @default(now())
+  isTestData Boolean @default(false)
+  candidates PlanCandidate[]
+  @@unique([groupId,version])
+  @@index([businessEntityId,createdAt])
+}
+model PlanCandidate {
+  id String @id @default(cuid())
+  runId String
+  run PlanRun @relation(fields:[runId],references:[id],onDelete:Cascade)
+  name String
+  rank Int
+  distanceMeters Int
+  durationSeconds Int
+  costCents Int
+  transferCount Int
+  arrivalAt DateTime
+  modes String
+  warnings String
+  recommendation String
+  geometryComplete Boolean
+  segments PlanSegment[]
+}
+model MatchResponse {
+  createdBy String @default("")
+  id String @id @default(cuid())
+  publicationId String
+  publication MatchPublication @relation(fields:[publicationId],references:[id])
+  carrierId String
+  status String @default("OPEN")
+  version Int @default(1)
+  terms String
+  lastAuthorId String
+  acceptedRound Int?
+  rounds NegotiationRound[]
+  confirmations CarrierConfirmation[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@unique([publicationId,createdBy])
+}
+model NegotiationRound {
+  id String @id @default(cuid())
+  responseId String
+  response MatchResponse @relation(fields:[responseId],references:[id])
+  round Int
+  action String
+  terms String
+  authorEntityId String
+  authorId String
+  authorName String
+  note String
+  createdAt DateTime @default(now())
+  @@unique([responseId,round])
+}
+model CarrierConfirmation {
+  id String @id @default(cuid())
+  businessNo String @unique
+  publicationId String
+  publication MatchPublication @relation(fields:[publicationId],references:[id])
+  responseId String
+  response MatchResponse @relation(fields:[responseId],references:[id])
+  demandId String
+  traderId String
+  carrierId String
+  quantityKg Int
+  totalCents Int
+  terms String
+  status String @default("CONFIRMED")
+  version Int @default(1)
+  confirmedBy String
+  confirmedAt DateTime @default(now())
+  cancelledAt DateTime?
+  cancelReason String?
+  @@index([demandId,status])
+}
+model PlanSegment {
+  id String @id @default(cuid())
+  candidateId String
+  candidate PlanCandidate @relation(fields:[candidateId],references:[id],onDelete:Cascade)
+  sequence Int
+  mode String
+  origin String
+  destination String
+  lineId String?
+  lineName String?
+  geometryId String?
+  geometry RouteGeometry? @relation(fields:[geometryId],references:[id])
+  distanceMeters Int
+  durationSeconds Int
+  waitSeconds Int @default(0)
+  costCents Int
+  priceSnapshot String
+  source String
+  routeProfile String
+  @@unique([candidateId,sequence])
+}
+
+model ContractTemplate {
+  id String @id @default(cuid())
+  type String
+  name String
+  version Int
+  body String
+  mode String @default("A")
+  status String @default("DRAFT")
+  effectiveFrom DateTime
+  createdAt DateTime @default(now())
+  fileId String?
+  file ContractTemplateFile? @relation(fields:[fileId],references:[id])
+  @@unique([type,version])
+}
+model ContractTemplateFile {
+  id String @id @default(cuid())
+  name String
+  mime String
+  size Int
+  digest String
+  bytes Bytes
+  previewText String @default("")
+  createdBy String
+  createdAt DateTime @default(now())
+  templates ContractTemplate[]
+}
+model ContractPackage {
+  isTestData Boolean @default(false)
+  id String @id @default(cuid())
+  businessNo String @unique
+  confirmationId String @unique
+  traderId String
+  carrierId String
+  platformId String
+  quantityKg Int
+  totalCents Int
+  status String @default("DRAFT")
+  version Int @default(1)
+  snapshot String
+  effectiveAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  revisions ContractRevision[]
+  business LogisticsBusiness?
+  archives ContractArchive[]
+  @@index([traderId,carrierId,status])
+}
+model ContractRevision {
+  id String @id @default(cuid())
+  packageId String
+  package ContractPackage @relation(fields:[packageId],references:[id])
+  number Int
+  kind String @default("ORIGINAL")
+  status String @default("DRAFT")
+  mode String
+  reason String @default("")
+  terms String
+  documents String
+  digest String
+  createdAt DateTime @default(now())
+  signatures ContractSignature[]
+  @@unique([packageId,number])
+}
+model ContractSignature {
+  id String @id @default(cuid())
+  revisionId String
+  revision ContractRevision @relation(fields:[revisionId],references:[id])
+  documentType String
+  role String
+  entityId String
+  userId String
+  signerName String
+  digest String
+  method String @default("SIMULATED")
+  signedAt DateTime @default(now())
+  sealName String @default("")
+  placement String @default("{}")
+  @@unique([revisionId,documentType,role])
+}
+model ContractArchive {
+  id String @id @default(cuid())
+  packageId String
+  package ContractPackage @relation(fields:[packageId],references:[id])
+  entityId String
+  revisionId String
+  digest String
+  directoryNo String
+  dossierNo String
+  classification String
+  name String
+  retention String
+  archiveDate DateTime
+  archivedBy String
+  archivedAt DateTime @default(now())
+  snapshot String
+  @@unique([packageId,entityId])
+  @@index([entityId,archiveDate])
+}
+model LogisticsBusiness {
+  id String @id @default(cuid())
+  businessNo String @unique
+  packageId String @unique
+  package ContractPackage @relation(fields:[packageId],references:[id])
+  mode String
+  waybillNo String? @unique
+  needsContainerization Boolean @default(false)
+  segments String
+  version Int @default(1)
+  createdAt DateTime @default(now())
+  status String @default("PENDING")
+  completedAt DateTime?
+  tasks TransportTask[]
+  batches ContainerBatch[]
+  stages TransportStage[]
+  serviceFees ServiceFee[]
+}
+model FleetVehicle {
+  id String @id @default(cuid())
+  carrierId String
+  plate String
+  capacityKg Int
+  @@unique([carrierId,plate])
+}
+model TransportTask {
+  serviceManaged Boolean @default(false)
+  stageId String?
+  stage TransportStage? @relation(fields:[stageId],references:[id])
+  plannedStartAt DateTime?
+  plannedEndAt DateTime?
+  feedback String @default("{}")
+  feedbackSubmittedAt DateTime?
+  serviceFees ServiceFee[]
+  trackPoints TrackPoint[]
+  observations TransportObservation[]
+  batchId String?
+  boxNo String?
+  id String @id @default(cuid())
+  businessNo String @unique
+  businessId String
+  business LogisticsBusiness @relation(fields:[businessId],references:[id])
+  segment Int
+  mode String
+  quantityKg Int
+  vehicleId String?
+  driverId String?
+  resource String
+  status String @default("DISPATCHED")
+  loadedKg Int?
+  unloadedKg Int?
+  version Int @default(1)
+  createdAt DateTime @default(now())
+  events ExecutionEvent[]
+  evidence ExecutionEvidence[]
+  issues ExecutionIssue[]
+  @@index([driverId,status])
+  @@index([businessId,status])
+}
+
+model TrackPoint {
+  id String @id @default(cuid())
+  taskId String
+  task TransportTask @relation(fields:[taskId],references:[id])
+  sourceType String
+  sourceSystem String
+  sourceRecordId String
+  assetId String
+  observedAt DateTime
+  ingestedAt DateTime @default(now())
+  longitude Float
+  latitude Float
+  originalLongitude Float
+  originalLatitude Float
+  originalCoordinateSystem String
+  coordinateSystem String @default("GCJ02")
+  dataQuality String @default("REPORTED")
+  isTestData Boolean @default(false)
+  fingerprint String
+  @@unique([taskId,sourceSystem,sourceRecordId])
+  @@index([taskId,observedAt])
+}
+
+model TransportObservation {
+  id String @id @default(cuid())
+  taskId String
+  task TransportTask @relation(fields:[taskId],references:[id])
+  sourceType String
+  sourceSystem String
+  sourceRecordId String
+  eventType String
+  nodeId String?
+  nodeName String
+  observedAt DateTime
+  ingestedAt DateTime @default(now())
+  payload String
+  isTestData Boolean @default(false)
+  fingerprint String
+  @@unique([taskId,sourceSystem,sourceRecordId])
+  @@index([taskId,observedAt])
+}
+
+model TrackingRule {
+  id String @id @default("default")
+  staleMinutes Int @default(30)
+  stationaryMinutes Int @default(120)
+  stationaryMeters Int @default(200)
+  deviationMeters Int @default(3000)
+  nodeHours Int @default(24)
+  version Int @default(1)
+  updatedAt DateTime @updatedAt
+}
+model ExecutionEvent {
+  id String @id @default(cuid())
+  taskId String
+  task TransportTask @relation(fields:[taskId],references:[id])
+  requestKey String
+  type String
+  source String
+  userId String
+  payload String
+  createdAt DateTime @default(now())
+  @@unique([taskId,requestKey])
+}
+model ExecutionEvidence {
+  id String @id @default(cuid())
+  taskId String
+  task TransportTask @relation(fields:[taskId],references:[id])
+  userId String
+  name String
+  mime String
+  digest String
+  category String @default("GENERAL")
+  bytes Bytes
+  createdAt DateTime @default(now())
+}
+model ExecutionIssue {
+  id String @id @default(cuid())
+  taskId String
+  task TransportTask @relation(fields:[taskId],references:[id])
+  type String
+  description String
+  resolution String?
+  status String @default("OPEN")
+  createdAt DateTime @default(now())
+  resolvedAt DateTime?
+}
+model ContainerBatch {
+  id String @id @default(cuid())
+  businessId String
+  business LogisticsBusiness @relation(fields:[businessId],references:[id])
+  name String
+  quantityKg Int
+  arrivals String @default("[]")
+  boxes String @default("[]")
+  version Int @default(1)
+  createdAt DateTime @default(now())
+}
+
+model TransportStage {
+  managed Boolean @default(true)
+  id String @id @default(cuid())
+  businessId String
+  business LogisticsBusiness @relation(fields:[businessId],references:[id])
+  sequence Int
+  mode String
+  status String @default("DRAFT")
+  origin String
+  destination String
+  quantityKg Int
+  plannedStartAt DateTime
+  plannedEndAt DateTime
+  actualEndAt DateTime?
+  allocations String @default("[]")
+  vessel String @default("")
+  voyage String @default("")
+  vesselId String?
+  mmsi String @default("")
+  billOfLading String @default("")
+  railWaybillNo String @default("")
+  containerized Boolean @default(false)
+  boxes String @default("[]")
+  weightTicketNo String @default("")
+  grossKg Int?
+  tareKg Int?
+  notes String @default("")
+  completionNote String @default("")
+  version Int @default(1)
+  submittedAt DateTime?
+  completedAt DateTime?
+  createdAt DateTime @default(now())
+  tasks TransportTask[]
+  attachments StageAttachment[]
+  fees ServiceFee[]
+  @@unique([businessId,sequence])
+  @@index([businessId,status])
+}
+model VesselArchive {
+  id String @id @default(cuid())
+  carrierId String
+  name String
+  voyage String
+  mmsi String
+  enabled Boolean @default(true)
+  version Int @default(1)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@unique([carrierId,name,voyage])
+  @@index([mmsi])
+}
+model StageAttachment {
+  id String @id @default(cuid())
+  stageId String
+  stage TransportStage @relation(fields:[stageId],references:[id])
+  userId String
+  category String @default("GENERAL")
+  name String
+  mime String
+  digest String
+  bytes Bytes
+  createdAt DateTime @default(now())
+}
+model ServiceFee {
+  id String @id @default(cuid())
+  sourceKey String @unique
+  businessId String
+  business LogisticsBusiness @relation(fields:[businessId],references:[id])
+  stageId String?
+  stage TransportStage? @relation(fields:[stageId],references:[id])
+  taskId String?
+  task TransportTask? @relation(fields:[taskId],references:[id])
+  source String
+  feeCode String
+  name String
+  amountCents Int
+  description String @default("")
+  evidenceId String?
+  selected Boolean @default(true)
+  userId String
+  version Int @default(1)
+  billId String?
+  bill Bill? @relation(fields:[billId],references:[id])
+  createdAt DateTime @default(now())
+  @@index([businessId,source])
+}
+
+model Forecast {
+  id String @id @default(cuid())
+  taskId String
+  result String
+  inputDigest String
+  predictedAt DateTime @default(now())
+  @@index([taskId,predictedAt])
+}
+model RiskRecord {
+  id String @id @default(cuid())
+  taskId String
+  type String
+  level String
+  message String
+  status String @default("NEW")
+  firstSeenAt DateTime @default(now())
+  lastSeenAt DateTime @default(now())
+  recoveredAt DateTime?
+  @@index([taskId,status])
+}
+model MonitoringSignal {
+  id String @id @default(cuid())
+  kind String
+  name String
+  nodeId String?
+  region String @default("")
+  bounds String @default("[]")
+  level String
+  delayMinutes Int @default(0)
+  details String
+  source String
+  sourceUrl String
+  observedAt DateTime
+  validFrom DateTime
+  validTo DateTime
+  isTestData Boolean @default(false)
+  version Int @default(1)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@index([kind,validTo])
+}
+model AgentRun {
+  id String @id @default(cuid())
+  userId String
+  entityId String
+  capability String
+  contextType String
+  contextId String @default("")
+  question String
+  status String @default("RUNNING")
+  provider String @default("RULES")
+  error String?
+  durationMs Int @default(0)
+  createdAt DateTime @default(now())
+  result AgentResult?
+  @@index([entityId,createdAt])
+}
+model AgentConversation {
+  id String @id @default(cuid())
+  userId String
+  entityId String
+  capability String
+  title String
+  contextType String @default("page")
+  contextId String @default("")
+  planDraft String @default("{}")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  turns AgentTurn[]
+  @@index([userId,entityId,updatedAt])
+}
+model AgentTurn {
+  id String @id @default(cuid())
+  conversationId String
+  conversation AgentConversation @relation(fields:[conversationId],references:[id])
+  requestKey String
+  question String
+  response String
+  createdAt DateTime @default(now())
+  @@unique([conversationId,requestKey])
+}
+model AgentResult {
+  id String @id @default(cuid())
+  runId String @unique
+  run AgentRun @relation(fields:[runId],references:[id])
+  summary String
+  structured String
+  quality String
+  sources String
+  links String
+  createdAt DateTime @default(now())
+}
+model DocumentReview {
+  id String @id @default(cuid())
+  taskId String
+  userId String
+  entityId String
+  name String
+  mime String
+  bytes Bytes
+  digest String
+  extractedText String
+  recognized String
+  confirmed String?
+  confirmedBy String?
+  status String @default("NEEDS_REVIEW")
+  version Int @default(1)
+  createdAt DateTime @default(now())
+  confirmedAt DateTime?
+  @@index([taskId,createdAt])
+}
+model Bill {
+  id String @id @default(cuid())
+  businessNo String @unique
+  businessId String
+  packageId String
+  traderId String
+  carrierId String
+  periodFrom DateTime
+  periodTo DateTime
+  status String @default("DRAFT")
+  totalCents Int
+  quantityKg Int
+  reference String
+  remark String @default("")
+  version Int @default(1)
+  isTestData Boolean @default(false)
+  createdAt DateTime @default(now())
+  submittedAt DateTime?
+  confirmedAt DateTime?
+  archivedAt DateTime?
+  serviceCompletionKey String? @unique
+  serviceFees ServiceFee[]
+  items BillItem[]
+  tasks BillTask[]
+  versions BillVersion[]
+  differences BillDifference[]
+  settlement Settlement?
+  evidence BillEvidence[]
+  @@index([traderId,carrierId,status])
+}
+model BillTask {
+  id String @id @default(cuid())
+  billId String
+  bill Bill @relation(fields:[billId],references:[id],onDelete:Cascade)
+  taskId String @unique
+}
+model BillItem {
+  id String @id @default(cuid())
+  billId String
+  bill Bill @relation(fields:[billId],references:[id],onDelete:Cascade)
+  sequence Int
+  feeCode String
+  feeName String
+  taskId String?
+  sourceType String @default("TASK")
+  sourceId String?
+  stageId String?
+  mode String
+  resource String @default("")
+  quantityMillis Int
+  unit String
+  unitPriceCents Int
+  originalCents Int
+  adjustmentCents Int @default(0)
+  finalCents Int
+  occurredAt DateTime
+  basis String
+  @@unique([billId,sequence])
+}
+model BillVersion {
+  id String @id @default(cuid())
+  billId String
+  bill Bill @relation(fields:[billId],references:[id])
+  number Int
+  snapshot String
+  reason String
+  userId String
+  createdAt DateTime @default(now())
+  @@unique([billId,number])
+}
+model BillDifference {
+  id String @id @default(cuid())
+  billId String
+  bill Bill @relation(fields:[billId],references:[id])
+  billVersion Int
+  itemSequence Int?
+  type String
+  description String
+  acceptedCents Int
+  billedCents Int
+  status String @default("OPEN")
+  resolution String?
+  userId String
+  handledBy String?
+  createdAt DateTime @default(now())
+  handledAt DateTime?
+}
+model Settlement {
+  id String @id @default(cuid())
+  businessNo String @unique
+  billId String @unique
+  bill Bill @relation(fields:[billId],references:[id])
+  confirmedCents Int
+  settledCents Int @default(0)
+  status String @default("PENDING")
+  version Int @default(1)
+  records SettlementRecord[]
+  createdAt DateTime @default(now())
+}
+model SettlementRecord {
+  id String @id @default(cuid())
+  settlementId String
+  settlement Settlement @relation(fields:[settlementId],references:[id])
+  requestKey String
+  amountCents Int
+  method String
+  plannedAt DateTime
+  actualAt DateTime
+  evidenceId String
+  note String
+  status String @default("PENDING")
+  registeredBy String
+  registeredEntityId String
+  confirmedBy String?
+  response String?
+  createdAt DateTime @default(now())
+  confirmedAt DateTime?
+  @@unique([settlementId,requestKey])
+}
+model BillEvidence {
+  id String @id @default(cuid())
+  billId String
+  bill Bill @relation(fields:[billId],references:[id])
+  userId String
+  entityId String
+  name String
+  mime String
+  digest String
+  bytes Bytes
+  createdAt DateTime @default(now())
+}
+model DataProduct {
+  id String @id @default(cuid())
+  code String @unique
+  name String
+  description String
+  theme String
+  dataset String
+  fields String
+  source String
+  frequency String
+  coverage String
+  serviceMode String
+  format String
+  owner String
+  conditions String
+  status String @default("DRAFT")
+  version Int @default(1)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  versions DataProductVersion[]
+  grants DataAuthorization[]
+  requests DataAccessRequest[]
+}
+model DataProductVersion {
+  id String @id @default(cuid())
+  productId String
+  product DataProduct @relation(fields:[productId],references:[id])
+  number Int
+  snapshot String
+  userId String
+  createdAt DateTime @default(now())
+  @@unique([productId,number])
+}
+model DataAuthorization {
+  id String @id @default(cuid())
+  productId String
+  product DataProduct @relation(fields:[productId],references:[id])
+  productVersion Int
+  entityId String
+  purpose String
+  scope String @default("OWN")
+  fields String
+  basis String
+  approver String
+  startsAt DateTime
+  expiresAt DateTime
+  status String @default("ACTIVE")
+  version Int @default(1)
+  createdAt DateTime @default(now())
+  subscriptions DataSubscription[]
+  constraints String @default("{}")
+  dailyLimit Int @default(10000)
+  requestId String? @unique
+}
+model DataSubscription {
+  id String @id @default(cuid())
+  authorizationId String
+  authorization DataAuthorization @relation(fields:[authorizationId],references:[id])
+  name String
+  frequency String
+  mode String
+  keyHash String @unique
+  keyPrefix String
+  dailyLimit Int @default(100)
+  status String @default("ACTIVE")
+  version Int @default(1)
+  createdAt DateTime @default(now())
+  calls DataCall[]
+}
+model DataCall {
+  id String @id @default(cuid())
+  subscriptionId String
+  subscription DataSubscription @relation(fields:[subscriptionId],references:[id])
+  requestId String
+  channel String
+  status String
+  rows Int @default(0)
+  error String?
+  parameters String @default("{}")
+  createdAt DateTime @default(now())
+  @@index([subscriptionId,createdAt])
+}
+model DataApplication {
+  id String @id @default(cuid())
+  name String
+  description String
+  subscriptionIds String
+  status String @default("ACTIVE")
+  version Int @default(1)
+  createdAt DateTime @default(now())
+}
+
+model DataAccessRequest {
+  id String @id @default(cuid())
+  productId String
+  product DataProduct @relation(fields:[productId],references:[id])
+  productVersion Int
+  entityId String
+  userId String
+  department String
+  applicationName String
+  scenarios String
+  purpose String
+  edition String
+  scope String
+  constraints String
+  startsAt DateTime
+  expiresAt DateTime
+  status String @default("PENDING")
+  version Int @default(1)
+  reviewNote String @default("")
+  reviewedBy String?
+  reviewedAt DateTime?
+  createdAt DateTime @default(now())
+  @@index([entityId,status,createdAt])
+}

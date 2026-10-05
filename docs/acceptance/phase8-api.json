@@ -1,0 +1,41 @@
+{
+  "at": "2026-10-03T06:43:22.866Z",
+  "result": "PASS",
+  "results": [
+    {
+      "name": "制单角色、企业隔离、草稿不可外见、重复任务锁定及乐观版本",
+      "result": "PASS"
+    },
+    {
+      "name": "双方确认、部分结算、幂等重试、超余额拦截及伪文件拦截",
+      "result": "PASS"
+    },
+    {
+      "name": "异常结算保留原记录及部分金额，合同履约回写与平台只读",
+      "result": "PASS"
+    },
+    {
+      "name": "企业可浏览数据产品、平台维护、字段白名单与密钥只显示一次",
+      "result": "PASS"
+    },
+    {
+      "name": "订阅密钥轮换、调用限额、暂停即时生效及失败日志",
+      "result": "PASS"
+    },
+    {
+      "name": "文件输出、专题应用、到期与授权撤销阻断，测试业务排除",
+      "result": "PASS"
+    },
+    {
+      "name": "产品新版本留存并使旧授权失效",
+      "result": "PASS"
+    }
+  ],
+  "fixture": {
+    "billId": "cmus0zraw000ctrxo37w3hrn7",
+    "billNo": "ZD17910098014622C6FA",
+    "packageId": "cmuqzjavw00bytr58okrj0um6",
+    "productId": "cmus0zrrh0011trxoi6yw7489",
+    "subscriptionId": "cmus0zs29001otrxos84r06nl"
+  }
+}

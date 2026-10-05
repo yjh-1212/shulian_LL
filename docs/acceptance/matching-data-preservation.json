@@ -1,0 +1,44 @@
+{
+  "at": "2026-10-02T10:30:52.141Z",
+  "result": "PASS",
+  "checks": [
+    {
+      "model": "tradeOrderItem",
+      "preserved": 42
+    },
+    {
+      "model": "transportDemand",
+      "preserved": 65
+    },
+    {
+      "model": "transportSupply",
+      "preserved": 50
+    },
+    {
+      "model": "matchPublication",
+      "preserved": 60
+    },
+    {
+      "model": "matchResponse",
+      "preserved": 36
+    },
+    {
+      "model": "negotiationRound",
+      "preserved": 98
+    },
+    {
+      "model": "carrierConfirmation",
+      "preserved": 28
+    },
+    {
+      "model": "contractPackage",
+      "preserved": 12
+    }
+  ],
+  "verified": [
+    "历史业务记录均保留",
+    "既有订单占用数量不变",
+    "历史报价条款与状态不变，作者按原报价记录回填",
+    "数据库无外键错误"
+  ]
+}

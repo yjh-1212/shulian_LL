@@ -1,0 +1,79 @@
+{
+  "name": "grain-intermodal-platform",
+  "private": true,
+  "version": "0.3.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "setup": "node tools/setup.mjs",
+    "dev": "concurrently -k -n API,WEB,DRIVER \"npm run dev -w @grain/api\" \"npm run dev -w @grain/web\" \"npm run dev:driver -w @grain/web\"",
+    "build": "npm run build -w @grain/api && npm run build -w @grain/web",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate deploy",
+    "db:seed": "tsx prisma/seed.ts",
+    "test:e2e": "node tests/e2e.cjs",
+    "test:accounts": "node tests/accounts.cjs",
+    "test:phase2": "node tests/phase2.cjs",
+    "test:phase2-scope": "node tests/phase2-scope.cjs",
+    "test:phase2-restart": "node tests/phase2-restart.cjs",
+    "test:phase2-files": "node tests/phase2-files-ui.cjs",
+    "test:phase3": "node tests/phase3.cjs",
+    "test:phase3-restart": "node tests/phase3-restart.cjs",
+    "test:phase3-boundaries": "node tests/phase3-boundaries.cjs",
+    "test:phase3-fresh-db": "node tests/phase3-fresh-db.cjs",
+    "amap:configure": "node tools/configure-amap.mjs",
+    "test:phase4": "node tests/phase4.cjs",
+    "test:phase5": "node tests/phase5.cjs",
+    "dev:driver": "npm run dev:driver -w @grain/web",
+    "build:driver": "npm run build:driver -w @grain/web",
+    "test:phase6": "node tests/phase6.cjs",
+    "test:phase6-boundaries": "node tests/phase6-boundaries.cjs",
+    "test:phase6-install": "node tests/phase6-install.cjs",
+    "llm:configure": "node tools/configure-llm.mjs",
+    "test:phase7": "node tests/phase7.cjs",
+    "test:phase7-forecast": "node tests/phase7-forecast.cjs",
+    "test:phase8": "node tests/phase8.cjs",
+    "test:phase9": "node tests/phase9-chain.cjs",
+    "test:phase9-security": "node tests/phase9-security.cjs",
+    "test:phase9-install": "node tests/phase9-install.cjs",
+    "backup": "node tools/backup.mjs",
+    "db:bootstrap-production": "tsx prisma/bootstrap-production.ts",
+    "ocr:prepare": "node tools/fetch-ocr.mjs",
+    "test:phase789-browser": "node .agents/skills/playwright-skill/run.js tests/phase789-browser.cjs",
+    "test:phase9-production": "node tests/phase9-production.cjs",
+    "test:deepseek": "node tests/phase7-deepseek.cjs",
+    "test:phase9-map": "node .agents/skills/playwright-skill/run.js tests/phase9-map-browser.cjs",
+    "test:planning": "node tests/planning-network.cjs && node tests/planning-recommendations.cjs && node tests/planning-suppliers.cjs && node tests/planning-workspace.cjs",
+    "test:matching": "node tests/matching-workspace.cjs",
+    "test:planning-budget": "node tests/planning-budget.cjs",
+    "test:contracts": "node tests/contract-workspace.cjs",
+    "test:intermodal": "node tests/intermodal-workspace.cjs",
+    "test:intermodal:gantt": "node tests/intermodal-gantt.cjs",
+    "test:agent-center": "node tests/agent-center.cjs && node tests/agent-center-analysis.cjs",
+    "test:data-service": "node tests/data-service-workspace.cjs",
+    "db:seed-data-service": "tsx tools/seed-data-service.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "6.19.0",
+    "bcryptjs": "3.0.2",
+    "dotenv": "16.6.1"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.0",
+    "concurrently": "9.2.4",
+    "playwright": "1.56.1",
+    "prisma": "6.19.0",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3"
+  },
+  "overrides": {
+    "@prisma/config": {
+      "effect": "3.21.4"
+    }
+  }
+}

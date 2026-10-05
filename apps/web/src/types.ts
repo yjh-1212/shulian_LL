@@ -1,0 +1,2 @@
+export interface Menu { id:string; label:string; path:string; icon:string; permissionCode:string; displayOrder:number; overflowPriority:number; phase:number; available:boolean; children:Menu[] }
+export interface User { id:string; username:string; displayName:string; status:string; businessEntityId:string; businessEntity:{id:string;name:string;type:string;isTestData:boolean;phone?:string}; roles:{id:string;code:string;name:string}[];permissions:string[];mustChangePassword:boolean;lastLoginAt:string;phone:string;email:string;department:string }

@@ -1,0 +1,39 @@
+{
+  "stamp": 1790874427521,
+  "demandId": "cmupse8zl00actrqkwk849mwu",
+  "runId": "cmupse92l00agtrqk4hu15wyr",
+  "publicationId": "cmupse99q00b8trqk33q8z7rr",
+  "packageId": "cmupse9fu00botrqkdh0wqg1h",
+  "businessId": "cmupse9pi00c6trqkwsxql946",
+  "taskIds": [
+    "cmupse9rd00cbtrqkciiym15q",
+    "cmupse9s400cetrqkqhe8d947",
+    "cmupse9t200chtrqkab1v24od"
+  ],
+  "segments": [
+    {
+      "mode": "ROAD",
+      "origin": "盘锦站",
+      "destination": "铁路货运蒲河物流基地"
+    },
+    {
+      "mode": "RAIL",
+      "origin": "铁路货运蒲河物流基地",
+      "destination": "广州国际港站"
+    },
+    {
+      "mode": "ROAD",
+      "origin": "广州国际港站",
+      "destination": "南沙港"
+    }
+  ],
+  "billId": "cmupseamg00eytrqktbnbok19",
+  "billNo": "ZD1790874430790D098E",
+  "settlementId": "cmupseaqr00fntrqk16lb7iyp",
+  "modes": [
+    "ROAD",
+    "RAIL"
+  ],
+  "candidateName": "蒲河—广州国际港 · X8784/3",
+  "solverEntry": "/agents/solve"
+}

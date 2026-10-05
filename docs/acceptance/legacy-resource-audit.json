@@ -1,0 +1,1167 @@
+{
+  "auditedAt": "2026-10-03T12:09:44.390Z",
+  "databaseWrite": false,
+  "vehicleModel": {
+    "enabledField": false,
+    "deletedAtField": false,
+    "isTestDataField": false
+  },
+  "counts": {
+    "totalVehicles": 46,
+    "knownTrackingVehicles": 14,
+    "knownAcceptanceVehicles": 9,
+    "initializationVehicles": 16,
+    "notNarrowlyProven": 7
+  },
+  "vehicles": [
+    {
+      "id": "cmupkvett001ttrfg7oiv8rjq",
+      "carrierId": "carrier-a",
+      "plate": "辽验788804",
+      "capacityKg": 30000,
+      "businesses": [
+        {
+          "id": "cmupkves3001rtrfgnr21ypah",
+          "packageId": "cmupkvee80017trfg0idt5clp",
+          "isTestData": true,
+          "status": "TERMINATED"
+        },
+        {
+          "id": "cmupl017w0071trfg2qau99ng",
+          "packageId": "cmupkxp7c006btrfgtqsmj3sz",
+          "isTestData": true,
+          "status": "TERMINATED"
+        },
+        {
+          "id": "cmupkvgfo005gtrfgcdno3gku",
+          "packageId": "cmupkvg48004strfgo98lehru",
+          "isTestData": true,
+          "status": "TERMINATED"
+        },
+        {
+          "id": "cmuplv2il001ltrfce0vmfvqr",
+          "packageId": "cmuplv2b50013trfck2uhzuot",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "EXPLICIT_ACCEPTANCE_PLATE_AND_TEST_PACKAGE"
+    },
+    {
+      "id": "cmupnktzi002btro4j5m1lp5p",
+      "carrierId": "carrier-a",
+      "plate": "辽P635919",
+      "capacityKg": 30000,
+      "businesses": [
+        {
+          "id": "cmupnktys0029tro43mukv94u",
+          "packageId": "cmupnktrv001rtro490o39cul",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "NO_NARROW_REGISTRATION_PROOF"
+    },
+    {
+      "id": "cmupnp7pk001ltrfo9g5sluoz",
+      "carrierId": "carrier-a",
+      "plate": "辽P640232",
+      "capacityKg": 30000,
+      "businesses": [
+        {
+          "id": "cmupnp7on001jtrfocln5mevn",
+          "packageId": "cmupnp7g80011trfobn5md37n",
+          "isTestData": true,
+          "status": "TERMINATED"
+        },
+        {
+          "id": "cmuqzjd2v00g7tr5829mrxvwi",
+          "packageId": "cmuqzjcqn00fjtr580i14omad",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "NO_NARROW_REGISTRATION_PROOF"
+    },
+    {
+      "id": "cmupqtqm6005mtr9kwfbw8yoc",
+      "carrierId": "carrier-a",
+      "plate": "辽P989917",
+      "capacityKg": 30000,
+      "businesses": [
+        {
+          "id": "cmupqtqlb005ktr9ktiwruw4n",
+          "packageId": "cmupqtqbx0052tr9k2r3nzq3m",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "NO_NARROW_REGISTRATION_PROOF"
+    },
+    {
+      "id": "cmupqv94f009qtr9k7t203cn8",
+      "carrierId": "carrier-a",
+      "plate": "辽P960816",
+      "capacityKg": 30000,
+      "businesses": [
+        {
+          "id": "cmupqv93m009otr9ko1oemmpe",
+          "packageId": "cmupqv8uo0096tr9kx3a1bfs5",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "NO_NARROW_REGISTRATION_PROOF"
+    },
+    {
+      "id": "cmupqwdpn00dwtr9k7yw1zs4f",
+      "carrierId": "carrier-a",
+      "plate": "辽P913328",
+      "capacityKg": 30000,
+      "businesses": [
+        {
+          "id": "cmupqwdot00dutr9kesebus05",
+          "packageId": "cmupqwdfp00dctr9kvkh2ryhn",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "NO_NARROW_REGISTRATION_PROOF"
+    },
+    {
+      "id": "cmupqwtpr00hdtr9kyq4bsbiq",
+      "carrierId": "carrier-a",
+      "plate": "辽P934173",
+      "capacityKg": 30000,
+      "businesses": [
+        {
+          "id": "cmupqwtpe00hbtr9key2rhqg2",
+          "packageId": "cmupqwtgt00gttr9k1ptmi8by",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "NO_NARROW_REGISTRATION_PROOF"
+    },
+    {
+      "id": "cmupse9qc00c8trqkc0xia4mm",
+      "carrierId": "carrier-a",
+      "plate": "辽P927521",
+      "capacityKg": 30000,
+      "businesses": [
+        {
+          "id": "cmupse9pi00c6trqkwsxql946",
+          "packageId": "cmupse9fu00botrqkdh0wqg1h",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "NO_NARROW_REGISTRATION_PROOF"
+    },
+    {
+      "id": "cmuqzgbt7008otr58wqz1qkn7",
+      "carrierId": "carrier-a",
+      "plate": "辽验745306",
+      "capacityKg": 30000,
+      "businesses": [
+        {
+          "id": "cmuqzgbsi008mtr58lho8ue5i",
+          "packageId": "cmuqzgazs007ftr58kb7ukxbh",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "EXPLICIT_ACCEPTANCE_PLATE_AND_TEST_PACKAGE"
+    },
+    {
+      "id": "cmuqzjbdc00cktr582uc2wh2g",
+      "carrierId": "carrier-a",
+      "plate": "辽验884866",
+      "capacityKg": 30000,
+      "businesses": [
+        {
+          "id": "cmuqzjbby00citr58qrctcai1",
+          "packageId": "cmuqzjavw00bytr58okrj0um6",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "EXPLICIT_ACCEPTANCE_PLATE_AND_TEST_PACKAGE"
+    },
+    {
+      "id": "cmur3hvqs009ltreos2a3o5bk",
+      "carrierId": "carrier-a",
+      "plate": "辽验62771散",
+      "capacityKg": 10000,
+      "businesses": [
+        {
+          "id": "cmur3huqu0076treopzmwy3xm",
+          "packageId": "cmur3huiq006ptreo7jm22pke",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "EXPLICIT_ACCEPTANCE_PLATE_AND_TEST_PACKAGE"
+    },
+    {
+      "id": "cmur3hvqu009mtreot2w4uksi",
+      "carrierId": "carrier-a",
+      "plate": "辽验62772散",
+      "capacityKg": 10000,
+      "businesses": [
+        {
+          "id": "cmur3huqu0076treopzmwy3xm",
+          "packageId": "cmur3huiq006ptreo7jm22pke",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "EXPLICIT_ACCEPTANCE_PLATE_AND_TEST_PACKAGE"
+    },
+    {
+      "id": "cmur3hw2b00actreoyugzaphh",
+      "carrierId": "carrier-a",
+      "plate": "辽验62771集",
+      "capacityKg": 10000,
+      "businesses": [
+        {
+          "id": "cmur3hv6o008atreorz3i3da7",
+          "packageId": "cmur3huzd007ttreodnfy8x5i",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "EXPLICIT_ACCEPTANCE_PLATE_AND_TEST_PACKAGE"
+    },
+    {
+      "id": "cmur3hw2d00adtreo9shq5ogd",
+      "carrierId": "carrier-a",
+      "plate": "辽验62772集",
+      "capacityKg": 10000,
+      "businesses": [
+        {
+          "id": "cmur3hv6o008atreorz3i3da7",
+          "packageId": "cmur3huzd007ttreodnfy8x5i",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "EXPLICIT_ACCEPTANCE_PLATE_AND_TEST_PACKAGE"
+    },
+    {
+      "id": "cmur3omdr00gmtreo6adyd09y",
+      "carrierId": "carrier-a",
+      "plate": "辽演示1001",
+      "capacityKg": 30000,
+      "businesses": [
+        {
+          "id": "cmur3hvll009etreo6833oq9f",
+          "packageId": "cmur3hvf3008xtreo2syyyda1",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "EXPLICIT_ACCEPTANCE_PLATE_AND_TEST_PACKAGE"
+    },
+    {
+      "id": "cmur4dub1002ptrgsnbkqngkr",
+      "carrierId": "carrier-a",
+      "plate": "辽验027394",
+      "capacityKg": 30000,
+      "businesses": [
+        {
+          "id": "cmur4du69002gtrgsm0xt9ib2",
+          "packageId": "cmur4dthj001atrgs5uvz52o6",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "EXPLICIT_ACCEPTANCE_PLATE_AND_TEST_PACKAGE"
+    },
+    {
+      "id": "cmururquj0000tr4w8vpe53vn",
+      "carrierId": "carrier-a",
+      "plate": "黑A71100",
+      "capacityKg": 100000,
+      "businesses": [
+        {
+          "id": "tracking-demo-road",
+          "packageId": "tracking-demo-road-contract",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "TRACKING_DEMO_BUSINESS_AND_TEST_PACKAGE"
+    },
+    {
+      "id": "cmururqup000btr4w4jkr26fr",
+      "carrierId": "carrier-a",
+      "plate": "黑A71101",
+      "capacityKg": 100000,
+      "businesses": [
+        {
+          "id": "tracking-demo-road",
+          "packageId": "tracking-demo-road-contract",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "TRACKING_DEMO_BUSINESS_AND_TEST_PACKAGE"
+    },
+    {
+      "id": "cmururqus000otr4wstseozgb",
+      "carrierId": "carrier-a",
+      "plate": "黑A71102",
+      "capacityKg": 100000,
+      "businesses": [
+        {
+          "id": "tracking-demo-road",
+          "packageId": "tracking-demo-road-contract",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "TRACKING_DEMO_BUSINESS_AND_TEST_PACKAGE"
+    },
+    {
+      "id": "cmururqvk0013tr4wyzlid8j0",
+      "carrierId": "carrier-a",
+      "plate": "黑A72100",
+      "capacityKg": 100000,
+      "businesses": [
+        {
+          "id": "tracking-demo-water",
+          "packageId": "tracking-demo-water-contract",
+          "isTestData": true,
+          "status": "TERMINATED"
+        },
+        {
+          "id": "tracking-demo-rail",
+          "packageId": "tracking-demo-rail-contract",
+          "isTestData": true,
+          "status": "TERMINATED"
+        },
+        {
+          "id": "tracking-demo-completed",
+          "packageId": "tracking-demo-completed-contract",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "TRACKING_DEMO_BUSINESS_AND_TEST_PACKAGE"
+    },
+    {
+      "id": "cmururqvn001etr4wp0psf7e3",
+      "carrierId": "carrier-a",
+      "plate": "黑A72101",
+      "capacityKg": 100000,
+      "businesses": [
+        {
+          "id": "tracking-demo-water",
+          "packageId": "tracking-demo-water-contract",
+          "isTestData": true,
+          "status": "TERMINATED"
+        },
+        {
+          "id": "tracking-demo-rail",
+          "packageId": "tracking-demo-rail-contract",
+          "isTestData": true,
+          "status": "TERMINATED"
+        },
+        {
+          "id": "tracking-demo-completed",
+          "packageId": "tracking-demo-completed-contract",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "TRACKING_DEMO_BUSINESS_AND_TEST_PACKAGE"
+    },
+    {
+      "id": "cmururqvq001ptr4wcxa6o22d",
+      "carrierId": "carrier-a",
+      "plate": "黑A72102",
+      "capacityKg": 100000,
+      "businesses": [
+        {
+          "id": "tracking-demo-water",
+          "packageId": "tracking-demo-water-contract",
+          "isTestData": true,
+          "status": "TERMINATED"
+        },
+        {
+          "id": "tracking-demo-rail",
+          "packageId": "tracking-demo-rail-contract",
+          "isTestData": true,
+          "status": "TERMINATED"
+        },
+        {
+          "id": "tracking-demo-completed",
+          "packageId": "tracking-demo-completed-contract",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "TRACKING_DEMO_BUSINESS_AND_TEST_PACKAGE"
+    },
+    {
+      "id": "cmurx8wis000ctrfous2og814",
+      "carrierId": "carrier-a",
+      "plate": "辽H81001",
+      "capacityKg": 100000,
+      "businesses": [
+        {
+          "id": "tracking-demo-water",
+          "packageId": "tracking-demo-water-contract",
+          "isTestData": true,
+          "status": "TERMINATED"
+        },
+        {
+          "id": "tracking-demo-completed",
+          "packageId": "tracking-demo-completed-contract",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "TRACKING_DEMO_BUSINESS_AND_TEST_PACKAGE"
+    },
+    {
+      "id": "cmurx8wjy000jtrfo5d2ztyjm",
+      "carrierId": "carrier-a",
+      "plate": "辽H81002",
+      "capacityKg": 100000,
+      "businesses": [
+        {
+          "id": "tracking-demo-water",
+          "packageId": "tracking-demo-water-contract",
+          "isTestData": true,
+          "status": "TERMINATED"
+        },
+        {
+          "id": "tracking-demo-completed",
+          "packageId": "tracking-demo-completed-contract",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "TRACKING_DEMO_BUSINESS_AND_TEST_PACKAGE"
+    },
+    {
+      "id": "cmurx8wky000qtrfo5huoma2w",
+      "carrierId": "carrier-a",
+      "plate": "辽H81003",
+      "capacityKg": 100000,
+      "businesses": [
+        {
+          "id": "tracking-demo-water",
+          "packageId": "tracking-demo-water-contract",
+          "isTestData": true,
+          "status": "TERMINATED"
+        },
+        {
+          "id": "tracking-demo-completed",
+          "packageId": "tracking-demo-completed-contract",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "TRACKING_DEMO_BUSINESS_AND_TEST_PACKAGE"
+    },
+    {
+      "id": "cmurxdvjh0000tr3cum6wx8sm",
+      "carrierId": "carrier-a",
+      "plate": "粤A90001",
+      "capacityKg": 40000,
+      "businesses": [
+        {
+          "id": "tracking-demo-completed",
+          "packageId": "tracking-demo-completed-contract",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "TRACKING_DEMO_BUSINESS_AND_TEST_PACKAGE"
+    },
+    {
+      "id": "cmurxdvk00001tr3c7lsrnx4w",
+      "carrierId": "carrier-a",
+      "plate": "粤A90002",
+      "capacityKg": 40000,
+      "businesses": [
+        {
+          "id": "tracking-demo-completed",
+          "packageId": "tracking-demo-completed-contract",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "TRACKING_DEMO_BUSINESS_AND_TEST_PACKAGE"
+    },
+    {
+      "id": "cmurxdvkh0002tr3cry5aojls",
+      "carrierId": "carrier-a",
+      "plate": "粤A90003",
+      "capacityKg": 40000,
+      "businesses": [
+        {
+          "id": "tracking-demo-completed",
+          "packageId": "tracking-demo-completed-contract",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "TRACKING_DEMO_BUSINESS_AND_TEST_PACKAGE"
+    },
+    {
+      "id": "cmurxdvl00003tr3csyq3ti63",
+      "carrierId": "carrier-a",
+      "plate": "粤A90004",
+      "capacityKg": 40000,
+      "businesses": [
+        {
+          "id": "tracking-demo-completed",
+          "packageId": "tracking-demo-completed-contract",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "TRACKING_DEMO_BUSINESS_AND_TEST_PACKAGE"
+    },
+    {
+      "id": "cmurxdvli0004tr3cz4o6pl59",
+      "carrierId": "carrier-a",
+      "plate": "粤A90005",
+      "capacityKg": 40000,
+      "businesses": [
+        {
+          "id": "tracking-demo-completed",
+          "packageId": "tracking-demo-completed-contract",
+          "isTestData": true,
+          "status": "TERMINATED"
+        }
+      ],
+      "evidence": "TRACKING_DEMO_BUSINESS_AND_TEST_PACKAGE"
+    },
+    {
+      "id": "business-init-v1-vehicle-carrier-a-1",
+      "carrierId": "carrier-a",
+      "plate": "辽B8F261",
+      "capacityKg": 32000,
+      "businesses": [
+        {
+          "id": "business-init-v1-waybill-5",
+          "packageId": "business-init-v1-contract-5",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-7",
+          "packageId": "business-init-v1-contract-7",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-11",
+          "packageId": "business-init-v1-contract-11",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-13",
+          "packageId": "business-init-v1-contract-13",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-15",
+          "packageId": "business-init-v1-contract-15",
+          "isTestData": false,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": "GENERATED_INITIALIZATION_RESOURCE"
+    },
+    {
+      "id": "business-init-v1-vehicle-carrier-a-2",
+      "carrierId": "carrier-a",
+      "plate": "辽B7G274",
+      "capacityKg": 32000,
+      "businesses": [
+        {
+          "id": "business-init-v1-waybill-5",
+          "packageId": "business-init-v1-contract-5",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-7",
+          "packageId": "business-init-v1-contract-7",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-11",
+          "packageId": "business-init-v1-contract-11",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-13",
+          "packageId": "business-init-v1-contract-13",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-15",
+          "packageId": "business-init-v1-contract-15",
+          "isTestData": false,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": "GENERATED_INITIALIZATION_RESOURCE"
+    },
+    {
+      "id": "business-init-v1-vehicle-carrier-a-3",
+      "carrierId": "carrier-a",
+      "plate": "辽B6H287",
+      "capacityKg": 32000,
+      "businesses": [
+        {
+          "id": "business-init-v1-waybill-5",
+          "packageId": "business-init-v1-contract-5",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-7",
+          "packageId": "business-init-v1-contract-7",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-11",
+          "packageId": "business-init-v1-contract-11",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-13",
+          "packageId": "business-init-v1-contract-13",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-15",
+          "packageId": "business-init-v1-contract-15",
+          "isTestData": false,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": "GENERATED_INITIALIZATION_RESOURCE"
+    },
+    {
+      "id": "business-init-v1-vehicle-carrier-a-4",
+      "carrierId": "carrier-a",
+      "plate": "辽B5J300",
+      "capacityKg": 32000,
+      "businesses": [
+        {
+          "id": "business-init-v1-waybill-5",
+          "packageId": "business-init-v1-contract-5",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-7",
+          "packageId": "business-init-v1-contract-7",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-11",
+          "packageId": "business-init-v1-contract-11",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-13",
+          "packageId": "business-init-v1-contract-13",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-15",
+          "packageId": "business-init-v1-contract-15",
+          "isTestData": false,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": "GENERATED_INITIALIZATION_RESOURCE"
+    },
+    {
+      "id": "business-init-v1-vehicle-carrier-a-5",
+      "carrierId": "carrier-a",
+      "plate": "辽B8F313",
+      "capacityKg": 32000,
+      "businesses": [
+        {
+          "id": "business-init-v1-waybill-5",
+          "packageId": "business-init-v1-contract-5",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-7",
+          "packageId": "business-init-v1-contract-7",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-11",
+          "packageId": "business-init-v1-contract-11",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-13",
+          "packageId": "business-init-v1-contract-13",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-15",
+          "packageId": "business-init-v1-contract-15",
+          "isTestData": false,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": "GENERATED_INITIALIZATION_RESOURCE"
+    },
+    {
+      "id": "business-init-v1-vehicle-carrier-a-6",
+      "carrierId": "carrier-a",
+      "plate": "辽B7G326",
+      "capacityKg": 32000,
+      "businesses": [
+        {
+          "id": "business-init-v1-waybill-5",
+          "packageId": "business-init-v1-contract-5",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-7",
+          "packageId": "business-init-v1-contract-7",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-11",
+          "packageId": "business-init-v1-contract-11",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-13",
+          "packageId": "business-init-v1-contract-13",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-15",
+          "packageId": "business-init-v1-contract-15",
+          "isTestData": false,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": "GENERATED_INITIALIZATION_RESOURCE"
+    },
+    {
+      "id": "business-init-v1-vehicle-carrier-a-7",
+      "carrierId": "carrier-a",
+      "plate": "辽B6H339",
+      "capacityKg": 32000,
+      "businesses": [
+        {
+          "id": "business-init-v1-waybill-7",
+          "packageId": "business-init-v1-contract-7",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-11",
+          "packageId": "business-init-v1-contract-11",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-13",
+          "packageId": "business-init-v1-contract-13",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-15",
+          "packageId": "business-init-v1-contract-15",
+          "isTestData": false,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": "GENERATED_INITIALIZATION_RESOURCE"
+    },
+    {
+      "id": "business-init-v1-vehicle-carrier-a-8",
+      "carrierId": "carrier-a",
+      "plate": "辽B5J352",
+      "capacityKg": 32000,
+      "businesses": [
+        {
+          "id": "business-init-v1-waybill-7",
+          "packageId": "business-init-v1-contract-7",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-11",
+          "packageId": "business-init-v1-contract-11",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-13",
+          "packageId": "business-init-v1-contract-13",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-15",
+          "packageId": "business-init-v1-contract-15",
+          "isTestData": false,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": "GENERATED_INITIALIZATION_RESOURCE"
+    },
+    {
+      "id": "business-init-v1-vehicle-carrier-b-1",
+      "carrierId": "carrier-b",
+      "plate": "粤A8F261",
+      "capacityKg": 32000,
+      "businesses": [
+        {
+          "id": "business-init-v1-waybill-6",
+          "packageId": "business-init-v1-contract-6",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-10",
+          "packageId": "business-init-v1-contract-10",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-12",
+          "packageId": "business-init-v1-contract-12",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-16",
+          "packageId": "business-init-v1-contract-16",
+          "isTestData": false,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": "GENERATED_INITIALIZATION_RESOURCE"
+    },
+    {
+      "id": "business-init-v1-vehicle-carrier-b-2",
+      "carrierId": "carrier-b",
+      "plate": "粤A7G274",
+      "capacityKg": 32000,
+      "businesses": [
+        {
+          "id": "business-init-v1-waybill-6",
+          "packageId": "business-init-v1-contract-6",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-10",
+          "packageId": "business-init-v1-contract-10",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-12",
+          "packageId": "business-init-v1-contract-12",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-16",
+          "packageId": "business-init-v1-contract-16",
+          "isTestData": false,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": "GENERATED_INITIALIZATION_RESOURCE"
+    },
+    {
+      "id": "business-init-v1-vehicle-carrier-b-3",
+      "carrierId": "carrier-b",
+      "plate": "粤A6H287",
+      "capacityKg": 32000,
+      "businesses": [
+        {
+          "id": "business-init-v1-waybill-6",
+          "packageId": "business-init-v1-contract-6",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-10",
+          "packageId": "business-init-v1-contract-10",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-12",
+          "packageId": "business-init-v1-contract-12",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-16",
+          "packageId": "business-init-v1-contract-16",
+          "isTestData": false,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": "GENERATED_INITIALIZATION_RESOURCE"
+    },
+    {
+      "id": "business-init-v1-vehicle-carrier-b-4",
+      "carrierId": "carrier-b",
+      "plate": "粤A5J300",
+      "capacityKg": 32000,
+      "businesses": [
+        {
+          "id": "business-init-v1-waybill-6",
+          "packageId": "business-init-v1-contract-6",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-10",
+          "packageId": "business-init-v1-contract-10",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-12",
+          "packageId": "business-init-v1-contract-12",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-16",
+          "packageId": "business-init-v1-contract-16",
+          "isTestData": false,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": "GENERATED_INITIALIZATION_RESOURCE"
+    },
+    {
+      "id": "business-init-v1-vehicle-carrier-b-5",
+      "carrierId": "carrier-b",
+      "plate": "粤A8F313",
+      "capacityKg": 32000,
+      "businesses": [
+        {
+          "id": "business-init-v1-waybill-6",
+          "packageId": "business-init-v1-contract-6",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-10",
+          "packageId": "business-init-v1-contract-10",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-12",
+          "packageId": "business-init-v1-contract-12",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-16",
+          "packageId": "business-init-v1-contract-16",
+          "isTestData": false,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": "GENERATED_INITIALIZATION_RESOURCE"
+    },
+    {
+      "id": "business-init-v1-vehicle-carrier-b-6",
+      "carrierId": "carrier-b",
+      "plate": "粤A7G326",
+      "capacityKg": 32000,
+      "businesses": [
+        {
+          "id": "business-init-v1-waybill-6",
+          "packageId": "business-init-v1-contract-6",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-10",
+          "packageId": "business-init-v1-contract-10",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-12",
+          "packageId": "business-init-v1-contract-12",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-16",
+          "packageId": "business-init-v1-contract-16",
+          "isTestData": false,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": "GENERATED_INITIALIZATION_RESOURCE"
+    },
+    {
+      "id": "business-init-v1-vehicle-carrier-b-7",
+      "carrierId": "carrier-b",
+      "plate": "粤A6H339",
+      "capacityKg": 32000,
+      "businesses": [
+        {
+          "id": "business-init-v1-waybill-10",
+          "packageId": "business-init-v1-contract-10",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-12",
+          "packageId": "business-init-v1-contract-12",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-16",
+          "packageId": "business-init-v1-contract-16",
+          "isTestData": false,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": "GENERATED_INITIALIZATION_RESOURCE"
+    },
+    {
+      "id": "business-init-v1-vehicle-carrier-b-8",
+      "carrierId": "carrier-b",
+      "plate": "粤A5J352",
+      "capacityKg": 32000,
+      "businesses": [
+        {
+          "id": "business-init-v1-waybill-10",
+          "packageId": "business-init-v1-contract-10",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-12",
+          "packageId": "business-init-v1-contract-12",
+          "isTestData": false,
+          "status": "DRAFT"
+        },
+        {
+          "id": "business-init-v1-waybill-16",
+          "packageId": "business-init-v1-contract-16",
+          "isTestData": false,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": "GENERATED_INITIALIZATION_RESOURCE"
+    }
+  ],
+  "developmentNodes": [
+    {
+      "id": "tracking-demo-harbin",
+      "name": "哈尔滨粮食集运库",
+      "enabled": true,
+      "quality": "SAMPLE",
+      "source": "DEVELOPMENT_SCENARIO"
+    },
+    {
+      "id": "tracking-demo-rail-harbin",
+      "name": "哈尔滨东站",
+      "enabled": true,
+      "quality": "SAMPLE",
+      "source": "DEVELOPMENT_SCENARIO"
+    },
+    {
+      "id": "tracking-demo-port-yingkou",
+      "name": "营口港鲅鱼圈港区",
+      "enabled": true,
+      "quality": "SAMPLE",
+      "source": "DEVELOPMENT_SCENARIO"
+    },
+    {
+      "id": "tracking-demo-port-guangzhou",
+      "name": "广州新沙港",
+      "enabled": true,
+      "quality": "SAMPLE",
+      "source": "DEVELOPMENT_SCENARIO"
+    },
+    {
+      "id": "tracking-demo-warehouse-guangzhou",
+      "name": "广州黄埔粮食仓库",
+      "enabled": true,
+      "quality": "SAMPLE",
+      "source": "DEVELOPMENT_SCENARIO"
+    },
+    {
+      "id": "tracking-demo-rail-jinzhou",
+      "name": "锦州铁路货场",
+      "enabled": true,
+      "quality": "SAMPLE",
+      "source": "DEVELOPMENT_SCENARIO"
+    },
+    {
+      "id": "tracking-demo-rail-changchun",
+      "name": "长春站",
+      "enabled": true,
+      "quality": "SAMPLE",
+      "source": "DEVELOPMENT_SCENARIO"
+    }
+  ],
+  "developmentNodeOptionChecks": {
+    "planningOptions": 0,
+    "supplierRegionFallback": 7,
+    "trackingWorkspaceNodes": 7
+  },
+  "readPaths": {
+    "vehiclePicker": "apps/api/src/fulfillment.service.ts resources(): carrierId filter only",
+    "planningOptions": "apps/api/src/planning.service.ts options(): enabled + PROVIDER/VERIFIED",
+    "supplierFallback": "apps/api/src/planning-suppliers.ts resolveRegionPoints(): enabled + quality!=DRAFT",
+    "trackingNodes": "apps/api/src/tracking-workspace.service.ts list(): enabled only"
+  },
+  "notes": [
+    "车辆模型没有停用字段，当前车辆资源选择接口只按所属企业查询。",
+    "14条历史车辆通过tracking-demo业务+测试合同证明跟踪fixture身份，9条通过辽验/辽演示车牌及测试合同证明验收身份。",
+    "另16条vehicle ID来自本次初始化脚本，来源审计与注册状态待核验；其余7条辽P车辆仅有测试业务引用，未证明登记本身是生成资料。",
+    "7个DEVELOPMENT_SCENARIO节点均enabled、quality=SAMPLE，求解options不显示，但供应商区域fallback和跟踪节点查询仍包含它们。",
+    "只读审计发生在父代理执行初始化期间，未更改数据库，未重写或删除任何车辆。"
+  ]
+}

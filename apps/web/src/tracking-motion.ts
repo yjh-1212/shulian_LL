@@ -1,0 +1,16 @@
+export const isFinished=(a:any)=>a.completed||['COMPLETED','ARRIVED','UNLOADED','RECEIVED'].includes(a.status)||a.stage?.status==='COMPLETED';
+export const pointTime=(p:any)=>new Date(p.observedAt).getTime();
+const distance=(p:any,q:any)=>{const rad=Math.PI/180,dlat=(q.latitude-p.latitude)*rad,dlng=(q.longitude-p.longitude)*rad;return 12742000*Math.asin(Math.min(1,Math.sqrt(Math.sin(dlat/2)**2+Math.cos(p.latitude*rad)*Math.cos(q.latitude*rad)*Math.sin(dlng/2)**2)));};
+const prepared=Symbol('prepared trajectory');
+// Only explicit immutable copies are cached. Live API objects remain revalidated.
+export function prepareTrack(a:any){const track=validTrack(a).map((p:any)=>({...p}));return {...a,trajectory:track,[prepared]:track};}
+export function validTrack(a:any){
+ if(a[prepared])return a[prepared];
+ const points=(a.trajectory||[]).filter((p:any)=>Number.isFinite(p.longitude)&&Math.abs(p.longitude)<=180&&Number.isFinite(p.latitude)&&Math.abs(p.latitude)<=90&&Number.isFinite(pointTime(p))).sort((a:any,b:any)=>pointTime(a)-pointTime(b));
+ return points.map((p:any,i:number)=>{if(!i)return p;const prior=points[i-1],meters=distance(prior,p),seconds=(pointTime(p)-pointTime(prior))/1000,limit=a.mode==='ROAD'?2000:a.mode==='RAIL'?10000:20000,maxSpeed=a.mode==='ROAD'?160:a.mode==='RAIL'?200:80;return {...p,gapBefore:!!p.gapBefore||p.assetId!==prior.assetId||p.sourceType!==prior.sourceType||meters>limit||seconds<=0&&meters>30||seconds>0&&meters/seconds*3.6>maxSpeed};});
+}
+export function replayBounds(assets:any[]){let start=Infinity,end=-Infinity;for(const a of assets)for(const p of validTrack(a)){const t=pointTime(p);start=Math.min(start,t);end=Math.max(end,t);}return Number.isFinite(start)?{start,end}:null;}
+function upperBound(track:any[],time:number){let low=0,high=track.length;while(low<high){const mid=(low+high)>>>1;if(pointTime(track[mid])<=time)low=mid+1;else high=mid;}return low;}
+export function trackAt(a:any,time:number){const track=validTrack(a);if(!track.length||time<pointTime(track[0]))return null;const right=upperBound(track,time);if(right===track.length)return {...track.at(-1),replayFinished:true};const first=track[right-1],last=track[right];if(last.gapBefore)return {...first,trackGap:true};const ratio=(time-pointTime(first))/Math.max(1,pointTime(last)-pointTime(first));return {...first,longitude:first.longitude+(last.longitude-first.longitude)*ratio,latitude:first.latitude+(last.latitude-first.latitude)*ratio,observedAt:new Date(time).toISOString(),replayFinished:false};}
+export function trackHeading(a:any,time?:number){const track=validTrack(a),index=time==null?track.length-1:Math.min(track.length-1,upperBound(track,time));if(index<1)return 0;const p=track[index-1],q=track[index];return Math.atan2((q.longitude-p.longitude)*Math.cos(p.latitude*Math.PI/180),q.latitude-p.latitude)*180/Math.PI;}
+export function trackChunks(a:any,time?:number){const chunks:any[][]=[];let chunk:any[]=[];for(const p of validTrack(a)){if(time!=null&&pointTime(p)>time)break;if(p.gapBefore){if(chunk.length>1)chunks.push(chunk);chunk=[];}chunk.push(p);}if(time!=null){const at=trackAt(a,time);if(at&&!at.trackGap&&!at.replayFinished)chunk.push(at);}if(chunk.length>1)chunks.push(chunk);return chunks;}

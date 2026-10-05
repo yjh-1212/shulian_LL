@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-01T11:48:14.457Z",
+  "result": "PASS",
+  "counts": {
+    "nodes": 6,
+    "cachedGeometries": 12,
+    "runs": 62,
+    "selectedRuns": 15,
+    "activeRuleFixtures": 0
+  }
+}
