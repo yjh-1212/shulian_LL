@@ -61,9 +61,16 @@ async function main(){
     assert.equal(response.status(),200,route);
     assert.match(response.headers()['content-type'],/text\/html/);
     assert.equal(response.headers()['cache-control'],'no-store');
+    assert.equal(response.headers()['referrer-policy'],'strict-origin-when-cross-origin');
+    assert.equal(response.headers()['cross-origin-opener-policy'],undefined,'HTTP should not request an HTTPS-only opener policy');
+    assert.equal(response.headers()['origin-agent-cluster'],undefined);
     if(route.startsWith('/driver'))assert.match(await response.text(),/司机/);
   }
   const html=await (await client.get('/')).text(),asset=html.match(/src="([^\"]+\.js)"/)[1];
+  const httpsPage=await client.get('/workbench',{headers:{'X-Forwarded-Proto':'https'}});
+  assert.equal(httpsPage.headers()['cross-origin-opener-policy'],'same-origin');
+  assert.equal(httpsPage.headers()['referrer-policy'],'strict-origin-when-cross-origin');
+  assert.equal(httpsPage.headers()['origin-agent-cluster'],undefined);
   const resource=await client.get(asset);assert.equal(resource.status(),200);assert.match(resource.headers()['cache-control'],/immutable/);
   assert.equal((await client.get('/assets/missing.js')).status(),404);
   assert.equal((await client.get('/api/not-present')).status(),404);

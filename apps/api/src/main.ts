@@ -8,7 +8,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
 import cookieParser from 'cookie-parser';
-import helmet from 'helmet';
+import {createSecurityHeaders} from './security-headers';
 import { randomUUID } from 'node:crypto';
 import { map } from 'rxjs/operators';
 import { Database } from './database';
@@ -78,7 +78,7 @@ async function bootstrap() {
   const app=await NestFactory.create(AppModule,{logger:['error','warn','log']});
   app.getHttpAdapter().getInstance().set('trust proxy',runtime.trustProxy);
   if(process.env.SERVE_WEB==='true')app.use(createWebHosting(resolve(__dirname,'../../web/dist')));
-  app.use(helmet({contentSecurityPolicy:process.env.NODE_ENV==='production'?undefined:false}));
+  app.use(createSecurityHeaders());
   app.use(cookieParser());
   // JSAPI requires the proxy at the first URL path level. Keep the same guarded controller.
   app.use((req:any,_res:any,next:any)=>{if(req.url.startsWith('/_AMapService/'))req.url='/api'+req.url;next();});

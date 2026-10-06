@@ -1,14 +1,14 @@
 import {Router,static as serveStatic} from 'express';
 import {existsSync} from 'node:fs';
 import {extname,resolve} from 'node:path';
-import helmet from 'helmet';
+import {createSecurityHeaders} from './security-headers';
 
 export function createWebHosting(directory:string){
   const root=resolve(directory);
   for(const file of ['index.html','driver.html'])if(!existsSync(resolve(root,file)))throw new Error('网页构建文件缺失，请先执行 npm run build');
   const router=Router();
   // The map loader uses external scripts; API responses keep their own Helmet policy.
-  const headers=helmet({contentSecurityPolicy:false,strictTransportSecurity:false,referrerPolicy:{policy:'strict-origin-when-cross-origin'}});
+  const headers=createSecurityHeaders(true);
   const files=serveStatic(root,{index:false,dotfiles:'deny',maxAge:'1h',setHeaders(res,path){
     if(path.endsWith('.html'))res.setHeader('Cache-Control','no-store');
     else if(/[\\/]assets[\\/].+-[A-Za-z0-9_-]{8,}\.[A-Za-z0-9]+$/.test(path))res.setHeader('Cache-Control','public, max-age=31536000, immutable');

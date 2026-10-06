@@ -1,0 +1,15 @@
+const assert=require('node:assert/strict');
+const {mapCallback,mapResponseType}=require('../apps/api/dist/map-proxy-response');
+const callback='jsonp_690201';
+const payload=Buffer.from(callback+'({"status":1,"data":[]});');
+assert.match(mapResponseType(payload,callback,'application/json'),/^application\/javascript/);
+assert.equal(mapResponseType(Buffer.from('{"info":"INVALID_USER_DOMAIN"}'),callback,'application/json'),'application/json');
+assert.equal(mapResponseType(Buffer.from('other({});'),callback,'application/json'),'application/json');
+assert.equal(mapResponseType(Buffer.from(callback+'(alert(1));'),callback,'application/json'),'application/json');
+assert.equal(mapResponseType(payload,null,'application/json'),'application/json');
+assert.equal(mapResponseType(Buffer.from([0,1,255]),null,'application/octet-stream'),'application/octet-stream');
+assert.equal(mapCallback(new URL('https://example.com?callback='+callback)),callback);
+assert.equal(mapCallback(new URL('https://example.com')),null);
+assert.throws(()=>mapCallback(new URL('https://example.com?callback=alert(1)')));
+assert.throws(()=>mapCallback(new URL('https://example.com?callback='+('a'.repeat(129)))));
+console.log(JSON.stringify({passed:true,validJsonp:true,errorJsonPreserved:true,binaryPreserved:true,callbackValidation:true}));
