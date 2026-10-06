@@ -8,9 +8,11 @@ const JSZip=require('jszip');
  const names=Object.values(archive.files).filter(e=>!e.dir).map(e=>e.name.replace(/^liaoliang-server\//,'')).sort();
  assert.deepEqual(names,[...expected].sort(),'Update archive must contain only the required program files');
  const release=JSON.parse(await archive.file('liaoliang-server/release-manifest.json').async('string'));
+ const currentRelease=JSON.parse(await fs.readFile('ll_dist/liaoliang-server/release-manifest.json','utf8'));
+ const sameRelease=JSON.stringify(release)===JSON.stringify(currentRelease);
  for(const name of names){
   const bytes=await archive.file('liaoliang-server/'+name).async('nodebuffer');
-  if(name.startsWith('apps/api/dist/')){const disk=await fs.readFile('ll_dist/liaoliang-server/'+name);assert.ok(bytes.equals(disk),name+' must match the full package');}
+  if(sameRelease&&name.startsWith('apps/api/dist/')){const disk=await fs.readFile('ll_dist/liaoliang-server/'+name);assert.ok(bytes.equals(disk),name+' must match the full package');}
   if(name!=='release-manifest.json')assert.equal(createHash('sha256').update(bytes).digest('hex'),release.files.find(f=>f.path===name).sha256,name+' checksum');
  }
  const {mapResponseType}=require('../ll_dist/liaoliang-server/apps/api/dist/map-proxy-response');

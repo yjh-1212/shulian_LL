@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import {requestKey} from '../request-key';
 import BusinessStatus from './BusinessStatus.vue';
 import {ref,reactive,computed,watch} from 'vue';
 import {ElMessage,ElMessageBox,ElDrawer} from 'element-plus';
@@ -9,14 +10,14 @@ const b=ref<any>(props.business),s=computed(()=>b.value.stages.find((s:any)=>s.i
 watch(()=>props.business,value=>{b.value=value;});
 const editable=computed(()=>props.canWrite&&b.value.status!=='COMPLETED'&&b.value.package.status==='EFFECTIVE');
 const completion=reactive<any>({actualEndAt:'',quantity:0,note:''}),fees=computed(()=>b.value.serviceFees.filter((f:any)=>f.stageId===props.stageId));
-const fee=reactive<any>({feeCode:'OTHER',amount:0,description:'',evidenceId:'',requestKey:crypto.randomUUID()});
+const fee=reactive<any>({feeCode:'OTHER',amount:0,description:'',evidenceId:'',requestKey:requestKey()});
 const sources:Record<string,string>={CONTRACT:'合同费用',DRIVER:'司机回传',OTHER:'其他费用'},status:Record<string,string>={DRAFT:'待提交',SUBMITTED:'执行中',COMPLETED:'已完成'};
 async function refresh(){b.value=await get('/intermodal/'+b.value.id);emit('changed');}
 async function file(f:any,driver=false){try{const result=await api.get(driver?'/fulfillment/evidence/'+f.id:'/intermodal/attachments/'+f.id,{responseType:'blob'});download(result.data,f.name,f.mime);}catch(e){error.value=message(e);}}
 async function upload(e:Event){const input=e.target as HTMLInputElement,f=input.files?.[0];if(!f)return;busy.value=true;try{const data=new FormData();data.append('file',f);await api.post('/intermodal/stages/'+s.value.id+'/attachments',data);await refresh();ElMessage.success('附件已上传');}catch(e){error.value=message(e);}finally{busy.value=false;input.value='';}}
 function beginFinish(){Object.assign(completion,{actualEndAt:new Date().toISOString(),quantity:s.value.mode==='ROAD'?s.value.tasks.reduce((n:number,t:any)=>n+(t.unloadedKg||0),0)/1000:s.value.quantityKg/1000,note:''});error.value='';finish.value=true;}
 async function confirmStage(){busy.value=true;error.value='';try{await api.post('/intermodal/stages/'+s.value.id+'/complete',{version:s.value.version,actualEndAt:completion.actualEndAt,quantityKg:Math.round(completion.quantity*1000),note:completion.note});finish.value=false;await refresh();ElMessage.success('阶段已完成，可勾选对账费用');}catch(e){error.value=message(e);}finally{busy.value=false;}}
-async function addFee(){if(!fee.amount||!fee.description.trim()){error.value='请填写费用金额和具体说明';return;}busy.value=true;error.value='';try{await api.post('/intermodal/stages/'+s.value.id+'/fees',{feeCode:fee.feeCode,amountCents:Math.round(fee.amount*100),description:fee.description,evidenceId:fee.evidenceId||undefined,requestKey:fee.requestKey});Object.assign(fee,{amount:0,description:'',evidenceId:'',requestKey:crypto.randomUUID()});await refresh();ElMessage.success('费用已登记');}catch(e){error.value=message(e);}finally{busy.value=false;}}
+async function addFee(){if(!fee.amount||!fee.description.trim()){error.value='请填写费用金额和具体说明';return;}busy.value=true;error.value='';try{await api.post('/intermodal/stages/'+s.value.id+'/fees',{feeCode:fee.feeCode,amountCents:Math.round(fee.amount*100),description:fee.description,evidenceId:fee.evidenceId||undefined,requestKey:fee.requestKey});Object.assign(fee,{amount:0,description:'',evidenceId:'',requestKey:requestKey()});await refresh();ElMessage.success('费用已登记');}catch(e){error.value=message(e);}finally{busy.value=false;}}
 async function toggleFee(f:any,checked:boolean){busy.value=true;try{await api.put('/intermodal/fees/'+f.id,{version:f.version,selected:checked});await refresh();}catch(e){error.value=message(e);}finally{busy.value=false;}}
 async function resolve(i:any){try{const {value:resolution}=await ElMessageBox.prompt('填写异常处理结果','处理运输异常',{inputValidator:v=>v?.trim().length>=2||'请填写处理说明'});busy.value=true;await api.post('/fulfillment/issues/'+i.id+'/resolve',{resolution});await refresh();}catch(e){if(e!=='cancel'&&e!=='close')error.value=message(e);}finally{busy.value=false;}}
 </script>

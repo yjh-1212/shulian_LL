@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import {requestKey} from '../request-key';
 import {ref,computed,onMounted,onBeforeUnmount} from 'vue';
 import {Bell,ClipboardList,ClipboardCheck,FileText,UserRound,ArrowLeft,ArrowRight,Package,RefreshCw,LogOut,Phone,Truck,ChevronRight,Wifi,BatteryFull,Signal,Search} from 'lucide-vue-next';
 import axios from 'axios';
@@ -27,7 +28,7 @@ async function load(){loading.value=true;try{tasks.value=(await client.get('/dri
 async function login(){busy.value=true;error.value='';try{const r=await client.post('/driver/login',{username:username.value,password:password.value});token=r.data.data.accessToken;user.value=r.data.data.user;if(!user.value.mustChangePassword){password.value='';await load();}}catch(e){error.value=message(e);}finally{busy.value=false;}}
 async function logout(){busy.value=true;try{await client.post('/driver/logout');token='';user.value=null;tasks.value=[];selected.value='';section.value='tasks';tabPicked=false;}catch(e){error.value=message(e);}finally{busy.value=false;}}
 async function changePassword(){busy.value=true;try{await client.post('/driver/password',{currentPassword:password.value,newPassword:newPassword.value});token='';user.value=null;tasks.value=[];password.value='';newPassword.value='';error.value='密码已更新，请使用新密码登录';}catch(e){error.value=message(e);}finally{busy.value=false;}}
-async function accept(t:any){busy.value=true;error.value='';try{await client.post(`/driver/tasks/${t.id}/events`,{type:'ACCEPT',requestKey:crypto.randomUUID()});await load();pickTab('active');inspect(t);ElMessage.success('已接收任务，请前往装货点');}catch(e){error.value=message(e);}finally{busy.value=false;}}
+async function accept(t:any){busy.value=true;error.value='';try{await client.post(`/driver/tasks/${t.id}/events`,{type:'ACCEPT',requestKey:requestKey()});await load();pickTab('active');inspect(t);ElMessage.success('已接收任务，请前往装货点');}catch(e){error.value=message(e);}finally{busy.value=false;}}
 async function downloadFile(f:any){try{const r=await client.get(`/driver/evidence/${f.id}`,{responseType:'blob'});download(r.data,f.name,f.mime);}catch(e){error.value=message(e);}}
 const focus=()=>{if(user.value&&!user.value.mustChangePassword&&!busy.value)load();};const tick=()=>time.value=new Date().toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'Asia/Shanghai'});
 onMounted(async()=>{document.title='司机服务 · 辽粮';document.body.classList.add('driver-app');tick();timer=setInterval(tick,30000);try{await refresh();if(!user.value.mustChangePassword)await load();}catch{}finally{loading.value=false;}window.addEventListener('focus',focus);});

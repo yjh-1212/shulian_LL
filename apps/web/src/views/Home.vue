@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import {ref,onMounted,computed} from 'vue';
+import {ref,onMounted,onBeforeUnmount,computed} from 'vue';
 import {useRouter} from 'vue-router';
 import {useAuth} from '../stores/auth';
 import {get,message} from '../api';
 import {openAgent} from '../agent';
 import {ton} from '../fulfillment';
+import {workbenchGreeting} from '../workbench-greeting';
 import Icon from '../components/Icon.vue';
 import BusinessArt from '../components/BusinessArt.vue';
 type Stage={id:string;mode:string;status:string;origin:string;destination:string;plannedStartAt:string;plannedEndAt:string;actualEndAt:string|null};
@@ -12,7 +13,10 @@ type Waybill={id:string;waybillNo:string;contractNo:string;status:string;grain:s
 type Overview={scope:string;metrics:{pending:number|null;running:number|null;alerts:number|null;completed:number|null};todos:{key:string;title:string;count:number;description:string;path:string;icon:string}[];items:Waybill[];alerts:{id:string;businessId:string;taskId:string;message:string;level:string}[]};
 const auth=useAuth(),router=useRouter(),data=ref<Overview>(),error=ref(''),loading=ref(true),question=ref('');
 const company=computed(()=>auth.user?.businessEntity.name||'');
-const greeting=computed(()=>{const h=Number(new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',hour:'numeric',hour12:false}).format(new Date()));return h<6?'你好':h<12?'上午好':h<18?'下午好':'晚上好';});
+const currentTime=ref(Date.now());
+const greeting=computed(()=>workbenchGreeting(currentTime.value));
+let greetingTimer:number|undefined;
+const updateGreetingTime=()=>{currentTime.value=Date.now();};
 const agentAvailable=computed(()=>auth.can('plan:read')||auth.can('tracking:read'));
 const shortcuts=computed(()=>{
  const carrier=auth.user?.businessEntity.type==='CARRIER',trader=auth.user?.businessEntity.type==='TRADER';
@@ -40,7 +44,18 @@ const stageStatus=(s:Stage)=>({DRAFT:'待执行',SUBMITTED:'执行中',COMPLETED
 async function load(){loading.value=true;error.value='';try{data.value=await get('/dashboard/workbench');}catch(e){error.value=message(e);}finally{loading.value=false;}}
 function goWaybill(b:Waybill){router.push({path:auth.can('tracking:read')?'/tracking/journeys':'/services',query:{businessId:b.id}});}
 function ask(text=question.value,agent='TRACK'){if(!text.trim())return;openAgent({contextType:'page',suggestedAgent:agent,question:text.trim()});}
-onMounted(load);
+onMounted(()=>{
+ updateGreetingTime();
+ greetingTimer=window.setInterval(updateGreetingTime,60_000);
+ window.addEventListener('focus',updateGreetingTime);
+ document.addEventListener('visibilitychange',updateGreetingTime);
+ void load();
+});
+onBeforeUnmount(()=>{
+ window.clearInterval(greetingTimer);
+ window.removeEventListener('focus',updateGreetingTime);
+ document.removeEventListener('visibilitychange',updateGreetingTime);
+});
 </script>
 <template>
 <div class="workbench-page">

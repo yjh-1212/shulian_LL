@@ -13,6 +13,7 @@ export class WaybillTrackingQuery {
  @IsOptional() @IsIn(['ROAD','RAIL','WATER']) mode?:string;
  @IsOptional() @IsIn(['PENDING','IN_PROGRESS','COMPLETED']) status?:string;
  @IsOptional() @IsIn(['true','false']) includeTest?:string;
+ @IsOptional() @IsIn(['true','false']) compact?:string;
  @IsOptional() @Type(()=>Number) @IsInt() @Min(1) page=1;
  @IsOptional() @Type(()=>Number) @IsInt() @Min(1) @Max(50) pageSize=12;
 }

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import {requestKey} from '../request-key';
 import {ref,computed} from 'vue';
 import {ElMessage,ElMessageBox} from 'element-plus';
 import {api,message} from '../api';
@@ -8,13 +9,13 @@ const error=ref(''),busy=ref(false),dialog=ref(false),issueDialog=ref(false),kin
 const client=computed(()=>props.client||api),prefix=computed(()=>props.driver?'/driver':'/fulfillment');
 const next:Record<string,string>={DISPATCHED:'ACCEPT',ACCEPTED:'AT_LOADING',AT_LOADING:'LOAD',LOADED:'DEPART',IN_TRANSIT:'ARRIVE',ARRIVED:'UNLOAD',UNLOADED:'RECEIPT',RECEIVED:'COMPLETE'};
 const canExecute=computed(()=>props.driver||props.editable&&props.task.mode!=='ROAD');
-function action(type:string){kind.value=type;form.value={requestKey:crypto.randomUUID(),type,note:'',...(['LOAD','UNLOAD'].includes(type)?{quantityKg:props.task.loadedKg||props.task.quantityKg}:{}),...(type==='RECEIPT'?{receiver:'',evidenceId:''}:type==='LOAD'?{evidenceId:''}:{})};dialog.value=true;error.value='';}
+function action(type:string){kind.value=type;form.value={requestKey:requestKey(),type,note:'',...(['LOAD','UNLOAD'].includes(type)?{quantityKg:props.task.loadedKg||props.task.quantityKg}:{}),...(type==='RECEIPT'?{receiver:'',evidenceId:''}:type==='LOAD'?{evidenceId:''}:{})};dialog.value=true;error.value='';}
 async function submit(){busy.value=true;try{await client.value.post(`${prefix.value}/tasks/${props.task.id}/events`,form.value);dialog.value=false;emit('changed');ElMessage.success('执行记录已同步');}catch(e){error.value=message(e);}finally{busy.value=false;}}
 async function upload(e:Event){const input=e.target as HTMLInputElement,file=input.files?.[0];if(!file)return;busy.value=true;try{const f=new FormData();f.append('file',file);const r=await client.value.post(`${prefix.value}/tasks/${props.task.id}/evidence`,f);form.value.evidenceId=r.data.data.id;emit('changed');ElMessage.success('单据已上传');}catch(e){error.value=message(e);}finally{input.value='';busy.value=false;}}
 async function downloadFile(f:any){try{const r=await client.value.get(`${prefix.value}/evidence/${f.id}`,{responseType:'blob'});download(r.data,f.name,f.mime);}catch(e){error.value=message(e);}}
 async function report(){busy.value=true;try{await client.value.post(`${prefix.value}/tasks/${props.task.id}/issues`,issue.value);issueDialog.value=false;issue.value={type:'OTHER',description:''};emit('changed');ElMessage.success('异常已上报调度');}catch(e){error.value=message(e);}finally{busy.value=false;}}
 async function resolve(i:any){try{const r=await ElMessageBox.prompt('请记录原因与处理结果','处理异常',{inputValidator:v=>v?.trim()?.length>=2||'请填写处理结果'});await api.post(`/fulfillment/issues/${i.id}/resolve`,{resolution:r.value});emit('changed');}catch(e:any){if(e!=='cancel'&&e!=='close')error.value=message(e);}}
-function position(){busy.value=true;navigator.geolocation.getCurrentPosition(async p=>{form.value={requestKey:crypto.randomUUID(),type:'POSITION',latitude:p.coords.latitude,longitude:p.coords.longitude,note:'浏览器定位'};await submit();},()=>{busy.value=false;error.value='无法获取位置，请检查浏览器定位权限。其他节点仍可继续反馈。';},{timeout:10000});}
+function position(){busy.value=true;navigator.geolocation.getCurrentPosition(async p=>{form.value={requestKey:requestKey(),type:'POSITION',latitude:p.coords.latitude,longitude:p.coords.longitude,note:'浏览器定位'};await submit();},()=>{busy.value=false;error.value='无法获取位置，请检查浏览器定位权限。其他节点仍可继续反馈。';},{timeout:10000});}
 function payload(e:any){return typeof e.payload==='string'?JSON.parse(e.payload):e.payload;}
 </script>
 <template><div class="execution"><el-alert v-if="error" :title="error" type="error"/><div class="execution-head"><h3>{{task.businessNo}}</h3><el-tag :type="task.status==='COMPLETED'?'success':'info'">{{label(task.status)}}</el-tag></div><p v-if="task.segment?.origin" class="route-line">{{task.segment.origin}} → {{task.segment.destination}}</p><p v-if="task.boxNo">关联集装箱：{{task.boxNo}}</p><div class="execution-stats"><span>任务量 <b>{{ton(task.quantityKg)}}</b></span><span>装货 <b>{{task.loadedKg?ton(task.loadedKg):'待反馈'}}</b></span><span>卸货 <b>{{task.unloadedKg?ton(task.unloadedKg):'待反馈'}}</b></span></div><p v-if="task.resource" class="muted">{{task.resource}}</p>

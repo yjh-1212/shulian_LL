@@ -6,6 +6,7 @@ import {Audit} from './audit';
 import {CreateContract,ChangeContract,TemplateDto,RevisionAction,ContractWorkspaceQuery,ContractArchiveDto} from './fulfillment.dto';
 import {readTemplateFile,templateFileSelect} from './contract-files';
 import {progress,signingComplete} from './contract-progress';
+import {contractSummary} from './workspace-summaries';
 import {businessDataScope} from './business-data-scope';
 export const parse=(v:string)=>JSON.parse(v);
 export const number=(prefix:string)=>`${prefix}${Date.now()}${randomUUID().slice(0,5).toUpperCase()}`;
@@ -48,7 +49,7 @@ export class ContractsService {
   if(q.stage==='signing')items=items.filter(p=>q.tab==='SIGNED'?p.ownSigned:!p.ownSigned);
   if(q.stage==='archives')items=items.filter(p=>q.tab==='ARCHIVED'?!!p.archiveRecord:!p.archiveRecord);
   items.sort((a,b)=>new Date(b.archiveRecord?.archivedAt||b.createdAt).getTime()-new Date(a.archiveRecord?.archivedAt||a.createdAt).getTime());
-  return {items:items.slice((q.page-1)*q.pageSize,q.page*q.pageSize),total:items.length,counts};
+  return {items:items.slice((q.page-1)*q.pageSize,q.page*q.pageSize).map(contractSummary),total:items.length,counts};
  }
  async confirmations(req:any){const assigned=await this.db.contractPackage.findMany({where:this.scope(req),select:{confirmationId:true}});return this.db.carrierConfirmation.findMany({where:{id:{notIn:assigned.map(p=>p.confirmationId)},status:'CONFIRMED',publication:{demand:businessDataScope()},...(req.user.businessEntity.type==='PLATFORM'?{}:{OR:[{traderId:req.user.businessEntityId},{carrierId:req.user.businessEntityId}]})},orderBy:{confirmedAt:'desc'},take:500});}
  async templates(){return this.db.contractTemplate.findMany({where:{status:{not:'ARCHIVED'}},include:{file:{select:templateFileSelect}},orderBy:[{type:'asc'},{version:'desc'}]});}

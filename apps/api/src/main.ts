@@ -45,6 +45,7 @@ import {AgentCenterController} from './agent-center.controller';
 import {DataController,DataFeedController,DataService} from './data-service';
 import {runtimeConfig,originAllowed} from './runtime-config';
 import {createWebHosting} from './web-hosting';
+import {jsonCompression} from './json-compression';
 @Catch()
 class ErrorFilter implements ExceptionFilter {
   catch(error:any,host:ArgumentsHost) {
@@ -80,6 +81,7 @@ async function bootstrap() {
   if(process.env.SERVE_WEB==='true')app.use(createWebHosting(resolve(__dirname,'../../web/dist')));
   app.use(createSecurityHeaders());
   app.use(cookieParser());
+  app.use(jsonCompression);
   // JSAPI requires the proxy at the first URL path level. Keep the same guarded controller.
   app.use((req:any,_res:any,next:any)=>{if(req.url.startsWith('/_AMapService/'))req.url='/api'+req.url;next();});
   app.use(json({limit:'3mb'}));

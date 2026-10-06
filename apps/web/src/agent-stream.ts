@@ -1,10 +1,5 @@
 import {getToken,renew} from './api';
-export function agentRequestKey(){
- if(typeof crypto.randomUUID==='function')return crypto.randomUUID();
- const bytes=crypto.getRandomValues(new Uint8Array(16));bytes[6]=(bytes[6]&15)|64;bytes[8]=(bytes[8]&63)|128;
- const hex=Array.from(bytes,b=>b.toString(16).padStart(2,'0')).join('');
- return `${hex.slice(0,8)}-${hex.slice(8,12)}-${hex.slice(12,16)}-${hex.slice(16,20)}-${hex.slice(20)}`;
-}
+export {requestKey as agentRequestKey} from './request-key';
 export async function sendAgentMessage(id:string,input:{question:string,requestKey:string},onEvent:(event:any)=>void,signal:AbortSignal){return streamAgentOperation(id,'messages',input,onEvent,signal);}
 export async function solveAgentPlan(id:string,input:{input:any,requestKey:string},onEvent:(event:any)=>void,signal:AbortSignal){return streamAgentOperation(id,'solve',input,onEvent,signal);}
 async function streamAgentOperation(id:string,operation:string,input:any,onEvent:(event:any)=>void,signal:AbortSignal){
