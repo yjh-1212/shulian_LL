@@ -73,7 +73,8 @@ export class MapController {
   const session=await this.db.refreshToken.findUnique({where:{id:ticket.sessionId},include:{user:{include:userInclude}}});if(!session||session.userId!==ticket.userId||session.user.mustChangePassword||!publicUser(session.user).permissions.some((p:any)=>mapPermissions.includes(String(p)))||session.revokedAt||session.expiresAt<new Date()||session.user.status!=='ACTIVE'||session.user.deletedAt||session.user.businessEntity.status!=='ACTIVE'||session.user.businessEntity.deletedAt)throw new ForbiddenException('地图会话失效');
   const url=new URL(req.originalUrl,'http://local');const path=url.pathname.replace(/^\/(?:api\/)?_AMapService/,'');if(!/^\/v4\/map\/styles(?:\/[^.\/]*)?$/.test(path)&&path!=='/v3/log/init')throw new ForbiddenException('未开放的地图代理路径');
   const target=new URL(path,path.startsWith('/v4/map/styles')?'https://webapi.amap.com':'https://restapi.amap.com');target.search=url.search;target.searchParams.set('key',process.env.AMAP_JSAPI_KEY!);target.searchParams.set('jscode',process.env.AMAP_SECURITY_JS_CODE!);
-  try{const response=await fetch(target,{signal:AbortSignal.timeout(15000),redirect:'error'});if(!response.ok)throw new Error();res.type(response.headers.get('content-type')||'application/octet-stream');res.send(Buffer.from(await response.arrayBuffer()));}catch{throw new ServiceUnavailableException('地图底图服务不可用，请重试');}
+  const forwarded=req.get('x-forwarded-proto');const proto=forwarded==='https'||forwarded==='http'?forwarded:req.protocol;
+  try{const response=await fetch(target,{headers:{Referer:req.get('referer')||`${proto}://${req.get('host')}/`},signal:AbortSignal.timeout(15000),redirect:'error'});if(!response.ok)throw new Error();res.type(response.headers.get('content-type')||'application/octet-stream');res.send(Buffer.from(await response.arrayBuffer()));}catch{throw new ServiceUnavailableException('地图底图服务不可用，请重试');}
  }
 }
 
