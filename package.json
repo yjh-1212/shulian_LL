@@ -12,6 +12,7 @@
   "scripts": {
     "setup": "node tools/setup.mjs",
     "accounts:configure": "node tools/configure-fixed-accounts.cjs",
+    "accounts:driver:init": "node tools/configure-driver-account.cjs",
     "server:setup": "node tools/setup-server.mjs",
     "server:start": "node tools/server.mjs start",
     "server:init": "node tools/server.mjs init",

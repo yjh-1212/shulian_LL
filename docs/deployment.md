@@ -84,7 +84,7 @@ Linux 需要开机启动时可使用 `deploy/liaoliang.service`：先调整项�
 
 1. 在目标主机安装Docker及Compose。复制 `deploy/env.production.example` 为根目录 `.env.production`，填写随机JWT_SECRET、两个HTTPS域名和服务密钥；域名加入高德许可。不要复用开发默认密码。
 2. `docker compose build`；`docker compose up -d`。API仅在容器网络暴露；PC与司机入口默认绑定本机8080/8081，由可信HTTPS反向代理分别接入。生产刷新Cookie带Secure，需要HTTPS。
-3. 第一次初始化新库：将BOOTSTRAP_PLATFORM_NAME、BOOTSTRAP_ADMIN_USERNAME、BOOTSTRAP_ADMIN_PASSWORD作为临时环境变量注入容器，执行 `npx tsx prisma/bootstrap-production.ts`。密码至少14位。只创建正式平台与管理员，首次登录改密；重复执行保留原密码与权限。不要运行开发seed，不要把开发数据库当生产库。
+3. 第一次初始化新库：将BOOTSTRAP_PLATFORM_NAME、BOOTSTRAP_ADMIN_USERNAME、BOOTSTRAP_ADMIN_PASSWORD作为临时环境变量注入容器，执行 `npx tsx prisma/bootstrap-production.ts`。密码至少6位，不要求同时包含字母和数字。只创建正式平台与管理员，首次登录改密；重复执行保留原密码与权限。不要运行开发seed，不要把开发数据库当生产库。
 4. 登录平台后维护正式主体、用户、合同模板、粮食品种、节点、线路、价格及来源有效期。确认公共参考线路后再用于正式调度。签章与司机端仍为本项目模拟功能。
 5. 公网两个站点的司机入口链接在构建前通过 `VITE_DRIVER_URL` 设置；默认Docker本机入口8081。`WEB_ORIGIN`/`DRIVER_ORIGIN`为实际域名；API_HOST为0.0.0.0。API健康检查 `/api/health`，Swagger `/api/docs`。
 6. 验证登录、刷新Cookie、上传8MB、地图代理、DeepSeek故障降级及独立司机页面，再安排上线。SQLite单API写入实例，禁止多个副本共享文件；规模扩大应先迁移数据库及队列。

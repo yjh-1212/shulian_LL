@@ -11,7 +11,7 @@ const JSZip = require('jszip');
     assert(entry.name.startsWith('liaoliang-server/'));
     const name = entry.name.slice('liaoliang-server/'.length);
     assert(!name.includes('..'));
-    assert(!name.startsWith('prisma/') && !name.startsWith('.env') && !name.startsWith('.local/'));
+    assert((!name.startsWith('prisma/') || name === 'prisma/bootstrap-production.ts') && !name.startsWith('.env') && !name.startsWith('.local/'));
     const bytes = await entry.async('nodebuffer');
     assert(bytes.equals(await fs.readFile('ll_dist/liaoliang-server/' + name)), name);
     if (name !== 'release-manifest.json') {
@@ -29,5 +29,7 @@ const JSZip = require('jszip');
   assert(zip.file('liaoliang-server/apps/web/dist/index.html'));
   assert(zip.file('liaoliang-server/apps/web/dist/driver.html'));
   assert(zip.file('liaoliang-server/PERFORMANCE-UPDATE.md'));
+  assert(zip.file('liaoliang-server/DRIVER-ACCOUNT.md'));
+  assert(zip.file('liaoliang-server/tools/configure-driver-account.cjs'));
   console.log(JSON.stringify({passed: true, files: entries.length, checksums: true, noDatabaseOrSecrets: true, thumbnails: true}));
 })().catch(e => { console.error(e.message); process.exitCode = 1; });

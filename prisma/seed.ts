@@ -10,7 +10,7 @@ const db = new PrismaClient();
 async function main() {
   if (process.env.NODE_ENV === 'production') throw new Error('开发样例 seed 禁止在生产环境执行');
   const password = process.env.SEED_PASSWORD;
-  if (!password || password.length < 12) throw new Error('请在 .env 配置至少12位 SEED_PASSWORD');
+  if (!password || password.length < 6) throw new Error('请在 .env 配置至少6位 SEED_PASSWORD');
   const fixedPassword = process.env.FIXED_ACCOUNT_PASSWORD;
   if (fixedPassword && (fixedPassword.length < 6 || Buffer.byteLength(fixedPassword, 'utf8') > 72)) throw new Error('FIXED_ACCOUNT_PASSWORD 需为6位以上且不超过72字节');
   await seedPhase789(db);

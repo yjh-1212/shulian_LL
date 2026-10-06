@@ -52,7 +52,7 @@ async function main(){
   }
   for(const path of ['apps/web/dist','prisma/migrations'])await copy(path);
   await copy('apps/api/dist',source=>!source.endsWith('.map'));
-  for(const path of ['package-lock.json','prisma/schema.prisma','prisma/bootstrap-production.ts','prisma/seed-phase789.ts','prisma/seed-data-service.ts','apps/api/src/data-products.catalog.ts','tools/server.mjs','tools/setup-server.mjs','tools/document-worker.cjs','tools/install-server.mjs','tools/verify-package.mjs','deploy/env.server.example','deploy/nginx.node.conf','deploy/liaoliang.service'])await copy(path);
+  for(const path of ['package-lock.json','prisma/schema.prisma','prisma/bootstrap-production.ts','prisma/seed-phase789.ts','prisma/seed-data-service.ts','apps/api/src/data-products.catalog.ts','tools/server.mjs','tools/setup-server.mjs','tools/configure-driver-account.cjs','tools/document-worker.cjs','tools/install-server.mjs','tools/verify-package.mjs','deploy/env.server.example','deploy/nginx.node.conf','deploy/liaoliang.service'])await copy(path);
   for(const language of ['chi_sim','eng'])await copy('.local/ocr/'+language+'.traineddata.gz');
   const manifest=JSON.parse(await readFile(resolve(root,'package.json'),'utf8'));
   manifest.scripts={
@@ -61,6 +61,7 @@ async function main(){
     'server:start':'node tools/server.mjs start',
     'server:setup':'node tools/setup-server.mjs',
     'server:init':'node tools/server.mjs init',
+    'accounts:driver:init':'node tools/configure-driver-account.cjs --server',
     'db:generate':'prisma generate',
     'verify:package':'node tools/verify-package.mjs --initial'
   };
@@ -92,7 +93,7 @@ async function main(){
       counts[table]=Number(row.count);
     }
     const accounts=[];
-    for(const username of ['admin','trader','carrier']){
+    for(const username of ['admin','trader','carrier','driver']){
       const user=await snapshot.user.findUnique({where:{username},select:{username:true,status:true,deletedAt:true}});
       accounts.push({username,preserved:!!user,active:!!user&&user.status==='ACTIVE'&&!user.deletedAt});
     }
@@ -111,7 +112,7 @@ async function main(){
     database={path:'prisma/server.db',format:'sqlite-vacuum-snapshot',integrity:'ok',bytes:(await stat(databasePath)).size,sha256:await fileHash(databasePath),tables:counts,accounts,attachmentFiles};
     console.log('数据库与附件已打包：'+database.bytes+' 字节，'+attachmentFiles+' 个附件文件。');
   }finally{if(snapshot)await snapshot.$disconnect();await source.$disconnect();}
-  await writeFile(resolve(output,'README.md'),`# 辽粮服务器部署包\n\n本包包含已构建的门户、工作台、司机端、API、当前数据库、上传附件、OCR 语言包和服务器配置。\n\n## 安装与启动\n\n1. 将压缩包上传到服务器并解压，进入包内含 package.json 的文件夹。安装 Node.js 22.13 或以上版本。\n2. 执行以下命令，前端与后端已经构建，无须再次构建：\n\n\`\`\`sh\nnpm run install:server\nnpm start\n\`\`\`\n\n3. 放行服务器 ${env.PORT} 端口，在浏览器访问 http://服务器IP:${env.PORT} 。工作台为 /workbench，司机端为 /driver，健康检查为 /api/health。本机也可访问 http://127.0.0.1:${env.PORT} 。\n\n部署包已带入当前数据库，请直接启动。不要运行开发 seed 或 server:init，以免混入其他初始化流程。现有账号和密码均保留；admin、trader、carrier 使用此前设置的密码。\n\n## 配置\n\n隐藏文件 .env.server 已包含当前地图和 AI 配置，上传时需保留。端口可修改 PORT；数据库地址为 DATABASE_URL="file:./server.db"，相对于 prisma 目录。公网页面、API 与司机端使用同一个端口。\n\n使用域名和 HTTPS 时，可参考 deploy/nginx.node.conf 将域名反向代理至 127.0.0.1:${env.PORT}，并将 .env.server 的 WEB_ORIGIN 和 DRIVER_ORIGIN 设置为实际 HTTPS 域名。如果修改了 PORT，也需修改反向代理端口。地图 JSAPI 的域名白名单需包含实际访问域名。\n\n## 持续运行\n\n服务器面板的项目根目录选本文件夹，启动命令为 npm start。Linux systemd 配置见 deploy/liaoliang.service，修改为实际目录和 Node.js 路径后启用。Linux 上启动前执行 chmod 600 .env.server。运行用户需要能写入 prisma、.local/uploads 和 .local/ocr 目录。\n\n## 数据与升级\n\n- 当前数据库：prisma/server.db，包含业务记录、账号、合同及数据库内的单据和凭证。\n- 文件附件：.local/uploads/，需和数据库一起保留。\n- OCR 语言包：.local/ocr/，用于本地单据识别。\n- 升级时先停止服务并备份数据库和 .local/uploads，再替换程序文件；保留正在使用的 .env.server 和数据库，避免被旧包覆盖。npm start 会自动检查并应用数据库结构迁移。\n- release-manifest.json 记录打包时的数据条数与 SHA-256。首次解压后可执行 npm run verify:package 核对传输完整性；使用后数据库和配置发生变化，请勿再用首次快照校验它们。\n\n本包含数据库及密钥，仅用于你的服务器上传，不要提交到公开仓库。\n`);
+  await writeFile(resolve(output,'README.md'),`# 辽粮服务器部署包\n\n本包包含已构建的门户、工作台、司机端、API、当前数据库、上传附件、OCR 语言包和服务器配置。\n\n## 安装与启动\n\n1. 将压缩包上传到服务器并解压，进入包内含 package.json 的文件夹。安装 Node.js 22.13 或以上版本。\n2. 执行以下命令，前端与后端已经构建，无须再次构建：\n\n\`\`\`sh\nnpm run install:server\nnpm start\n\`\`\`\n\n3. 放行服务器 ${env.PORT} 端口，在浏览器访问 http://服务器IP:${env.PORT} 。工作台为 /workbench，司机端为 /driver，健康检查为 /api/health。本机也可访问 http://127.0.0.1:${env.PORT} 。\n\n部署包已带入当前数据库，请直接启动。不要运行开发 seed 或 server:init，以免混入其他初始化流程。现有账号和密码均保留；admin、trader、carrier、driver 使用此前设置的密码。\n\n## 配置\n\n隐藏文件 .env.server 已包含当前地图和 AI 配置，上传时需保留。端口可修改 PORT；数据库地址为 DATABASE_URL="file:./server.db"，相对于 prisma 目录。公网页面、API 与司机端使用同一个端口。\n\n使用域名和 HTTPS 时，可参考 deploy/nginx.node.conf 将域名反向代理至 127.0.0.1:${env.PORT}，并将 .env.server 的 WEB_ORIGIN 和 DRIVER_ORIGIN 设置为实际 HTTPS 域名。如果修改了 PORT，也需修改反向代理端口。地图 JSAPI 的域名白名单需包含实际访问域名。\n\n## 持续运行\n\n服务器面板的项目根目录选本文件夹，启动命令为 npm start。Linux systemd 配置见 deploy/liaoliang.service，修改为实际目录和 Node.js 路径后启用。Linux 上启动前执行 chmod 600 .env.server。运行用户需要能写入 prisma、.local/uploads 和 .local/ocr 目录。\n\n## 数据与升级\n\n- 当前数据库：prisma/server.db，包含业务记录、账号、合同及数据库内的单据和凭证。\n- 文件附件：.local/uploads/，需和数据库一起保留。\n- OCR 语言包：.local/ocr/，用于本地单据识别。\n- 升级时先停止服务并备份数据库和 .local/uploads，再替换程序文件；保留正在使用的 .env.server 和数据库，避免被旧包覆盖。npm start 会自动检查并应用数据库结构迁移。\n- release-manifest.json 记录打包时的数据条数与 SHA-256。首次解压后可执行 npm run verify:package 核对传输完整性；使用后数据库和配置发生变化，请勿再用首次快照校验它们。\n\n本包含数据库及密钥，仅用于你的服务器上传，不要提交到公开仓库。\n`);
   const packageFiles=[];
   for(const path of await files(output)){
     const name=relative(output,path).split(sep).join('/');

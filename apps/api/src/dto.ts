@@ -7,10 +7,10 @@ export class LoginDto {
 }
 export class PasswordDto {
   @ApiProperty() @IsString() @Length(1,72) currentPassword!: string;
-  @ApiProperty() @IsString() @Length(12,72) @Matches(/^(?=.*[a-zA-Z])(?=.*\d).+$/, {message:'新密码至少12位，且包含字母和数字'}) newPassword!: string;
+  @ApiProperty({minLength:6,maxLength:72}) @IsString() @Length(6,72,{message:'新密码需为6至72位'}) newPassword!: string;
 }
 export class ResetPasswordDto {
-  @ApiProperty() @IsString() @Length(12,72) @Matches(/^(?=.*[a-zA-Z])(?=.*\d).+$/) newPassword!: string;
+  @ApiProperty({minLength:6,maxLength:72}) @IsString() @Length(6,72,{message:'新密码需为6至72位'}) newPassword!: string;
 }
 export class ListDto {
   @ApiPropertyOptional() @IsOptional() @IsString() @Length(0,100) q?: string;
@@ -27,7 +27,7 @@ export class UserDto {
   @ApiProperty() @IsString() @Length(1,60) businessEntityId!: string;
   @ApiProperty() @IsArray() @ArrayUnique() @ArrayMinSize(1) @ArrayMaxSize(10) @IsString({each:true}) roleIds!: string[];
   @ApiProperty() @IsIn(['ACTIVE','DISABLED']) status!: string;
-  @ApiPropertyOptional() @IsOptional() @IsString() @Length(12,72) @Matches(/^(?=.*[a-zA-Z])(?=.*\d).+$/) password?: string;
+  @ApiPropertyOptional({minLength:6,maxLength:72}) @IsOptional() @IsString() @Length(6,72,{message:'初始密码需为6至72位'}) password?: string;
   @ApiPropertyOptional() @IsOptional() @IsString() @Length(0,30) phone?: string;
   @ApiPropertyOptional() @IsOptional() @IsString() @Length(0,100) email?: string;
   @ApiPropertyOptional() @IsOptional() @IsString() @Length(0,60) department?: string;
