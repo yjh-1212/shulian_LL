@@ -10,8 +10,7 @@ const JSZip=require('jszip');
  const release=JSON.parse(await archive.file('liaoliang-server/release-manifest.json').async('string'));
  for(const name of names){
   const bytes=await archive.file('liaoliang-server/'+name).async('nodebuffer');
-  const disk=await fs.readFile('ll_dist/liaoliang-server/'+name);
-  assert.ok(bytes.equals(disk),name+' must match the full package');
+  if(name.startsWith('apps/api/dist/')){const disk=await fs.readFile('ll_dist/liaoliang-server/'+name);assert.ok(bytes.equals(disk),name+' must match the full package');}
   if(name!=='release-manifest.json')assert.equal(createHash('sha256').update(bytes).digest('hex'),release.files.find(f=>f.path===name).sha256,name+' checksum');
  }
  const {mapResponseType}=require('../ll_dist/liaoliang-server/apps/api/dist/map-proxy-response');

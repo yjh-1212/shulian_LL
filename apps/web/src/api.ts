@@ -3,6 +3,7 @@ export const api=axios.create({baseURL:'/api',timeout:15000,withCredentials:true
 let accessToken='';
 let renewing:Promise<any>|null=null;
 export function setToken(token:string){accessToken=token;}
+export function getToken(){return accessToken;}
 export function message(error:any):string{return error?.response?.data?.message|| (error.code==='ECONNABORTED'?'请求超时，请重试':'网络连接失败，请检查服务后重试');}
 api.interceptors.request.use(config=>{if(accessToken)config.headers.Authorization=`Bearer ${accessToken}`;return config;});
 export async function renew() {
