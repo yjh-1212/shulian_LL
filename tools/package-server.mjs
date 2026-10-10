@@ -52,6 +52,7 @@ async function main(){
   }
   for(const path of ['apps/web/dist','prisma/migrations'])await copy(path);
   await copy('apps/api/dist',source=>!source.endsWith('.map'));
+  await copy('jiashicang/server');
   for(const path of ['package-lock.json','prisma/schema.prisma','prisma/bootstrap-production.ts','prisma/seed-phase789.ts','prisma/seed-data-service.ts','apps/api/src/data-products.catalog.ts','tools/server.mjs','tools/setup-server.mjs','tools/configure-driver-account.cjs','tools/document-worker.cjs','tools/install-server.mjs','tools/verify-package.mjs','deploy/env.server.example','deploy/nginx.node.conf','deploy/liaoliang.service'])await copy(path);
   for(const language of ['chi_sim','eng'])await copy('.local/ocr/'+language+'.traineddata.gz');
   const manifest=JSON.parse(await readFile(resolve(root,'package.json'),'utf8'));
@@ -113,12 +114,55 @@ async function main(){
     console.log('数据库与附件已打包：'+database.bytes+' 字节，'+attachmentFiles+' 个附件文件。');
   }finally{if(snapshot)await snapshot.$disconnect();await source.$disconnect();}
   await writeFile(resolve(output,'README.md'),`# 辽粮服务器部署包\n\n本包包含已构建的门户、工作台、司机端、API、当前数据库、上传附件、OCR 语言包和服务器配置。\n\n## 安装与启动\n\n1. 将压缩包上传到服务器并解压，进入包内含 package.json 的文件夹。安装 Node.js 22.13 或以上版本。\n2. 执行以下命令，前端与后端已经构建，无须再次构建：\n\n\`\`\`sh\nnpm run install:server\nnpm start\n\`\`\`\n\n3. 放行服务器 ${env.PORT} 端口，在浏览器访问 http://服务器IP:${env.PORT} 。工作台为 /workbench，司机端为 /driver，健康检查为 /api/health。本机也可访问 http://127.0.0.1:${env.PORT} 。\n\n部署包已带入当前数据库，请直接启动。不要运行开发 seed 或 server:init，以免混入其他初始化流程。现有账号和密码均保留；admin、trader、carrier、driver 使用此前设置的密码。\n\n## 配置\n\n隐藏文件 .env.server 已包含当前地图和 AI 配置，上传时需保留。端口可修改 PORT；数据库地址为 DATABASE_URL="file:./server.db"，相对于 prisma 目录。公网页面、API 与司机端使用同一个端口。\n\n使用域名和 HTTPS 时，可参考 deploy/nginx.node.conf 将域名反向代理至 127.0.0.1:${env.PORT}，并将 .env.server 的 WEB_ORIGIN 和 DRIVER_ORIGIN 设置为实际 HTTPS 域名。如果修改了 PORT，也需修改反向代理端口。地图 JSAPI 的域名白名单需包含实际访问域名。\n\n## 持续运行\n\n服务器面板的项目根目录选本文件夹，启动命令为 npm start。Linux systemd 配置见 deploy/liaoliang.service，修改为实际目录和 Node.js 路径后启用。Linux 上启动前执行 chmod 600 .env.server。运行用户需要能写入 prisma、.local/uploads 和 .local/ocr 目录。\n\n## 数据与升级\n\n- 当前数据库：prisma/server.db，包含业务记录、账号、合同及数据库内的单据和凭证。\n- 文件附件：.local/uploads/，需和数据库一起保留。\n- OCR 语言包：.local/ocr/，用于本地单据识别。\n- 升级时先停止服务并备份数据库和 .local/uploads，再替换程序文件；保留正在使用的 .env.server 和数据库，避免被旧包覆盖。npm start 会自动检查并应用数据库结构迁移。\n- release-manifest.json 记录打包时的数据条数与 SHA-256。首次解压后可执行 npm run verify:package 核对传输完整性；使用后数据库和配置发生变化，请勿再用首次快照校验它们。\n\n本包含数据库及密钥，仅用于你的服务器上传，不要提交到公开仓库。\n`);
+  await writeFile(resolve(output,'DEPLOY.md'),`# 完整部署包使用说明
+
+## 包含内容
+
+- 最新门户首页、联运服务、智能服务、数据服务和“物流一张图”入口。
+- 已裁去 Synthesia 标识的 15 秒背景视频及配套封面。
+- 工作台、司机端、API、两个驾驶舱和地图资源。
+- 驾驶舱共享风格设置、预设管理和数据库迁移。
+- 当前本机数据库一致性快照、业务附件、OCR 语言包及服务器配置。
+
+## 新部署
+
+解压后进入含 package.json 的 liaoliang-server 目录，安装 Node.js 22.13 或以上版本，执行：
+
+\`\`\`sh
+npm run install:server
+npm start
+\`\`\`
+
+安装需要联网下载锁定版本的依赖。程序已经构建，无须上传源码重新编译。账号密码沿用包内数据库，不需要初始化或重新设置。
+
+## 更新已有腾讯云服务
+
+1. 先备份服务器正在使用的数据库、上传附件和 .env.server，再停止项目进程。
+2. 将 ZIP 解压到临时目录，把包内程序文件合并到现有应用根目录。
+3. 更新 apps/api/dist、apps/web/dist、jiashicang/server、tools、prisma/migrations、prisma/schema.prisma、根目录 package.json/package-lock.json 及 apps/api/package.json、apps/web/package.json。
+4. 保留服务器正在使用的数据库文件、.env.server 和 .local/uploads。不要用包内本机快照覆盖服务器数据库。
+5. 在应用根目录执行 npm run install:server，再使用原运维工具重启，启动命令 npm start。启动时自动应用数据库结构迁移，保留业务记录。
+6. 强制刷新首页，检查以下入口。
+
+## 访问入口
+
+- 首页：http://服务器IP:${env.PORT}/
+- 工作台：http://服务器IP:${env.PORT}/workbench
+- 司机端：http://服务器IP:${env.PORT}/driver
+- 平台运营驾驶舱：http://服务器IP:${env.PORT}/cockpit?view=platform
+- 一粮一链驾驶舱：http://服务器IP:${env.PORT}/cockpit?view=chain
+- 健康检查：http://服务器IP:${env.PORT}/api/health
+
+驾驶舱独立入口直接访问。首页“进入平台”在没有有效会话时默认进入 trader 账号。
+
+本包用于 Node.js 服务器部署。Render 的 GitHub/Docker 部署仍需通过仓库发布。
+`,'utf8');
   const packageFiles=[];
   for(const path of await files(output)){
     const name=relative(output,path).split(sep).join('/');
     packageFiles.push({path:name,bytes:(await stat(path)).size,sha256:await fileHash(path),mutable:name==='.env.server'||name==='prisma/server.db'||name.startsWith('.local/')});
   }
-  await writeFile(resolve(output,'release-manifest.json'),JSON.stringify({createdAt:new Date().toISOString(),node:'>=22.13',database,files:packageFiles},null,2)+'\n');
+  await writeFile(resolve(output,'release-manifest.json'),JSON.stringify({createdAt:new Date().toISOString(),kind:'full-server',node:'>=22.13',database,files:packageFiles},null,2)+'\n');
   await verifyPackage(output,true);
   const zip=new JSZip();
   for(const path of await files(output)){

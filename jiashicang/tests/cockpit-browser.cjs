@@ -1,0 +1,56 @@
+const {chromium}=require('playwright');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const base=process.env.COCKPIT_URL||'http://127.0.0.1:5173';
+const out=path.resolve(__dirname,'../acceptance');fs.mkdirSync(out,{recursive:true});
+let browser;
+(async()=>{
+ browser=await chromium.launch({channel:'msedge',headless:process.env.PW_HEADLESS==='true'});
+ const context=await browser.newContext({viewport:{width:1920,height:1080}}),page=await context.newPage();
+ const errors=[],externalMapRequests=[],requests=[];
+ page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(/webapi.amap.com|_AMapService/.test(r.url()))externalMapRequests.push(r.url());if(r.url().includes('/api/cockpit/'))requests.push(r.url());});
+ const start=Date.now();await page.goto(base+'/cockpit');await page.locator('.cc-panel').nth(5).waitFor();await page.locator('canvas').waitFor();
+ const firstReadyMs=Date.now()-start;
+ assert.equal(await page.locator('.cc-panel').count(),6);assert.equal(await page.locator('.cc-metrics').count(),0);
+ assert.ok(await page.locator('.cc-panel').evaluateAll(es=>es.every(e=>/^rgba\([^)]*, 0\)$/.test(getComputedStyle(e).backgroundColor))),'All side panels default to full transparency');
+ await page.screenshot({path:path.join(out,'platform-statistics-1920.png')});
+ await page.getByRole('tab',{name:'一粮一链'}).click();await page.locator('[data-chart=sankey]').waitFor();
+ assert.deepEqual(await page.locator('.cc-stat-chart').evaluateAll(es=>es.map(e=>e.dataset.chart)),['donut','treemap','sankey','bubbles','heatmap','scatter']);
+ assert.equal(await page.locator('.cc-business-select,.cc-asset-select').count(),0);
+ assert.equal(await page.locator('canvas').count(),1);
+ await page.screenshot({path:path.join(out,'chain-statistics-1920.png')});
+ await page.getByRole('button',{name:'大屏风格设置'}).click();await page.getByRole('dialog',{name:'大屏风格设置'}).waitFor();
+ const before=await page.locator('.cc-root').evaluate(e=>e.style.getPropertyValue('--cc-bg'));
+ await page.getByRole('textbox',{name:'背景主色颜色值',exact:true}).fill('#142c40');await page.getByRole('textbox',{name:'背景主色颜色值',exact:true}).press('Tab');
+ assert.equal(await page.locator('.cc-root').evaluate(e=>e.style.getPropertyValue('--cc-bg')),'#142c40');
+ await page.getByRole('button',{name:'取消',exact:true}).click();assert.equal(await page.locator('.cc-root').evaluate(e=>e.style.getPropertyValue('--cc-bg')),before);
+ await page.getByRole('button',{name:'大屏风格设置'}).click();await page.getByRole('textbox',{name:'搜索风格参数',exact:true}).fill('面板背景不透明度');
+ assert.equal(await page.getByRole('spinbutton',{name:'面板背景不透明度数值',exact:true}).inputValue(),'0');
+ await page.getByRole('spinbutton',{name:'面板背景不透明度数值',exact:true}).fill('0.3');await page.getByRole('spinbutton',{name:'面板背景不透明度数值',exact:true}).press('Tab');
+ assert.ok((await page.locator('.cc-panel').first().evaluate(e=>getComputedStyle(e).backgroundColor)).includes('0.3'));
+ await page.getByRole('button',{name:'保存风格',exact:true}).click();await page.getByRole('dialog',{name:'大屏风格设置'}).waitFor({state:'hidden'});await page.reload();await page.locator('.cc-panel').nth(5).waitFor();
+ assert.ok((await page.locator('.cc-panel').first().evaluate(e=>getComputedStyle(e).backgroundColor)).includes('0.3'));
+ await page.getByRole('button',{name:'大屏风格设置'}).click();await page.getByRole('button',{name:'恢复默认',exact:true}).click();await page.getByRole('button',{name:'保存风格',exact:true}).click();await page.getByRole('dialog',{name:'大屏风格设置'}).waitFor({state:'hidden'});
+ await page.getByRole('button',{name:'玉米',exact:true}).click();await page.locator('.cc-grid[aria-busy=false]').waitFor();
+ assert.deepEqual(await page.locator('[data-chart=donut] .cc-stat-legend li>span').allTextContents(),['玉米']);
+ await page.getByRole('button',{name:'全部粮种',exact:true}).click();await page.locator('.cc-grid[aria-busy=false]').waitFor();
+ for(let i=0;i<3;i++){await page.getByRole('tab',{name:'平台运营'}).click();await page.getByRole('tab',{name:'一粮一链'}).click();}
+ assert.equal(await page.locator('canvas').count(),1);assert.ok(requests.every(url=>!url.includes('/chains/')),'Tabs must use cached aggregate data instead of per-business requests');
+ for(const viewport of [{width:1366,height:768}]){
+  await page.setViewportSize(viewport);await page.screenshot({path:path.join(out,`chain-statistics-${viewport.width}.png`),fullPage:true});
+  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Horizontal overflow');
+  if(viewport.width>1100)assert.ok(await page.locator('.cc-panel-body').evaluateAll(es=>es.every(e=>e.scrollHeight<=e.clientHeight+2)),'Panels must fit without hidden content');
+ }
+ await page.setViewportSize({width:1920,height:1080});
+ await page.route('**/api/cockpit/overview**',r=>r.fulfill({status:503,contentType:'application/json',body:JSON.stringify({message:'统计服务暂不可用'})}));
+ await page.getByRole('button',{name:'刷新数据',exact:true}).click();await page.getByRole('alert').filter({hasText:'刷新失败'}).waitFor();assert.equal(await page.locator('.cc-panel').count(),6);
+ await page.unroute('**/api/cockpit/overview**');await page.getByRole('button',{name:'重试',exact:true}).click();await page.locator('.cc-error').waitFor({state:'hidden'});
+ await page.getByRole('tab',{name:'平台运营'}).click();await page.screenshot({path:path.join(out,'platform-statistics-1920.png')});
+ await page.getByRole('tab',{name:'一粮一链'}).click();await page.screenshot({path:path.join(out,'chain-statistics-1920.png')});
+ const fallbackContext=await browser.newContext({viewport:{width:1366,height:768}});await fallbackContext.addInitScript(()=>{const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,...args){return /webgl/i.test(type)?null:original.call(this,type,...args);};});
+ const fallback=await fallbackContext.newPage();await fallback.goto(base+'/cockpit?view=chain');await fallback.locator('.cc-map-fallback').waitFor();assert.ok(await fallback.locator('.cc-map-fallback path').count()>35);await fallback.screenshot({path:path.join(out,'statistics-fallback-1366.png')});await fallbackContext.close();
+ assert.deepEqual(errors,[]);assert.deepEqual(externalMapRequests,[]);
+ const result={status:'PASS',firstReadyMs,visiblePanels:6,chartTypes:['donut','treemap','sankey','bubbles','heatmap','scatter'],checks:['public entry','no top metrics','transparent panels','six distinct chain charts','aggregate tabs reuse data and one canvas','grain filtering','style preview/cancel/save/restore','1920/1366 desktop layout','refresh failure preserves data and retry recovers','2D fallback','no AMap dependency','no runtime exceptions'],errors};
+ fs.writeFileSync(path.join(out,'statistics-browser-results.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));
+})().catch(e=>{console.error(e);process.exitCode=1}).finally(()=>browser?.close());

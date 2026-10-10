@@ -5,6 +5,12 @@ datasource db {
   provider = "sqlite"
   url = env("DATABASE_URL")
 }
+model CockpitAppearance {
+  id String @id
+  revision Int @default(0)
+  payload String
+  updatedAt String
+}
 model Organization {
   id String @id @default(cuid())
   name String

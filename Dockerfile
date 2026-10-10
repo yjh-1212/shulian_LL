@@ -10,6 +10,11 @@ ARG VITE_DRIVER_URL
 ENV VITE_DRIVER_URL=${VITE_DRIVER_URL}
 COPY apps ./apps
 COPY tools ./tools
+COPY jiashicang/src ./jiashicang/src
+COPY jiashicang/server ./jiashicang/server
+COPY jiashicang/map_data/china-terrain.webp ./jiashicang/map_data/china-terrain.webp
+COPY jiashicang/map_data/china-provinces.geojson ./jiashicang/map_data/china-provinces.geojson
+COPY jiashicang/map_data/nine-dash-line.geojson ./jiashicang/map_data/nine-dash-line.geojson
 RUN npm run db:generate && npm run build && npm run build:driver
 RUN mkdir -p .local/ocr && node tools/fetch-ocr.mjs
 

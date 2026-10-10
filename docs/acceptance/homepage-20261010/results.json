@@ -1,0 +1,254 @@
+{
+  "base": "http://127.0.0.1:3002",
+  "results": [
+    {
+      "name": "video-navigation-watermark",
+      "passed": true,
+      "initial": {
+        "heroTop": 0,
+        "headerTop": 0,
+        "headerBackground": "rgba(0, 0, 0, 0)",
+        "videoWidth": 1920,
+        "videoHeight": 1080,
+        "duration": 15,
+        "muted": true,
+        "loop": true,
+        "inline": true
+      },
+      "rangeStatus": 206
+    },
+    {
+      "name": "services-keyboard-cockpit-preview-images",
+      "passed": true
+    },
+    {
+      "name": "video-user-pause-and-offscreen-pause",
+      "passed": true
+    },
+    {
+      "name": "layout-1440",
+      "passed": true,
+      "layout": {
+        "width": 1440,
+        "scrollWidth": 1425,
+        "hero": {
+          "left": 0,
+          "right": 1425,
+          "top": 0,
+          "bottom": 900,
+          "width": 1425,
+          "height": 900
+        },
+        "mask": {
+          "left": 1040.25,
+          "right": 1425,
+          "top": 750,
+          "bottom": 900,
+          "width": 384.75,
+          "height": 150
+        },
+        "header": {
+          "left": 0,
+          "right": 1425,
+          "top": 0,
+          "bottom": 96,
+          "width": 1425,
+          "height": 96
+        },
+        "signatureOverflow": false
+      }
+    },
+    {
+      "name": "layout-1366",
+      "passed": true,
+      "layout": {
+        "width": 1366,
+        "scrollWidth": 1351,
+        "hero": {
+          "left": 0,
+          "right": 1351,
+          "top": 0,
+          "bottom": 768,
+          "width": 1351,
+          "height": 768
+        },
+        "mask": {
+          "left": 981,
+          "right": 1351,
+          "top": 618,
+          "bottom": 768,
+          "width": 370,
+          "height": 150
+        },
+        "header": {
+          "left": 0,
+          "right": 1351,
+          "top": 0,
+          "bottom": 96,
+          "width": 1351,
+          "height": 96
+        },
+        "signatureOverflow": false
+      }
+    },
+    {
+      "name": "layout-1024",
+      "passed": true,
+      "layout": {
+        "width": 1024,
+        "scrollWidth": 1009,
+        "hero": {
+          "left": 0,
+          "right": 1009,
+          "top": 0,
+          "bottom": 768,
+          "width": 1009,
+          "height": 768
+        },
+        "mask": {
+          "left": 639,
+          "right": 1009,
+          "top": 618,
+          "bottom": 768,
+          "width": 370,
+          "height": 150
+        },
+        "header": {
+          "left": 0,
+          "right": 1009,
+          "top": 0,
+          "bottom": 96,
+          "width": 1009,
+          "height": 96
+        },
+        "signatureOverflow": false
+      }
+    },
+    {
+      "name": "layout-768",
+      "passed": true,
+      "layout": {
+        "width": 768,
+        "scrollWidth": 753,
+        "hero": {
+          "left": 0,
+          "right": 753,
+          "top": 0,
+          "bottom": 1000,
+          "width": 753,
+          "height": 1000
+        },
+        "mask": {
+          "left": 433,
+          "right": 753,
+          "top": 870,
+          "bottom": 1000,
+          "width": 320,
+          "height": 130
+        },
+        "header": {
+          "left": 0,
+          "right": 753,
+          "top": 0,
+          "bottom": 72,
+          "width": 753,
+          "height": 72
+        },
+        "signatureOverflow": false
+      }
+    },
+    {
+      "name": "layout-390",
+      "passed": true,
+      "layout": {
+        "width": 390,
+        "scrollWidth": 375,
+        "hero": {
+          "left": 0,
+          "right": 375,
+          "top": 0,
+          "bottom": 844,
+          "width": 375,
+          "height": 844
+        },
+        "mask": {
+          "left": 0,
+          "right": 375,
+          "top": 719,
+          "bottom": 844,
+          "width": 375,
+          "height": 125
+        },
+        "header": {
+          "left": 0,
+          "right": 375,
+          "top": 0,
+          "bottom": 72,
+          "width": 375,
+          "height": 72
+        },
+        "signatureOverflow": false
+      }
+    },
+    {
+      "name": "layout-360",
+      "passed": true,
+      "layout": {
+        "width": 360,
+        "scrollWidth": 345,
+        "hero": {
+          "left": 0,
+          "right": 345,
+          "top": 0,
+          "bottom": 740,
+          "width": 345,
+          "height": 740
+        },
+        "mask": {
+          "left": 0,
+          "right": 345,
+          "top": 615,
+          "bottom": 740,
+          "width": 345,
+          "height": 125
+        },
+        "header": {
+          "left": 0,
+          "right": 345,
+          "top": 0,
+          "bottom": 72,
+          "width": 345,
+          "height": 72
+        },
+        "signatureOverflow": false
+      }
+    },
+    {
+      "name": "page-errors-and-asset-responses",
+      "passed": true,
+      "errors": [],
+      "badResponses": []
+    },
+    {
+      "name": "reduced-motion-static-cover-and-manual-play",
+      "passed": true
+    },
+    {
+      "name": "video-failure-poster-and-retry",
+      "passed": true
+    },
+    {
+      "name": "three-real-trader-entries-data-service-agent-navigation",
+      "passed": true,
+      "loginStatus": 201
+    },
+    {
+      "name": "public-cockpit-navigation",
+      "passed": true
+    },
+    {
+      "name": "entry-error-and-retry-retains-requested-destination",
+      "passed": true
+    }
+  ]
+}

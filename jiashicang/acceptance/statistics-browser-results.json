@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "firstReadyMs": 876,
+  "visiblePanels": 6,
+  "chartTypes": [
+    "donut",
+    "treemap",
+    "sankey",
+    "bubbles",
+    "heatmap",
+    "scatter"
+  ],
+  "checks": [
+    "public entry",
+    "no top metrics",
+    "transparent panels",
+    "six distinct chain charts",
+    "aggregate tabs reuse data and one canvas",
+    "grain filtering",
+    "style preview/cancel/save/restore",
+    "1920/1366 desktop layout",
+    "refresh failure preserves data and retry recovers",
+    "2D fallback",
+    "no AMap dependency",
+    "no runtime exceptions"
+  ],
+  "errors": []
+}

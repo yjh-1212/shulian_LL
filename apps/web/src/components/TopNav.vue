@@ -9,8 +9,13 @@ import { message } from '../api';
 const auth=useAuth(),route=useRoute(),router=useRouter();
 const header=ref<HTMLElement>(),nav=ref<HTMLElement>(),measure=ref<HTMLElement>();
 const hiddenIds=ref<string[]>([]);
-const visible=computed(()=>auth.menus.filter(m=>!hiddenIds.value.includes(m.id)));
-const overflow=computed(()=>auth.menus.filter(m=>hiddenIds.value.includes(m.id)));
+const menus=computed<Menu[]>(()=>{
+  const items=auth.menus.filter(m=>m.path!=='/cockpit');
+  items.splice(items.findIndex(m=>m.path==='/workbench')+1,0,{id:'cockpit',label:'驾驶舱',path:'/cockpit',icon:'chart',permissionCode:'',displayOrder:2,overflowPriority:0,phase:1,available:true,children:[]});
+  return items;
+});
+const visible=computed(()=>menus.value.filter(m=>!hiddenIds.value.includes(m.id)));
+const overflow=computed(()=>menus.value.filter(m=>hiddenIds.value.includes(m.id)));
 const active=(m:Menu)=>m.path==='/'?route.path==='/':route.path.startsWith(m.path);
 const moreActive=computed(()=>overflow.value.some(active));
 let observer:ResizeObserver|undefined;
@@ -18,13 +23,13 @@ async function fit(){
   await nextTick();if(!nav.value||!measure.value)return;
   const widths=new Map(Array.from(measure.value.children).map(el=>[(el as HTMLElement).dataset.id!,el.getBoundingClientRect().width]));
   const available=nav.value.getBoundingClientRect().width;
-  let total=auth.menus.reduce((sum,m)=>sum+(widths.get(m.id)||100),0);
+  let total=menus.value.reduce((sum,m)=>sum+(widths.get(m.id)||100),0);
   const hidden:string[]=[];
-  if(total>available){total+=86;for(const m of [...auth.menus].filter(m=>!['home','workbench'].includes(m.id)).sort((a,b)=>b.overflowPriority-a.overflowPriority||b.displayOrder-a.displayOrder)){if(total<=available)break;hidden.push(m.id);total-=widths.get(m.id)||100;}}
+  if(total>available){total+=86;for(const m of [...menus.value].filter(m=>!['home','workbench','cockpit'].includes(m.id)&&m.path!=='/data').sort((a,b)=>b.overflowPriority-a.overflowPriority||b.displayOrder-a.displayOrder)){if(total<=available)break;hidden.push(m.id);total-=widths.get(m.id)||100;}}
   hiddenIds.value=hidden;
 }
 onMounted(()=>{observer=new ResizeObserver(()=>void fit());if(header.value)observer.observe(header.value);if(nav.value)observer.observe(nav.value);void fit();document.fonts.ready.then(fit);});
-watch(()=>auth.menus,fit,{deep:true});
+watch(menus,fit,{deep:true});
 onBeforeUnmount(()=>observer?.disconnect());
 async function logout(){try{await auth.logout();await router.push('/login');}catch(e){ElMessage.error(message(e));}}
 function go(path:string){router.push(path);}
@@ -48,7 +53,7 @@ function go(path:string){router.push(path);}
       </el-dropdown>
     </nav>
     <div class="user-zone"><el-dropdown trigger="click" @command="(cmd:string)=>cmd==='logout'?logout():go('/account')"><button class="user-button" aria-label="用户菜单"><span class="avatar">{{auth.user?.displayName.slice(0,1)}}</span><span class="user-name">{{auth.user?.displayName}}</span><Icon name="down" :size="14"/></button><template #dropdown><el-dropdown-menu><el-dropdown-item disabled>{{auth.user?.businessEntity.name}}</el-dropdown-item><el-dropdown-item command="account">账号设置</el-dropdown-item><el-dropdown-item command="logout" divided>退出登录</el-dropdown-item></el-dropdown-menu></template></el-dropdown></div>
-    <div ref="measure" class="nav-measure" aria-hidden="true"><span v-for="m in auth.menus" :key="m.id" :data-id="m.id" class="nav-button"><span>{{m.label}}</span><Icon v-if="m.children.length" name="down" :size="13"/></span></div>
+    <div ref="measure" class="nav-measure" aria-hidden="true"><span v-for="m in menus" :key="m.id" :data-id="m.id" class="nav-button"><span>{{m.label}}</span><Icon v-if="m.children.length" name="down" :size="13"/></span></div>
   </header>
 </template>
 <style scoped>

@@ -1,0 +1,6 @@
+export const modeName=(mode:string)=>({ROAD:'公路',RAIL:'铁路',WATER:'水运'}[mode]||mode);
+export const statusName=(status:string)=>({DRAFT:'待完善',PUBLISHED:'已发布',REVIEW:'待确认',SIGNING:'签署中',EFFECTIVE:'已生效',PENDING:'待执行',IN_PROGRESS:'执行中',COMPLETED:'已完成',CANCELLED:'已取消',DISPATCHED:'已派发',ACCEPTED:'已接单',IN_TRANSIT:'运输中',ARRIVED:'已到达',UNLOADED:'已卸货',RECEIVED:'已签收',SUBMITTED:'待对账',CONFIRMED:'已确认',SETTLED:'已结算',PARTIAL:'部分结算',ARCHIVED:'已归档',PAID:'已支付',RETURNED:'待修改'}[status]||status);
+export const tone=(status:string)=>['COMPLETED','SETTLED','RECEIVED','ARCHIVED','PAID'].includes(status)?'success':['IN_PROGRESS','IN_TRANSIT','EFFECTIVE','CONFIRMED'].includes(status)?'active':['CANCELLED','RETURNED'].includes(status)?'muted':'pending';
+export const tons=(kg:number|null|undefined)=>kg==null?'—':(kg/1000).toLocaleString('zh-CN',{minimumFractionDigits:1,maximumFractionDigits:1});
+export const amount=(cents:number|null|undefined)=>cents==null?'—':(cents/100/10000).toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2});
+export const time=(value:string|null|undefined)=>!value||!Number.isFinite(new Date(value).getTime())?'待回传':new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date(value));

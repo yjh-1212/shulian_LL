@@ -22,6 +22,7 @@ export const router=createRouter({history:createWebHistory(),routes:[
   {path:'/login',component:Login,meta:{title:'登录'}},
   {path:'/',component:()=>import('./views/Portal.vue'),meta:{title:'首页',public:true}},
   {path:'/workbench',component:Home,meta:{title:'工作台',permission:'home:read',workbench:true}},
+  {path:'/cockpit',component:()=>import('../../../jiashicang/src/Cockpit.vue'),meta:{title:'数智联运驾驶舱',public:true,cockpit:true}},
   {path:'/supply-demand/demands',component:Transport,meta:{title:'运输需求管理',permission:'demand:read',kind:'demand'}},
   {path:'/supply-demand/supplies',component:Transport,meta:{title:'运输供给管理',permission:'supply:read',kind:'supply',entityTypes:['PLATFORM','CARRIER']}},
   ...[['users','用户管理'],['roles','角色权限'],['dictionaries','数据字典'],['entities','合作主体'],['logs','日志管理']].map(([key,title])=>({path:`/system/${key}`,component:Admin,meta:{title,permission:`${key}:read`,section:key}})),

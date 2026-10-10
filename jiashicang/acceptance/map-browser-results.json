@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "desktopOnly": true,
+  "results": [
+    "desktop WebGL, true polyline playback, pause/seek/speed/restart, geometry reuse, layers, scoped statistics, node selection and cruise",
+    "chain chart linking, keyboard selection, grain filtering, both 1366×768 layouts and shared style controls",
+    "leave/return cleanup, failed reference retry, keyboard province selection and 2D playback"
+  ],
+  "errors": []
+}

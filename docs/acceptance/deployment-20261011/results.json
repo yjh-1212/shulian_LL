@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "archive": "ll_dist\\liaoliang-server.zip",
+  "archiveBytes": 95356988,
+  "archiveSha256": "9209305cdf1f8ed15605250bb4fe611a72f180166e47047b93097b5d28440cfc",
+  "verifiedFiles": 442,
+  "independentInstall": true,
+  "databaseIntegrity": true,
+  "databaseTables": 76,
+  "attachmentFiles": 17,
+  "accountPasswordsPreserved": true,
+  "defaultTraderEntry": true,
+  "publicCockpitData": true,
+  "sharedAppearance": true,
+  "cockpitMigration": true,
+  "videoRangeResponse": true,
+  "privateFileGuards": true,
+  "routes": [
+    "/",
+    "/workbench",
+    "/driver",
+    "/cockpit?view=platform",
+    "/cockpit?view=chain"
+  ]
+}

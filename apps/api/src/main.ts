@@ -17,6 +17,7 @@ import { AuthController, AuthService } from './auth';
 import { AuthGuard, PermissionGuard,Public } from './security';
 import { AdminController, AdminService } from './admin';
 import { WorkspaceController } from './workspace';
+import { CockpitController } from './cockpit.controller';
 import {PlanningController} from './planning.controller';
 import {PlanningService} from './planning.service';
 import {AmapService,MapController} from './amap';
@@ -72,7 +73,7 @@ const secret=process.env.JWT_SECRET;
 if(!secret || secret.length<32 || secret.startsWith('replace-')) throw new Error('请运行 npm run setup，或配置安全的 JWT_SECRET');
 @Controller('health')
 class HealthController {constructor(private db:Database){} @Public() @Get() async ready(){await this.db.$queryRawUnsafe('SELECT 1');return {status:'READY',version:'0.9.0'};}}
-@Module({imports:[JwtModule.register({secret}),ThrottlerModule.forRoot([{ttl:60000,limit:180}])],controllers:[TrackingWorkspaceController,VesselController,AgentCenterController,IntermodalController,HealthController,IntelligenceController,BillingController,DataController,DataFeedController,TrackingController,ContractsController,FulfillmentController,DriverController,AuthController,AdminController,WorkspaceController,TransportController,TransportFilesController,PlanningController,MapController,MatchingController],providers:[TrackingWorkspaceService,VesselService,AgentCenterService,IntermodalService,ForecastService,IntelligenceService,BillingService,DataService,TrackingService,ContractsService,FulfillmentService,Database,Audit,AuthService,AdminService,TransportService,PlanningService,AmapService,MatchingService,{provide:APP_GUARD,useClass:ThrottlerGuard},{provide:APP_GUARD,useClass:AuthGuard},{provide:APP_GUARD,useClass:PermissionGuard}]})
+@Module({imports:[JwtModule.register({secret}),ThrottlerModule.forRoot([{ttl:60000,limit:180}])],controllers:[CockpitController,TrackingWorkspaceController,VesselController,AgentCenterController,IntermodalController,HealthController,IntelligenceController,BillingController,DataController,DataFeedController,TrackingController,ContractsController,FulfillmentController,DriverController,AuthController,AdminController,WorkspaceController,TransportController,TransportFilesController,PlanningController,MapController,MatchingController],providers:[TrackingWorkspaceService,VesselService,AgentCenterService,IntermodalService,ForecastService,IntelligenceService,BillingService,DataService,TrackingService,ContractsService,FulfillmentService,Database,Audit,AuthService,AdminService,TransportService,PlanningService,AmapService,MatchingService,{provide:APP_GUARD,useClass:ThrottlerGuard},{provide:APP_GUARD,useClass:AuthGuard},{provide:APP_GUARD,useClass:PermissionGuard}]})
 class AppModule {}
 async function bootstrap() {
   const runtime=runtimeConfig();

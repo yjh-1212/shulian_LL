@@ -21,6 +21,8 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.vue",
+    "../../jiashicang/src/**/*.ts",
+    "../../jiashicang/src/**/*.vue",
     "vite.config.ts"
   ]
 }

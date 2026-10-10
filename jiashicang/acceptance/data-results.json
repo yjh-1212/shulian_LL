@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "readOnly": true,
+  "loginRequired": false,
+  "addedBusinessRecords": 0,
+  "baseline": {
+    "business": 43,
+    "demand": 113,
+    "contract": 49
+  },
+  "visibleBusinesses": 16,
+  "initializedBusinesses": 16,
+  "plannedTons": 17381.1,
+  "overviewMs": 238
+}

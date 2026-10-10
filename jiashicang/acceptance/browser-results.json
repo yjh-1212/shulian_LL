@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "firstReadyMs": 717,
+  "visiblePanels": 6,
+  "businesses": 16,
+  "initializedBusinesses": 16,
+  "selectedAssets": 6,
+  "savedRouteSegments": 3,
+  "checks": [
+    "direct entry without login",
+    "two tabs",
+    "single map after repeated switching",
+    "live style preview",
+    "cancel restores",
+    "save survives reload",
+    "custom preset and apply both",
+    "grain filtering",
+    "historical replay",
+    "refresh failure preserves data and retry recovers",
+    "2D fallback keeps business routes",
+    "1920/1366/mobile layout",
+    "no online map dependency",
+    "no runtime exceptions"
+  ],
+  "errors": []
+}

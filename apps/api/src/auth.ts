@@ -23,6 +23,16 @@ export class AuthService {
     await this.db.loginLog.create({data:{username:dto.username,userId:u?.id,businessEntityId:u?.businessEntityId,ip:req.ip||'',userAgent:String(req.headers['user-agent']||'').slice(0,500),success:!!ok&&driver===driverMode,reason:!ok?'账号或密码错误':driver!==driverMode?'账号类型与入口不匹配':driverMode?'司机端登录成功':'登录成功',requestId:req.requestId}});
     if(!ok) throw new UnauthorizedException('账号或密码错误，或账号已停用');
     if(driver!==driverMode) throw new ForbiddenException(driverMode?'此入口仅限司机账号':'司机账号请使用司机端');
+    return this.createSession(u,req,res,driverMode);
+  }
+  async experience(req:any,res:Response) {
+    const u=await this.db.user.findUnique({where:{username:'trader'},include:userInclude});
+    const ok=!!u && !u.deletedAt && !(process.env.NODE_ENV==='production'&&u.isTestData) && u.status==='ACTIVE' && u.businessEntity.type==='TRADER' && u.businessEntity.status==='ACTIVE' && !u.businessEntity.deletedAt && !u.mustChangePassword && !u.roles.some(r=>r.role.code==='driver');
+    await this.db.loginLog.create({data:{username:'trader',userId:u?.id,businessEntityId:u?.businessEntityId,ip:req.ip||'',userAgent:String(req.headers['user-agent']||'').slice(0,500),success:ok,reason:ok?'首页自动登录 trader':'首页默认账号不可用',requestId:req.requestId}});
+    if(!ok) throw new ForbiddenException('默认 trader 账号暂不可用，请联系管理员或使用账号密码登录');
+    return this.createSession(u,req,res);
+  }
+  private async createSession(u:any,req:any,res:Response,driverMode=false) {
     const raw=randomBytes(48).toString('base64url');
     const session=await this.db.refreshToken.create({data:{userId:u.id,audience:driverMode?'grain-driver':'grain-web',tokenHash:digest(raw),expiresAt:new Date(Date.now()+sessionMaxAge)}});
     await this.db.user.update({where:{id:u.id},data:{lastLoginAt:new Date()}});
@@ -73,6 +83,8 @@ export class AuthController {
   constructor(private service:AuthService){}
   @Public() @Post('login') @Throttle({default:{limit:8,ttl:60000}}) @ApiOperation({summary:'PC登录，司机不可使用'})
   login(@Body() dto:LoginDto,@Req() req:any,@Res({passthrough:true}) res:Response){return this.service.login(dto,req,res);}
+  @Public() @Post('experience') @Throttle({default:{limit:8,ttl:60000}}) @ApiOperation({summary:'首页以固定 trader 账号进入平台'})
+  experience(@Req() req:any,@Res({passthrough:true}) res:Response){return this.service.experience(req,res);}
   @Public() @Post('refresh') @ApiOperation({summary:'HttpOnly cookie 轮换刷新'})
   refresh(@Req() req:any,@Res({passthrough:true}) res:Response){return this.service.refresh(req,res);}
   @Public() @Post('logout') @ApiOperation({summary:'撤销当前会话'})

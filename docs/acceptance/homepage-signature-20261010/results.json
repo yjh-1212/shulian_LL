@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "signature": {
+    "background": "rgba(0, 0, 0, 0)",
+    "border": "0px",
+    "shadow": "none"
+  },
+  "frames": [
+    2,
+    7,
+    13
+  ],
+  "widths": [
+    1920,
+    1440,
+    390
+  ],
+  "pauseResume": true,
+  "reducedMotion": true,
+  "pageErrors": []
+}

@@ -1,0 +1,7 @@
+{
+  "repository": "https://github.com/genthalili/searoute-py",
+  "commit": "4446009a4ce0c79bcf67616c05f28820fbdc7e08",
+  "retrievedAt": "2026-10-09T23:22:03.1434566Z",
+  "network": "searoute/data/marnet_searoute.geojson",
+  "ports": "searoute/data/ports.geojson"
+}

@@ -1,0 +1,74 @@
+{
+  "base": "http://127.0.0.1:3002",
+  "results": [
+    {
+      "name": "four-peer-navigation-items-and-content-order",
+      "passed": true
+    },
+    {
+      "name": "full-hero-video-and-watermark-cover",
+      "passed": true
+    },
+    {
+      "name": "four-intermodal-tabs-and-keyboard",
+      "passed": true
+    },
+    {
+      "name": "five-business-stages-switch-real-interface-previews",
+      "passed": true
+    },
+    {
+      "name": "three-ai-business-scenarios-and-vertical-keyboard",
+      "passed": true
+    },
+    {
+      "name": "three-data-uses-switch-copy-and-visuals",
+      "passed": true
+    },
+    {
+      "name": "anchor-navigation-clears-fixed-header",
+      "passed": true
+    },
+    {
+      "name": "desktop-visual-review-artifacts-and-lazy-images",
+      "passed": true
+    },
+    {
+      "name": "homepage-layouts-and-small-screen-menu",
+      "passed": true
+    },
+    {
+      "name": "no-homepage-browser-errors-or-failed-assets",
+      "passed": true
+    },
+    {
+      "name": "default-trader-entry-and-all-five-business-destinations",
+      "passed": true
+    },
+    {
+      "name": "ai-scenario-destinations-and-data-entry",
+      "passed": true
+    },
+    {
+      "name": "public-logistics-entry-opens-platform-view",
+      "passed": true
+    },
+    {
+      "name": "entry-failure-retry-keeps-selected-destination",
+      "passed": true
+    },
+    {
+      "name": "reduced-motion-and-video-error-recovery",
+      "passed": true
+    }
+  ],
+  "finalVisual": {
+    "passed": true,
+    "defaultServiceImage": "/assets/portal/grain-logistics-poster.webp",
+    "widths": [
+      1920,
+      1440,
+      390
+    ]
+  }
+}

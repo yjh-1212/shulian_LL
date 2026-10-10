@@ -6,12 +6,14 @@ import { useAuth } from './stores/auth';
 import TopNav from './components/TopNav.vue';
 import Agent from './components/AgentEntry.vue';
 const route=useRoute(),router=useRouter(),auth=useAuth();
-let cancelMapPreload:(()=>void)|undefined;
-watch(()=>[auth.user?.id,auth.user?.mustChangePassword,auth.can('plan:read')||auth.can('tracking:read')],()=>{
+let cancelMapPreload:(()=>void)|undefined,mapPreloadGeneration=0;
+watch(()=>[auth.user?.id,auth.user?.mustChangePassword,auth.can('plan:read')||auth.can('tracking:read'),route.meta.cockpit],()=>{
+  const generation=++mapPreloadGeneration;
   cancelMapPreload?.();invalidateMapConfig();
-  if(auth.user&&!auth.user.mustChangePassword&&(auth.can('plan:read')||auth.can('tracking:read')))cancelMapPreload=scheduleMapPreload();
+  // Authentication can finish before the initial lazy route resolves.
+  void router.isReady().then(()=>{if(generation===mapPreloadGeneration&&auth.user&&!auth.user.mustChangePassword&&!route.meta.cockpit&&(auth.can('plan:read')||auth.can('tracking:read')))cancelMapPreload=scheduleMapPreload();});
 },{immediate:true});
-onBeforeUnmount(()=>cancelMapPreload?.());
+onBeforeUnmount(()=>{mapPreloadGeneration++;cancelMapPreload?.();});
 const expired=()=>{auth.clear();router.push('/login');};
 onMounted(()=>window.addEventListener('session-expired',expired));onBeforeUnmount(()=>window.removeEventListener('session-expired',expired));
 </script>

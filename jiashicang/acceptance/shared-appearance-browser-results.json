@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "syncMs": 4451,
+  "checks": [
+    "both screenshot styles as defaults",
+    "ignore obsolete local styles",
+    "separate browser contexts",
+    "local preview only",
+    "automatic global save sync",
+    "separate tab styles",
+    "preserve editing draft on remote update",
+    "cancel restores newest shared style",
+    "failed save keeps draft",
+    "shared preset creation, selection and deletion",
+    "preset deletion preserves applied style",
+    "apply to both tabs",
+    "reload persistence",
+    "1366 desktop layout"
+  ],
+  "errors": []
+}
