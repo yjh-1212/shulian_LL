@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {computed,onMounted,onBeforeUnmount,ref,watch} from 'vue';
+import {computed,defineAsyncComponent,onMounted,onBeforeUnmount,ref,watch} from 'vue';
 import {useRoute,useRouter} from 'vue-router';
 import {Maximize,Minimize,Settings2,RefreshCw,ArrowLeft,RotateCcw,ShieldCheck,X} from 'lucide-vue-next';
 import {api,message} from '../../apps/web/src/api';
@@ -10,16 +10,22 @@ import StatisticsChart from './components/StatisticsChart.vue';
 import MapExplorer from './components/MapExplorer.vue';
 import SouthSeaInset from './components/SouthSeaInset.vue';
 import StyleSettings from './components/StyleSettings.vue';
+const ComprehensiveCockpit=defineAsyncComponent(()=>import('./components/ComprehensiveCockpit.vue'));
+const ChannelCockpit=defineAsyncComponent(()=>import('./components/ChannelCockpit.vue'));
+const GrainSourceCockpit=defineAsyncComponent(()=>import('./components/GrainSourceCockpit.vue'));
 import {useCockpitStyles,styleVariables,type CockpitStyle} from './theme';
 import {displayStatistics} from './display-data';
 import type {View,Overview,ChartSelection} from './types';
 import './cockpit.css';
 import './map-interactions.css';
 const route=useRoute(),router=useRouter();
-const view=ref<View>(route.query.view==='chain'?'chain':'platform');
+const view=ref<View>(route.query.view==='channel'?'channel':route.query.view==='grain-source'?'grain-source':route.query.view==='comprehensive'?'comprehensive':route.query.view==='chain'?'chain':'platform');
 const period=ref('all'),grain=ref('all'),overview=ref<Overview|null>(null),loading=ref(true),error=ref('');
 const styles=useCockpitStyles(view),config=styles.current,settingsOpen=ref(false),clock=ref(new Date()),full=ref(false),map=ref<InstanceType<typeof MapExplorer>>();
 const chartSelection=ref<ChartSelection|null>(null),mapScope=ref<Record<string,string>>({}),scopeLabel=ref('');
+const comprehensive=ref<{reset:()=>void}>();
+const channel=ref<{reset:()=>void}>();
+const grainSource=ref<{reset:()=>void}>();
 let overviewAbort:AbortController|undefined,generation=0,clockTimer:number,refreshTimer:number;
 const vars=computed(()=>styleVariables(config.value));
 const stats=computed(()=>overview.value?displayStatistics(overview.value):null);
@@ -29,29 +35,32 @@ const coordinationGroups=computed(()=>overview.value?.demandGroups.filter(row=>r
 function highlight(value:ChartSelection){if(value.dimension==='grain'){grain.value=grain.value===value.value?'all':value.value;chartSelection.value=null;}else chartSelection.value=chartSelection.value?.dimension===value.dimension&&chartSelection.value?.value===value.value&&chartSelection.value?.grain===value.grain?null:value;}
 function setScope(value:Record<string,string>,label:string){mapScope.value=value;scopeLabel.value=label;chartSelection.value=null;void loadOverview();}
 function clearScope(){mapScope.value={};scopeLabel.value='';chartSelection.value=null;map.value?.reset();void loadOverview();}
-async function loadOverview(){const current=++generation;overviewAbort?.abort();overviewAbort=new AbortController();loading.value=true;error.value='';try{const response=await api.get('/cockpit/overview',{params:{period:period.value,grain:grain.value==='all'?undefined:grain.value,...mapScope.value},signal:overviewAbort.signal});if(current===generation)overview.value=response.data.data;}catch(e:any){if(current===generation&&e.code!=='ERR_CANCELED')error.value=message(e);}finally{if(current===generation)loading.value=false;}}
+async function loadOverview(){const current=++generation;overviewAbort?.abort();if(view.value==='comprehensive'||view.value==='grain-source'||view.value==='channel'){loading.value=false;error.value='';if(view.value==='comprehensive')comprehensive.value?.reset();else if(view.value==='channel')channel.value?.reset();else grainSource.value?.reset();return;}overviewAbort=new AbortController();loading.value=true;error.value='';try{const response=await api.get('/cockpit/overview',{params:{period:period.value,grain:grain.value==='all'?undefined:grain.value,...mapScope.value},signal:overviewAbort.signal});if(current===generation)overview.value=response.data.data;}catch(e:any){if(current===generation&&e.code!=='ERR_CANCELED')error.value=message(e);}finally{if(current===generation)loading.value=false;}}
 function editStyle(){styles.begin();settingsOpen.value=true;}
 async function saveStyle(both:boolean){if(await styles.save(both))settingsOpen.value=false;}
 function changeStyle(style:CockpitStyle){styles.draft.value=style;}
 async function toggleFull(){try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen();}catch{error.value='浏览器未允许全屏，请使用浏览器全屏快捷键';}}
 function fullscreenChanged(){full.value=!!document.fullscreenElement;}
 watch([period,grain],()=>{chartSelection.value=null;void loadOverview();});
-watch(view,()=>{settingsOpen.value=false;chartSelection.value=null;void router.replace({path:'/cockpit',query:{view:view.value}});});
-watch(()=>route.query.view,value=>{if(value==='chain'||value==='platform')view.value=value;});
+watch(view,()=>{settingsOpen.value=false;chartSelection.value=null;void router.replace({path:'/cockpit',query:{view:view.value}});void loadOverview();});
+watch(()=>route.query.view,value=>{if(value==='chain'||value==='platform'||value==='comprehensive'||value==='grain-source'||value==='channel')view.value=value;});
 watch(settingsOpen,value=>{if(!value)styles.cancel();});
-onMounted(()=>{void loadOverview();clockTimer=window.setInterval(()=>clock.value=new Date(),1000);refreshTimer=window.setInterval(()=>{if(!document.hidden&&!settingsOpen.value)void loadOverview();},60000);document.addEventListener('fullscreenchange',fullscreenChanged);});
+onMounted(()=>{void loadOverview();clockTimer=window.setInterval(()=>clock.value=new Date(),1000);refreshTimer=window.setInterval(()=>{if(view.value!=='comprehensive'&&view.value!=='grain-source'&&view.value!=='channel'&&!document.hidden&&!settingsOpen.value)void loadOverview();},60000);document.addEventListener('fullscreenchange',fullscreenChanged);});
 onBeforeUnmount(()=>{overviewAbort?.abort();clearInterval(clockTimer);clearInterval(refreshTimer);document.removeEventListener('fullscreenchange',fullscreenChanged);});
 </script>
 
 <template>
- <div class="cc-root cc-statistical" :style="vars" :data-theme="config.theme" :data-view="view">
+ <div class="cc-root cc-statistical" :class="{'cc-comprehensive-view':view==='comprehensive','cc-grain-source-view':view==='grain-source','cc-channel-view':view==='channel'}" :style="vars" :data-theme="config.theme" :data-view="view">
   <header class="cc-header">
-   <el-tabs v-model="view" class="cc-view-tabs" aria-label="驾驶舱切换"><el-tab-pane label="平台运营" name="platform"/><el-tab-pane label="一粮一链" name="chain"/></el-tabs>
+   <el-tabs v-model="view" class="cc-view-tabs" aria-label="驾驶舱切换"><el-tab-pane label="平台运营" name="platform"/><el-tab-pane label="一粮一链" name="chain"/><el-tab-pane label="综合驾驶舱" name="comprehensive"/><el-tab-pane label="粮源分析" name="grain-source"/><el-tab-pane label="通道运行" name="channel"/></el-tabs>
    <div class="cc-header-actions"><time>{{clockText}}</time><button class="cc-icon-button" aria-label="刷新数据" :disabled="loading" @click="loadOverview"><RefreshCw :size="18" :class="{'cc-spin':loading}"/></button><button class="cc-icon-button" aria-label="大屏风格设置" @click="editStyle"><Settings2 :size="18"/></button><button class="cc-icon-button cc-fullscreen" :aria-label="full?'退出全屏':'进入全屏'" @click="toggleFull"><component :is="full?Minimize:Maximize" :size="18"/></button><router-link to="/" class="cc-return"><ArrowLeft :size="15"/>首页</router-link></div>
   </header>
   <div v-if="error" class="cc-error" role="alert">{{overview?'刷新失败，保留上次加载的数据：':''}}{{error}}<button class="cc-button" @click="loadOverview">重试</button></div>
   <div v-if="styles.syncError.value" class="cc-error" role="alert">{{styles.syncError.value}}<button class="cc-button" @click="styles.refresh">重试同步</button></div>
-  <main v-if="overview&&stats" class="cc-grid" :aria-busy="loading">
+  <ComprehensiveCockpit v-if="view==='comprehensive'" ref="comprehensive" :config="config" :paused="settingsOpen"/>
+  <ChannelCockpit v-else-if="view==='channel'" ref="channel" :config="config" :paused="settingsOpen"/>
+  <GrainSourceCockpit v-else-if="view==='grain-source'" ref="grainSource" :config="config" :paused="settingsOpen"/>
+  <main v-else-if="overview&&stats" class="cc-grid" :aria-busy="loading">
    <aside class="cc-side cc-left">
     <template v-if="view==='platform'">
      <BusinessScalePanel :statistics="stats" :config="config"/>

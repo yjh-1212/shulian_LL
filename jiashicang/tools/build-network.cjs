@@ -71,4 +71,4 @@ async function main(){
  }finally{await db.$disconnect();}
 }
 if(require.main===module)main().catch(e=>{console.error(e.message);process.exitCode=1;});
-module.exports={simplify,distance,toWgs,seaPath};
+module.exports={simplify,distance,toWgs,seaPath,seaGraph};

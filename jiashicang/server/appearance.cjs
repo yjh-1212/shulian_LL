@@ -1,10 +1,11 @@
 const {randomUUID}=require('node:crypto');
 const initial=require('./default-styles.json');
-const ranges={panelOpacity:[0,1],borderOpacity:[0,0.8],radius:[0,24],shadow:[0,0.5],fontSize:[12,18],titleSize:[15,24],metricSize:[26,48],panelWidth:[20,28],gap:[8,28],chartWidth:[1,5],mapHeight:[0,0.85],ambient:[0.4,4],light:[0,7],routeWidth:[1,5],labelSize:[10,16],motionSpeed:[0.3,2.5],routeLimit:[4,24],labelLimit:[2,14]};
+const ranges={panelOpacity:[0,1],borderOpacity:[0,0.8],radius:[0,24],shadow:[0,0.5],fontSize:[12,18],titleSize:[15,24],metricSize:[26,48],panelWidth:[20,28],gap:[8,28],chartWidth:[1,5],mapEdgeWidth:[0.5,5],mapHeight:[0,0.85],ambient:[0.4,4],light:[0,7],routeWidth:[1,5],labelSize:[10,16],motionSpeed:[0.3,2.5],routeLimit:[4,24],labelLimit:[2,14]};
 const choices={theme:['dark','light'],fontFamily:['hei','song'],chartPalette:['ocean','grain','mono'],performance:['smooth','balanced','fine']};
 const initializing=new WeakMap();
 function fail(message,code='INVALID'){throw Object.assign(new Error(message),{appearanceCode:code});}
-function validView(view){if(!['platform','chain'].includes(view))fail('请选择有效的驾驶舱');return view;}
+const views=['platform','chain','comprehensive','grain-source','channel'];
+function validView(view){if(!views.includes(view))fail('请选择有效的驾驶舱');return view;}
 function cleanStyle(input,view){
  const base=initial[validView(view)];
  if(!input||typeof input!=='object'||Array.isArray(input))fail('风格参数格式不正确');
@@ -25,7 +26,7 @@ async function ensure(db){
   const promise=(async()=>{
    // Also supports existing code-only installations before their next migration run.
    await db.$executeRawUnsafe('CREATE TABLE IF NOT EXISTS "CockpitAppearance" ("id" TEXT NOT NULL PRIMARY KEY, "revision" INTEGER NOT NULL DEFAULT 0, "payload" TEXT NOT NULL, "updatedAt" TEXT NOT NULL)');
-   await db.$executeRawUnsafe('INSERT OR IGNORE INTO "CockpitAppearance" ("id","revision","payload","updatedAt") VALUES (?,0,?,?)','global',JSON.stringify({styles:{platform:initial.platform,chain:initial.chain},presets:initial.presets}),new Date().toISOString());
+   await db.$executeRawUnsafe('INSERT OR IGNORE INTO "CockpitAppearance" ("id","revision","payload","updatedAt") VALUES (?,0,?,?)','global',JSON.stringify({styles:Object.fromEntries(views.map(view=>[view,initial[view]])),presets:initial.presets}),new Date().toISOString());
   })().catch(error=>{initializing.delete(db);throw error;});
   initializing.set(db,promise);
  }
@@ -36,7 +37,7 @@ async function readAppearance(db){
  const [row]=await db.$queryRawUnsafe('SELECT "revision","payload","updatedAt" FROM "CockpitAppearance" WHERE "id"=?','global');
  const payload=JSON.parse(row.payload);
  // Fill newly introduced controls without overwriting existing shared colors or incrementing the revision.
- const styles={platform:{...initial.platform,...payload.styles.platform},chain:{...initial.chain,...payload.styles.chain}};
+ const styles=Object.fromEntries(views.map(view=>[view,{...initial[view],...payload.styles[view]}]));
  return {revision:row.revision,updatedAt:row.updatedAt,styles,presets:payload.presets.map(p=>({...p,style:{...initial[p.view],...p.style}}))};
 }
 async function changeAppearance(db,input,change){
@@ -51,7 +52,7 @@ async function changeAppearance(db,input,change){
 function saveAppearance(db,input){return changeAppearance(db,input,current=>{
  const view=validView(input.view),style=cleanStyle(input.style,view);
  if(typeof input.both!=='boolean')fail('请选择风格应用范围');
- return {...current,styles:input.both?{platform:{...style},chain:{...style}}:{...current.styles,[view]:style}};
+ return {...current,styles:input.both?Object.fromEntries(views.map(view=>[view,{...style}])):{...current.styles,[view]:style}};
 });}
 function savePreset(db,input){return changeAppearance(db,input,current=>{
  const view=validView(input.view),style=cleanStyle(input.style,view);

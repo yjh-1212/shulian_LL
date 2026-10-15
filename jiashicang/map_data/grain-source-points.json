@@ -1,0 +1,2085 @@
+{
+  "meta": {
+    "name": "东北四省粮源重点市县Demo热力图点位",
+    "description": "用于Demo1类粮源热力图展示。weight为演示权重，不代表官方粮食产量排名。",
+    "weightMeaning": {
+      "5": "core",
+      "4": "key",
+      "3": "normal"
+    },
+    "coordinateSystem": "GCJ-02/行政区中心点展示用途",
+    "total": 132,
+    "coordinateUsage": "用于高德地图、Loca 热力图和 Demo 点位定位；不是农田、粮库或企业精确坐标。",
+    "coordinateFields": [
+      "adcode",
+      "lng",
+      "lat",
+      "coordSource",
+      "pointType"
+    ],
+    "coordinateMatched": 132,
+    "coordinateUnmatched": 0,
+    "dataNote": "weight 仍为 Demo 展示权重，不代表官方粮食产量排名。"
+  },
+  "data": [
+    {
+      "province": "黑龙江",
+      "prefecture": "哈尔滨",
+      "name": "五常市",
+      "weight": 5,
+      "grainTypes": [
+        "水稻",
+        "玉米"
+      ],
+      "level": "core",
+      "adcode": "230184",
+      "lng": 127.167501,
+      "lat": 44.932164,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "哈尔滨",
+      "name": "双城区",
+      "weight": 5,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "core",
+      "adcode": "230113",
+      "lng": 126.31279,
+      "lat": 45.382873,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "哈尔滨",
+      "name": "巴彦县",
+      "weight": 5,
+      "grainTypes": [
+        "玉米",
+        "大豆"
+      ],
+      "level": "core",
+      "adcode": "230126",
+      "lng": 127.403521,
+      "lat": 46.086182,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "哈尔滨",
+      "name": "依兰县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米",
+        "水稻"
+      ],
+      "level": "key",
+      "adcode": "230123",
+      "lng": 129.567777,
+      "lat": 46.325536,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "哈尔滨",
+      "name": "宾县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "230125",
+      "lng": 127.466372,
+      "lat": 45.746313,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "哈尔滨",
+      "name": "方正县",
+      "weight": 4,
+      "grainTypes": [
+        "水稻"
+      ],
+      "level": "key",
+      "adcode": "230124",
+      "lng": 128.829513,
+      "lat": 45.851673,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "哈尔滨",
+      "name": "通河县",
+      "weight": 4,
+      "grainTypes": [
+        "水稻"
+      ],
+      "level": "key",
+      "adcode": "230128",
+      "lng": 128.74629,
+      "lat": 45.990214,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "哈尔滨",
+      "name": "木兰县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米",
+        "水稻"
+      ],
+      "level": "key",
+      "adcode": "230127",
+      "lng": 128.043194,
+      "lat": 45.950649,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "哈尔滨",
+      "name": "延寿县",
+      "weight": 4,
+      "grainTypes": [
+        "水稻"
+      ],
+      "level": "key",
+      "adcode": "230129",
+      "lng": 128.311071,
+      "lat": 45.445956,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "哈尔滨",
+      "name": "尚志市",
+      "weight": 3,
+      "grainTypes": [
+        "水稻",
+        "玉米"
+      ],
+      "level": "normal",
+      "adcode": "230183",
+      "lng": 128.009218,
+      "lat": 45.209199,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "哈尔滨",
+      "name": "呼兰区",
+      "weight": 4,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "230111",
+      "lng": 126.587704,
+      "lat": 45.889557,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "哈尔滨",
+      "name": "阿城区",
+      "weight": 3,
+      "grainTypes": [
+        "水稻",
+        "玉米"
+      ],
+      "level": "normal",
+      "adcode": "230112",
+      "lng": 126.957984,
+      "lat": 45.548671,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "齐齐哈尔",
+      "name": "龙江县",
+      "weight": 5,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "core",
+      "adcode": "230221",
+      "lng": 123.089103,
+      "lat": 47.258895,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "齐齐哈尔",
+      "name": "讷河市",
+      "weight": 5,
+      "grainTypes": [
+        "玉米",
+        "大豆"
+      ],
+      "level": "core",
+      "adcode": "230281",
+      "lng": 125.076553,
+      "lat": 48.481453,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "齐齐哈尔",
+      "name": "依安县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米",
+        "大豆"
+      ],
+      "level": "key",
+      "adcode": "230223",
+      "lng": 125.294633,
+      "lat": 47.706873,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "齐齐哈尔",
+      "name": "克山县",
+      "weight": 4,
+      "grainTypes": [
+        "大豆",
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "230229",
+      "lng": 125.706471,
+      "lat": 48.167091,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "齐齐哈尔",
+      "name": "克东县",
+      "weight": 4,
+      "grainTypes": [
+        "大豆"
+      ],
+      "level": "key",
+      "adcode": "230230",
+      "lng": 126.352136,
+      "lat": 48.009015,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "齐齐哈尔",
+      "name": "甘南县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米",
+        "大豆"
+      ],
+      "level": "key",
+      "adcode": "230225",
+      "lng": 123.8469,
+      "lat": 48.011583,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "齐齐哈尔",
+      "name": "富裕县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "230227",
+      "lng": 124.571747,
+      "lat": 47.66582,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "齐齐哈尔",
+      "name": "泰来县",
+      "weight": 4,
+      "grainTypes": [
+        "水稻",
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "230224",
+      "lng": 123.558048,
+      "lat": 46.60329,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "齐齐哈尔",
+      "name": "拜泉县",
+      "weight": 4,
+      "grainTypes": [
+        "大豆",
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "230231",
+      "lng": 126.021786,
+      "lat": 47.592256,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "绥化",
+      "name": "肇东市",
+      "weight": 5,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "core",
+      "adcode": "231282",
+      "lng": 125.849731,
+      "lat": 46.009306,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "绥化",
+      "name": "海伦市",
+      "weight": 5,
+      "grainTypes": [
+        "大豆",
+        "玉米",
+        "水稻"
+      ],
+      "level": "core",
+      "adcode": "231283",
+      "lng": 126.897129,
+      "lat": 47.44727,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "绥化",
+      "name": "青冈县",
+      "weight": 5,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "core",
+      "adcode": "231223",
+      "lng": 125.960524,
+      "lat": 46.846561,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "绥化",
+      "name": "望奎县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米",
+        "水稻"
+      ],
+      "level": "key",
+      "adcode": "231221",
+      "lng": 126.593023,
+      "lat": 46.869481,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "绥化",
+      "name": "兰西县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "231222",
+      "lng": 126.213543,
+      "lat": 46.35835,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "绥化",
+      "name": "庆安县",
+      "weight": 4,
+      "grainTypes": [
+        "水稻",
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "231224",
+      "lng": 127.84449,
+      "lat": 47.070366,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "绥化",
+      "name": "绥棱县",
+      "weight": 4,
+      "grainTypes": [
+        "大豆",
+        "水稻"
+      ],
+      "level": "key",
+      "adcode": "231226",
+      "lng": 127.719413,
+      "lat": 47.584143,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "绥化",
+      "name": "明水县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "231225",
+      "lng": 125.841268,
+      "lat": 47.201247,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "绥化",
+      "name": "北林区",
+      "weight": 4,
+      "grainTypes": [
+        "水稻",
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "231202",
+      "lng": 126.957863,
+      "lat": 46.747537,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "绥化",
+      "name": "安达市",
+      "weight": 3,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "normal",
+      "adcode": "231281",
+      "lng": 125.384552,
+      "lat": 46.535467,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "佳木斯",
+      "name": "富锦市",
+      "weight": 5,
+      "grainTypes": [
+        "水稻",
+        "玉米",
+        "大豆"
+      ],
+      "level": "core",
+      "adcode": "230882",
+      "lng": 132.539001,
+      "lat": 47.170673,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "佳木斯",
+      "name": "桦南县",
+      "weight": 5,
+      "grainTypes": [
+        "玉米",
+        "大豆"
+      ],
+      "level": "core",
+      "adcode": "230822",
+      "lng": 130.637015,
+      "lat": 46.306672,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "佳木斯",
+      "name": "桦川县",
+      "weight": 4,
+      "grainTypes": [
+        "水稻"
+      ],
+      "level": "key",
+      "adcode": "230826",
+      "lng": 130.963018,
+      "lat": 46.989258,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "佳木斯",
+      "name": "汤原县",
+      "weight": 4,
+      "grainTypes": [
+        "水稻",
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "230828",
+      "lng": 130.072406,
+      "lat": 46.988319,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "佳木斯",
+      "name": "同江市",
+      "weight": 4,
+      "grainTypes": [
+        "水稻",
+        "大豆"
+      ],
+      "level": "key",
+      "adcode": "230881",
+      "lng": 133.273328,
+      "lat": 47.833685,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "佳木斯",
+      "name": "抚远市",
+      "weight": 4,
+      "grainTypes": [
+        "水稻",
+        "大豆"
+      ],
+      "level": "key",
+      "adcode": "230883",
+      "lng": 134.30786,
+      "lat": 48.365027,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "佳木斯",
+      "name": "郊区",
+      "weight": 3,
+      "grainTypes": [
+        "水稻"
+      ],
+      "level": "normal",
+      "adcode": "230811",
+      "lng": 130.284735,
+      "lat": 46.81378,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "大庆",
+      "name": "肇源县",
+      "weight": 5,
+      "grainTypes": [
+        "玉米",
+        "水稻"
+      ],
+      "level": "core",
+      "adcode": "230622",
+      "lng": 124.769044,
+      "lat": 45.6472,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "大庆",
+      "name": "肇州县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "230621",
+      "lng": 125.308969,
+      "lat": 45.837072,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "大庆",
+      "name": "林甸县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "230623",
+      "lng": 124.896783,
+      "lat": 47.159693,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "大庆",
+      "name": "杜尔伯特蒙古族自治县",
+      "weight": 3,
+      "grainTypes": [
+        "玉米",
+        "水稻"
+      ],
+      "level": "normal",
+      "adcode": "230624",
+      "lng": 124.246513,
+      "lat": 46.561614,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "双鸭山",
+      "name": "宝清县",
+      "weight": 5,
+      "grainTypes": [
+        "玉米",
+        "大豆",
+        "水稻"
+      ],
+      "level": "core",
+      "adcode": "230523",
+      "lng": 132.409279,
+      "lat": 46.409383,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "双鸭山",
+      "name": "集贤县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米",
+        "大豆"
+      ],
+      "level": "key",
+      "adcode": "230521",
+      "lng": 131.150556,
+      "lat": 46.818437,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "双鸭山",
+      "name": "友谊县",
+      "weight": 4,
+      "grainTypes": [
+        "水稻",
+        "大豆"
+      ],
+      "level": "key",
+      "adcode": "230522",
+      "lng": 131.854999,
+      "lat": 46.788593,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "双鸭山",
+      "name": "饶河县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米",
+        "水稻",
+        "大豆"
+      ],
+      "level": "key",
+      "adcode": "230524",
+      "lng": 133.729259,
+      "lat": 47.072629,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "鸡西",
+      "name": "虎林市",
+      "weight": 5,
+      "grainTypes": [
+        "水稻",
+        "大豆"
+      ],
+      "level": "core",
+      "adcode": "230381",
+      "lng": 133.121106,
+      "lat": 45.997276,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "鸡西",
+      "name": "密山市",
+      "weight": 4,
+      "grainTypes": [
+        "玉米",
+        "水稻"
+      ],
+      "level": "key",
+      "adcode": "230382",
+      "lng": 132.176562,
+      "lat": 45.469765,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "鸡西",
+      "name": "鸡东县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "230321",
+      "lng": 131.225654,
+      "lat": 45.273228,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "鹤岗",
+      "name": "绥滨县",
+      "weight": 4,
+      "grainTypes": [
+        "水稻",
+        "大豆"
+      ],
+      "level": "key",
+      "adcode": "230422",
+      "lng": 131.856595,
+      "lat": 47.483007,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "鹤岗",
+      "name": "萝北县",
+      "weight": 4,
+      "grainTypes": [
+        "大豆",
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "230421",
+      "lng": 130.761333,
+      "lat": 47.746935,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "黑河",
+      "name": "嫩江市",
+      "weight": 5,
+      "grainTypes": [
+        "大豆",
+        "玉米"
+      ],
+      "level": "core",
+      "adcode": "231183",
+      "lng": 125.221192,
+      "lat": 49.185766,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "黑河",
+      "name": "北安市",
+      "weight": 4,
+      "grainTypes": [
+        "大豆"
+      ],
+      "level": "key",
+      "adcode": "231181",
+      "lng": 127.111546,
+      "lat": 48.115946,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "黑河",
+      "name": "五大连池市",
+      "weight": 4,
+      "grainTypes": [
+        "大豆"
+      ],
+      "level": "key",
+      "adcode": "231182",
+      "lng": 126.634501,
+      "lat": 48.749166,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "黑河",
+      "name": "逊克县",
+      "weight": 4,
+      "grainTypes": [
+        "大豆",
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "231123",
+      "lng": 128.370877,
+      "lat": 48.88674,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "黑河",
+      "name": "孙吴县",
+      "weight": 3,
+      "grainTypes": [
+        "大豆"
+      ],
+      "level": "normal",
+      "adcode": "231124",
+      "lng": 127.316672,
+      "lat": 49.370656,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "黑河",
+      "name": "爱辉区",
+      "weight": 3,
+      "grainTypes": [
+        "大豆"
+      ],
+      "level": "normal",
+      "adcode": "231102",
+      "lng": 126.764262,
+      "lat": 50.218245,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "牡丹江",
+      "name": "宁安市",
+      "weight": 4,
+      "grainTypes": [
+        "水稻",
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "231084",
+      "lng": 129.215317,
+      "lat": 44.058017,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "牡丹江",
+      "name": "穆棱市",
+      "weight": 4,
+      "grainTypes": [
+        "大豆"
+      ],
+      "level": "key",
+      "adcode": "231085",
+      "lng": 130.395526,
+      "lat": 44.57687,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "牡丹江",
+      "name": "林口县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米",
+        "大豆"
+      ],
+      "level": "key",
+      "adcode": "231025",
+      "lng": 130.023181,
+      "lat": 45.396102,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "七台河",
+      "name": "勃利县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米",
+        "水稻"
+      ],
+      "level": "key",
+      "adcode": "230921",
+      "lng": 130.818169,
+      "lat": 45.930545,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "黑龙江",
+      "prefecture": "伊春",
+      "name": "铁力市",
+      "weight": 3,
+      "grainTypes": [
+        "水稻",
+        "大豆"
+      ],
+      "level": "normal",
+      "adcode": "230781",
+      "lng": 128.552517,
+      "lat": 46.866329,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "长春",
+      "name": "榆树市",
+      "weight": 5,
+      "grainTypes": [
+        "玉米",
+        "水稻"
+      ],
+      "level": "core",
+      "adcode": "220182",
+      "lng": 126.533126,
+      "lat": 44.840263,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "长春",
+      "name": "农安县",
+      "weight": 5,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "core",
+      "adcode": "220122",
+      "lng": 125.184921,
+      "lat": 44.432829,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "长春",
+      "name": "德惠市",
+      "weight": 5,
+      "grainTypes": [
+        "玉米",
+        "水稻"
+      ],
+      "level": "core",
+      "adcode": "220183",
+      "lng": 125.728552,
+      "lat": 44.521788,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "长春",
+      "name": "公主岭市",
+      "weight": 5,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "core",
+      "adcode": "220184",
+      "lng": 124.79379,
+      "lat": 43.495116,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "长春",
+      "name": "九台区",
+      "weight": 4,
+      "grainTypes": [
+        "玉米",
+        "水稻"
+      ],
+      "level": "key",
+      "adcode": "220113",
+      "lng": 125.839549,
+      "lat": 44.151672,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "长春",
+      "name": "双阳区",
+      "weight": 3,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "normal",
+      "adcode": "220112",
+      "lng": 125.664583,
+      "lat": 43.525367,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "四平",
+      "name": "梨树县",
+      "weight": 5,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "core",
+      "adcode": "220322",
+      "lng": 124.380491,
+      "lat": 43.414438,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "四平",
+      "name": "双辽市",
+      "weight": 5,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "core",
+      "adcode": "220382",
+      "lng": 123.70852,
+      "lat": 43.767695,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "四平",
+      "name": "伊通满族自治县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "220323",
+      "lng": 125.271149,
+      "lat": 43.346322,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "松原",
+      "name": "扶余市",
+      "weight": 5,
+      "grainTypes": [
+        "玉米",
+        "水稻"
+      ],
+      "level": "core",
+      "adcode": "220781",
+      "lng": 126.049534,
+      "lat": 44.989057,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "松原",
+      "name": "前郭尔罗斯蒙古族自治县",
+      "weight": 5,
+      "grainTypes": [
+        "玉米",
+        "水稻"
+      ],
+      "level": "core",
+      "adcode": "220721",
+      "lng": 124.823417,
+      "lat": 45.118061,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "松原",
+      "name": "长岭县",
+      "weight": 5,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "core",
+      "adcode": "220722",
+      "lng": 123.967244,
+      "lat": 44.276293,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "松原",
+      "name": "乾安县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "220723",
+      "lng": 124.040651,
+      "lat": 45.003539,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "松原",
+      "name": "宁江区",
+      "weight": 4,
+      "grainTypes": [
+        "玉米",
+        "水稻"
+      ],
+      "level": "key",
+      "adcode": "220702",
+      "lng": 124.867571,
+      "lat": 45.29271,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "白城",
+      "name": "镇赉县",
+      "weight": 5,
+      "grainTypes": [
+        "水稻",
+        "玉米"
+      ],
+      "level": "core",
+      "adcode": "220821",
+      "lng": 123.19967,
+      "lat": 45.848195,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "白城",
+      "name": "洮南市",
+      "weight": 4,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "220881",
+      "lng": 122.79845,
+      "lat": 45.356849,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "白城",
+      "name": "通榆县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "220822",
+      "lng": 123.088093,
+      "lat": 44.812912,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "白城",
+      "name": "大安市",
+      "weight": 4,
+      "grainTypes": [
+        "玉米",
+        "水稻"
+      ],
+      "level": "key",
+      "adcode": "220882",
+      "lng": 124.291032,
+      "lat": 45.507004,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "白城",
+      "name": "洮北区",
+      "weight": 3,
+      "grainTypes": [
+        "玉米",
+        "水稻"
+      ],
+      "level": "normal",
+      "adcode": "220802",
+      "lng": 122.851105,
+      "lat": 45.621545,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "吉林市",
+      "name": "舒兰市",
+      "weight": 4,
+      "grainTypes": [
+        "水稻",
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "220283",
+      "lng": 127.116772,
+      "lat": 44.335465,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "吉林市",
+      "name": "永吉县",
+      "weight": 4,
+      "grainTypes": [
+        "水稻",
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "220221",
+      "lng": 126.22756,
+      "lat": 43.601481,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "吉林市",
+      "name": "蛟河市",
+      "weight": 3,
+      "grainTypes": [
+        "玉米",
+        "水稻"
+      ],
+      "level": "normal",
+      "adcode": "220281",
+      "lng": 127.351742,
+      "lat": 43.716756,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "吉林市",
+      "name": "桦甸市",
+      "weight": 3,
+      "grainTypes": [
+        "玉米",
+        "水稻"
+      ],
+      "level": "normal",
+      "adcode": "220282",
+      "lng": 127.041392,
+      "lat": 43.056631,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "吉林市",
+      "name": "磐石市",
+      "weight": 3,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "normal",
+      "adcode": "220284",
+      "lng": 126.174628,
+      "lat": 43.057456,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "辽源",
+      "name": "东辽县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "220422",
+      "lng": 125.184931,
+      "lat": 42.947925,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "辽源",
+      "name": "东丰县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "220421",
+      "lng": 125.454809,
+      "lat": 42.683934,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "通化",
+      "name": "辉南县",
+      "weight": 3,
+      "grainTypes": [
+        "水稻",
+        "玉米"
+      ],
+      "level": "normal",
+      "adcode": "220523",
+      "lng": 126.342724,
+      "lat": 42.557949,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "通化",
+      "name": "柳河县",
+      "weight": 3,
+      "grainTypes": [
+        "水稻",
+        "玉米"
+      ],
+      "level": "normal",
+      "adcode": "220524",
+      "lng": 125.917276,
+      "lat": 42.185665,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "延边",
+      "name": "敦化市",
+      "weight": 3,
+      "grainTypes": [
+        "大豆",
+        "玉米"
+      ],
+      "level": "normal",
+      "adcode": "222403",
+      "lng": 128.239499,
+      "lat": 43.560202,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "吉林",
+      "prefecture": "梅河口",
+      "name": "梅河口市",
+      "weight": 3,
+      "grainTypes": [
+        "水稻",
+        "玉米"
+      ],
+      "level": "normal",
+      "adcode": "220581",
+      "lng": 125.723516,
+      "lat": 42.54265,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "辽宁",
+      "prefecture": "沈阳",
+      "name": "法库县",
+      "weight": 5,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "core",
+      "adcode": "210124",
+      "lng": 123.440294,
+      "lat": 42.50108,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "辽宁",
+      "prefecture": "沈阳",
+      "name": "康平县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "210123",
+      "lng": 123.343701,
+      "lat": 42.727249,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "辽宁",
+      "prefecture": "沈阳",
+      "name": "新民市",
+      "weight": 4,
+      "grainTypes": [
+        "玉米",
+        "水稻"
+      ],
+      "level": "key",
+      "adcode": "210181",
+      "lng": 122.835964,
+      "lat": 41.985757,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "辽宁",
+      "prefecture": "沈阳",
+      "name": "辽中区",
+      "weight": 3,
+      "grainTypes": [
+        "水稻",
+        "玉米"
+      ],
+      "level": "normal",
+      "adcode": "210115",
+      "lng": 122.766159,
+      "lat": 41.517449,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "辽宁",
+      "prefecture": "铁岭",
+      "name": "昌图县",
+      "weight": 5,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "core",
+      "adcode": "211224",
+      "lng": 124.086628,
+      "lat": 42.779333,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "辽宁",
+      "prefecture": "铁岭",
+      "name": "开原市",
+      "weight": 4,
+      "grainTypes": [
+        "玉米",
+        "水稻"
+      ],
+      "level": "key",
+      "adcode": "211282",
+      "lng": 124.283776,
+      "lat": 42.471223,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "辽宁",
+      "prefecture": "铁岭",
+      "name": "西丰县",
+      "weight": 3,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "normal",
+      "adcode": "211223",
+      "lng": 124.727491,
+      "lat": 42.738178,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "辽宁",
+      "prefecture": "锦州",
+      "name": "黑山县",
+      "weight": 5,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "core",
+      "adcode": "210726",
+      "lng": 122.260736,
+      "lat": 41.799698,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "辽宁",
+      "prefecture": "锦州",
+      "name": "北镇市",
+      "weight": 4,
+      "grainTypes": [
+        "玉米",
+        "水稻"
+      ],
+      "level": "key",
+      "adcode": "210782",
+      "lng": 121.86455,
+      "lat": 41.547118,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "辽宁",
+      "prefecture": "锦州",
+      "name": "义县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "210727",
+      "lng": 121.301877,
+      "lat": 41.534928,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "辽宁",
+      "prefecture": "阜新",
+      "name": "阜新蒙古族自治县",
+      "weight": 5,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "core",
+      "adcode": "210921",
+      "lng": 121.695578,
+      "lat": 42.1575,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "辽宁",
+      "prefecture": "阜新",
+      "name": "彰武县",
+      "weight": 5,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "core",
+      "adcode": "210922",
+      "lng": 122.474173,
+      "lat": 42.523754,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "辽宁",
+      "prefecture": "朝阳",
+      "name": "建平县",
+      "weight": 5,
+      "grainTypes": [
+        "玉米",
+        "杂粮"
+      ],
+      "level": "core",
+      "adcode": "211322",
+      "lng": 119.632527,
+      "lat": 41.842223,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "辽宁",
+      "prefecture": "朝阳",
+      "name": "北票市",
+      "weight": 4,
+      "grainTypes": [
+        "玉米",
+        "杂粮"
+      ],
+      "level": "key",
+      "adcode": "211381",
+      "lng": 120.811885,
+      "lat": 41.865071,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "辽宁",
+      "prefecture": "鞍山",
+      "name": "台安县",
+      "weight": 4,
+      "grainTypes": [
+        "水稻",
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "210321",
+      "lng": 122.443683,
+      "lat": 41.3471,
+      "coordSource": "公开行政区中心点数据",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "辽宁",
+      "prefecture": "盘锦",
+      "name": "盘山县",
+      "weight": 4,
+      "grainTypes": [
+        "水稻"
+      ],
+      "level": "key",
+      "adcode": "211122",
+      "lng": 121.996408,
+      "lat": 41.243367,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "辽宁",
+      "prefecture": "盘锦",
+      "name": "大洼区",
+      "weight": 3,
+      "grainTypes": [
+        "水稻"
+      ],
+      "level": "normal",
+      "adcode": "211104",
+      "lng": 122.082227,
+      "lat": 41.002679,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "内蒙古",
+      "prefecture": "呼伦贝尔",
+      "name": "莫力达瓦达斡尔族自治旗",
+      "weight": 5,
+      "grainTypes": [
+        "大豆",
+        "玉米"
+      ],
+      "level": "core",
+      "adcode": "150722",
+      "lng": 124.519023,
+      "lat": 48.477728,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "内蒙古",
+      "prefecture": "呼伦贝尔",
+      "name": "阿荣旗",
+      "weight": 5,
+      "grainTypes": [
+        "玉米",
+        "大豆"
+      ],
+      "level": "core",
+      "adcode": "150721",
+      "lng": 123.458943,
+      "lat": 48.126553,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "内蒙古",
+      "prefecture": "呼伦贝尔",
+      "name": "扎兰屯市",
+      "weight": 4,
+      "grainTypes": [
+        "玉米",
+        "大豆"
+      ],
+      "level": "key",
+      "adcode": "150783",
+      "lng": 122.708475,
+      "lat": 48.028396,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "内蒙古",
+      "prefecture": "呼伦贝尔",
+      "name": "鄂伦春自治旗",
+      "weight": 3,
+      "grainTypes": [
+        "大豆",
+        "玉米"
+      ],
+      "level": "normal",
+      "adcode": "150723",
+      "lng": 123.725643,
+      "lat": 50.591604,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "内蒙古",
+      "prefecture": "呼伦贝尔",
+      "name": "额尔古纳市",
+      "weight": 3,
+      "grainTypes": [
+        "小麦",
+        "油料"
+      ],
+      "level": "normal",
+      "adcode": "150784",
+      "lng": 120.180506,
+      "lat": 50.243102,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "内蒙古",
+      "prefecture": "兴安盟",
+      "name": "扎赉特旗",
+      "weight": 5,
+      "grainTypes": [
+        "水稻",
+        "玉米"
+      ],
+      "level": "core",
+      "adcode": "152223",
+      "lng": 122.899627,
+      "lat": 46.723154,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "内蒙古",
+      "prefecture": "兴安盟",
+      "name": "科尔沁右翼前旗",
+      "weight": 5,
+      "grainTypes": [
+        "玉米",
+        "水稻"
+      ],
+      "level": "core",
+      "adcode": "152221",
+      "lng": 121.952638,
+      "lat": 46.079664,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "内蒙古",
+      "prefecture": "兴安盟",
+      "name": "科尔沁右翼中旗",
+      "weight": 4,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "152222",
+      "lng": 121.476357,
+      "lat": 45.060728,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "内蒙古",
+      "prefecture": "兴安盟",
+      "name": "突泉县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "152224",
+      "lng": 121.593972,
+      "lat": 45.381918,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "内蒙古",
+      "prefecture": "兴安盟",
+      "name": "乌兰浩特市",
+      "weight": 3,
+      "grainTypes": [
+        "玉米",
+        "水稻"
+      ],
+      "level": "normal",
+      "adcode": "152201",
+      "lng": 122.093309,
+      "lat": 46.072233,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "内蒙古",
+      "prefecture": "通辽",
+      "name": "科尔沁左翼中旗",
+      "weight": 5,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "core",
+      "adcode": "150521",
+      "lng": 123.312202,
+      "lat": 44.126606,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "内蒙古",
+      "prefecture": "通辽",
+      "name": "科尔沁区",
+      "weight": 5,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "core",
+      "adcode": "150502",
+      "lng": 122.25545,
+      "lat": 43.623133,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "内蒙古",
+      "prefecture": "通辽",
+      "name": "科尔沁左翼后旗",
+      "weight": 4,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "150522",
+      "lng": 122.35677,
+      "lat": 42.935105,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "内蒙古",
+      "prefecture": "通辽",
+      "name": "开鲁县",
+      "weight": 5,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "core",
+      "adcode": "150523",
+      "lng": 121.319216,
+      "lat": 43.601446,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "内蒙古",
+      "prefecture": "通辽",
+      "name": "奈曼旗",
+      "weight": 4,
+      "grainTypes": [
+        "玉米",
+        "杂粮"
+      ],
+      "level": "key",
+      "adcode": "150525",
+      "lng": 120.657813,
+      "lat": 42.867433,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "内蒙古",
+      "prefecture": "通辽",
+      "name": "扎鲁特旗",
+      "weight": 4,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "150526",
+      "lng": 120.917953,
+      "lat": 44.567093,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "内蒙古",
+      "prefecture": "通辽",
+      "name": "库伦旗",
+      "weight": 3,
+      "grainTypes": [
+        "玉米",
+        "杂粮"
+      ],
+      "level": "normal",
+      "adcode": "150524",
+      "lng": 121.810629,
+      "lat": 42.735556,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "内蒙古",
+      "prefecture": "赤峰",
+      "name": "阿鲁科尔沁旗",
+      "weight": 5,
+      "grainTypes": [
+        "玉米",
+        "杂粮"
+      ],
+      "level": "core",
+      "adcode": "150421",
+      "lng": 120.065533,
+      "lat": 43.872398,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "内蒙古",
+      "prefecture": "赤峰",
+      "name": "松山区",
+      "weight": 5,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "core",
+      "adcode": "150404",
+      "lng": 118.916156,
+      "lat": 42.299795,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "内蒙古",
+      "prefecture": "赤峰",
+      "name": "翁牛特旗",
+      "weight": 4,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "150426",
+      "lng": 119.006187,
+      "lat": 42.936529,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "内蒙古",
+      "prefecture": "赤峰",
+      "name": "敖汉旗",
+      "weight": 4,
+      "grainTypes": [
+        "玉米",
+        "杂粮"
+      ],
+      "level": "key",
+      "adcode": "150430",
+      "lng": 119.921413,
+      "lat": 42.290731,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "内蒙古",
+      "prefecture": "赤峰",
+      "name": "宁城县",
+      "weight": 4,
+      "grainTypes": [
+        "玉米"
+      ],
+      "level": "key",
+      "adcode": "150429",
+      "lng": 119.320056,
+      "lat": 41.600193,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    },
+    {
+      "province": "内蒙古",
+      "prefecture": "赤峰",
+      "name": "巴林左旗",
+      "weight": 3,
+      "grainTypes": [
+        "玉米",
+        "杂粮"
+      ],
+      "level": "normal",
+      "adcode": "150422",
+      "lng": 119.362832,
+      "lat": 43.961547,
+      "coordSource": "AMap行政区划中心点",
+      "pointType": "county_admin_center"
+    }
+  ]
+}

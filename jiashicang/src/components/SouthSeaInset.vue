@@ -18,8 +18,8 @@ const linePaths=lines.map(r=>path(r));
 <template>
  <aside class="cc-south-sea-inset" aria-label="南海诸岛与断续线附图">
   <svg viewBox="0 0 100 150" role="img" aria-label="南海诸岛与断续线">
-   <path v-for="(d,i) in islandPaths" :key="`island-${i}`" :d="d" :fill="styleConfig.mapColor" :stroke="styleConfig.mapEdge" stroke-width=".55" opacity=".7"/>
-   <g class="cc-south-sea-lines" fill="none" :stroke="styleConfig.mapEdge" stroke-width="1.35" stroke-linecap="round"><path v-for="(d,i) in linePaths" :key="i" :d="d"/></g>
+   <path v-for="(d,i) in islandPaths" :key="`island-${i}`" :d="d" :fill="styleConfig.mapColor" :stroke="styleConfig.mapEdge" :stroke-width=".55*styleConfig.mapEdgeWidth" opacity=".7"/>
+   <g class="cc-south-sea-lines" fill="none" :stroke="styleConfig.mapEdge" :stroke-width="1.35*styleConfig.mapEdgeWidth" stroke-linecap="round"><path v-for="(d,i) in linePaths" :key="i" :d="d"/></g>
   </svg>
  </aside>
 </template>

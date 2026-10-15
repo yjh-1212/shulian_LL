@@ -1,0 +1,22 @@
+{
+  "provider": "高德地图",
+  "layer": "卫星影像",
+  "attribution": "© 高德地图",
+  "source": "https://www.amap.com/",
+  "tileTemplate": "https://webst01.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}",
+  "zoom": 7,
+  "tileCount": 72,
+  "retrievedAt": "2026-10-15T03:20:41.537794+00:00",
+  "note": "Regional satellite mosaic; acquisition dates vary by tile. Not real-time imagery.",
+  "projection": "Web Mercator",
+  "width": 2048,
+  "height": 2304,
+  "bounds": {
+    "west": 115.3125,
+    "east": 137.8125,
+    "south": 39.375,
+    "north": 64.6875
+  },
+  "boundsUnits": "longitude degrees and Mercator latitude degrees",
+  "sha256": "333436e8ff9fb377fe5408e8b546bc472eb07eba17906deebda15a76d11f3f56"
+}

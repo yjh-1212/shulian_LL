@@ -17,7 +17,7 @@ const groups=[
  {name:'文字与指标',fields:[...colors([['text','正文颜色'],['muted','辅助文字颜色']]),range('fontSize','正文字号',12,18),range('titleSize','面板标题字号',15,24),range('metricSize','指标数字字号',26,48),select('fontFamily','字体风格',[['hei','现代黑体'],['song','典雅宋体']])]},
  {name:'面板与布局',fields:[...colors([['panel','面板背景'],['border','面板边框']]),range('panelOpacity','面板背景不透明度',0,1,0.05),range('borderOpacity','边框透明度',0,0.8,0.05),range('radius','面板圆角',0,24),range('shadow','阴影强度',0,0.5,0.05),range('panelWidth','单侧面板宽度（%）',20,28),range('gap','面板间距',8,28)]},
  {name:'图表风格',fields:[select('chartPalette','图表配色',[['ocean','蓝青海运'],['grain','金穗粮食'],['mono','单色渐变']]),range('chartWidth','图表线宽',1,5,0.5),toggle('chartGrid','显示图表网格')]},
- {name:'地图外观与光照',fields:[...colors([['mapColor','地图区域颜色'],['mapSide','地图侧面颜色'],['mapEdge','地图边界颜色']]),toggle('mapTexture','显示地形纹理'),toggle('mapTilt','倾斜地图视角'),range('mapHeight','地图立体高度',0,0.85,0.05),range('ambient','环境光强度',0.4,4,0.1),range('light','主光源强度',0,7,0.1),toggle('grid','显示底部网格'),...colors([['gridColor','网格颜色']])]},
+ {name:'地图外观与光照',fields:[...colors([['mapColor','地图区域颜色'],['mapSide','地图侧面颜色'],['mapEdge','地图边界颜色']]),range('mapEdgeWidth','地图边界粗细（px）',0.5,5,0.5),toggle('mapTexture','显示高德影像'),toggle('mapTilt','倾斜地图视角'),range('mapHeight','地图立体高度',0,0.85,0.05),range('ambient','环境光强度',0.4,4,0.1),range('light','主光源强度',0,7,0.1),toggle('grid','显示底部网格'),...colors([['gridColor','网格颜色']])]},
  {name:'线路与运输资源',fields:[...colors([['roadColor','公路线路颜色'],['railColor','铁路线路颜色'],['waterColor','水运线路颜色']]),range('routeWidth','路线粗细',1,5,0.5),range('routeLimit','总览线路数量',4,24),toggle('labels','显示节点名称'),range('labelLimit','节点标签数量',2,14),range('labelSize','节点标签字号',10,16),toggle('assets','显示运输资源')]},
  {name:'动效与性能',fields:[toggle('flow','线路流光'),toggle('pulse','节点呼吸'),toggle('edgeFlow','边缘流光'),toggle('sweep','地图扫光'),toggle('autoCruise','进入页面自动巡航'),range('motionSpeed','装饰动效速度',0.3,2.5,0.1),select('performance','渲染模式',[['smooth','流畅'],['balanced','均衡'],['fine','精细']])]}
 ];
@@ -50,7 +50,7 @@ function choose(value:string){const custom=props.customPresets.find(p=>`custom:$
   </div>
   <template #footer>
    <div class="cc-preset-save"><el-input v-model="presetName" placeholder="新预设名称" aria-label="新预设名称" maxlength="20" :disabled="busy"/><button class="cc-button" :disabled="!presetName.trim()||busy||!ready" @click="emit('savePreset',presetName)">另存预设</button></div>
-   <el-checkbox v-model="both" :disabled="busy">应用到两个驾驶舱</el-checkbox>
+   <el-checkbox v-model="both" :disabled="busy">应用到全部驾驶舱</el-checkbox>
    <div class="cc-settings-footer"><small role="status">{{feedback||(ready?'设置保存在服务器，所有浏览器共享':'正在读取共享风格…')}}</small><button class="cc-button" :disabled="busy" @click="open=false">取消</button><button class="cc-button cc-button-primary" :disabled="busy||!ready" @click="emit('save',both)">{{busy?'保存中…':'保存风格'}}</button></div>
   </template>
  </el-dialog>

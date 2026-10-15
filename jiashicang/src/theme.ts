@@ -6,20 +6,22 @@ export interface CockpitStyle {
  theme:'dark'|'light';background:string;backgroundEnd:string;primary:string;accent:string;text:string;muted:string;panel:string;panelOpacity:number;border:string;borderOpacity:number;radius:number;shadow:number;
  fontSize:number;titleSize:number;metricSize:number;fontFamily:'hei'|'song';panelWidth:number;gap:number;
  chartPalette:'ocean'|'grain'|'mono';chartWidth:number;chartGrid:boolean;
- mapColor:string;mapSide:string;mapEdge:string;mapHeight:number;mapTexture:boolean;mapTilt:boolean;ambient:number;light:number;
+ mapColor:string;mapSide:string;mapEdge:string;mapEdgeWidth:number;mapHeight:number;mapTexture:boolean;mapTilt:boolean;ambient:number;light:number;
  grid:boolean;gridColor:string;roadColor:string;railColor:string;waterColor:string;routeWidth:number;labels:boolean;labelSize:number;assets:boolean;
  flow:boolean;pulse:boolean;edgeFlow:boolean;sweep:boolean;motionSpeed:number;performance:'smooth'|'balanced'|'fine';routeLimit:number;labelLimit:number;autoCruise:boolean;
 }
 export const defaults=(view:View):CockpitStyle=>({...initial[view]} as CockpitStyle);
-export const presets=[{id:'ocean',name:'深海联运'},{id:'grain',name:'金穗流转'},{id:'light',name:'清朗浅色'},{id:'smooth',name:'流畅展示'}];
+export const presets=[{id:'harvest',name:'暖金粮源'},{id:'corridor',name:'通道蓝'},{id:'ocean',name:'深海联运'},{id:'grain',name:'金穗流转'},{id:'light',name:'清朗浅色'},{id:'smooth',name:'流畅展示'}];
 export function preset(id:string,view:View):CockpitStyle {
+ if(id==='harvest')return defaults('grain-source');
+ if(id==='corridor')return defaults('comprehensive');
  if(id==='grain')return defaults('chain');
  if(id==='light')return {...defaults(view),theme:'light',background:'#e8f0f4',backgroundEnd:'#f6f9fb',text:'#16384c',muted:'#587789',panel:'#ffffff',panelOpacity:0.86,border:'#658695',borderOpacity:0.2,primary:'#177c8c',accent:'#aa7229',mapColor:'#71a0b1',mapSide:'#507f94',mapEdge:'#217d94'};
  if(id==='smooth')return {...defaults(view),performance:'smooth',flow:false,pulse:false,edgeFlow:false,sweep:false};
  return defaults('platform');
 }
 const colorKeys=['background','backgroundEnd','primary','accent','text','muted','panel','border','mapColor','mapSide','mapEdge','gridColor','roadColor','railColor','waterColor'];
-const ranges:Record<string,[number,number]>={panelOpacity:[0,1],borderOpacity:[0,0.8],radius:[0,24],shadow:[0,0.5],fontSize:[12,18],titleSize:[15,24],metricSize:[26,48],panelWidth:[20,28],gap:[8,28],chartWidth:[1,5],mapHeight:[0,0.85],ambient:[0.4,4],light:[0,7],routeWidth:[1,5],labelSize:[10,16],motionSpeed:[0.3,2.5],routeLimit:[4,24],labelLimit:[2,14]};
+const ranges:Record<string,[number,number]>={panelOpacity:[0,1],borderOpacity:[0,0.8],radius:[0,24],shadow:[0,0.5],fontSize:[12,18],titleSize:[15,24],metricSize:[26,48],panelWidth:[20,28],gap:[8,28],chartWidth:[1,5],mapEdgeWidth:[0.5,5],mapHeight:[0,0.85],ambient:[0.4,4],light:[0,7],routeWidth:[1,5],labelSize:[10,16],motionSpeed:[0.3,2.5],routeLimit:[4,24],labelLimit:[2,14]};
 export function sanitizeStyle(input:unknown,view:View):CockpitStyle {
  const base=defaults(view),out={...base};if(!input||typeof input!=='object')return out;
  const value=input as Record<string,unknown>;
@@ -39,7 +41,7 @@ export function styleVariables(s:CockpitStyle){return {
 export interface CockpitPreset {id:string;name:string;view:View;style:CockpitStyle}
 interface SharedAppearance {revision:number;updatedAt:string;styles:Record<View,CockpitStyle>;presets:CockpitPreset[]}
 export function useCockpitStyles(view:{value:View}) {
- const saved=ref<Record<View,CockpitStyle>>({platform:defaults('platform'),chain:defaults('chain')});
+ const saved=ref<Record<View,CockpitStyle>>({platform:defaults('platform'),chain:defaults('chain'),comprehensive:defaults('comprehensive'),'grain-source':defaults('grain-source'),channel:defaults('channel')});
  const customPresets=ref<CockpitPreset[]>([]),feedback=ref(''),syncError=ref(''),busy=ref(false),ready=ref(false);
  let revision=-1,disposed=false,timer:number,inFlight:Promise<void>|null=null,nextSyncAt=0,failures=0;
  const draft=ref<CockpitStyle|null>(null),editingView=ref<View>('platform');
@@ -49,9 +51,9 @@ export function useCockpitStyles(view:{value:View}) {
   syncError.value='';
   if(ready.value&&state.revision===revision)return;
   const changed=revision>=0&&state.revision>revision;
-  const next={platform:sanitizeStyle(state.styles.platform,'platform'),chain:sanitizeStyle(state.styles.chain,'chain')};
-  for(const scope of ['platform','chain'] as const)if(JSON.stringify(next[scope])===JSON.stringify(saved.value[scope]))next[scope]=saved.value[scope];
-  if(next.platform!==saved.value.platform||next.chain!==saved.value.chain)saved.value=next;
+  const next={platform:sanitizeStyle(state.styles.platform,'platform'),chain:sanitizeStyle(state.styles.chain,'chain'),comprehensive:sanitizeStyle(state.styles.comprehensive,'comprehensive'),'grain-source':sanitizeStyle(state.styles['grain-source'],'grain-source'),channel:sanitizeStyle(state.styles.channel,'channel')};
+  for(const scope of ['platform','chain','comprehensive','grain-source','channel'] as const)if(JSON.stringify(next[scope])===JSON.stringify(saved.value[scope]))next[scope]=saved.value[scope];
+  if(Object.keys(next).some(scope=>next[scope as View]!==saved.value[scope as View]))saved.value=next;
   if(JSON.stringify(state.presets)!==JSON.stringify(customPresets.value))customPresets.value=state.presets.map(p=>({...p,style:sanitizeStyle(p.style,p.view)}));
   revision=state.revision;ready.value=true;syncError.value='';
   if(remote&&changed&&draft.value)feedback.value='共享设置已更新；当前预览已保留，保存前会检查最新版本';

@@ -1,4 +1,4 @@
-export type View = 'platform' | 'chain';
+export type View = 'platform' | 'chain' | 'comprehensive' | 'grain-source' | 'channel';
 export type Mode = 'ROAD' | 'RAIL' | 'WATER';
 export interface Point {name?:string;lng:number;lat:number;source?:string;at?:string;observedAt?:string}
 export interface Business {id:string;businessNo:string;waybillNo:string;contractNo:string;grain:string;quantityKg:number;totalCents?:number;status:string;origin:string;destination:string;trader:string;carrier:string;nodes:Point[];modes:Mode[];segments?:{mode:Mode;origin:string;destination:string}[];createdAt:string;referenceData:boolean;stageCount:number;completedStages:number}

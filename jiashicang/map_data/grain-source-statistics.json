@@ -1,0 +1,652 @@
+{
+  "version": 2,
+  "year": 2025,
+  "verifiedAt": "2026-10-15",
+  "scope": {
+    "name": "东北三省与蒙东四盟市",
+    "mengdongIds": [
+      "150700",
+      "152200",
+      "150500",
+      "150400"
+    ],
+    "notes": [
+      "蒙东限定呼伦贝尔市、兴安盟、通辽市、赤峰市四个盟市，不包含锡林郭勒盟或内蒙古其余地区。",
+      "省、盟市是互不重叠的七个统计单元。",
+      "数据为已公布的2025完整年度生产统计，不能等同当前库存、可组织粮源、可外运量、收获进度或预测。"
+    ]
+  },
+  "units": {
+    "production": "万吨",
+    "area": "万公顷",
+    "yield": "公斤/公顷"
+  },
+  "regions": [
+    {
+      "id": "230000",
+      "name": "黑龙江",
+      "group": "黑龙江",
+      "year": 2025,
+      "productionWanTons": 8200.3,
+      "areaWanHectares": 1475.46,
+      "yieldKgPerHectare": 5557.8,
+      "yoyPercent": null,
+      "grains": {
+        "corn": 4735.7,
+        "rice": 2514.2,
+        "soybean": 903.9,
+        "wheat": null,
+        "other": null
+      },
+      "grainAreaWanHectares": {
+        "corn": 667.5,
+        "rice": 335.3,
+        "soybean": 458.7,
+        "wheat": null,
+        "other": null
+      },
+      "history": [
+        {
+          "year": 2023,
+          "productionWanTons": 7788.2,
+          "areaWanHectares": 1474.31,
+          "yieldKgPerHectare": 5282.6,
+          "sourceId": "nbs-2023"
+        },
+        {
+          "year": 2024,
+          "productionWanTons": 8001.7,
+          "areaWanHectares": 1475.4,
+          "yieldKgPerHectare": 5423.4,
+          "sourceId": "nbs-2024"
+        },
+        {
+          "year": 2025,
+          "productionWanTons": 8200.3,
+          "areaWanHectares": 1475.46,
+          "yieldKgPerHectare": 5557.8,
+          "sourceId": "nbs-2025"
+        }
+      ],
+      "fieldSources": {
+        "productionWanTons": "nbs-2025",
+        "areaWanHectares": "nbs-2025",
+        "yieldKgPerHectare": "nbs-2025",
+        "yoyPercent": null,
+        "grains": "hlj-2025",
+        "grainAreaWanHectares": "hlj-2025"
+      },
+      "notes": [
+        "省级粮食总量、总面积与单产采用国家统计局公告；品种产量与面积采用省公报。省公报将总面积四舍五入为1475.5万公顷。",
+        "省公报未直接公布粮食总产量同比，保留空值；不可将单产增长2.5%误作总产量同比。",
+        "未列出小麦及其他粮食品种完整分项，不将差额当作某个未公布品种产量。"
+      ]
+    },
+    {
+      "id": "220000",
+      "name": "吉林",
+      "group": "吉林",
+      "year": 2025,
+      "productionWanTons": 4358.0,
+      "areaWanHectares": 586.46,
+      "yieldKgPerHectare": 7431.1,
+      "yoyPercent": 2.2,
+      "grains": {
+        "corn": 3543.91,
+        "rice": 682.65,
+        "soybean": 86.8,
+        "wheat": null,
+        "other": null
+      },
+      "grainAreaWanHectares": {
+        "corn": 456.57,
+        "rice": 82.3,
+        "soybean": null,
+        "wheat": null,
+        "other": null
+      },
+      "history": [
+        {
+          "year": 2023,
+          "productionWanTons": 4186.5,
+          "areaWanHectares": 582.56,
+          "yieldKgPerHectare": 7186.4,
+          "sourceId": "nbs-2023"
+        },
+        {
+          "year": 2024,
+          "productionWanTons": 4266.0,
+          "areaWanHectares": 585.38,
+          "yieldKgPerHectare": 7287.5,
+          "sourceId": "nbs-2024"
+        },
+        {
+          "year": 2025,
+          "productionWanTons": 4358.0,
+          "areaWanHectares": 586.46,
+          "yieldKgPerHectare": 7431.1,
+          "sourceId": "nbs-2025"
+        }
+      ],
+      "fieldSources": {
+        "productionWanTons": "nbs-2025",
+        "areaWanHectares": "nbs-2025",
+        "yieldKgPerHectare": "nbs-2025",
+        "yoyPercent": "jl-2025",
+        "grains": "jl-2025",
+        "grainAreaWanHectares": "jl-2025",
+        "grains.soybean": "jl-crops-2025"
+      },
+      "notes": [
+        "总量统一采用国家统计局万吨保留1位小数口径；省公报更细值为4358.03万吨。",
+        "大豆产量补充《中国信息报》2026-02-05 吉林民生经济发展亮点纷呈：2025年17.36亿斤，按1亿斤=5万吨换算86.8万吨。豆类播种面积不作为大豆面积。"
+      ]
+    },
+    {
+      "id": "210000",
+      "name": "辽宁",
+      "group": "辽宁",
+      "year": 2025,
+      "productionWanTons": 2577.8,
+      "areaWanHectares": 358.21,
+      "yieldKgPerHectare": 7196.4,
+      "yoyPercent": 3.1,
+      "grains": {
+        "corn": 2066.4,
+        "rice": 406.1,
+        "soybean": 30.1,
+        "wheat": null,
+        "other": null
+      },
+      "grainAreaWanHectares": {
+        "corn": 281.11,
+        "rice": 50.02,
+        "soybean": 12.95,
+        "wheat": null,
+        "other": null
+      },
+      "history": [
+        {
+          "year": 2023,
+          "productionWanTons": 2563.4,
+          "areaWanHectares": 357.84,
+          "yieldKgPerHectare": 7163.5,
+          "sourceId": "nbs-2023"
+        },
+        {
+          "year": 2024,
+          "productionWanTons": 2500.3,
+          "areaWanHectares": 357.75,
+          "yieldKgPerHectare": 6989.1,
+          "sourceId": "nbs-2024"
+        },
+        {
+          "year": 2025,
+          "productionWanTons": 2577.8,
+          "areaWanHectares": 358.21,
+          "yieldKgPerHectare": 7196.4,
+          "sourceId": "nbs-2025"
+        }
+      ],
+      "fieldSources": {
+        "productionWanTons": "nbs-2025",
+        "areaWanHectares": "nbs-2025",
+        "yieldKgPerHectare": "nbs-2025",
+        "yoyPercent": "ln-2025",
+        "grains": "ln-2025",
+        "grainAreaWanHectares": "ln-2025"
+      },
+      "notes": []
+    },
+    {
+      "id": "150700",
+      "name": "呼伦贝尔",
+      "group": "蒙东",
+      "year": 2025,
+      "productionWanTons": 707.45,
+      "areaWanHectares": 164.34,
+      "yieldKgPerHectare": 4305.0,
+      "yoyPercent": 4.1,
+      "grains": {
+        "corn": 398.77,
+        "rice": null,
+        "soybean": 182.76,
+        "wheat": 71.49,
+        "other": null
+      },
+      "grainAreaWanHectares": {
+        "corn": null,
+        "rice": null,
+        "soybean": null,
+        "wheat": null,
+        "other": null
+      },
+      "history": [
+        {
+          "year": 2023,
+          "productionWanTons": 660.31,
+          "areaWanHectares": 164.12,
+          "yieldKgPerHectare": 4023.15,
+          "sourceId": "hlbe-2023"
+        },
+        {
+          "year": 2024,
+          "productionWanTons": 679.27,
+          "areaWanHectares": 164.23,
+          "yieldKgPerHectare": 4136.25,
+          "sourceId": "hlbe-2024"
+        },
+        {
+          "year": 2025,
+          "productionWanTons": 707.45,
+          "areaWanHectares": 164.34,
+          "yieldKgPerHectare": 4305.0,
+          "sourceId": "hlbe-2025"
+        }
+      ],
+      "fieldSources": {
+        "productionWanTons": "hlbe-2025",
+        "areaWanHectares": "hlbe-2025",
+        "yieldKgPerHectare": "hlbe-2025",
+        "yoyPercent": "hlbe-2025",
+        "grains": "hlbe-2025",
+        "grainAreaWanHectares": "hlbe-2025"
+      },
+      "notes": [
+        "公报单产原单位为公斤/亩：2025年287，2024年275.75；乘以15换算为公斤/公顷，不是新估计值。",
+        "公报另列2025年马铃薯折粮35.90万吨；稻谷未列数，不按零处理。",
+        "2023年单产268.21公斤/亩乘15，单位换算为4023.15公斤/公顷。"
+      ],
+      "grainEstimates": {
+        "rice": {
+          "value": 11.1,
+          "method": "总产707.45减去玉米398.77、大豆182.76、小麦71.49和马铃薯折粮35.90，余量18.53万吨；暂按60%分配给稻谷，其余保留为其他粮食。60%为本次结构估算假设。",
+          "formula": "(707.45 - 398.77 - 182.76 - 71.49 - 35.90) × 0.60",
+          "sourceIds": [
+            "hlbe-2025"
+          ],
+          "uncertainty": "未取得完整稻谷面积与单产，可信度较低；不能将全部剩余粮食视为稻谷。"
+        }
+      }
+    },
+    {
+      "id": "152200",
+      "name": "兴安盟",
+      "group": "蒙东",
+      "year": 2025,
+      "productionWanTons": 717.09,
+      "areaWanHectares": 105.001,
+      "yieldKgPerHectare": null,
+      "yoyPercent": 2.1,
+      "grains": {
+        "corn": 615.85,
+        "rice": 54.52,
+        "soybean": 33.89,
+        "wheat": 1.1928,
+        "other": null
+      },
+      "grainAreaWanHectares": {
+        "corn": 80.627,
+        "rice": 6.753,
+        "soybean": 14.914,
+        "wheat": 0.31,
+        "other": null
+      },
+      "history": [
+        {
+          "year": 2023,
+          "productionWanTons": 678.15,
+          "areaWanHectares": 104.188,
+          "yieldKgPerHectare": null,
+          "sourceId": "xam-2023"
+        },
+        {
+          "year": 2024,
+          "productionWanTons": 702.08,
+          "areaWanHectares": 104.693,
+          "yieldKgPerHectare": null,
+          "sourceId": "xam-2024"
+        },
+        {
+          "year": 2025,
+          "productionWanTons": 717.09,
+          "areaWanHectares": 105.001,
+          "yieldKgPerHectare": null,
+          "sourceId": "xam-2025"
+        }
+      ],
+      "fieldSources": {
+        "productionWanTons": "xam-2025",
+        "areaWanHectares": "xam-2025",
+        "yieldKgPerHectare": null,
+        "yoyPercent": "xam-2025",
+        "grains": "xam-2025",
+        "grainAreaWanHectares": "xam-2025"
+      },
+      "notes": [
+        "总量采用公报正文两位小数；附表原值为7170912吨（717.0912万吨）。小麦11928吨换算为1.1928万吨。",
+        "总播种面积1050.01千公顷，按100千公顷=10万公顷换算。未直接公布综合单产，保持空值。"
+      ]
+    },
+    {
+      "id": "150500",
+      "name": "通辽",
+      "group": "蒙东",
+      "year": 2025,
+      "productionWanTons": 1010.3,
+      "areaWanHectares": 127.4,
+      "yieldKgPerHectare": 7935.0,
+      "yoyPercent": 4.1,
+      "grains": {
+        "corn": 976.3,
+        "rice": 11.7,
+        "soybean": 6.7,
+        "wheat": 0.7,
+        "other": null
+      },
+      "grainAreaWanHectares": {
+        "corn": null,
+        "rice": null,
+        "soybean": null,
+        "wheat": null,
+        "other": null
+      },
+      "history": [
+        {
+          "year": 2023,
+          "productionWanTons": 945.0,
+          "areaWanHectares": 126.2,
+          "yieldKgPerHectare": 7488.0,
+          "sourceId": "tl-2023"
+        },
+        {
+          "year": 2024,
+          "productionWanTons": 970.3,
+          "areaWanHectares": 127.0,
+          "yieldKgPerHectare": 7641.0,
+          "sourceId": "tl-2024",
+          "fieldSources": {
+            "productionWanTons": "tl-2024",
+            "areaWanHectares": "tl-bulletin-2024",
+            "yieldKgPerHectare": "tl-bulletin-2024"
+          }
+        },
+        {
+          "year": 2025,
+          "productionWanTons": 1010.3,
+          "areaWanHectares": 127.4,
+          "yieldKgPerHectare": 7935.0,
+          "sourceId": "tl-2025"
+        }
+      ],
+      "fieldSources": {
+        "productionWanTons": "tl-2025",
+        "areaWanHectares": "tl-2025",
+        "yieldKgPerHectare": "tl-2025",
+        "yoyPercent": "tl-2025",
+        "grains": "tl-2025",
+        "grainAreaWanHectares": "tl-2025"
+      },
+      "notes": [
+        "2024年产量采用市统计局全年经济运行稿的970.3万吨，不将公报194.1亿斤低精度数再换算以免重复舍入。",
+        "单产原单位为公斤/亩：2025年529.0，2024年509.4，乘以15换算。2024年面积与单产来源为tl-bulletin-2024。",
+        "2025年产量采用主要农畜产品附表1010.3万吨；正文202.1亿斤为低精度展示。",
+        "2023年公报189.0亿斤换算945.0万吨，998.4斤/亩换算7488公斤/公顷；不增加原文有效精度。"
+      ]
+    },
+    {
+      "id": "150400",
+      "name": "赤峰",
+      "group": "蒙东",
+      "year": 2025,
+      "productionWanTons": 704.6,
+      "areaWanHectares": 114.9,
+      "yieldKgPerHectare": null,
+      "yoyPercent": 3.6,
+      "grains": {
+        "corn": null,
+        "rice": null,
+        "soybean": null,
+        "wheat": null,
+        "other": null
+      },
+      "grainAreaWanHectares": {
+        "corn": null,
+        "rice": null,
+        "soybean": null,
+        "wheat": null,
+        "other": null
+      },
+      "history": [
+        {
+          "year": 2023,
+          "productionWanTons": 650.0,
+          "areaWanHectares": 113.8,
+          "yieldKgPerHectare": null,
+          "sourceId": "cf-2023"
+        },
+        {
+          "year": 2024,
+          "productionWanTons": 680.2,
+          "areaWanHectares": 114.7066666667,
+          "yieldKgPerHectare": null,
+          "sourceId": "cf-2024"
+        },
+        {
+          "year": 2025,
+          "productionWanTons": 704.6,
+          "areaWanHectares": 114.9,
+          "yieldKgPerHectare": null,
+          "sourceId": "cf-2025"
+        }
+      ],
+      "fieldSources": {
+        "productionWanTons": "cf-2025",
+        "areaWanHectares": "cf-2025",
+        "yieldKgPerHectare": null,
+        "yoyPercent": "cf-2025",
+        "grains": "cf-2025",
+        "grainAreaWanHectares": "cf-2025"
+      },
+      "notes": [
+        "公报仅公布粮食总量与总面积；原始各品种缺项保留为空，主粮图采用单独保存的历史结构外推估算。",
+        "2024粮食面积原文1720.6万亩除以15换算114.7066666667万公顷；小数展开来自单位换算，不增加原文精度。"
+      ],
+      "grainEstimates": {
+        "corn": {
+          "value": 546.8,
+          "method": "以2023年玉米504.4万吨占粮食650万吨的比例外推至2025年粮食总量704.6万吨；假设品种份额不变。",
+          "formula": "504.4 / 650 × 704.6",
+          "sourceIds": [
+            "cf-2023",
+            "cf-2025"
+          ],
+          "uncertainty": "未反映2024—2025年玉米面积和单产结构变化。"
+        },
+        "rice": {
+          "value": 11.6,
+          "method": "以2023年稻谷10.7万吨占粮食650万吨的比例外推至2025年粮食总量704.6万吨；假设品种份额不变。",
+          "formula": "10.7 / 650 × 704.6",
+          "sourceIds": [
+            "cf-2023",
+            "cf-2025"
+          ],
+          "uncertainty": "水稻面积小，年度结构变化可能使误差较大。"
+        },
+        "soybean": {
+          "value": 12.4,
+          "method": "2023年豆类12.7万吨，暂按其中90%为大豆，再按2025与2023粮食总产量之比外推。90%为本次估算假设，不是已发布比例。",
+          "formula": "12.7 × 0.90 × 704.6 / 650",
+          "sourceIds": [
+            "cf-2023",
+            "cf-2025"
+          ],
+          "uncertainty": "缺少豆类分项和当年面积数据，可信度较低，仅用于结构展示。"
+        }
+      }
+    }
+  ],
+  "sources": [
+    {
+      "id": "nbs-2025",
+      "title": "国家统计局关于2025年粮食产量数据的公告",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202512/t20251212_1962049.html",
+      "publishedAt": "2025-12-12",
+      "authority": "国家统计局"
+    },
+    {
+      "id": "nbs-2024",
+      "title": "国家统计局关于2024年粮食产量数据的公告",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202412/t20241213_1957744.html",
+      "publishedAt": "2024-12-13",
+      "authority": "国家统计局"
+    },
+    {
+      "id": "nbs-2023",
+      "title": "国家统计局关于2023年粮食产量数据的公告",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202312/t20231211_1945417.html",
+      "publishedAt": "2023-12-11",
+      "authority": "国家统计局"
+    },
+    {
+      "id": "hlj-2025",
+      "title": "2025年黑龙江省国民经济和社会发展统计公报",
+      "url": "https://www.hlj.gov.cn/hlj/c108419/202603/c00_31954601.shtml",
+      "publishedAt": "2026-07-01",
+      "authority": "黑龙江省统计局、国家统计局黑龙江调查总队"
+    },
+    {
+      "id": "jl-2025",
+      "title": "吉林省2025年国民经济和社会发展统计公报",
+      "url": "https://tjj.jl.gov.cn/tjsj/tjgb/ndgb/202604/t20260427_3627028.html",
+      "publishedAt": "2026-04-27",
+      "authority": "吉林省统计局"
+    },
+    {
+      "id": "ln-2025",
+      "title": "二〇二五年辽宁省国民经济和社会发展统计公报",
+      "url": "https://tjj.ln.gov.cn/tjj/articleFileDir/2026-03/31/7d0ebeac0ed3499da6e4aa0f94acf972/2026033115100327617.pdf",
+      "publishedAt": "2026-03-31",
+      "authority": "辽宁省统计局、国家统计局辽宁调查总队"
+    },
+    {
+      "id": "hlbe-2025",
+      "title": "呼伦贝尔市2025年国民经济和社会发展统计公报",
+      "url": "https://www.hlbe.gov.cn/OpennessContent/show/562524.html",
+      "publishedAt": "2026-04-20",
+      "authority": "呼伦贝尔市统计局",
+      "attachmentUrl": "https://www.hlbe.gov.cn/file_hlbe/27/202604/202604200941473182kj06p.pdf"
+    },
+    {
+      "id": "hlbe-2024",
+      "title": "呼伦贝尔市2024年国民经济和社会发展统计公报",
+      "url": "https://www.hlbe.gov.cn/OpennessContent/show/505991.html",
+      "publishedAt": "2025-04-15",
+      "authority": "呼伦贝尔市统计局"
+    },
+    {
+      "id": "xam-2025",
+      "title": "兴安盟2025年国民经济和社会发展统计公报",
+      "url": "https://www.xam.gov.cn/xamtj/2026-04/14/article_2026041410043838558.html",
+      "publishedAt": "2026-04-14",
+      "authority": "兴安盟统计局"
+    },
+    {
+      "id": "xam-2024",
+      "title": "兴安盟2024年国民经济和社会发展统计公报",
+      "url": "https://www.xam.gov.cn/xamtj/2025-04/09/article_2025040910563864264.html",
+      "publishedAt": "2025-04-09",
+      "authority": "兴安盟统计局"
+    },
+    {
+      "id": "tl-2025",
+      "title": "通辽市2025年国民经济和社会发展统计公报",
+      "url": "https://www.tongliao.gov.cn/xwzx/bmdt/202604/t20260421_1044490.html",
+      "publishedAt": "2026-04-23",
+      "authority": "通辽市统计局"
+    },
+    {
+      "id": "tl-2024",
+      "title": "乘势而进千帆竞，奋楫中流开新篇——2024年通辽市经济运行稳中有进、稳中向好",
+      "url": "https://tjj.tongliao.gov.cn/xwzx/sjfbyjd/202501/t20250122_919598.html",
+      "publishedAt": "2025-01-22",
+      "authority": "通辽市统计局"
+    },
+    {
+      "id": "tl-bulletin-2024",
+      "title": "通辽市2024年国民经济和社会发展统计公报",
+      "url": "https://www.tongliao.gov.cn/zjtl/xstl/tlgk/gmjjfz/202504/t20250422_939812.html",
+      "publishedAt": "2025-04-22",
+      "authority": "通辽市统计局"
+    },
+    {
+      "id": "cf-2025",
+      "title": "赤峰市2025年国民经济和社会发展统计公报",
+      "url": "https://chifeng.gov.cn/zwgk/xxgkzl/fdzdgknr/tjsj_103/tjgb/202604/t20260427_2759185.html",
+      "publishedAt": "2026-04-27",
+      "authority": "赤峰市统计局"
+    },
+    {
+      "id": "cf-2024",
+      "title": "赤峰市2024年国民经济和社会发展统计公报",
+      "url": "https://www.chifeng.gov.cn/zwgk/xxgkzl/fdzdgknr/tjsj_103/tjgb/202504/t20250421_2578002.html",
+      "publishedAt": "2025-04-21",
+      "authority": "赤峰市统计局"
+    },
+    {
+      "id": "hlbe-2023",
+      "title": "呼伦贝尔市2023年国民经济和社会发展统计公报",
+      "url": "https://www.hlbe.gov.cn/OpennessContent/show/439340.html",
+      "publishedAt": "2024-04-02",
+      "authority": "呼伦贝尔市统计局",
+      "attachmentUrl": "https://www.hlbe.gov.cn/file_hlbe/27/202408/20240815105631314p9us3v.jpg"
+    },
+    {
+      "id": "xam-2023",
+      "title": "兴安盟2023年国民经济和社会发展统计公报",
+      "url": "https://www.xam.gov.cn/xamtj/2024-03/26/article_2024041403291066618.html",
+      "publishedAt": "2024-03-26",
+      "authority": "兴安盟统计局"
+    },
+    {
+      "id": "tl-2023",
+      "title": "通辽市2023年国民经济和社会发展统计公报",
+      "url": "https://tjj.tongliao.gov.cn/zjtj/sjcx/tjgb/202407/t20240717_866935.html",
+      "publishedAt": "2024-03-29",
+      "authority": "通辽市统计局"
+    },
+    {
+      "id": "cf-2023",
+      "title": "赤峰市2023年国民经济和社会发展统计公报",
+      "url": "https://chifeng.gov.cn/zwgk/xxgkzl/fdzdgknr/tjsj_103/tjgb/202405/t20240513_2316992.html",
+      "publishedAt": "2024-05-13",
+      "authority": "赤峰市统计局"
+    },
+    {
+      "id": "jl-crops-2025",
+      "title": "吉林民生经济发展亮点纷呈（2025年粮食分品种产量）",
+      "url": "https://www.stats.gov.cn/zs/tjwh/tjkw/tjqk/zgxxb/202602/P020260205314582724381.pdf",
+      "publishedAt": "2026-02-05",
+      "authority": "中国信息报／国家统计局"
+    }
+  ],
+  "derived": [
+    {
+      "id": "yield-unit-conversion",
+      "description": "已公布公斤/亩乘15换算为公斤/公顷。仅用于呼伦贝尔、通辽；非模型推算。"
+    },
+    {
+      "id": "unit-area-conversion",
+      "description": "国家及地方公报千公顷除以10换算为万公顷；吨除以10000换算为万吨。"
+    },
+    {
+      "id": "regional-aggregate",
+      "description": "可将七个非重叠单元相加；同比可根据已公布两年同口径值计算，但必须标为计算值，不覆盖官方同比。"
+    }
+  ],
+  "limitations": [
+    "未公布数据以null保留，不以零替代。",
+    "各公报为初步统计；跨年数据取各年度官方发布值，可能存在后续修订及四舍五入差异。",
+    "品种字段为空时，不绘制零值，也不将已公布品种的小计当作全范围总量。"
+  ]
+}
