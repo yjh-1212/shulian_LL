@@ -7,7 +7,7 @@ const props=withDefaults(defineProps<{
  title:string;config:CockpitStyle;items?:Breakdown[];series?:Series[];cells?:Statistics['heatmap'];links?:Statistics['links'];points?:Statistics['scatter'];
  unit?:'tons'|'money'|'count';percent?:number|null;legend?:string[];donutLayout?:'inline'|'expanded'|'wide';interaction?:ChartSelection['dimension'];
 }>(),{items:()=>[],series:()=>[],cells:()=>[],links:()=>[],points:()=>[],unit:'count',legend:()=>[],donutLayout:'inline'});
-const palette=computed(()=>props.config.chartPalette==='grain'?['#edba67','#56c8b9','#689ee5','#b19bdd',props.config.primary]:props.config.chartPalette==='mono'?[props.config.primary,props.config.primary,props.config.primary,props.config.primary]:[props.config.primary,props.config.roadColor,props.config.accent,props.config.railColor]);
+const palette=computed(()=>props.config.chartPalette==='grain'?['#edba67','#56c8b9','#689ee5','#b19bdd',props.config.primary]:props.config.chartPalette==='mono'?[props.config.primary,props.config.primary,props.config.primary,props.config.primary]:[props.config.primary,props.config.waterColor,props.config.accent,props.config.railColor]);
 const emit=defineEmits<{select:[selection:ChartSelection]}>();
 const interactive=(name:string)=>props.interaction?{role:'button',tabindex:0,'aria-label':`${props.interaction==='grain'?'筛选':'高亮'} ${name}`} : {};
 function select(value:string,dimension=props.interaction,grain?:string){if(dimension)emit('select',{dimension,value,...(grain?{grain}:{})});}

@@ -5,7 +5,7 @@ import {Database} from './database';import {Audit} from './audit';import {Public
 import {ProductInput,DataState,GrantInput,SubscriptionInput,ApplicationInput,DataRequestInput,DataReviewInput,DataQuery} from './data-service.dto';
 import {dataFields,dataCatalog,dataScenarios} from './data-products.catalog';
 import {DataDatasets} from './data-datasets';
-import {businessDataScope} from './business-data-scope';
+import {businessDataScope,dataProductScope} from './business-data-scope';
 const csv=(rows:any[])=>{const keys=Object.keys(rows[0]||{});const cell=(v:any)=>'"'+String(typeof v==='object'?JSON.stringify(v):v??'').replace(/^[=+@-]/,"'$&").replace(/"/g,'""')+'"';return '\uFEFF'+[keys.map(cell).join(','),...rows.map(r=>keys.map(k=>cell(r[k])).join(','))].join('\r\n');};
 const quotas:Record<string,number>={BASIC:100,STANDARD:1000,ENTERPRISE:5000};
 const effective=(g:any)=>g.status!=='ACTIVE'?g.status:g.expiresAt<=new Date()?'EXPIRED':g.product&&(g.product.status!=='PUBLISHED'||g.productVersion!==g.product.version)?'UNAVAILABLE':g.startsAt>new Date()?'SCHEDULED':'ACTIVE';
@@ -21,7 +21,7 @@ export class DataService {
  constructor(private db:Database,private audit:Audit){this.datasets=new DataDatasets(db);}
  private platform(r:any){return r.user?.businessEntity?.type==='PLATFORM'&&r.user.permissions?.includes('data:write');}
  private applicant(r:any){if(!['TRADER','CARRIER'].includes(r.user?.businessEntity?.type))throw new ForbiddenException('数据授权申请与订阅由粮食贸易企业或物流运营商办理，平台负责审核授权');}
- private async entityWhere(r:any){const entities=await this.db.businessEntity.findMany({where:{...businessDataScope(),...(this.platform(r)?{}:{id:r.user.businessEntityId})},select:{id:true}});return {entityId:{in:entities.map(e=>e.id)}};}
+ private async entityWhere(r:any){const entities=await this.db.businessEntity.findMany({where:{...businessDataScope(),...(this.platform(r)?{}:{id:r.user.businessEntityId})},select:{id:true}});return {entityId:{in:entities.map(e=>e.id)},product:dataProductScope()};}
  private own(entityId:string,r:any){if(!this.platform(r)&&entityId!==r.user.businessEntityId)throw new NotFoundException('数据服务记录不存在');}
  private admin(r:any){if(!this.platform(r))throw new ForbiddenException('产品维护与授权审核由平台运营方执行');}
  productView(p:any){const profile=dataCatalog.find(x=>x.dataset===p.dataset);return {...p,fields:parse(p.fields),profile:profile?{...profile,fields:undefined}:null,versions:p.versions?.map((v:any)=>({...v,snapshot:parse(v.snapshot)}))};}
@@ -29,7 +29,7 @@ export class DataService {
   const platform=this.platform(r),entityId=r.user.businessEntityId;
   return {datasets:dataFields,editions:[{id:'BASIC',name:'基础版',dailyLimit:100},{id:'STANDARD',name:'标准版',dailyLimit:1000},{id:'ENTERPRISE',name:'企业版',dailyLimit:5000}],entities:platform?await this.db.businessEntity.findMany({where:{type:{in:['TRADER','CARRIER']},status:'ACTIVE',deletedAt:null,...businessDataScope()},select:{id:true,name:true,type:true}}):[{id:entityId,name:r.user.businessEntity.name,type:r.user.businessEntity.type}],waybills:await this.db.logisticsBusiness.findMany({where:{package:{isTestData:false,OR:[{traderId:entityId},{carrierId:entityId}]}},select:{id:true,waybillNo:true,businessNo:true},take:500})};
  }
- async products(r:any){return (await this.db.dataProduct.findMany({where:this.platform(r)?{}:{status:'PUBLISHED'},include:this.platform(r)?{versions:{orderBy:{number:'desc'}}}:undefined,orderBy:{createdAt:'desc'},take:500})).map(p=>this.productView(p));}
+ async products(r:any){return (await this.db.dataProduct.findMany({where:{...(this.platform(r)?{}:{status:'PUBLISHED'}),...dataProductScope()},include:this.platform(r)?{versions:{orderBy:{number:'desc'}}}:undefined,orderBy:{createdAt:'desc'},take:500})).map(p=>this.productView(p));}
  async scenarios(){const products=await this.db.dataProduct.findMany({where:{status:'PUBLISHED',code:{in:dataCatalog.map(p=>p.code)}}});return dataScenarios.map(s=>({...s,products:s.datasets.map(dataset=>products.find(p=>p.dataset===dataset)).filter(Boolean).map(p=>this.productView(p))}));}
  validateProduct(d:ProductInput){if(!/^[A-Za-z0-9_.-]+$/.test(d.code))throw new BadRequestException('产品编号仅支持字母、数字、点和短横线');if(!dataFields[d.dataset]||d.fields.some(f=>!dataFields[d.dataset].includes(f)))throw new BadRequestException('产品包含不支持的字段');}
  async product(d:ProductInput,r:any,id?:string){this.admin(r);this.validateProduct(d);return this.db.$transaction(async tx=>{

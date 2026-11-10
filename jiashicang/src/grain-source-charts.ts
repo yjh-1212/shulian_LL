@@ -53,8 +53,10 @@ export function createGrainChartOption(
   reducedMotion = false,
 ): EChartsOption {
   const dark = config.theme === 'dark';
-  const palette = [config.accent, '#4e9c93', '#9e815c', '#de964e', '#77a5ad', '#b9a664', '#a98d7e'];
-  const color = (row: GrainChartRow, index: number) => row.color || palette[index % palette.length];
+  const palette = dark
+    ? [config.primary, '#39b4ff', '#9cbbff', config.accent, '#4dd3c2', '#b2a3ff', '#84b8b9']
+    : [config.accent, '#4e9c93', '#9e815c', '#de964e', '#77a5ad', '#b9a664', '#a98d7e'];
+  const color = (row: GrainChartRow, index: number) => (!dark&&row.color) || palette[index % palette.length];
   const opacity = (id: string) => !selected || selected === id ? 1 : 0.65;
   const fontSize = Math.max(10, Math.min(13, (config.fontSize ?? 13) - 1));
   const common: Datum = {
@@ -157,7 +159,7 @@ export function createGrainChartOption(
       visualMap: {
         min: 0, max: maximum, type: 'continuous', calculable: false, orient: 'horizontal', left: 'center', bottom: 0,
         itemWidth: 8, itemHeight: 100, text: ['高（万吨）', '低'], textGap: 7,
-        inRange: { color: dark ? ['#313435', '#ad8050', '#edbb67'] : ['#f6ebd6', '#d4ad69', '#9f7036'] },
+        inRange: { color: dark ? [alpha(config.primary, 0.15), config.primary, '#bcd1ff'] : ['#f6ebd6', '#d4ad69', '#9f7036'] },
         textStyle: { color: config.muted, fontSize: 10 }, seriesIndex: 0,
       },
       tooltip: {

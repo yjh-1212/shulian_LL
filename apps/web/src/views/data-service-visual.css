@@ -5,7 +5,7 @@
  --data-muted:#637882;
  --data-line:#e2eaed;
  --data-mist:#f3f7f8;
- max-width:1600px;
+ max-width:none;
  color:var(--data-ink);
 }
 .data-workspace .surface{border-color:var(--data-line);border-radius:12px}
@@ -13,26 +13,6 @@
 .data-workspace .data-tabs>button{font-size:13px;padding:12px 19px 15px;color:#657983}
 .data-workspace .data-tabs>button.active{color:var(--brand-primary)}
 .data-workspace .data-operator{color:#78909a}
-
-/* Real grain storage photography stays underneath a readable text overlay. */
-.data-workspace .catalog-intro{
- position:relative;isolation:isolate;display:block;overflow:hidden;
- min-height:260px;padding:34px 38px 54px;margin-bottom:0;
- border:0;border-radius:14px;background:#0c4550;
-}
-.catalog-hero-image{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:50% 43%}
-.data-workspace .catalog-intro:before{
- content:"";position:absolute;inset:0;z-index:-1;
- background:linear-gradient(90deg,rgba(4,53,65,.96),rgba(6,65,77,.88) 32%,rgba(8,62,71,.28) 66%,rgba(3,30,39,.08));
-}
-.catalog-hero-copy{position:relative;max-width:650px}
-.data-workspace .catalog-intro .eyebrow{color:#bcdcdf;font-size:12px;letter-spacing:1.4px}
-.data-workspace .catalog-intro h1{color:#fff;font-size:34px;font-weight:650;letter-spacing:1px;line-height:1.35;margin:15px 0 13px}
-.data-workspace .catalog-intro p{font-size:13px;line-height:1.8;color:#d4e7ea;max-width:520px}
-.data-workspace .intro-chips{color:#dbedf0;font-size:12px;gap:23px;margin-top:24px}
-.data-workspace .intro-chips>span{gap:7px}
-.data-workspace .intro-chips svg{color:#91c7ca}
-.hero-scene-caption{position:absolute;right:25px;bottom:49px;color:#f8fcff;font-size:11px;letter-spacing:1px;text-shadow:0 1px 8px #10323b}
 
 /* Keep search beneath the banner with a clear gap. */
 .data-workspace .data-filter{padding:20px 23px;border-radius:12px;border-color:#e1e8ec;gap:22px}
@@ -52,9 +32,10 @@
 .data-workspace .data-card{display:flex;flex-direction:column;border-radius:12px;border-color:#e1e8ec;box-shadow:0 3px 10px #183d4c05;transition:box-shadow .2s,border-color .2s,transform .2s}
 .data-workspace .data-card:hover{border-color:#a6c4cb;box-shadow:0 10px 28px #183d4c12;transform:translateY(-3px)}
 .card-heading,.scene-card-heading{display:flex;align-items:center;gap:15px}
+.data-card .card-heading{flex-direction:column;align-items:stretch;gap:15px}
 .card-heading-copy{flex:1;min-width:0}
-.data-workspace .art-button{position:relative;display:block;width:108px;flex-shrink:0;padding:0;overflow:hidden;border-radius:7px}
-.data-workspace .data-card .product-art{height:82px;border-radius:7px}
+.data-workspace .art-button{position:relative;display:block;width:100%;flex-shrink:0;padding:0;overflow:hidden;border-radius:6px}
+.data-workspace .data-card .product-art{height:156px;border-radius:6px}
 .data-workspace .card-content{display:flex;flex:1;flex-direction:column;padding:22px 23px 13px}
 .data-workspace .card-eyebrow{align-items:center;margin-bottom:6px;color:#8c9ba2;font-size:10px}
 .data-workspace .card-eyebrow>span:first-child{color:#256c76;background:#edf5f6;padding:4px 7px;border-radius:4px;font-size:11px}
@@ -159,3 +140,35 @@
  .data-workspace .data-card,.data-workspace :deep(.product-art img){transition:none}
  .data-workspace .data-card:hover{transform:none}
 }
+
+/* The shared panoramic banner keeps the data-service navigation in one place. */
+.data-service-banner{position:relative;isolation:isolate;overflow:hidden;width:calc(100% + 64px);height:300px;margin:-28px -32px 32px;background:#173a58;color:#fff}
+.data-service-banner-image{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:center 58%}
+.data-service-banner:before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#112f535c,#102d5380 62%,#102846b3)}
+.data-service-banner-copy{text-align:center;padding:61px 24px 0}
+.data-service-banner-copy h1{margin:0;font-size:38px;font-weight:650;line-height:1.4;letter-spacing:3px;text-shadow:0 2px 14px #10243b38}
+.data-service-banner-copy p{margin:15px 0 0;font-size:14px;color:#e0e9f5;letter-spacing:1px;line-height:1.8}
+.data-workspace .data-service-banner .data-tabs{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:center;align-items:stretch;gap:10px;margin:0;padding:0 20px;border:0;overflow:visible;isolation:isolate}
+.data-workspace .data-service-banner .data-tabs>button{position:relative;isolation:isolate;flex-shrink:0;min-width:174px;height:58px;border:0;padding:0 30px;background:none;color:#eff5ff;font-size:16px;letter-spacing:.5px;font-weight:500;transition:color .16s}
+.data-service-banner .data-tabs>button:before{content:'';position:absolute;inset:0;z-index:-1;transform:skewX(-17deg);background:transparent;transition:background .16s}
+.data-service-banner .data-tabs>button:hover:before{background:#ffffff1f}
+.data-workspace .data-service-banner .data-tabs>button.active{color:#173654;font-weight:650}
+.data-service-banner .data-tabs>button.active:before{background:#fff}
+.data-service-banner .data-tabs>button:focus-visible{outline:2px solid #fff;outline-offset:-5px}
+.data-service-banner .data-tabs>button.active:focus-visible{outline-color:#3469d9}
+.data-workspace .data-filter{padding:23px 26px;align-items:flex-end;box-shadow:0 4px 20px #1b3b5b06;border-radius:6px}
+.data-workspace .data-filter>div:not(.filter-actions){flex-direction:column;align-items:flex-start;gap:9px}
+.data-workspace .data-filter .filter-keyword{flex:1;max-width:560px}
+.data-workspace .data-filter .filter-keyword .el-input{width:100%}
+.data-workspace .data-filter>.filter-actions{gap:10px}
+.data-workspace .data-filter .el-input__wrapper,.data-workspace .data-filter .el-select__wrapper{border-radius:3px}
+.data-workspace .catalog-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.data-workspace .data-card{border-radius:7px;box-shadow:none}
+.data-workspace .card-content{padding:15px 16px 12px}
+.data-workspace .card-title{font-size:18px}
+.data-workspace .card-content>p{min-height:46px;margin:15px 0;line-height:1.8;-webkit-line-clamp:2}
+.data-workspace .card-content .card-tags{margin-bottom:16px}
+@media(min-width:1700px){.data-workspace .catalog-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.data-workspace .data-card .product-art{height:158px}}
+@media(max-width:1150px){.data-workspace .catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.data-workspace .data-service-banner .data-tabs>button{min-width:145px;font-size:14px;padding:0 24px}.data-service-banner-copy h1{font-size:33px}}
+@media(max-width:900px){.data-service-banner{width:calc(100% + 32px);margin:-20px -16px 24px;height:270px}.data-service-banner-copy{padding-top:45px}}
+@media(max-width:760px){.data-service-banner-copy h1{font-size:28px;letter-spacing:1px}.data-service-banner-copy p{font-size:12px;letter-spacing:0}.data-workspace .data-service-banner .data-tabs{justify-content:flex-start;overflow-x:auto;gap:0;padding:0 13px;scrollbar-width:thin}.data-workspace .data-service-banner .data-tabs>button{min-width:130px;height:55px}.data-workspace .catalog-grid{grid-template-columns:1fr}.data-workspace .data-filter{padding:19px}.data-workspace .data-filter .filter-keyword{max-width:none}.data-workspace .data-filter .filter-actions{flex-direction:row}}

@@ -515,3 +515,6 @@
  .portal-page *, .portal-page *::before,.portal-page *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
  .portal-reveal.will-reveal{opacity:1;transform:none}
 }
+
+.portal-brand{--brand-name-size:clamp(15px,1.25vw,21px);--brand-service-size:13px;--brand-name-spacing:.4px}
+@media(max-width:600px){.portal-brand{--brand-name-size:14px;--brand-service-size:10px}.portal-header{gap:12px}}

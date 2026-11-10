@@ -9,7 +9,7 @@ export function runtimeConfig(env:NodeJS.ProcessEnv=process.env){
   const origins=new Set([
     'http://localhost:5173','http://127.0.0.1:5173',
     'http://localhost:5174','http://127.0.0.1:5174',
-    ...[env.WEB_ORIGIN,env.DRIVER_ORIGIN,env.CORS_ORIGINS].flatMap(value=>(value||'').split(','))
+    ...[env.WEB_ORIGIN,env.DRIVER_ORIGIN,env.CORS_ORIGINS,env.RENDER_EXTERNAL_URL].flatMap(value=>(value||'').split(','))
   ].filter(Boolean).map(value=>{
     const url=new URL(value.trim());
     if(!['http:','https:'].includes(url.protocol))throw new Error('访问地址必须使用 HTTP 或 HTTPS');

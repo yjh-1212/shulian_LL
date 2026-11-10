@@ -33,7 +33,7 @@ const provenance = {
 // These operating profiles are generated, not registrations of the public companies in the source notes.
 const entityProfiles = [
   ['platform', '辽粮运营中心', 'PLATFORM', '辽宁省 / 沈阳市', ['210000', '210100']],
-  ['trader-a', '黑龙江丰谷粮食贸易有限公司', 'TRADER', '黑龙江省 / 哈尔滨市', ['230000', '230100']],
+  ['trader-a', '辽宁省粮食发展集团有限责任公司', 'TRADER', '黑龙江省 / 哈尔滨市', ['230000', '230100']],
   ['trader-b', '吉林沃禾粮食贸易有限公司', 'TRADER', '吉林省 / 长春市', ['220000', '220100']],
   [id('trader', 'huai'), '河南豫穗粮食贸易有限公司', 'TRADER', '河南省 / 郑州市', ['410000', '410100']],
   [id('trader', 'south'), '福建闽禾粮食贸易有限公司', 'TRADER', '福建省 / 泉州市', ['350000', '350500']],

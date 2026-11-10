@@ -1,0 +1,43 @@
+services:
+  - type: web
+    name: liaoliang-platform
+    runtime: node
+    plan: starter
+    buildCommand: npm ci --include=dev && npm run db:generate && npm run build && npm run ocr:prepare
+    startCommand: node tools/render-snapshot.mjs restore && npm run server:start
+    healthCheckPath: /api/health
+    disk:
+      name: liaoliang-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: '24.17.0'
+      - key: API_HOST
+        value: '0.0.0.0'
+      - key: RENDER_DATA_DIR
+        value: /var/data/liaoliang
+      - key: DATABASE_URL
+        value: file:/var/data/liaoliang/database.db
+      - key: TRANSPORT_UPLOAD_DIR
+        value: /var/data/liaoliang/uploads
+      - key: COOKIE_SECURE
+        value: 'true'
+      - key: DISABLE_EXPERIENCE_LOGIN
+        value: 'true'
+      - key: PRIVATE_COCKPIT
+        value: 'true'
+      - key: VITE_PRIVATE_COCKPIT
+        value: 'true'
+      - key: JWT_SECRET
+        generateValue: true
+      - key: RENDER_SNAPSHOT_KEY
+        sync: false
+      - key: AMAP_JSAPI_KEY
+        sync: false
+      - key: AMAP_SECURITY_JS_CODE
+        sync: false
+      - key: AMAP_WEB_SERVICE_KEY
+        sync: false
+      - key: DEEPSEEK_API_KEY
+        sync: false

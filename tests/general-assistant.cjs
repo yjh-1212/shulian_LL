@@ -1,0 +1,28 @@
+const assert=require('node:assert/strict');
+const {validate}=require('class-validator');
+const {IntelligenceService}=require('../apps/api/dist/intelligence.service');
+const {CreateAgentConversation}=require('../apps/api/dist/agent-center.dto');
+const {AgentInput}=require('../apps/api/dist/intelligence.dto');
+const calls=[];
+const tracking={agentList:async(query,request)=>{calls.push({query,request});return {items:[{id:'own-task',businessNo:'RW202610310001',mode:'RAIL',status:'IN_PROGRESS',origin:'盘锦',destination:'广州',quantityKg:100000}],total:1,asOf:new Date()};}};
+const service=new IntelligenceService({}, {},tracking,{}, {},{},{});
+const request={user:{id:'user-a',businessEntityId:'company-a',permissions:['plan:read','tracking:read','billing:read']}};
+const input=question=>({capability:'GENERAL',contextType:'page',question,includeTest:false,useModel:false});
+(async()=>{
+ const dto=Object.assign(new CreateAgentConversation(),{capability:'GENERAL'});assert.equal((await validate(dto)).length,0);
+ assert.equal((await validate(Object.assign(new AgentInput(),input('你好')))).length,0);
+ const greeting=await service.facts(input('你好'),request);
+ assert.match(greeting.structured.guidance,/你好/);assert.equal(calls.length,0,'A greeting must not query business tasks');
+ assert(!greeting.links.some(link=>link.url==='/data'),'Links must follow current business permissions');
+ const progress=await service.facts(input('汇总当前运输任务的进度'),request);
+ assert.equal(progress.structured.total,1);assert.equal(calls.length,1);assert.equal(calls[0].request,request);
+ assert.equal(progress.mode,'GENERAL');
+ const planning=await service.facts(input('怎么规划联运路线'),request);assert(planning.links.some(link=>link.url==='/plans/solve'));
+ const billing=await service.facts(input('账单核对与结算怎么操作'),request);assert.match(billing.structured.guidance,/账单管理/);assert(!billing.structured.tasks);
+ await assert.rejects(()=>service.facts(input('查询运输任务'),{user:{id:'plan-only',permissions:['plan:read']}}),error=>error.status===403);
+ await assert.rejects(()=>service.facts(input('你好'),{user:{id:'no-ai',permissions:[]}}),error=>error.status===403);
+ const denied=new IntelligenceService({}, {},tracking,{}, {},{}, {detail:async()=>{throw Object.assign(Error('not authorized'),{status:404});}});
+ await assert.rejects(()=>denied.facts({...input('核对当前账单'),contextType:'bill',contextId:'foreign-bill'},request),error=>error.status===404);
+ assert.equal(calls.length,1,'Help, planning and rejected permissions must not query additional tasks');
+ console.log(JSON.stringify({status:'PASS',generalConversationValidation:true,greetingDoesNotQueryTasks:true,scopedTaskService:true,perMessageIntent:true,permissionFilteredLinks:true,permissionRevocation:true,foreignContextRejected:true}));
+})().catch(error=>{console.error(error);process.exitCode=1;});

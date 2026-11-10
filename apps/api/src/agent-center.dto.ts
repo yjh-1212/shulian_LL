@@ -2,7 +2,7 @@ import {IsIn,IsString,IsOptional,IsDefined,MinLength,MaxLength,ValidateNested} f
 import {Type} from 'class-transformer';
 import {SolveDto} from './planning.dto';
 export class CreateAgentConversation {
- @IsIn(['TRACK','ETA','PORT','ENVIRONMENT','DOCUMENT','PLAN']) capability!:string;
+ @IsIn(['GENERAL','TRACK','ETA','PORT','ENVIRONMENT','DOCUMENT','PLAN']) capability!:string;
  @IsOptional() @IsIn(['page','task','transport-demand','plan','bill','document']) contextType='page';
  @IsOptional() @IsString() @MaxLength(100) contextId='';
 }

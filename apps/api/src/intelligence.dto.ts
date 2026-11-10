@@ -1,7 +1,7 @@
 import {Type} from 'class-transformer';
 import {IsString,MinLength,MaxLength,IsIn,IsOptional,IsInt,IsNumber,Min,Max,IsArray,ArrayMinSize,ArrayMaxSize,IsISO8601,IsBoolean,ValidateNested} from 'class-validator';
 export class AgentInput {
- @IsIn(['TRACK','ETA','PORT','ENVIRONMENT','DOCUMENT','PLAN']) capability!:string;
+ @IsIn(['GENERAL','TRACK','ETA','PORT','ENVIRONMENT','DOCUMENT','PLAN']) capability!:string;
  @IsIn(['page','task','transport-demand','plan','bill','document']) contextType!:string;
  @IsOptional() @IsString() @MaxLength(100) contextId?:string;
  @IsString() @MinLength(2) @MaxLength(2000) question!:string;

@@ -10,7 +10,9 @@ import { Database } from './database';
 import { Audit } from './audit';
 import { TransportService } from './transport.service';
 class FileDto { @IsIn(['PHOTO','DOCUMENT']) kind!:'PHOTO'|'DOCUMENT'; }
-const directory=resolve(__dirname,'../../../.local/uploads');
+const directory = process.env.TRANSPORT_UPLOAD_DIR
+  ? resolve(process.env.TRANSPORT_UPLOAD_DIR)
+  : resolve(__dirname, '../../../.local/uploads');
 @ApiTags('供需附件') @ApiBearerAuth() @Controller()
 export class TransportFilesController {
   constructor(private db:Database,private service:TransportService,private audit:Audit){}

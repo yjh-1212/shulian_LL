@@ -50,7 +50,7 @@ async function main() {
     ['contract','合同管理','/contracts','file','contract',5,[['contract-templates','合同模板管理','/contracts/templates','contract-template'],['contract-signing','合同签署管理','/contracts/signing','contract'],['contract-performance','合同履约管理','/contracts/performance','contract'],['contract-archives','合同档案管理','/contracts/archives','contract']]],
     ['service','联运服务','/services','truck','service',5,[]],
     ['tracking','全程可视化','/tracking','map','tracking',6,[['journey','全程跟踪','/tracking/journeys','tracking'],['themes','专题视图','/tracking/themes','tracking']]],
-    ['billing','对账结算','/billing','wallet','billing',8,[['bills','账单管理','/billing/bills','billing'],['reconcile','对账管理','/billing/reconciliations','billing'],['settle','结算管理','/billing/settlements','billing']]],
+    ['billing','对账结算','/billing','wallet','billing',8,[['bills','账单管理','/billing/bills','billing'],['settle','结算管理','/billing/settlements','billing']]],
     ['data','数据服务','/data','database','data',8,[]],
     ['system','系统管理','/system','settings','users',1,[['users','用户管理','/system/users','users'],['roles','角色权限','/system/roles','roles'],['dictionaries','数据字典','/system/dictionaries','dictionaries'],['entities','合作主体','/system/entities','entities'],['logs','日志管理','/system/logs','logs'],['vessels','船舶档案','/system/vessels','tracking']]]
   ] as const;

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import PlatformBrandTitle from './PlatformBrandTitle.vue';
 import { ref,computed,onMounted,onBeforeUnmount,nextTick,watch } from 'vue';
 import { useRoute,useRouter } from 'vue-router';
 import { useAuth } from '../stores/auth';
@@ -10,7 +11,7 @@ const auth=useAuth(),route=useRoute(),router=useRouter();
 const header=ref<HTMLElement>(),nav=ref<HTMLElement>(),measure=ref<HTMLElement>();
 const hiddenIds=ref<string[]>([]);
 const menus=computed<Menu[]>(()=>{
-  const items=auth.menus.filter(m=>m.path!=='/cockpit');
+  const items=auth.menus.filter(m=>m.path!=='/'&&m.path!=='/cockpit');
   items.splice(items.findIndex(m=>m.path==='/workbench')+1,0,{id:'cockpit',label:'驾驶舱',path:'/cockpit',icon:'chart',permissionCode:'',displayOrder:2,overflowPriority:0,phase:1,available:true,children:[]});
   return items;
 });
@@ -36,7 +37,7 @@ function go(path:string){router.push(path);}
 </script>
 <template>
   <header ref="header" class="topbar">
-    <router-link to="/" class="brand" aria-label="辽粮 首页"><img class="brand-logo" src="/assets/liaoliang-logo.png" alt="辽粮" width="48" height="48"/><span class="brand-name">智能多式联运<span class="brand-sub">物流数据系统</span></span></router-link>
+    <router-link to="/workbench" class="brand" aria-label="东北粮食流通服务平台智能多式联运 工作台"><img class="brand-logo" src="/assets/liaoliang-logo.png" alt="辽粮" width="48" height="48"/><PlatformBrandTitle class="brand-name"/></router-link>
     <nav ref="nav" class="main-nav" aria-label="主导航">
       <template v-for="m in visible" :key="m.id">
         <el-dropdown v-if="m.children.length" trigger="click" @command="go" popper-class="nav-dropdown">

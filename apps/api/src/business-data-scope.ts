@@ -6,3 +6,13 @@ export function testWorkspaceEnabled(){
 export function businessDataScope():{isTestData?:false}{
  return testWorkspaceEnabled()?{}:{isTestData:false};
 }
+
+// Legacy data-service fixtures predate the isTestData flag. Keep their history
+// available in the explicit test workspace, outside normal product and service lists.
+export function dataProductScope(){
+ if(testWorkspaceEnabled())return {};
+ return {NOT:{OR:[
+  {AND:[{code:{startsWith:'p8-'}},{name:{startsWith:'Phase8 指标产品'}}]},
+  {AND:[{code:{startsWith:'browser-'}},{name:'浏览器验收指标目录'}]},
+ ]}};
+}

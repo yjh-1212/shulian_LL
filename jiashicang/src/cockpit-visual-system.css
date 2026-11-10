@@ -1,0 +1,68 @@
+/* All cockpit views use the comprehensive cockpit's frame and type hierarchy. */
+.cc-root.cc-statistical.cc-unified-style{
+ --cc-frame-light:color-mix(in srgb,var(--cc-primary) 65%,#fff);
+ background:radial-gradient(ellipse at 52% 48%,var(--cc-bg-end),var(--cc-bg) 78%);
+}
+.cc-root.cc-statistical.cc-unified-style .cc-panel{background:var(--cc-panel);box-shadow:var(--cc-shadow)}
+.cc-root.cc-statistical.cc-unified-style .cc-panel-heading{padding-bottom:9px;margin-bottom:12px;border-bottom-color:var(--cc-border)}
+.cc-root.cc-statistical.cc-unified-style .cc-panel-heading h2{font-size:var(--cc-title);font-weight:600;letter-spacing:.4px;color:var(--cc-text)}
+.cc-root.cc-statistical.cc-unified-style .cc-panel-heading>small{font-size:10px;color:var(--cc-muted);white-space:nowrap}
+.cc-root.cc-statistical.cc-unified-style .cc-panel-heading svg{color:var(--cc-frame-light)}
+.cc-root.cc-statistical.cc-unified-style .cc-frame-outline{stroke:color-mix(in srgb,var(--cc-primary) 75%,transparent);stroke-width:1}
+.cc-root.cc-statistical.cc-unified-style .cc-frame-corners{stroke:var(--cc-frame-light);stroke-width:2.3}
+.cc-root.cc-statistical.cc-unified-style .cc-frame-notch{fill:var(--cc-frame-light)}
+.cc-root.cc-statistical.cc-unified-style .cc-return{border:0;background:transparent;padding:5px 0 5px 5px;line-height:1.5}
+.cc-root.cc-unified-style :is(.cc-panel-figures,.cc-stat-legend,.cc-finance-card,.gs-production,.gs-key-values,.ch-kpis) strong{font-family:"DIN Alternate","Bahnschrift","Segoe UI","Microsoft YaHei",sans-serif;font-variant-numeric:tabular-nums}
+.cc-root.cc-statistical.cc-unified-style .cc-grain-pills button.active{color:var(--cc-frame-light)}
+.cc-root.cc-unified-style .gs-county-label{border-color:var(--cc-primary);background:color-mix(in srgb,var(--cc-bg) 88%,transparent);color:var(--cc-text);box-shadow:0 0 10px color-mix(in srgb,var(--cc-primary) 14%,transparent)}
+.cc-root.cc-unified-style .gs-county-label.is-selected{background:color-mix(in srgb,var(--cc-primary) 28%,var(--cc-bg));border-color:var(--cc-frame-light)}
+.cc-root.cc-unified-style .gs-regional-map__leaders path{stroke:var(--cc-primary)}
+.cc-root.cc-unified-style .gs-grain-marker{border-color:var(--cc-border);border-left-color:var(--cc-primary);background:color-mix(in srgb,var(--cc-bg) 88%,transparent);color:var(--cc-text)}
+.cc-root.cc-unified-style .gs-grain-marker>strong{color:var(--cc-frame-light)}
+.cc-root.cc-unified-style .gs-grain-marker small,.cc-root.cc-unified-style .gs-regional-map__compass{color:var(--cc-muted)}
+.cc-root.cc-unified-style .gs-grain-marker.is-selected,.cc-root.cc-unified-style .gs-grain-marker.is-hovered{background:color-mix(in srgb,var(--cc-primary) 18%,var(--cc-bg));border-color:var(--cc-frame-light);box-shadow:0 4px 16px color-mix(in srgb,var(--cc-primary) 12%,transparent)}
+.cc-root.cc-unified-style .gs-regional-map__loading{background:color-mix(in srgb,var(--cc-bg) 85%,transparent);color:var(--cc-muted)}
+.cc-root.cc-unified-style .gs-regional-map__flat{filter:drop-shadow(0 11px 0 var(--cc-panel-solid)) drop-shadow(0 19px 13px #0003)}
+@media(max-height:850px) and (min-width:1101px){.cc-root.cc-statistical.cc-unified-style .cc-panel-heading{padding-bottom:7px;margin-bottom:8px}}
+@media(max-height:850px) and (min-width:1101px){
+ .cc-root.cc-unified-style .gs-overview{gap:3px;padding:0 3px}
+ .cc-root.cc-unified-style .gs-production strong{font-size:29px;line-height:1}
+ .cc-root.cc-unified-style .gs-growth{font-size:10px;line-height:1.3}
+ .cc-root.cc-unified-style .gs-key-values{gap:6px 8px;padding-top:6px;margin-top:1px}
+ .cc-root.cc-unified-style .gs-key-values span{font-size:10px;line-height:1.3}
+ .cc-root.cc-unified-style .gs-key-values strong{font-size:17px;line-height:1.25}
+}
+
+/* Size channel content from its actual panel, including short desktop screens. */
+.cc-root.cc-channel-view.cc-unified-style .cc-panel-body{container:channel-panel / size}
+.cc-root.cc-unified-style .ch-kpis>div{padding:clamp(3px,2cqh,9px)}
+.cc-root.cc-unified-style .ch-kpis span{font-size:clamp(9px,7cqh,11px);line-height:1.2}
+.cc-root.cc-unified-style .ch-kpis strong{font-size:clamp(20px,18cqh,34px);line-height:1.12}
+.cc-root.cc-unified-style .ch-execution{gap:8px;min-height:0}
+.cc-root.cc-unified-style .ch-dial{width:min(100%,100cqh);max-height:100%;justify-self:center}
+.cc-root.cc-unified-style .ch-dial strong{font-size:clamp(19px,24cqh,30px);line-height:1.15}
+.cc-root.cc-unified-style .ch-dial span{font-size:clamp(8px,8cqh,10px)}
+.cc-root.cc-unified-style .ch-execution p{padding:clamp(3px,5cqh,9px) 0;font-size:clamp(9px,8cqh,11px);line-height:1.3}
+.cc-root.cc-unified-style .ch-modes{display:grid;grid-template-rows:repeat(3,minmax(0,1fr));gap:4px}
+.cc-root.cc-unified-style .ch-modes>button{padding:2px 0;min-height:0;gap:8px}
+.cc-root.cc-unified-style .ch-modes header{font-size:clamp(10px,7cqh,12px);line-height:1.15}
+.cc-root.cc-unified-style .ch-modes p{margin:3px 0;line-height:1.1}
+.cc-root.cc-unified-style .ch-modes p b{font-size:clamp(14px,10cqh,20px);line-height:1.1}
+.cc-root.cc-unified-style .ch-detail{gap:clamp(4px,2cqh,8px);min-height:0}
+.cc-root.cc-unified-style .ch-detail-title{gap:3px;flex-shrink:0}
+.cc-root.cc-unified-style .ch-detail-title strong{font-size:clamp(12px,5cqh,15px);line-height:1.2}
+.cc-root.cc-unified-style .ch-detail-title span{font-size:10px;line-height:1.2}
+.cc-root.cc-unified-style .ch-model-wrap{min-height:clamp(44px,20cqh,96px)}
+.cc-root.cc-unified-style .ch-facts{gap:5px;flex-shrink:0}
+.cc-root.cc-unified-style .ch-facts>div{padding:4px 6px}
+.cc-root.cc-unified-style .ch-facts span{font-size:9px;line-height:1.2;margin-bottom:3px}
+.cc-root.cc-unified-style .ch-facts b{font-size:10px;line-height:1.3}
+.cc-root.cc-unified-style .ch-route-progress{padding-top:5px;flex-shrink:0}
+.cc-root.cc-unified-style .ch-route-progress strong{font-size:clamp(15px,6cqh,19px);line-height:1.2}
+.cc-root.cc-unified-style .ch-warning{flex-shrink:0;font-size:9px;line-height:1.2}
+.cc-root.cc-unified-style .ch-handoff{padding:0 0 6px;gap:6px;flex-shrink:0}
+.cc-root.cc-unified-style .ch-handoff div{gap:4px}
+.cc-root.cc-unified-style .ch-handoff strong{font-size:clamp(10px,8cqh,13px);line-height:1.2}
+.cc-root.cc-unified-style .ch-next{padding-top:4px;min-height:0}
+.cc-root.cc-unified-style .ch-next p{padding:2px 0;line-height:1.2;gap:6px}
+.cc-root.cc-unified-style .ch-next b{font-size:10px;line-height:1.2}

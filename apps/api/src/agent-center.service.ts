@@ -16,7 +16,7 @@ const parse=(v:string)=>JSON.parse(v||'{}');
 export class AgentCenterService {
  private active=new Map<string,{id:string,controller:AbortController,canCancel:boolean}>();
  constructor(private db:Database,private audit:Audit,private intelligence:IntelligenceService,private plans:PlanningService,private amap:AmapService,private tracking:TrackingService){}
- permission(capability:string,r:any){this.intelligence.permission(r,capability==='PLAN'?'plan:read':'tracking:read');}
+ permission(capability:string,r:any){this.intelligence.permission(r,capability==='PLAN'||capability==='GENERAL'&&r.user.permissions.includes('plan:read')?'plan:read':'tracking:read');}
  scope(r:any){return {userId:r.user.id,entityId:r.user.businessEntityId};}
  async conversation(id:string,r:any){const c=await this.db.agentConversation.findFirst({where:{id,...this.scope(r)}});if(!c)throw new NotFoundException('对话不存在或无权访问');this.permission(c.capability,r);return c;}
  async create(d:CreateAgentConversation,r:any){this.permission(d.capability,r);await this.validateContext(d,r);return this.db.agentConversation.create({data:{...d,...this.scope(r),title:'新对话'}});}

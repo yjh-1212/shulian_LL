@@ -95,10 +95,13 @@ watch([platform,applicant],()=>{if(!tabs.value.some(t=>t[0]===tab.value))switchT
 
 <template>
  <div class="data-workspace" :class="{'data-catalog':tab==='catalog'&&!detail&&!scenario}" v-loading="busy">
-  <nav class="data-tabs" aria-label="数据服务功能">
-   <button v-for="t in tabs" :key="t[0]" :class="{active:tab===t[0]}" @click="switchTab(t[0])">{{t[1]}}<span v-if="t[0]==='operations'&&myPending" class="count-pill">{{myPending}}</span></button>
-   <span class="data-operator"><Icon name="shield" :size="14"/>平台运营方提供授权</span>
-  </nav>
+  <section class="data-service-banner" aria-labelledby="data-service-title">
+   <img class="data-service-banner-image" src="/assets/data-service/logistics-banner-v4.png" alt="" width="1942" height="809" fetchpriority="high"/>
+   <div class="data-service-banner-copy"><h1 id="data-service-title">粮食物流数据服务</h1><p>连接产区、通道与销区，让数据服务粮食流通</p></div>
+   <nav class="data-tabs" aria-label="数据服务功能">
+    <button v-for="t in tabs" :key="t[0]" :aria-current="tab===t[0]?'page':undefined" :class="{active:tab===t[0]}" @click="switchTab(t[0])"><span>{{t[1]}}</span><span v-if="t[0]==='operations'&&myPending" class="count-pill">{{myPending}}</span></button>
+   </nav>
+  </section>
   <el-alert v-if="error" :title="error" type="error" :closable="false"><el-button link @click="load">重试加载</el-button></el-alert>
 
   <template v-if="detail">
@@ -129,11 +132,6 @@ X-Data-Key: 您的订阅调用凭证</pre></el-tab-pane>
   </template>
 
   <template v-else>
-   <section v-if="tab==='catalog'" class="catalog-intro">
-    <img class="catalog-hero-image" src="/assets/data-service/warehouse-photo-v3.webp" alt="" width="754" height="530" fetchpriority="high"/>
-    <div class="catalog-hero-copy"><span class="eyebrow">北粮南运 · 数据服务</span><h1>粮食物流数据服务</h1><p>查询运力、通道、履约与风险，支持北粮南运全过程业务。</p><div class="intro-chips"><span><Icon name="database" :size="15"/>{{catalog.length}} 类业务产品</span><span><Icon name="shield" :size="15"/>按企业用途授权</span><span><Icon name="route" :size="15"/>公路 · 铁路 · 水路</span></div></div>
-    <span class="hero-scene-caption" aria-hidden="true">连接产区、通道与销区</span>
-   </section>
    <div v-if="tab==='authorizations'&&!isPlatform" class="record-tabs"><el-radio-group v-model="recordTab"><el-radio-button value="requests">我的申请</el-radio-button><el-radio-button value="grants">已获授权</el-radio-button></el-radio-group></div>
    <form class="data-filter surface" @submit.prevent="search"><div class="filter-keyword"><label for="data-search">关键词</label><el-input id="data-search" v-model="q" :placeholder="tab==='scenarios'?'场景名称 / 业务用途':'产品名称 / 企业 / 使用应用'" clearable/></div><div><label>分类</label><el-select v-model="theme" placeholder="全部分类" clearable aria-label="产品分类"><el-option v-for="v in tab==='scenarios'?['运输规划','运输执行','合作评估']:themes" :key="v" :label="v" :value="v"/></el-select></div><div v-if="!['catalog','scenarios'].includes(tab)"><label>状态</label><el-select v-model="state" placeholder="全部状态" clearable aria-label="服务状态"><el-option v-for="s in tab==='products'?['DRAFT','REVIEW','PUBLISHED','PAUSED','OFFLINE']:tab==='subscriptions'?['ACTIVE','EXPIRING','SCHEDULED','EXPIRED','PAUSED','REVOKED','UNAVAILABLE']:tab==='authorizations'&&recordTab==='grants'?['ACTIVE','SCHEDULED','EXPIRED','PAUSED','REVOKED']:['PENDING','APPROVED','REJECTED','WITHDRAWN']" :key="s" :label="label[s]" :value="s"/></el-select></div><div class="filter-actions"><el-button type="primary" native-type="submit">搜索</el-button><el-button @click="reset">重置</el-button></div></form>
    <header class="section-heading"><h2>{{({catalog:'业务数据产品',scenarios:'业务场景应用',authorizations:recordTab==='grants'?'授权台账':'授权申请',subscriptions:platform?'企业订阅':'我的订阅',operations:'企业授权审核',products:'产品登记与发布'} as any)[tab]}}<small>{{filtered.length}} {{tab==='catalog'?'项':'条'}}</small></h2><el-button v-if="tab==='products'&&platform" type="primary" @click="editProduct()"><Icon name="plus" :size="16"/>登记产品</el-button><span v-else-if="tab==='subscriptions'" class="muted">每日额度按 UTC 日期重置</span></header>

@@ -7,7 +7,7 @@ const cockpit = require('../../../jiashicang/server/cockpit.cjs');
 const appearance = require('../../../jiashicang/server/appearance.cjs');
 
 @Controller('cockpit')
-@Public()
+@Public('cockpit')
 export class CockpitController {
  constructor(private db:Database){}
  private async appearanceCall(action:()=>Promise<any>){

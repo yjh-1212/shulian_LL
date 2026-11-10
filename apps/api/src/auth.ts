@@ -26,6 +26,9 @@ export class AuthService {
     return this.createSession(u,req,res,driverMode);
   }
   async experience(req:any,res:Response) {
+    if (process.env.DISABLE_EXPERIENCE_LOGIN === 'true') {
+      throw new ForbiddenException('请使用账号密码登录');
+    }
     const u=await this.db.user.findUnique({where:{username:'trader'},include:userInclude});
     const ok=!!u && !u.deletedAt && !(process.env.NODE_ENV==='production'&&u.isTestData) && u.status==='ACTIVE' && u.businessEntity.type==='TRADER' && u.businessEntity.status==='ACTIVE' && !u.businessEntity.deletedAt && !u.mustChangePassword && !u.roles.some(r=>r.role.code==='driver');
     await this.db.loginLog.create({data:{username:'trader',userId:u?.id,businessEntityId:u?.businessEntityId,ip:req.ip||'',userAgent:String(req.headers['user-agent']||'').slice(0,500),success:ok,reason:ok?'首页自动登录 trader':'首页默认账号不可用',requestId:req.requestId}});

@@ -13,9 +13,9 @@ export interface CockpitStyle {
 export const defaults=(view:View):CockpitStyle=>({...initial[view]} as CockpitStyle);
 export const presets=[{id:'harvest',name:'暖金粮源'},{id:'corridor',name:'通道蓝'},{id:'ocean',name:'深海联运'},{id:'grain',name:'金穗流转'},{id:'light',name:'清朗浅色'},{id:'smooth',name:'流畅展示'}];
 export function preset(id:string,view:View):CockpitStyle {
- if(id==='harvest')return defaults('grain-source');
+ if(id==='harvest')return {...defaults(view),theme:'light',background:'#f7f5ef',backgroundEnd:'#eee8db',primary:'#c78028',accent:'#459b8d',text:'#3c392f',muted:'#807565',panel:'#ffffff',border:'#c9954b',chartPalette:'grain'};
  if(id==='corridor')return defaults('comprehensive');
- if(id==='grain')return defaults('chain');
+ if(id==='grain')return {...defaults(view),background:'#000000',backgroundEnd:'#2e1515',primary:'#ff9d00',accent:'#49f500',text:'#ebf3f7',muted:'#8ca7b6',border:'#668c9e',chartPalette:'grain'};
  if(id==='light')return {...defaults(view),theme:'light',background:'#e8f0f4',backgroundEnd:'#f6f9fb',text:'#16384c',muted:'#587789',panel:'#ffffff',panelOpacity:0.86,border:'#658695',borderOpacity:0.2,primary:'#177c8c',accent:'#aa7229',mapColor:'#71a0b1',mapSide:'#507f94',mapEdge:'#217d94'};
  if(id==='smooth')return {...defaults(view),performance:'smooth',flow:false,pulse:false,edgeFlow:false,sweep:false};
  return defaults('platform');

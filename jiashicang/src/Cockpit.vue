@@ -3,6 +3,7 @@ import {computed,defineAsyncComponent,onMounted,onBeforeUnmount,ref,watch} from 
 import {useRoute,useRouter} from 'vue-router';
 import {Maximize,Minimize,Settings2,RefreshCw,ArrowLeft,RotateCcw,ShieldCheck,X} from 'lucide-vue-next';
 import {api,message} from '../../apps/web/src/api';
+import {returnFromCockpit} from '../../apps/web/src/cockpit-navigation';
 import CockpitPanel from './components/CockpitPanel.vue';
 import BusinessScalePanel from './components/BusinessScalePanel.vue';
 import PlatformOperationsPanels from './components/PlatformOperationsPanels.vue';
@@ -18,8 +19,10 @@ import {displayStatistics} from './display-data';
 import type {View,Overview,ChartSelection} from './types';
 import './cockpit.css';
 import './map-interactions.css';
+import './cockpit-visual-system.css';
 const route=useRoute(),router=useRouter();
-const view=ref<View>(route.query.view==='channel'?'channel':route.query.view==='grain-source'?'grain-source':route.query.view==='comprehensive'?'comprehensive':route.query.view==='chain'?'chain':'platform');
+const resolveView=(value:unknown):View=>value==='platform'||value==='chain'||value==='grain-source'||value==='channel'?value:'comprehensive';
+const view=ref<View>(resolveView(route.query.view));
 const period=ref('all'),grain=ref('all'),overview=ref<Overview|null>(null),loading=ref(true),error=ref('');
 const styles=useCockpitStyles(view),config=styles.current,settingsOpen=ref(false),clock=ref(new Date()),full=ref(false),map=ref<InstanceType<typeof MapExplorer>>();
 const chartSelection=ref<ChartSelection|null>(null),mapScope=ref<Record<string,string>>({}),scopeLabel=ref('');
@@ -43,17 +46,17 @@ async function toggleFull(){try{if(document.fullscreenElement)await document.exi
 function fullscreenChanged(){full.value=!!document.fullscreenElement;}
 watch([period,grain],()=>{chartSelection.value=null;void loadOverview();});
 watch(view,()=>{settingsOpen.value=false;chartSelection.value=null;void router.replace({path:'/cockpit',query:{view:view.value}});void loadOverview();});
-watch(()=>route.query.view,value=>{if(value==='chain'||value==='platform'||value==='comprehensive'||value==='grain-source'||value==='channel')view.value=value;});
+watch(()=>route.query.view,value=>{view.value=resolveView(value);});
 watch(settingsOpen,value=>{if(!value)styles.cancel();});
 onMounted(()=>{void loadOverview();clockTimer=window.setInterval(()=>clock.value=new Date(),1000);refreshTimer=window.setInterval(()=>{if(view.value!=='comprehensive'&&view.value!=='grain-source'&&view.value!=='channel'&&!document.hidden&&!settingsOpen.value)void loadOverview();},60000);document.addEventListener('fullscreenchange',fullscreenChanged);});
 onBeforeUnmount(()=>{overviewAbort?.abort();clearInterval(clockTimer);clearInterval(refreshTimer);document.removeEventListener('fullscreenchange',fullscreenChanged);});
 </script>
 
 <template>
- <div class="cc-root cc-statistical" :class="{'cc-comprehensive-view':view==='comprehensive','cc-grain-source-view':view==='grain-source','cc-channel-view':view==='channel'}" :style="vars" :data-theme="config.theme" :data-view="view">
+ <div class="cc-root cc-statistical cc-unified-style" :class="{'cc-comprehensive-view':view==='comprehensive','cc-grain-source-view':view==='grain-source','cc-channel-view':view==='channel'}" :style="vars" :data-theme="config.theme" :data-view="view">
   <header class="cc-header">
    <el-tabs v-model="view" class="cc-view-tabs" aria-label="驾驶舱切换"><el-tab-pane label="平台运营" name="platform"/><el-tab-pane label="一粮一链" name="chain"/><el-tab-pane label="综合驾驶舱" name="comprehensive"/><el-tab-pane label="粮源分析" name="grain-source"/><el-tab-pane label="通道运行" name="channel"/></el-tabs>
-   <div class="cc-header-actions"><time>{{clockText}}</time><button class="cc-icon-button" aria-label="刷新数据" :disabled="loading" @click="loadOverview"><RefreshCw :size="18" :class="{'cc-spin':loading}"/></button><button class="cc-icon-button" aria-label="大屏风格设置" @click="editStyle"><Settings2 :size="18"/></button><button class="cc-icon-button cc-fullscreen" :aria-label="full?'退出全屏':'进入全屏'" @click="toggleFull"><component :is="full?Minimize:Maximize" :size="18"/></button><router-link to="/" class="cc-return"><ArrowLeft :size="15"/>首页</router-link></div>
+   <div class="cc-header-actions"><time>{{clockText}}</time><button class="cc-icon-button" aria-label="刷新数据" :disabled="loading" @click="loadOverview"><RefreshCw :size="18" :class="{'cc-spin':loading}"/></button><button class="cc-icon-button" aria-label="大屏风格设置" @click="editStyle"><Settings2 :size="18"/></button><button class="cc-icon-button cc-fullscreen" :aria-label="full?'退出全屏':'进入全屏'" @click="toggleFull"><component :is="full?Minimize:Maximize" :size="18"/></button><button type="button" class="cc-return" @click="returnFromCockpit(router)"><ArrowLeft :size="15"/>返回</button></div>
   </header>
   <div v-if="error" class="cc-error" role="alert">{{overview?'刷新失败，保留上次加载的数据：':''}}{{error}}<button class="cc-button" @click="loadOverview">重试</button></div>
   <div v-if="styles.syncError.value" class="cc-error" role="alert">{{styles.syncError.value}}<button class="cc-button" @click="styles.refresh">重试同步</button></div>

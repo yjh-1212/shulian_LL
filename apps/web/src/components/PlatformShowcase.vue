@@ -1,10 +1,11 @@
 <script setup lang="ts">
+import PlatformBrandTitle from './PlatformBrandTitle.vue';
 import Icon from './Icon.vue';
 </script>
 <template>
  <figure class="platform-showcase">
   <header class="showcase-top">
-   <span class="showcase-brand"><img src="/assets/liaoliang-logo.png" alt="" width="26" height="28"/><strong>辽粮 · 智能多式联运</strong></span>
+   <span class="showcase-brand"><img src="/assets/liaoliang-logo.png" alt="" width="26" height="28"/><PlatformBrandTitle/></span>
    <span class="showcase-page">工作台</span>
    <span class="showcase-top-note">业务协同，从这里开始</span>
    <span class="showcase-window-dots" aria-hidden="true"><i/><i/><i/></span>
@@ -16,7 +17,7 @@ import Icon from './Icon.vue';
 <style scoped>
 .platform-showcase{margin:0;background:#f5f6f8;border:1px solid #e2e7ee;border-radius:12px;overflow:hidden;text-align:left;color:#203142;box-shadow:0 25px 70px #051b3133}
 .showcase-top{display:flex;align-items:center;gap:18px;min-height:62px;padding:15px 24px;border-bottom:1px solid #e9edf1;background:#fff}
-.showcase-brand{display:flex;align-items:center;gap:9px}
+.showcase-brand{--brand-name-size:13px;--brand-service-size:10px;display:flex;align-items:center;gap:9px}
 .showcase-brand img{object-fit:contain}
 .showcase-brand strong{font-size:14px;white-space:nowrap}
 .showcase-page{font-size:12px;padding:5px 12px;border-radius:5px;background:#fff0f0;color:#d92e37;font-weight:600}

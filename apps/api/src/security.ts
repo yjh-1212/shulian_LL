@@ -3,7 +3,7 @@ import { Reflector } from '@nestjs/core';
 import { JwtService } from '@nestjs/jwt';
 import { Database } from './database';
 export const DriverEndpoint=()=>SetMetadata('driver',true);
-export const Public = () => SetMetadata('public',true);
+export const Public = (access: true | 'cockpit' = true) => SetMetadata('public',access);
 export const Permit = (code: string) => SetMetadata('permission',code);
 export const userInclude = {businessEntity:true,roles:{include:{role:{include:{permissions:{include:{permission:true}}}}}}} as const;
 export function publicUser(u: any) {
@@ -13,7 +13,8 @@ export function publicUser(u: any) {
 export class AuthGuard implements CanActivate {
   constructor(private db:Database,private jwt:JwtService,private reflector:Reflector){}
   async canActivate(context:ExecutionContext) {
-    if(this.reflector.getAllAndOverride('public',[context.getHandler(),context.getClass()])) return true;
+    const access = this.reflector.getAllAndOverride<true | 'cockpit'>('public', [context.getHandler(), context.getClass()]);
+    if (access === true || (access === 'cockpit' && process.env.PRIVATE_COCKPIT !== 'true')) return true;
     const req=context.switchToHttp().getRequest();
     const driver=!!this.reflector.getAllAndOverride('driver',[context.getHandler(),context.getClass()]);
     try {

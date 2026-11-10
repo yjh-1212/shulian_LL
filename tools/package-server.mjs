@@ -120,7 +120,9 @@ async function main(){
 
 - 最新门户首页、联运服务、智能服务、数据服务和“物流一张图”入口。
 - 已裁去 Synthesia 标识的 15 秒背景视频及配套封面。
-- 工作台、司机端、API、两个驾驶舱和地图资源。
+- 工作台、司机端、API、五个驾驶舱和地图资源。
+- 综合驾驶舱六面板布局调整、粮源分析热力与统计、通道运行任务交互及轻量化三维运输模型。
+- 高德卫星影像资源随包提供；平台运营和通道运行默认关闭影像，其余三个驾驶舱默认开启，可在风格设置中调整。
 - 驾驶舱共享风格设置、预设管理和数据库迁移。
 - 当前本机数据库一致性快照、业务附件、OCR 语言包及服务器配置。
 
@@ -144,6 +146,8 @@ npm start
 5. 在应用根目录执行 npm run install:server，再使用原运维工具重启，启动命令 npm start。启动时自动应用数据库结构迁移，保留业务记录。
 6. 强制刷新首页，检查以下入口。
 
+已有服务器会保留数据库中的共享风格。需要采用新默认风格时，在相应驾驶舱的“大屏风格设置”中恢复默认并保存；只调整影像时切换“显示高德影像”并保存即可。
+
 ## 访问入口
 
 - 首页：http://服务器IP:${env.PORT}/
@@ -151,6 +155,9 @@ npm start
 - 司机端：http://服务器IP:${env.PORT}/driver
 - 平台运营驾驶舱：http://服务器IP:${env.PORT}/cockpit?view=platform
 - 一粮一链驾驶舱：http://服务器IP:${env.PORT}/cockpit?view=chain
+- 综合驾驶舱：http://服务器IP:${env.PORT}/cockpit?view=comprehensive
+- 粮源分析：http://服务器IP:${env.PORT}/cockpit?view=grain-source
+- 通道运行：http://服务器IP:${env.PORT}/cockpit?view=channel
 - 健康检查：http://服务器IP:${env.PORT}/api/health
 
 驾驶舱独立入口直接访问。首页“进入平台”在没有有效会话时默认进入 trader 账号。

@@ -12,7 +12,7 @@ const fulfillment=computed(()=>props.statistics.fulfillment);
 const executionRate=computed(()=>fulfillment.value.total?fulfillment.value.active/fulfillment.value.total*100:null);
 const fulfillmentCards=computed(()=>[
  {label:'已完成业务',value:fulfillment.value.completed,unit:'单',icon:CircleCheck,color:props.config.primary},
- {label:'执行中业务',value:fulfillment.value.active,unit:'单',icon:Truck,color:props.config.roadColor},
+ {label:'执行中业务',value:fulfillment.value.active,unit:'单',icon:Truck,color:props.config.waterColor},
  {label:'运输合同',value:fulfillment.value.contracts,unit:'份',icon:FileCheck2,color:props.config.accent}
 ]);
 const riskTotal=computed(()=>props.statistics.riskGroups.reduce((sum,row)=>sum+row.value,0));
@@ -20,7 +20,7 @@ const risks=computed(()=>props.statistics.riskGroups.filter(row=>row.value>0).ma
 const finance=computed(()=>props.statistics.financeTrend.reduce((sum,row)=>({total:sum.total+row.first,settled:sum.settled+row.second,outstanding:sum.outstanding+(row.line||0)}),{total:0,settled:0,outstanding:0}));
 const financeCards=computed(()=>[
  {label:'账单金额',value:finance.value.total,icon:Wallet,color:props.config.primary},
- {label:'已结算',value:finance.value.settled,icon:CheckCheck,color:props.config.roadColor},
+ {label:'已结算',value:finance.value.settled,icon:CheckCheck,color:props.config.waterColor},
  {label:'待结算',value:finance.value.outstanding,icon:Clock3,color:props.config.accent}
 ]);
 const settlementRate=computed(()=>finance.value.total?finance.value.settled/finance.value.total*100:null);

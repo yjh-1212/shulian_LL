@@ -6,6 +6,33 @@ const {PrismaClient}=require('@prisma/client');
 const {readAppearance,saveAppearance,savePreset,deletePreset}=require('../server/appearance.cjs');
 const initial=require('../server/default-styles.json');
 
+test('comprehensive skin migration preserves per-view map controls and presets',async t=>{
+ const dir=path.resolve(__dirname,'../../.local/tests');fs.mkdirSync(dir,{recursive:true});
+ const filename=path.join(dir,`cockpit-skin-migration-${process.pid}.db`);
+ const db=new PrismaClient({datasourceUrl:'file:'+filename.replace(/\\/g,'/')});
+ t.after(async()=>{await db.$disconnect();for(const suffix of ['','-journal','-wal','-shm'])if(fs.existsSync(filename+suffix))fs.unlinkSync(filename+suffix);});
+ const before=await readAppearance(db);
+ before.styles.comprehensive.primary='#6688ee';
+ before.styles.platform.primary='#5ecbd0';before.styles.platform.mapTexture=false;
+ before.styles['grain-source'].theme='light';before.styles['grain-source'].mapEdgeWidth=3;
+ before.styles.channel.mapTilt=false;
+ await db.$executeRawUnsafe('UPDATE "CockpitAppearance" SET "payload"=? WHERE "id"=?',JSON.stringify({styles:before.styles,presets:before.presets}),'global');
+ await db.$executeRawUnsafe(fs.readFileSync(path.resolve(__dirname,'../../prisma/migrations/20261020030000_unify_cockpit_visual_style/migration.sql'),'utf8'));
+ const after=await readAppearance(db);
+ for(const view of ['platform','chain','grain-source','channel']){
+  assert.equal(after.styles[view].primary,'#6688ee');
+  assert.equal(after.styles[view].theme,'dark');
+  assert.equal(after.styles[view].grid,false);
+  assert.equal(after.styles[view].flow,true);
+ }
+ assert.equal(after.styles.platform.mapTexture,false);
+ assert.equal(after.styles.channel.mapTilt,false);
+ assert.equal(after.styles['grain-source'].mapEdgeWidth,3);
+ assert.deepEqual(after.styles.comprehensive,before.styles.comprehensive);
+ assert.deepEqual(after.presets,before.presets);
+ assert.equal(after.revision,before.revision+1);
+});
+
 test('shared appearance persists, rejects stale writes and manages shared presets',async t=>{
  const dir=path.resolve(__dirname,'../../.local/tests');fs.mkdirSync(dir,{recursive:true});
  const filename=path.join(dir,`cockpit-appearance-${process.pid}.db`),url='file:'+filename.replace(/\\/g,'/');

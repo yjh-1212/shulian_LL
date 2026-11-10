@@ -10,7 +10,7 @@ let browser;
  const context=await browser.newContext({viewport:{width:1920,height:1080}}),page=await context.newPage();
  const errors=[],externalMapRequests=[],requests=[];
  page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(/webapi.amap.com|_AMapService/.test(r.url()))externalMapRequests.push(r.url());if(r.url().includes('/api/cockpit/'))requests.push(r.url());});
- const start=Date.now();await page.goto(base+'/cockpit');await page.locator('.cc-panel').nth(5).waitFor();await page.locator('canvas').waitFor();
+ const start=Date.now();await page.goto(base+'/cockpit?view=platform');await page.locator('.cc-panel').nth(5).waitFor();await page.locator('canvas').waitFor();
  const firstReadyMs=Date.now()-start;
  assert.equal(await page.locator('.cc-panel').count(),6);assert.equal(await page.locator('.cc-metrics').count(),0);
  assert.ok(await page.locator('.cc-panel').evaluateAll(es=>es.every(e=>/^rgba\([^)]*, 0\)$/.test(getComputedStyle(e).backgroundColor))),'All side panels default to full transparency');

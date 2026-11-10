@@ -1,5 +1,7 @@
 import { createRouter,createWebHistory } from 'vue-router';
+import {platformBrand} from './branding';
 import {driverUrl} from './driver-url';
+import {rememberCockpitEntry} from './cockpit-navigation';
 import { useAuth } from './stores/auth';
 import Login from './views/Login.vue';
 import Home from './views/Home.vue';
@@ -8,7 +10,9 @@ import Account from './views/Account.vue';
 import Access from './views/Access.vue';
 import Transport from './views/Transport.vue';
 export const router=createRouter({history:createWebHistory(),routes:[
-  ...[['bills','账单管理'],['reconciliations','对账管理'],['settlements','结算管理']].map(([key,title])=>({path:`/billing/${key}`,component:()=>import('./views/Billing.vue'),meta:{title,permission:'billing:read'}})),
+  {path:'/billing',redirect:'/billing/bills'},
+  {path:'/billing/reconciliations',redirect:to=>({path:'/billing/bills',query:to.query,hash:to.hash})},
+  ...[['bills','账单管理'],['settlements','结算管理']].map(([key,title])=>({path:`/billing/${key}`,component:()=>import('./views/Billing.vue'),meta:{title,permission:'billing:read'}})),
   {path:'/data',component:()=>import('./views/DataService.vue'),meta:{title:'数据服务',permission:'data:read'}},
   ...['products','authorizations','subscriptions','applications'].map(key=>({path:`/data/${key}`,redirect:()=>({path:'/data',query:{tab:key==='applications'?'scenarios':key==='authorizations'?'authorizations':key==='subscriptions'?'subscriptions':'catalog'}})})),
   ...[['journeys','全程跟踪'],['themes','专题视图']].map(([key,title])=>({path:`/tracking/${key}`,component:()=>import('./views/Tracking.vue'),meta:{title,permission:'tracking:read',mapWorkspace:true}})),
@@ -20,9 +24,9 @@ export const router=createRouter({history:createWebHistory(),routes:[
   {path:'/services',component:()=>import('./views/Fulfillment.vue'),meta:{title:'联运服务',permission:'service:read'}},
   ...['organizations','containers','tracking'].map(key=>({path:`/services/${key}`,redirect:(to:any)=>({path:'/services',query:to.query})})),
   {path:'/login',component:Login,meta:{title:'登录'}},
-  {path:'/',component:()=>import('./views/Portal.vue'),meta:{title:'首页',public:true}},
+  {path:'/',redirect:'/workbench'},
   {path:'/workbench',component:Home,meta:{title:'工作台',permission:'home:read',workbench:true}},
-  {path:'/cockpit',component:()=>import('../../../jiashicang/src/Cockpit.vue'),meta:{title:'数智联运驾驶舱',public:true,cockpit:true}},
+  {path:'/cockpit',component:()=>import('../../../jiashicang/src/Cockpit.vue'),meta:{title:'数智联运驾驶舱',public:import.meta.env.VITE_PRIVATE_COCKPIT!=='true',cockpit:true}},
   {path:'/supply-demand/demands',component:Transport,meta:{title:'运输需求管理',permission:'demand:read',kind:'demand'}},
   {path:'/supply-demand/supplies',component:Transport,meta:{title:'运输供给管理',permission:'supply:read',kind:'supply',entityTypes:['PLATFORM','CARRIER']}},
   ...[['users','用户管理'],['roles','角色权限'],['dictionaries','数据字典'],['entities','合作主体'],['logs','日志管理']].map(([key,title])=>({path:`/system/${key}`,component:Admin,meta:{title,permission:`${key}:read`,section:key}})),
@@ -34,11 +38,17 @@ export const router=createRouter({history:createWebHistory(),routes:[
   {path:'/forbidden',component:Access,meta:{title:'访问受限'}},
   {path:'/:pathMatch(.*)*',component:Access,meta:{title:'页面不可用'}}
 ]});
+router.afterEach((to,from,failure)=>{
+  if(!failure&&to.meta.cockpit&&!from.meta.cockpit&&from.matched.length)rememberCockpitEntry(from.fullPath);
+});
 router.beforeEach(async to=>{
   if(to.meta.driver){location.replace(driverUrl);return false;}
-  document.title=`${String(to.meta.title||'工作台')} · 辽粮智运`;
+  document.title=`${String(to.meta.title||'工作台')} · ${platformBrand.title}`;
   if(to.meta.public)return;
   const auth=useAuth();await auth.init();
+  if(!auth.user&&to.meta.workbench){
+    try{await auth.enterPlatform();}catch{return '/login';}
+  }
   if(!auth.user&&to.path!=='/login')return '/login';
   if(auth.user&&to.path==='/login')return auth.user.mustChangePassword?'/account':'/workbench';
   if(auth.user?.mustChangePassword&&to.path!=='/account')return '/account';
